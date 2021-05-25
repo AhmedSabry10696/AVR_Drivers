@@ -8,3 +8,48 @@
  * @copyright Copyright (c) 2021
  * 
  */
+
+#include "DIO_Interface.h"
+
+const DIO_PinStatus_type PinsStatus[TOTAL_PINS] = 
+{
+    /* PORTA PINS 0:7*/
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+
+    /* PORTB PINS 0:7*/
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+
+    /* PORTC PINS 0:7*/    
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+
+    /* PORTD PINS 0:7*/
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT
+};
