@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "dio_interface.h": "c",
+        "utils.h": "c",
+        "stdtypes.h": "c",
+        "memmap.h": "c"
+    }
+}
