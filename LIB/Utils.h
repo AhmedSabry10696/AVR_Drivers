@@ -34,6 +34,6 @@
 #define BIT_IS_CLEAR(REG,BIT) (!(REG & (1<<BIT)))
 
 /* Get specific bit in any register */
-#define GET_BIT(REG,BIT) ((REG>>BIT)&0x01)    
+#define READ_BIT(REG,BIT) ((REG>>BIT)&0x01)    
 
 #endif /* UTILS_H_ */

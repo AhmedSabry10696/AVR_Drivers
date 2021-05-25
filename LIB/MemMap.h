@@ -12,8 +12,6 @@
 #ifndef MEMMAP_H_
 #define MEMMAP_H_
 
-#include "StdTypes.h"
-
 /********** DIO Registers **************/
 #define PINA    (*((volatile u8 *)0x39))
 #define DDRA    (*((volatile u8 *)0x3A))
