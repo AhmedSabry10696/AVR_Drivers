@@ -34,9 +34,9 @@ const DIO_PinStatus_type PinsStatus[TOTAL_PINS] =
     OUTPUT,
 
     /* PORTC PINS 0:7*/    
-    OUTPUT,
-    OUTPUT,
-    OUTPUT,
+    INPULLUP,
+    INPULLUP,
+    INPULLUP,
     OUTPUT,
     OUTPUT,
     OUTPUT,
