@@ -41,6 +41,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../HAL/DC_Motor.c \
 ../main.c \
 ../MCAL/DIO.c \
 ../MCAL/DIO_Lcfg.c
@@ -53,21 +54,25 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+HAL/DC_Motor.o \
 main.o \
 MCAL/DIO.o \
 MCAL/DIO_Lcfg.o
 
 OBJS_AS_ARGS +=  \
+HAL/DC_Motor.o \
 main.o \
 MCAL/DIO.o \
 MCAL/DIO_Lcfg.o
 
 C_DEPS +=  \
+HAL/DC_Motor.d \
 main.d \
 MCAL/DIO.d \
 MCAL/DIO_Lcfg.d
 
 C_DEPS_AS_ARGS +=  \
+HAL/DC_Motor.d \
 main.d \
 MCAL/DIO.d \
 MCAL/DIO_Lcfg.d
@@ -92,6 +97,15 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
+
+HAL/%.o: ../HAL/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../HAL" -I"../MCAL" -I"../SERVICES" -I"../LIB" -I".."  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
 
 ./%.o: .././%.c
 	@echo Building file: $<
