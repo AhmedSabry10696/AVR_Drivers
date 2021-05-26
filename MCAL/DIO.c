@@ -130,16 +130,16 @@ DIO_Voltage_type DIO_ReadPin(DIO_Pin_type pin)
     switch (port)
     {
     case PA:
-        volt = READ_BIT(PORTA,pin_num);
+        volt = READ_BIT(PINA,pin_num);
         break;
     case PB:
-        volt = READ_BIT(PORTB,pin_num);
+        volt = READ_BIT(PINB,pin_num);
         break;
     case PC:
-        volt = READ_BIT(PORTC,pin_num);
+        volt = READ_BIT(PINC,pin_num);
         break;
     case PD:
-        volt = READ_BIT(PORTD,pin_num);
+        volt = READ_BIT(PIND,pin_num);
         break;
     }
     return volt;
