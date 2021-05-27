@@ -4,6 +4,8 @@
 
 HAL\DC_Motor.c
 
+HAL\Segment.c
+
 main.c
 
 MCAL\DIO.c

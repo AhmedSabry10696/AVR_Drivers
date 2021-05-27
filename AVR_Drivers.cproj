@@ -132,6 +132,15 @@
     <Compile Include="HAL\DC_Motor_Lcfg.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Segment.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Segment.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Segment_Lcfg.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LIB\MemMap.h">
       <SubType>compile</SubType>
     </Compile>
