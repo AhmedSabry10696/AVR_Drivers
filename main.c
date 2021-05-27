@@ -3,7 +3,7 @@
 #include <util/delay.h>
 
 #include "DIO_Interface.h"
-#include "Segment.h"
+#include "SEGMENT_Interface.h"
 
 int main(void)
 {
@@ -11,10 +11,10 @@ int main(void)
 	
     while (1) 
     {
-		for (char i = 0; i < 16; i++)
+		for (char i = 0; i < 100; i++)
 		{
-			SEGMENT_Display_Digit(i);
-			_delay_ms(1000);
+			SEGMENT_Display(i);
+			_delay_ms(200);
 		}
     }
 }
