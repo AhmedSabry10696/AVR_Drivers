@@ -164,6 +164,44 @@ void DIO_WritePort(DIO_Port_type port, u8 value)
     }
 }
 
+void DIO_EditPort_LowerHalf(DIO_Port_type port, u8 value)
+{
+	switch (port)
+	{
+	case PA:
+		EDIT_FOUR_LBITS(PORTA,value);
+		break;
+	case PB:
+		EDIT_FOUR_LBITS(PORTB,value);
+		break;
+	case PC:
+		Edit_FOUR_LBITS(PORTC,value);
+		break;
+	case PD:
+        Edit_FOUR_LBITS(PORTD,value);
+		break;
+	}
+}
+
+void DIO_EditPort_HigherHalf(DIO_Port_type port, u8 value)
+{
+	switch (port)
+	{
+	case PA:
+		EDIT_FOUR_HBITS(PORTA,value);
+		break;
+	case PB:
+		EDIT_FOUR_HBITS(PORTB,value);
+		break;
+	case PC:
+		EDIT_FOUR_HBITS(PORTC,value);
+		break;
+	case PD:
+		EDIT_FOUR_HBITS(PORTD,value);
+		break;
+	}
+}
+
 u8 DIO_ReadPort(DIO_Port_type port)
 {
     u8 value = 0;
