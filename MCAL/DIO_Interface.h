@@ -111,6 +111,22 @@ extern DIO_Voltage_type DIO_ReadPin(DIO_Pin_type pin);
 extern void DIO_WritePort(DIO_Port_type port, u8 value);
 
 /**
+ * @brief Edit four lower pins in port without affecting upper four pins
+ * 
+ * @param port PA / PB / PC / PD
+ * @param value 0:F
+ */
+extern void DIO_EditPort_LowerHalf(DIO_Port_type port, u8 value);
+
+/**
+ * @brief Edit four higher pins in port without affecting lower four pins
+ * 
+ * @param port PA / PB / PC / PD
+ * @param value 0:F
+ */
+extern void DIO_EditPort_HigherHalf(DIO_Port_type port, u8 value);
+
+/**
  * @brief read any port value
  * 
  * @param port PA / PB / PC / PD
