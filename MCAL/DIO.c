@@ -175,10 +175,10 @@ void DIO_EditPort_LowerHalf(DIO_Port_type port, u8 value)
 		EDIT_FOUR_LBITS(PORTB,value);
 		break;
 	case PC:
-		Edit_FOUR_LBITS(PORTC,value);
+		EDIT_FOUR_LBITS(PORTC,value);
 		break;
 	case PD:
-        Edit_FOUR_LBITS(PORTD,value);
+        EDIT_FOUR_LBITS(PORTD,value);
 		break;
 	}
 }
