@@ -40,6 +40,6 @@
 #define EDIT_FOUR_LBITS(REG,VALUE) (REG= (REG&0xF0)|(VALUE&0x0F));
 
 /* edit four higher bits in a register without affecting others bits */
-#define EDIT_FOUR_HBITS(REG,VALUE) (REG= (REG&0x0F)|(VALUE&0xF0));
+#define EDIT_FOUR_HBITS(REG,VALUE) (REG= (REG&0x0F)|((VALUE<<4)&0xF0));
 
 #endif /* UTILS_H_ */
