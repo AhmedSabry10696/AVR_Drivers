@@ -45,7 +45,7 @@ C_SRCS +=  \
 ../HAL/Segment.c \
 ../main.c \
 ../MCAL/DIO.c \
-../MCAL/DIO_Lcfg.c
+../MCAL/DIO_Config.c
 
 
 PREPROCESSING_SRCS += 
@@ -59,28 +59,28 @@ HAL/DC_Motor.o \
 HAL/Segment.o \
 main.o \
 MCAL/DIO.o \
-MCAL/DIO_Lcfg.o
+MCAL/DIO_Config.o
 
 OBJS_AS_ARGS +=  \
 HAL/DC_Motor.o \
 HAL/Segment.o \
 main.o \
 MCAL/DIO.o \
-MCAL/DIO_Lcfg.o
+MCAL/DIO_Config.o
 
 C_DEPS +=  \
 HAL/DC_Motor.d \
 HAL/Segment.d \
 main.d \
 MCAL/DIO.d \
-MCAL/DIO_Lcfg.d
+MCAL/DIO_Config.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/DC_Motor.d \
 HAL/Segment.d \
 main.d \
 MCAL/DIO.d \
-MCAL/DIO_Lcfg.d
+MCAL/DIO_Config.d
 
 OUTPUT_FILE_PATH +=AVR_Drivers.elf
 
