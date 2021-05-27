@@ -5,6 +5,9 @@
         "stdtypes.h": "c",
         "memmap.h": "c",
         "segment.h": "c",
-        "segment_lcfg.h": "c"
+        "segment_lcfg.h": "c",
+        "segment_config.h": "c",
+        "segment_interface.h": "c",
+        "dc_motor_interface.h": "c"
     }
 }
