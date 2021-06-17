@@ -132,6 +132,12 @@
     <Compile Include="HAL\DC_Motor_Interface.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\LCD_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\Segment.c">
       <SubType>compile</SubType>
     </Compile>

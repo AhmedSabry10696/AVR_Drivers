@@ -4,6 +4,8 @@
 
 HAL\DC_Motor.c
 
+HAL\LCD.c
+
 HAL\Segment.c
 
 main.c
