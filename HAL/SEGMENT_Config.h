@@ -20,16 +20,16 @@
 			define BCD: FULL_PORT if you are using 2 BCD segment 4 lower pins for digit1 and higher 4 pins for digit2
  *        	remove BCD: if segment used without decoder  
  */
-#define  BCD    FULL_PORT
+#define  BCD	FULL_PORT
 
 /* 7 segment port:  PA / PB / PC / PD */
-#define SEGMENT_PORT    PB
+#define SEGMENT_PORT    PC
 
 /**
  * @brief	define SEGMENT_TYPE: COM_CATHODE with common cathode 7 segment
  *  		define SEGMENT_TYPE: COM_ANODE with common anode 7 segment
  *			remove when using BCD segment	
  */
-#define SEGMENT_TYPE    COM_CATHODE
+#define SEGMENT_TYPE	COM_ANODE
 
 #endif /* SEGMENT_LCFG_H_ */

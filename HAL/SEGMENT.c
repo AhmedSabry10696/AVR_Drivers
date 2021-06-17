@@ -19,18 +19,18 @@
 void SEGMENT_Display(u8 num)
 {
 	#ifndef	BCD
-		#if SEGMENT_TYPE == COM_CATHODE
+		#if (COM_CATHODE == SEGMENT_TYPE)
 			DIO_WritePort(SEGMENT_PORT,Seg_Nums[num%16]);
 			
-		#elif SEGMENT_TYPE == COM_ANODE
+		#elif (COM_ANODE == SEGMENT_TYPE)
 			DIO_WritePort(SEGMENT_PORT,~(Seg_Nums[num%16]));
 		#endif
 	#else
-		#if BCD == LOW_PINS
+		#if (LOW_PINS == BCD)
 			DIO_EditPort_LowerHalf(SEGMENT_PORT,num);
-		#elif BCD == HIGH_PINS
+		#elif (HIGH_PINS == BCD)
 			DIO_EditPort_HigherHalf(SEGMENT_PORT,num);
-		#elif BCD == FULL_PORT
+		#elif (FULL_PORT == BCD)
 			u8 digit = num%10;
 			DIO_EditPort_LowerHalf(SEGMENT_PORT,digit);
 			num /= 10;
