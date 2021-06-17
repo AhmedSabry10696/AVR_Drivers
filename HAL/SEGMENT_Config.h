@@ -30,6 +30,8 @@
  *  		define SEGMENT_TYPE: COM_ANODE with common anode 7 segment
  *			remove when using BCD segment	
  */
-#define SEGMENT_TYPE	COM_ANODE
+#ifndef BCD
+	#define SEGMENT_TYPE	COM_ANODE
+#endif
 
 #endif /* SEGMENT_LCFG_H_ */
