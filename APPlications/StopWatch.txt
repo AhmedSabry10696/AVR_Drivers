@@ -95,7 +95,8 @@ int main(void)
 				}/* end of mode button case */
 			}/*end of delay for */
 		}/* end if */
-		else
+		
+        else
 		{
 			/* start stop button pressed */
 			if (0 == DIO_ReadPin(START))
@@ -194,98 +195,3 @@ int main(void)
 		}
 	}/*  end of while 1 */
 }/* end of main */
-
-
-/************************************************************************/
-/* for (u8 i = 0;i<20;i++)
-{
-/* print man 
-LCD_GoTo(0,19);
-LCD_WriteChar(0);
-
-/* print arrow 
-LCD_GoTo(0,i);
-LCD_WriteChar(1);
-
-/* when arrow met the man
-if (19 == i)
-{
-LCD_GoTo(0,19);
-LCD_WriteChar(255);
-_delay_ms(500);
-}
-
-_delay_ms(delay);
-LCD_Clear();
-}
-
-
-for (u8 i = 'A';i<='Z';i++)
-{
-	LCD_GoTo(0,8);
-	LCD_WriteChar(i);
-			
-	LCD_GoTo(2,8);
-	LCD_WriteNum(i);
-			
-	_delay_ms(300);
-}        
-
-u8 MAN[] = {
-	0x0E,
-	0x0E,
-	0x04,
-	0x1F,
-	0x0E,
-	0x0E,
-	0x0A,
-	0x0A
-};
-
-u8 ARROW[] = {
-	0x00,
-	0x00,
-	0x02,
-	0x1F,
-	0x02,
-	0x00,
-	0x00,
-	0x00
-};                  
-
-
-
-key = KEYPAD_GeyKey();
-if (key != NO_KEY)
-{
-	if(key != '=')
-	{
-		LCD_WriteChar(key);
-	}
-	
-
-	if(key >= '0' && key <= '9')
-	{
-		num = (num*10) + key - '0';
-	}
-
-	if (key == '=')
-	{
-		LCD_GoTo(1,0);
-		LCD_WriteString("Bin:");
-		LCD_WriteBinary(num);
-		LCD_GoTo(0,8);
-		num = 0;
-	}
-	
-	if (key == 'C')
-	{
-		num = 0;
-		LCD_Clear();
-		LCD_WriteStringRowCol(0,0,"Dec: ");
-		LCD_GoTo(1,0);
-		LCD_WriteString("Bin:");
-		LCD_GoTo(0,8);
-	}
-}                                          
-************************************************************************/
