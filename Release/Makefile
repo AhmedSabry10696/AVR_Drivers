@@ -41,9 +41,10 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../HAL/KEYPAD.c \
 ../HAL/DC_Motor.c \
 ../HAL/LCD.c \
-../HAL/Segment.c \
+../HAL/SEGMENT.c \
 ../main.c \
 ../MCAL/DIO.c \
 ../MCAL/DIO_Config.c
@@ -56,33 +57,37 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+HAL/KEYPAD.o \
 HAL/DC_Motor.o \
 HAL/LCD.o \
-HAL/Segment.o \
+HAL/SEGMENT.o \
 main.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o
 
 OBJS_AS_ARGS +=  \
+HAL/KEYPAD.o \
 HAL/DC_Motor.o \
 HAL/LCD.o \
-HAL/Segment.o \
+HAL/SEGMENT.o \
 main.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o
 
 C_DEPS +=  \
+HAL/KEYPAD.d \
 HAL/DC_Motor.d \
 HAL/LCD.d \
-HAL/Segment.d \
+HAL/SEGMENT.d \
 main.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d
 
 C_DEPS_AS_ARGS +=  \
+HAL/KEYPAD.d \
 HAL/DC_Motor.d \
 HAL/LCD.d \
-HAL/Segment.d \
+HAL/SEGMENT.d \
 main.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d
@@ -101,6 +106,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

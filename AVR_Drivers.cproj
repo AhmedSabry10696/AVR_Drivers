@@ -123,6 +123,9 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HAL\KEYPAD.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\DC_Motor.c">
       <SubType>compile</SubType>
     </Compile>
@@ -132,13 +135,16 @@
     <Compile Include="HAL\DC_Motor_Interface.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\KEYPAD.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\LCD.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\LCD_Interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Segment.c">
+    <Compile Include="HAL\SEGMENT.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\SEGMENT_Config.h">
