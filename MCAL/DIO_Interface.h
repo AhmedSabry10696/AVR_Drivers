@@ -94,6 +94,8 @@ extern void DIO_InitPin(DIO_Pin_type pin, DIO_PinStatus_type status);
  */
 extern void DIO_WritePin(DIO_Pin_type pin, DIO_Voltage_type volt);
 
+extern void DIO_TogglePin(DIO_Pin_type pin);
+
 /**
  * @brief read any pin value
  * 
