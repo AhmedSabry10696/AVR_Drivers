@@ -208,8 +208,8 @@ void LCD_GoTo(u8 row,u8 col)
 			Address=col+0x54;
 			break;
 	}					
-	/* to write to a specific address in the LCD 
-	 * command 0b10000000+Address */
+	
+	/* to set cursor location apply this operation 0x80|address */
 	LCD_SendCommand(Address | SET_CURSOR_LOCATION); 
 }
 
@@ -242,6 +242,7 @@ void LCD_WriteNum(s64 num)
 		num = num * -1;
 	}
 	
+	/* loop on digits of the number */
 	while(num>0)
 	{
 		digit  = (num%10)+'0';
@@ -274,6 +275,30 @@ void LCD_WriteBinary(u8 num)
 	}
 }
 
+void LCD_WriteHex(u8 num)
+{
+	u8 digit2 = ((num & 0xF0)>>4);
+	u8 digit1 = (num & 0x0F);
+
+	if (digit2 > 9)
+	{
+		LCD_WriteChar(digit2+'A'-10);
+	}
+	else
+	{
+		LCD_WriteChar(digit2+'0');
+	}
+
+	if (digit1 > 9)
+	{
+		LCD_WriteChar(digit1+'A'-10);
+	}
+	else
+	{
+		LCD_WriteChar(digit1+'0');
+	}
+}
+
 void LCD_Create_Char(u8 *Pattern,u8 Location)
 {
 	u8 i=0;
@@ -286,6 +311,7 @@ void LCD_Create_Char(u8 *Pattern,u8 Location)
 		LCD_SendData(Pattern[i]);
 	}
 	
+	/* set cursor location to the first index of lcd */
 	LCD_SendCommand(SET_CURSOR_LOCATION);
 }
 

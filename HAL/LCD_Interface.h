@@ -17,11 +17,11 @@
 #include "DIO_Interface.h"
 
 /* LCD Data bits mode configuration: 8 or 4 */
-#define DATA_BITS_MODE 4
+#define DATA_BITS_MODE 8
 
 /* LCD Data bits */
 #if (DATA_BITS_MODE == 8)
-	#define LCD_DATA_PORT PA
+	#define LCD_DATA_PORT PD
 
 #elif (DATA_BITS_MODE == 4)
 	#define D4  PINA4
@@ -109,5 +109,12 @@ extern void LCD_Create_Char(u8 *Pattern,u8 Location);
  * @param num number to display
  */
 extern void LCD_WriteBinary(u8 num);
+
+/**
+ * @brief write hex of value of the number
+ * 
+ * @param num decimal number
+ */
+extern void LCD_WriteHex(u8 num);
 
 #endif /* LCD_INTERFACE_H_ */
