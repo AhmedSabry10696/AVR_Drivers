@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/LIB",
-                "C:\\WinAVR-20100110\\avr\\include"
+                "C:\\WinAVR-20100110\\avr\\include",
+                "${workspaceFolder}/MCAL",
+                "${workspaceFolder}/HAL"
             ],
             "defines": [
                 "_DEBUG",
