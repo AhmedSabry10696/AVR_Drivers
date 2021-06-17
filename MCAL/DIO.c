@@ -83,7 +83,7 @@ void DIO_WritePin(DIO_Pin_type pin, DIO_Voltage_type volt)
 	u8 pin_num = pin%8;
 	DIO_Port_type port = pin/8;
 	
-	if (volt == HIGH)
+	if (HIGH == volt)
 	{
         switch (port)
         {
@@ -101,7 +101,7 @@ void DIO_WritePin(DIO_Pin_type pin, DIO_Voltage_type volt)
             break;
         }
 	}
-	else if (volt == LOW)
+	else if (LOW == volt)
 	{
 		switch(port)
         {

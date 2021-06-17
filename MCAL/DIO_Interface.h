@@ -135,6 +135,7 @@ extern void DIO_EditPort_HigherHalf(DIO_Port_type port, u8 value);
 extern u8 DIO_ReadPort(DIO_Port_type port);
 
 extern const DIO_PinStatus_type PinsStatus[TOTAL_PINS];
+
 /**
  * @brief Init all DIO in the controller
  * 
