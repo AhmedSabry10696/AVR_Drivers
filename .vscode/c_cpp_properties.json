@@ -4,7 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/LIB"
+                "${workspaceFolder}/LIB",
+                "C:\\WinAVR-20100110\\avr\\include"
             ],
             "defines": [
                 "_DEBUG",

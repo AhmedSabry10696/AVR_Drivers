@@ -8,6 +8,7 @@
         "segment_lcfg.h": "c",
         "segment_config.h": "c",
         "segment_interface.h": "c",
-        "dc_motor_interface.h": "c"
+        "dc_motor_interface.h": "c",
+        "lcd_interface.h": "c"
     }
 }
