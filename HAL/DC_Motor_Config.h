@@ -15,9 +15,9 @@
 #include "DIO_Interface.h"
 
 /**** Motor PINS ****/
-#define EN  PINB0
-#define IN1 PINB1
-#define IN2 PINB2 
+#define IN1 PIND0
+#define IN2 PIND1 
+#define EN  PIND2
 /*******************/
 
 #endif /* DC_MOTOR_LCFG_H_ */
