@@ -229,7 +229,7 @@ void LCD_WriteNum(s64 num)
 	/* if number 0 */
     if(0 == num)
 	{
-		LCD_WriteNum('0');
+		LCD_WriteChar('0');
 		return;
 	}
 	
@@ -318,4 +318,14 @@ void LCD_Create_Char(u8 *Pattern,u8 Location)
 void LCD_Clear(void)
 {
 	LCD_SendCommand(CLEAR_COMMAND);
+}
+
+void LCD_ClearCells(u8 row,u8 col,u8 cell)
+{
+	LCD_GoTo(row,col);
+	for (u8 i=0;i<cell;i++)
+	{
+		LCD_WriteChar(' ');
+	}	
+	LCD_GoTo(row,col);
 }

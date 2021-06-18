@@ -117,4 +117,7 @@ extern void LCD_WriteBinary(u8 num);
  */
 extern void LCD_WriteHex(u8 num);
 
+
+extern void LCD_ClearCells(u8 row,u8 col,u8 cell);
+
 #endif /* LCD_INTERFACE_H_ */
