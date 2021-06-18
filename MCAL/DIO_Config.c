@@ -17,7 +17,7 @@ const DIO_PinStatus_type PinsStatus[TOTAL_PINS] =
     INPULLUP,
     INPULLUP,
     INPULLUP,
-    OUTPUT,
+    INPULLUP,
     OUTPUT,
     OUTPUT,
     OUTPUT,
