@@ -47,6 +47,7 @@ int main(void)
 			{
 				LCD_WriteChar('-');
 				sign_f = 1;
+				num2_st = 1;
 			}
 
 			/* if the pressed key is operation */
