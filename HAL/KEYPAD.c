@@ -11,7 +11,7 @@
 
 #include "Keypad.h"
 
-static u8 KeysArray[ROW][COL] = {{'7','8','9','/'},
+static u8 KeysArray[ROW][COL] ={{'7','8','9','/'},
                                 {'4','5','6','*'},
                                 {'1','2','3','-'},
                                 {'C','0','=','+'}};
