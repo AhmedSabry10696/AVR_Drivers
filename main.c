@@ -5,16 +5,98 @@
 #include "LCD_Interface.h"
 #include "Keypad.h"
 
+u8 key,from,to,result_f = 0;
+u32 num;
+
+void welcome(void)
+{
+	LCD_WriteStringRowCol(0,6,"Welcome To");
+	LCD_WriteStringRowCol(1,1,"Converter Program");
+	_delay_ms(1000);
+	LCD_Clear();
+}
+
+void convert_from(void)
+{
+	LCD_Clear();			  
+	LCD_WriteStringRowCol(0,0,"Convert From: ");
+	LCD_WriteStringRowCol(1,0,"1 -> Decimal.");
+	LCD_WriteStringRowCol(2,0,"2 -> Binary.");
+	LCD_WriteStringRowCol(3,0,"3 -> Hexadecimal.");
+}
+
+void convert_to(void)
+{
+	LCD_WriteStringRowCol(0,0,"Convert To:    ");
+}
+
+void converter(void)
+{
+	LCD_Clear();
+	if (from == '1')
+	{
+		LCD_WriteString("Decimal: ");
+	}
+	else if (from == '2')
+	{
+		LCD_WriteString("Binary: ");
+	}
+	else if (from == '3')
+	{
+		LCD_WriteString("Hexa: ");
+	}
+	
+	LCD_GoTo(2,0);
+	if (to == '1')
+	{
+		LCD_WriteString("Decimal: ");
+	}
+	else if (to == '2')
+	{
+		LCD_WriteString("Binary: ");
+	}
+	else if (to == '3')
+	{
+		LCD_WriteString("Hexa: ");
+	}
+
+	LCD_GoTo(0,10);
+}
+
+void get_from_to(void)
+{
+	convert_from();
+	while (key != '1' && key != '2' && key != '3')
+	{
+		key = KEYPAD_GeyKey();
+	}
+	from = key;
+	key = '.';
+
+	convert_to();
+	while (key != '1' && key != '2' && key != '3')
+	{
+		key = KEYPAD_GeyKey();
+	}
+	to = key;
+	
+	converter();
+}
+
+void invalid_choice(void)
+{
+	LCD_Clear();
+	LCD_writeString("   Invalid Choice");
+	LCD_WriteStringRowCol(2,0,"  Try Again Later");
+	_delay_ms(1000);
+}
+
 int main(void)
 {
-	u8 key,op;
-	s32 num1=0,num2=0,result=0;
-	u8 num1_f=0,res_f = 0,num2_f=0,invalidop = 0,sign_f= 0,num2_st = 0;
-	
 	DIO_Init();
 	LCD_Init();
-	LCD_WriteStringRowCol(0,5,"Calculator");
-	LCD_GoTo(1,0);
+	welcome();
+	get_from_to();
 
 	while(1)
 	{
@@ -23,133 +105,87 @@ int main(void)
 		/* if any key pressed */
 		if (key != NO_KEY)
 		{
-			/* if the pressed key in number (res_f = 1 ignore any pressed numbers)*/
-			if (key >='0' && key <='9' && res_f == 0)
+			if (result_f == 1)
 			{
-				/* display it */
-				LCD_WriteChar(key);
-
-				/* get the first operand */
-				if (num1_f == 0)
+				result_f = 0;
+				LCD_ClearCells(0,10,9);
+				LCD_ClearCells(2,10,9);
+				LCD_GoTo(0,10);
+			}
+		
+			/* read decimal */
+			if (from == '1')
+			{	
+				if (key >= '0' && key <= '9')
 				{
-					num1 = num1*10 + key-'0';
+					LCD_WriteChar(key);
+					num = num*10 + key - '0';
+				}
+			}
+
+			/* read binary */
+			else if (from == '2')
+			{
+				if (key == '1'|| key == '0')
+				{
+					LCD_WriteChar(key);
+					num = num*2 + key - '0';
 				}
 				
-				/* get the second operand */
-				else if (num1_f == 1)
-				{
-					num2_st = 1;
-					num2 = num2*10 + key-'0';
-				}
 			}
 
-			if(key == '-' && num2_st == 0 && num1_f == 1)
+			/* read hexadecimal */
+			else if (from == '3')
 			{
-				LCD_WriteChar('-');
-				sign_f = 1;
-				num2_st = 1;
+				if ((key >= '0' && key <= '9') || (key >= 'A' && key <= 'F'))
+				{
+					LCD_WriteChar(key);
+					if (key > '9')
+					{
+						num = num*16 + key - 'A'+10;
+					}
+					else
+					{
+						num = num*16 + key- '0';
+					}
+				}
 			}
 
-			/* if the pressed key is operation */
-			if ((key == '+' || key == '-' || key == '*' || key == '/'))
-			{				
-				/* ignore signs while getting second number */
-				if (num1_f == 1 || invalidop == 1)
-				{
-					
-				}
-
-				/* first operation */
-				else if (res_f == 0)
-				{
-					op = key;
-
-					/* already got op */
-					LCD_WriteChar(key);
-					num2_st = 0;
-					num1_f = 1;
-					num2 = 0;
-				}
-
-				/* second operation */ 
-				else if (res_f == 1)
-				{
-					num1 = result;
-					num2 = 0;
-					/* store operation */	
-					op = key;
-					/* to get the second number */
-					num2_st = 0;
-					num1_f = 1;
-					
-					LCD_Clear();
-					LCD_WriteStringRowCol(0,5,"Calculator");
-					LCD_GoTo(1,0);
-					LCD_WriteNum(num1);
-					res_f = 0;
-
-					/* display operation */
-					LCD_WriteChar(key);
-				}
-			}
-	
-			/* if the pressed key is result */
 			if (key == '=')
 			{
+				LCD_GoTo(2,10);
 
-				if (sign_f == 1)
+				/* print num as decimal */
+				if (to == '1')
 				{
-					num2 = num2 * -1;
-					sign_f = 0;
+					LCD_WriteNum(num);
 				}
-				if (num2_st == 0)
+
+				/* print num as binary */
+				else if (to == '2')
 				{
-					invalidop =1;
+					LCD_WriteBinary(num);
 				}
-				
-				switch(op)
+
+				/* print num as hexadecimal */
+				else if (to == '3')
 				{
-					case '+':
-						result = num1 + num2;
-						break;
-					case '-':
-						result = num1 - num2;
-						break;
-					case '*':
-						result = num1 * num2;
-						break;
-					case '/':
-						if(num2 == 0)
-							invalidop = 1;
-						else
-							result = num1/num2;
-						break;
+					LCD_WriteHex(num);
 				}
-				LCD_GoTo(2,0);
-				if(invalidop == 1)
-				{
-					LCD_WriteStringRowCol(2,2,"Invalid Operation");
-				}
-				else
-				{
-					LCD_WriteNum(result);
-				}
-				num1_f = 0;
-				res_f = 1;
+				num = 0;
+				result_f = 1;
 			}
-	
+			
+			/* clear key */
 			if (key == 'C')
 			{
-				num1 = 0,num2=0,result= 0;
-				num1_f =0;
-				num2_st = 0;
-				res_f = 0;
-				invalidop = 0;
-				sign_f = 0;
-				LCD_Clear();
-				LCD_WriteStringRowCol(0,5,"Calculator");
-				LCD_GoTo(1,0);
+				num = 0;
+				to = 0;
+				from = 0;
+				result_f = 0;
+				get_from_to();
 			}
-		}/* end of no key pressed */
+			
+		}
 	}/*  end of while 1 */
 }/* end of main */
