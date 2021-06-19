@@ -108,14 +108,14 @@ extern void LCD_Create_Char(u8 *Pattern,u8 Location);
  * 
  * @param num number to display
  */
-extern void LCD_WriteBinary(u8 num);
+extern void LCD_WriteBinary(u16 num);
 
 /**
  * @brief write hex of value of the number
  * 
  * @param num decimal number
  */
-extern void LCD_WriteHex(u8 num);
+extern void LCD_WriteHex(u16 num);
 
 
 extern void LCD_ClearCells(u8 row,u8 col,u8 cell);

@@ -258,27 +258,48 @@ void LCD_WriteNum(s64 num)
 	}
 }
 	
-void LCD_WriteBinary(u8 num)
+void LCD_WriteBinary(u16 num)
 {
-	s8 i;
-	for (i=7;i>=0;i--)
+	s8 i,flag = 0;
+	for (i=15;i>=0;i--)
 	{
 		/* check if the bit is 1 or 0 */
 		if (1 == ((num>>i)&0x01) )
 		{
 			LCD_WriteChar('1');
+			flag = 1;
 		}
-		else
+		else if(flag == 1)
 		{
 			LCD_WriteChar('0');
 		}
 	}
 }
 
-void LCD_WriteHex(u8 num)
+void LCD_WriteHex(u16 num)
 {
-	u8 digit2 = ((num & 0xF0)>>4);
-	u8 digit1 = (num & 0x0F);
+	u8 digit4 = ((num & 0xF000)>>12);
+	u8 digit3 = ((num & 0x0F00)>>8);
+	u8 digit2 = ((num & 0x00F0)>>4);
+	u8 digit1 = (num & 0x000F);
+
+	if (digit4 > 9)
+	{
+		LCD_WriteChar(digit4+'A'-10);
+	}
+	else
+	{
+		LCD_WriteChar(digit4+'0');
+	}
+
+	if (digit3 > 9)
+	{
+		LCD_WriteChar(digit3+'A'-10);
+	}
+	else
+	{
+		LCD_WriteChar(digit3+'0');
+	}
 
 	if (digit2 > 9)
 	{
