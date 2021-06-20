@@ -15,6 +15,7 @@
 #define MODE	PINA2
 
 #define CATH	PINB1
+
 #define LED		PINB0
 
 int main(void)
@@ -32,7 +33,7 @@ int main(void)
 		SEGMENT_Display(count);
 		
 		/* when count = 0 Led flashing */
-		if(count == 0)
+		if(0 == count)
 		{
 			/* flash led */
 			DIO_TogglePin(LED);
