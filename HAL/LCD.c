@@ -258,6 +258,15 @@ void LCD_WriteNum(s64 num)
 	}
 }
 	
+void LCD_WriteFloat(f32 num)
+{
+	s64 left = (s64)num;
+	u8 right = (f32)(num-left)*100;
+	LCD_WriteNum(left);
+	LCD_WriteChar('.');
+	LCD_WriteNum(right); 	
+}
+	
 void LCD_WriteBinary(u16 num)
 {
 	s8 i,flag = 0;

@@ -118,6 +118,8 @@ extern void LCD_WriteBinary(u16 num);
 extern void LCD_WriteHex(u16 num);
 
 
+extern void LCD_WriteFloat(f32 num);
+
 extern void LCD_ClearCells(u8 row,u8 col,u8 cell);
 
 #endif /* LCD_INTERFACE_H_ */
