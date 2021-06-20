@@ -125,7 +125,6 @@ void DIO_TogglePin(DIO_Pin_type pin)
 {
 	u8 pin_num = pin%8;
 	DIO_Port_type port = pin/8;
-	DIO_Voltage_type volt = LOW;
 
 	switch (port)
 	{
