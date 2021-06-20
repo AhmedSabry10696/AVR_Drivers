@@ -46,6 +46,7 @@ C_SRCS +=  \
 ../HAL/LCD.c \
 ../HAL/SEGMENT.c \
 ../main.c \
+../MCAL/ADC.c \
 ../MCAL/DIO.c \
 ../MCAL/DIO_Config.c
 
@@ -62,6 +63,7 @@ HAL/DC_Motor.o \
 HAL/LCD.o \
 HAL/SEGMENT.o \
 main.o \
+MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o
 
@@ -71,6 +73,7 @@ HAL/DC_Motor.o \
 HAL/LCD.o \
 HAL/SEGMENT.o \
 main.o \
+MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o
 
@@ -80,6 +83,7 @@ HAL/DC_Motor.d \
 HAL/LCD.d \
 HAL/SEGMENT.d \
 main.d \
+MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d
 
@@ -89,6 +93,7 @@ HAL/DC_Motor.d \
 HAL/LCD.d \
 HAL/SEGMENT.d \
 main.d \
+MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d
 
@@ -106,6 +111,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

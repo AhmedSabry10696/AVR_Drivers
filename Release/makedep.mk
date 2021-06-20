@@ -12,6 +12,8 @@ HAL\SEGMENT.c
 
 main.c
 
+MCAL\ADC.c
+
 MCAL\DIO.c
 
 MCAL\DIO_Config.c

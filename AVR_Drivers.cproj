@@ -165,6 +165,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\ADC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC_Interface.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\DIO.c">
       <SubType>compile</SubType>
     </Compile>
