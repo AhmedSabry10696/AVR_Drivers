@@ -186,6 +186,12 @@
     <Compile Include="MCAL\DIO_Interface.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\Interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">

@@ -49,7 +49,8 @@ C_SRCS +=  \
 ../main.c \
 ../MCAL/ADC.c \
 ../MCAL/DIO.c \
-../MCAL/DIO_Config.c
+../MCAL/DIO_Config.c \
+../MCAL/Interrupt.c
 
 
 PREPROCESSING_SRCS += 
@@ -67,7 +68,8 @@ HAL/Sensors.o \
 main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
-MCAL/DIO_Config.o
+MCAL/DIO_Config.o \
+MCAL/Interrupt.o
 
 OBJS_AS_ARGS +=  \
 HAL/KEYPAD.o \
@@ -78,7 +80,8 @@ HAL/Sensors.o \
 main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
-MCAL/DIO_Config.o
+MCAL/DIO_Config.o \
+MCAL/Interrupt.o
 
 C_DEPS +=  \
 HAL/KEYPAD.d \
@@ -89,7 +92,8 @@ HAL/Sensors.d \
 main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
-MCAL/DIO_Config.d
+MCAL/DIO_Config.d \
+MCAL/Interrupt.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/KEYPAD.d \
@@ -100,7 +104,8 @@ HAL/Sensors.d \
 main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
-MCAL/DIO_Config.d
+MCAL/DIO_Config.d \
+MCAL/Interrupt.d
 
 OUTPUT_FILE_PATH +=AVR_Drivers.elf
 
@@ -116,6 +121,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

@@ -10,6 +10,7 @@
         "segment_interface.h": "c",
         "dc_motor_interface.h": "c",
         "lcd_interface.h": "c",
-        "keypad.h": "c"
+        "keypad.h": "c",
+        "interrupt.h": "c"
     }
 }
