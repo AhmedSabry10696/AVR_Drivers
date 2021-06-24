@@ -12,9 +12,9 @@
 #include "Ext_Interrupt.h"
 
 /* pointers to functions take void and return void */
-static void (*INT0_Fptr) (void)=NULLPTR;
-static void (*INT1_Fptr) (void)=NULLPTR;
-static void (*INT2_Fptr) (void)=NULLPTR;
+static void (*INT0_Fptr) (void) = NULLPTR;
+static void (*INT1_Fptr) (void) = NULLPTR;
+static void (*INT2_Fptr) (void) = NULLPTR;
 
 void EXI_Enable(ExInterruptSource_type Interrupt)
 {
