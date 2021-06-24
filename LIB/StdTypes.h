@@ -12,23 +12,29 @@
 #ifndef STDTYPES_H_
 #define STDTYPES_H_
 
+/* Null pointer */
 #define NULLPTR	((void*)0)
 
+/* unsigned data types */
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned long u32;
 typedef unsigned long long u64;
 
+/* signed data types */
 typedef signed char s8;
 typedef signed short s16;
 typedef signed long s32;
 typedef signed long long s64;
 
+/* float data types */
 typedef float f32;
 typedef double f64;
 
+/* boolean data types */
 typedef enum {FALSE = 0, TRUE = 1}bool_t;
 
+/* register data type */
 typedef union
 {
 	u8 Data;
