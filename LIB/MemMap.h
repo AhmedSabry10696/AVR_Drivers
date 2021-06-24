@@ -30,7 +30,6 @@
 #define PIND    (*((volatile u8 *)0x30))
 #define DDRD    (*((volatile u8 *)0x31))
 #define PORTD   (*((volatile u8 *)0x32))
-/****************************************/
 
 /*********** ADC Registers *************/
 #define SFIOR   (*((volatile u8 *)0x50))
@@ -56,7 +55,6 @@
 #define ADCH    (*((volatile u8 *)0x25))
 #define ADCL    (*((volatile u8 *)0x24))
 #define ADC     (*((volatile u16*)0x24))
-/****************************************/
 
 /********External Interrupt REG*********/
 #define MCUCR   (*((volatile u8 *)0x55))
@@ -77,5 +75,62 @@
 #define INTF2   5
 #define INTF0   6
 #define INTF1   7
-/***************************************/
+
+/**************** Interrupt service routine ********************/
+#define ISR(vector) void vector(void) __attribute__ ((signal));\
+void vector(void)
+
+/************ Interrupt functions ************/
+# define sei()  __asm__ __volatile__ ("sei" ::)
+# define cli()  __asm__ __volatile__ ("cli" ::)
+# define reti() __asm__ __volatile__ ("reti" ::)
+# define ret()  __asm__ __volatile__ ("ret" ::)
+/**********************************************/
+
+/********** Interrupt Vector Table ***********/
+/* External Interrupt Request 0 */
+#define INT0_VECT __vector_1
+/* External Interrupt Request 1 */
+#define INT1_VECT __vector_2
+/* External Interrupt Request 2 */
+#define INT2_VECT __vector_3
+/* Timer/Counter2 Compare Match */
+#define TIMER2_COMP_VECT __vector_4
+/* Timer/Counter2 Overflow */
+#define TIMER2_OVF_VECT __vector_5
+/* Timer/Counter1 Capture Event */
+#define TIMER1_CAPT_VECT __vector_6
+/* Timer/Counter1 Compare Match A */
+#define TIMER1_COMPA_VECT __vector_7
+/* Timer/Counter1 Compare Match B */
+#define TIMER1_COMPB_VECT __vector_8
+/* Timer/Counter1 Overflow */
+#define TIMER1_OVF_VECT __vector_9
+/* Timer/Counter0 Compare Match */
+#define TIMER0_COMP_VECT __vector_10
+/* Timer/Counter0 Overflow */
+#define TIMER0_OVF_VECT __vector_11
+/* Serial Transfer Complete */
+#define SPI_STC_VECT __vector_12
+/* USART, Rx Complete */
+#define USART_RXC_VECT __vector_13
+/* USART Data Register Empty */
+#define USART_UDRE_VECT __vector_14
+/* USART, Tx Complete */
+#define USART_TXC_VECT __vector_15
+/* ADC Conversion Complete */
+#define ADC_VECT __vector_16
+/* EEPROM Ready */
+#define EE_RDY_VECT __vector_17
+/* Analog Comparator */
+#define ANA_COMP_VECT __vector_18
+/* 2-wire Serial Interface */
+#define TWI_VECT __vector_19
+/* Store Program Memory Ready */
+#define SPM_RDY_VECT __vector_20
+/* Bad Interrupt Vector */
+#define BAD_VECT __vector_default
+/*******************************************/
+
+
 #endif /* MEMMAP_H_ */
