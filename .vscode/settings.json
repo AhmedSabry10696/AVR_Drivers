@@ -13,5 +13,6 @@
         "keypad.h": "c",
         "interrupt.h": "c",
         "ext_interrupt.h": "c"
-    }
+    },
+    "AVR.source.compiler": "C:\\WinAVR-20100110\\bin\\avr-gcc.exe"
 }

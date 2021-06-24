@@ -18,6 +18,15 @@
             "cStandard": "gnu11",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-gcc-x64"
+        },
+        {
+            "name": "AVR",
+            "intelliSenseMode": "${default}",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "compilerPath": "C:\\WinAVR-20100110\\bin\\avr-gcc.exe",
+            "includePath": [],
+            "compilerArgs": []
         }
     ],
     "version": 4
