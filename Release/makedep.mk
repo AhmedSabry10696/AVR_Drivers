@@ -10,6 +10,8 @@ HAL\LCD.c
 
 HAL\SEGMENT.c
 
+HAL\Sensors.c
+
 main.c
 
 MCAL\ADC.c

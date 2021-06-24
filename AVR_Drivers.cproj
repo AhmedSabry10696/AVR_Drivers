@@ -153,6 +153,12 @@
     <Compile Include="HAL\SEGMENT_Interface.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Sensors.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Sensors.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LIB\MemMap.h">
       <SubType>compile</SubType>
     </Compile>
