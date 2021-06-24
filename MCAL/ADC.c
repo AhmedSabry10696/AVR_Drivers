@@ -11,7 +11,12 @@
 
 #include "ADC_Interface.h"
 
-void ADC_Init(ADC_Ref_Type vref, ADC_Scaler_Type scaler)
+
+static void (*ADC_IntFptr)(void) = NULLPTR;
+/* to prevent start conversion before the previous is finshed */
+static u8 Reading_Flag = 1;
+
+void ADC_Init(ADC_VoltRef_Type vref, ADC_Scaler_Type scaler)
 {
     /* voltage reference */
     switch (vref)
@@ -21,7 +26,7 @@ void ADC_Init(ADC_Ref_Type vref, ADC_Scaler_Type scaler)
             CLEAR_BIT(ADMUX,REFS1);
             break;
 
-        case REF_VCC:
+        case REF_AVCC:
             SET_BIT(ADMUX,REFS0);
             CLEAR_BIT(ADMUX,REFS1);
             break;
@@ -60,4 +65,58 @@ u16 ADC_Read(ADC_Channel_Type ch)
     read = ADC & 0x03FF;
 
     return read;
+}
+
+void ADC_StartConversion(ADC_Channel_Type ch)
+{
+	if (Reading_Flag==1)
+	{
+        /* Channel selection */
+        ADMUX = ADMUX & 0xE0;
+        ADMUX = ADMUX | (ch&0x1F);
+
+        /* ADC start conversion */
+        SET_BIT(ADCSRA,ADSC);
+		Reading_Flag=0;
+	}
+}
+
+u16 ADC_GetReadNoBlock(void)
+{
+    return ADC;
+}
+
+u8 ADC_GetRead_Periodic(u16* pdata)
+{
+    /* if conversion completed */
+	if (0 == GET_BIT(ADCSRA,ADSC))
+	{
+		*pdata=ADC;
+		Reading_Flag=1;
+		return 1;
+	}
+	return 0;
+}
+
+void ADC_IntEnable(void)
+{
+    SET_BIT(ADCSRA,ADIE);
+}
+
+void ADC_IntDisable(void)
+{
+    CLEAR_BIT(ADCSRA,ADIE);
+}
+
+void ADC_IntSetCallBack(void(*LocalPtr)(void))
+{
+    ADC_IntFptr = LocalPtr;
+}
+
+ISR(ADC_VECT)
+{
+	if (ADC_IntFptr != NULLPTR)
+	{
+		INT2_Fptr();
+	}
 }
