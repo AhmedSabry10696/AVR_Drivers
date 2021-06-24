@@ -89,7 +89,7 @@ u16 ADC_GetReadNoBlock(void)
 u8 ADC_GetRead_Periodic(u16* pdata)
 {
     /* if conversion completed */
-	if (0 == GET_BIT(ADCSRA,ADSC))
+	if (0 == READ_BIT(ADCSRA,ADSC))
 	{
 		*pdata=ADC;
 		Reading_Flag=1;
@@ -117,6 +117,6 @@ ISR(ADC_VECT)
 {
 	if (ADC_IntFptr != NULLPTR)
 	{
-		INT2_Fptr();
+		ADC_IntFptr();
 	}
 }
