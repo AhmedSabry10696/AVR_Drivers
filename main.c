@@ -4,6 +4,7 @@
 #include "Utils.h"
 #include "DIO_Interface.h"
 #include "Ext_Interrupt.h"
+#include "Stepper_Motor.h"
 
 void toggle_led1(void)
 {
@@ -33,22 +34,19 @@ int main(void)
 {	
 	/* DIO init */
 	DIO_Init();
-	sei();
-	EXI_Enable(EX_INT0);
-	EXI_Enable(EX_INT1);
-	EXI_Enable(EX_INT2);
-	
-	EXI_TriggerEdge(EX_INT0,FALLING_EDGE);
-	EXI_TriggerEdge(EX_INT1,RISING_EDGE);
-	EXI_TriggerEdge(EX_INT2,FALLING_EDGE);
-	
-	EXI_SetCallBack(EX_INT0,toggle_led1);
-	EXI_SetCallBack(EX_INT1,toggle_led2);
-	EXI_SetCallBack(EX_INT2,toggle_led3);
+
 	
 	while(1)
 	{
-		DIO_TogglePin(PINC3);
+		for (int i = 0;i<9;i++)
+		{
+			Stepper_UniPolarHalf_CW();
+		}
+		_delay_ms(2000);
+		for (int i = 0;i<9;i++)
+		{
+			Stepper_UniPolarHalf_CCW();
+		}
 		_delay_ms(2000);
 	}
 }
