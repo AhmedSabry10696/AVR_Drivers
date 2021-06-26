@@ -12,7 +12,7 @@
 #ifndef STDTYPES_H_
 #define STDTYPES_H_
 
-/* Null pointer */
+/* Null Pointer */
 #define NULLPTR	((void*)0)
 
 /* unsigned data types */
@@ -32,7 +32,11 @@ typedef float f32;
 typedef double f64;
 
 /* boolean data types */
-typedef enum {FALSE = 0, TRUE = 1}bool_t;
+typedef enum 
+{
+	FALSE = 0,
+	TRUE = 1
+}bool_t;
 
 /* register data type */
 typedef union
