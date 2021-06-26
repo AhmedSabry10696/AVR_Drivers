@@ -77,10 +77,9 @@
 #define INTF1   7
 
 /**************** Interrupt service routine ********************/
-/**
- * @brief ISR runs with global interrupts initially enabled 
- * @note  infinitely recursive interrupts (like UART interrupts, or level-triggered external interrupts)
- */
+
+/* ISR runs with global interrupts initially enabled */
+/* infinitely recursive interrupts: UART interrupts or level-triggered external interrupts */
 #define ISR_NOBLOCK   __attribute__((interrupt))
 
 /* ISR is created with no prologue or epilogue code */
