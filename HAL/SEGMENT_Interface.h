@@ -15,7 +15,7 @@
 /**
  * @brief display number on seven segment
  * 
- * @param num 0:F when using only 1 segment and 0:99 when using 2 segment 
+ * @param num (0:F) when using only 1 segment and (0:99) when using 2 segment 
  */
 extern void SEGMENT_Display(u8 num);
 

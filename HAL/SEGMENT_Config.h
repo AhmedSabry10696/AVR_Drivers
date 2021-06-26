@@ -22,7 +22,7 @@
  */
 #define  BCD	FULL_PORT
 
-/* 7 segment port:  PA / PB / PC / PD */
+/* 7 segment port:  PA - PB - PC - PD */
 #define SEGMENT_PORT    PC
 
 /**
