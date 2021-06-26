@@ -98,8 +98,8 @@ extern void LCD_WriteNum(s64 num);
 /**
  * @brief create special char on lcd
  * 
- * @param Pattern 
- * @param Location 
+ * @param Pattern array contains the pattern of special char
+ * @param Location location to store this pattern in lcd
  */
 extern void LCD_Create_Char(u8 *Pattern,u8 Location);
 
@@ -117,9 +117,20 @@ extern void LCD_WriteBinary(u16 num);
  */
 extern void LCD_WriteHex(u16 num);
 
-
+/**
+ * @brief display float numbers on lcd
+ * 
+ * @param num float number to display
+ */
 extern void LCD_WriteFloat(f32 num);
 
+/**
+ * @brief clear cells on lcd and return again to row and col
+ * 
+ * @param row row to start from
+ * @param col col to start from
+ * @param cell numbers of cells to clear
+ */
 extern void LCD_ClearCells(u8 row,u8 col,u8 cell);
 
 #endif /* LCD_INTERFACE_H_ */
