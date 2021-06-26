@@ -14,22 +14,29 @@
 
 #include "ADC_Interface.h"
 
-#define POT     CH_0
-#define LM35    CH_1
-#define MPX4110 CH_2
+#define MPX4110 CH_0
+#define POT     CH_1
+#define LM35    CH_2
 
 /**
  * @brief POT voltage read
  * 
- * @return u16 Voltage output
+ * @return u16 Voltage (mv)
  */
 extern u16 POT_VoltRead(void);
 
 /**
  * @brief Temp sensor read
  * 
- * @return u16 Temp reading
+ * @return u16 Temp*10: consider Least significant digit right to the floating point
  */
 extern u16 LM35_TempRead(void);
+
+/**
+ * @brief Pressure sensor get read
+ * 
+ * @return u16 pressure*10: consider Least significant digit right to the floating point
+ */
+extern u16 MPX4110_PressureRead(void);
 
 #endif /* SENSORS_H_ */

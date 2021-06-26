@@ -19,6 +19,7 @@ u16 POT_VoltRead(void)
     return volt;
 }
 
+/* 10 mv/1 C */
 u16 LM35_TempRead(void)
 {
     u16 adc = ADC_Read(LM35);
@@ -26,4 +27,16 @@ u16 LM35_TempRead(void)
     u16 temp = volt;
     
     return temp;
+}
+
+/* 
+    15 kpa  :  115 kpa
+    0.2 v   :  4.7 v
+    55 adc  :  976 adc
+*/
+u16 MPX4110_PressureRead(void)
+{
+    u16 adc = ADC_Read(MPX4110);
+    u16 pres = (((adc-55)*(u32)1000)/921)+150;
+    return pres;
 }
