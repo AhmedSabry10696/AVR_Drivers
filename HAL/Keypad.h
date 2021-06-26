@@ -15,14 +15,21 @@
 
 #include "DIO_Interface.h"
 
+/* keypad connections */
 #define FIRST_INPUT  PINA0
 #define FIRST_OUTPUT PINA4 
 
+/* number of rows and cols */
 #define ROW 4 
 #define COL 4
+
 #define NO_KEY  '.'
 
-
+/**
+ * @brief get the pressed key from keypad
+ * 
+ * @return u8 pressed key or NO_KEY ('.') if no button pressed 
+ */
 extern u8 KEYPAD_GeyKey(void);
 
 #endif /* KEYPAD_H_ */

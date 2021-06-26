@@ -11,6 +11,7 @@
 
 #include "Keypad.h"
 
+/* patterns on keypad */
 static u8 KeysArray[ROW][COL] ={{'7','8','9','A'},
                                 {'4','5','6','B'},
                                 {'1','2','3','E'},
