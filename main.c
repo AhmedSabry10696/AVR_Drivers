@@ -1,6 +1,5 @@
 #define  F_CPU 8000000UL
 #include <util/delay.h>
-
 #include "MemMap.h"
 #include "Utils.h"
 #include "DIO_Interface.h"
