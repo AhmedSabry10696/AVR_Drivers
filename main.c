@@ -2,51 +2,29 @@
 #include <util/delay.h>
 #include "MemMap.h"
 #include "Utils.h"
+#include "Sensors.h"
 #include "DIO_Interface.h"
-#include "Ext_Interrupt.h"
-#include "Stepper_Motor.h"
-
-void toggle_led1(void)
-{
-	DIO_TogglePin(PINC0);
-	_delay_ms(1000);
-	DIO_TogglePin(PINC0);
-	_delay_ms(1000);
-}
-void toggle_led2(void)
-{
-	DIO_TogglePin(PINC1);
-	_delay_ms(1000);
-	DIO_TogglePin(PINC1);
-	_delay_ms(1000);
-
-}
-void toggle_led3(void)
-{
-	DIO_TogglePin(PINC2);
-	_delay_ms(1000);
-	DIO_TogglePin(PINC2);
-	_delay_ms(1000);
-}
-
+#include "LCD_Interface.h"
+#include "ADC_Interface.h"
 
 int main(void)
 {	
+	u16 x;
 	/* DIO init */
 	DIO_Init();
-
+	ADC_Init(REF_AREF,ADC_Scaler_64);
+	LCD_Init();
+	
+	LCD_WriteString("MPX4110 pres sensor");
 	
 	while(1)
 	{
-		for (int i = 0;i<9;i++)
-		{
-			Stepper_UniPolarHalf_CW();
-		}
-		_delay_ms(2000);
-		for (int i = 0;i<9;i++)
-		{
-			Stepper_UniPolarHalf_CCW();
-		}
-		_delay_ms(2000);
+		LCD_GoTo(2,0);
+		x= MPX4110_PressureRead();
+		LCD_WriteNum(x/10);
+		LCD_WriteChar('.');
+		LCD_WriteNum(x%10);
+		LCD_WriteString("    KPa");
+		LCD_WriteString("   ");
 	}
 }
