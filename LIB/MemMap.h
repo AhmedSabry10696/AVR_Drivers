@@ -77,15 +77,23 @@
 #define INTF1   7
 
 /**************** Interrupt service routine ********************/
-#define ISR(vector) void vector(void) __attribute__ ((signal));\
-void vector(void)
+/**
+ * @brief ISR runs with global interrupts initially enabled 
+ * @note  infinitely recursive interrupts (like UART interrupts, or level-triggered external interrupts)
+ */
+#define ISR_NOBLOCK   __attribute__((interrupt))
+
+/* ISR is created with no prologue or epilogue code */
+#define ISR_NAKED     __attribute__((naked))
+
+#define ISR(vector,...) void vector (void) __attribute__ ((signal))__VA_ARGS__ ;\
+void vector (void)
 
 /************ Interrupt functions ************/
 # define sei()  __asm__ __volatile__ ("sei" ::)
 # define cli()  __asm__ __volatile__ ("cli" ::)
 # define reti() __asm__ __volatile__ ("reti" ::)
 # define ret()  __asm__ __volatile__ ("ret" ::)
-/**********************************************/
 
 /********** Interrupt Vector Table ***********/
 /* External Interrupt Request 0 */
