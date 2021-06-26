@@ -11,8 +11,9 @@
 
 #include "ADC_Interface.h"
 
-
+/* pointer to function to use it in callback function */
 static void (*ADC_IntFptr)(void) = NULLPTR;
+
 /* to prevent start conversion before the previous is finshed */
 static u8 Reading_Flag = 1;
 

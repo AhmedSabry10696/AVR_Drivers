@@ -16,10 +16,6 @@
 #include "Utils.h"
 #include "MemMap.h"
 
-/**
- * @brief voltage reference type
- * 
- */
 typedef enum
 {
     REF_AREF,
@@ -27,10 +23,6 @@ typedef enum
     REF_256V
 }ADC_VoltRef_Type;
 
-/**
- * @brief prescaller enum
- * 
- */
 typedef enum
 {
     ADC_Scaler_2 = 1,
@@ -42,10 +34,6 @@ typedef enum
     ADC_Scaler_128
 }ADC_Scaler_Type;
 
-/**
- * @brief channels enum
- * 
- */
 typedef enum
 {
     CH_0,
@@ -59,40 +47,40 @@ typedef enum
 }ADC_Channel_Type;
 
 /**
- * @brief ADC Initialization
+ * @brief 
  * 
- * @param vref voltage ref selection
- * @param scaler prescaller selection
+ * @param vref   REF_AREF - REF_AVCC - REF_256V
+ * @param scaler ADC_Scaler_2 : ADC_Scaler_128
  */
 extern void ADC_Init(ADC_VoltRef_Type vref, ADC_Scaler_Type scaler);
 
 /**
  * @brief ADC read channel
  * 
- * @param ch ADC channel selection
- * @return u16 ADC reading
+ * @param ch CH_0 : CH_7
+ * @return u16 ADC reading value 0 : 1023
  */
 extern u16 ADC_Read(ADC_Channel_Type ch);
 
 /**
  * @brief ADC Start conversion
  * 
- * @param ch Channel to start conversion on it
+ * @param ch CH_0 : CH_7
  */
 extern void ADC_StartConversion(ADC_Channel_Type ch);
 
 /**
  * @brief get value of ADC register
  * 
- * @return u16 ADC read after conversion completed
+ * @return u16 ADC read after conversion completed 0:1023
  */
 extern u16 ADC_GetReadNoBlock(void);
 
 /**
  * @brief Get adc read if completed
  * 
- * @param pdata pointer to store adc value
- * @return u8 1 if get adc value, 0 if adc not finished yet
+ * @param pdata pointer to store adc value 0:1023
+ * @return u8 (1) if get adc value, (0) if adc not finished yet
  */
 extern u8 ADC_GetRead_Periodic(u16* pdata);
 
