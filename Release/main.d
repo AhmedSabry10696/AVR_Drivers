@@ -5,8 +5,9 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../LIB/MemMap.h ../LIB/StdTypes.h ../LIB/Utils.h ../MCAL/DIO_Interface.h \
- ../LIB/StdTypes.h ../MCAL/Ext_Interrupt.h ../HAL/Stepper_Motor.h
+ ../LIB/MemMap.h ../LIB/StdTypes.h ../LIB/Utils.h ../HAL/Sensors.h \
+ ../MCAL/ADC_Interface.h ../LIB/StdTypes.h ../MCAL/DIO_Interface.h \
+ ../HAL/LCD_Interface.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -26,10 +27,12 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 ../LIB/Utils.h:
 
-../MCAL/DIO_Interface.h:
+../HAL/Sensors.h:
+
+../MCAL/ADC_Interface.h:
 
 ../LIB/StdTypes.h:
 
-../MCAL/Ext_Interrupt.h:
+../MCAL/DIO_Interface.h:
 
-../HAL/Stepper_Motor.h:
+../HAL/LCD_Interface.h:
