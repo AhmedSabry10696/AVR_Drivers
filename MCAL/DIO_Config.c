@@ -15,18 +15,18 @@ const DIO_PinStatus_type PinsStatus[TOTAL_PINS] =
 {
     /* PORTA PINS 0:7*/
     INFREE,
-    INFREE,
-    INFREE,
-    INFREE,
-    INFREE,
-    INFREE,
-    INFREE,
-    INFREE,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
+    OUTPUT,
 
     /* PORTB PINS 0:7*/
     OUTPUT,
     OUTPUT,
-    INPULLUP,
+    OUTPUT,
     OUTPUT,
     OUTPUT,
     OUTPUT,
@@ -46,8 +46,8 @@ const DIO_PinStatus_type PinsStatus[TOTAL_PINS] =
     /* PORTD PINS 0:7*/
     OUTPUT,
     OUTPUT,
-    INPULLUP,
-    INPULLUP,
+    OUTPUT,
+    OUTPUT,
     OUTPUT,
     OUTPUT,
     OUTPUT,

@@ -16,6 +16,9 @@
 #include "MemMap.h"
 #include "Utils.h"
 
+/* array in DIO_Config.h file contains all pins direction */
+extern const DIO_PinStatus_type PinsStatus[TOTAL_PINS];
+
 typedef enum
 {
 	PINA0 = 0,
@@ -82,7 +85,7 @@ typedef enum
  * @brief Initialize any pin as output or input with or without pull up resistor
  * 
  * @param pin pin number PINA0:PINA7 PINB0:PINB7 PINC0:PINC7 PIND0:PIND7
- * @param status OUTPUT / INFREE / INPULLUP
+ * @param status OUTPUT - INFREE - INPULLUP
  */
 extern void DIO_InitPin(DIO_Pin_type pin, DIO_PinStatus_type status);
 
@@ -90,24 +93,29 @@ extern void DIO_InitPin(DIO_Pin_type pin, DIO_PinStatus_type status);
  * @brief set any pin value to high or low
  * 
  * @param pin pin number PINA0:PINA7 PINB0:PINB7 PINC0:PINC7 PIND0:PIND7
- * @param volt HIGH / LOW
+ * @param volt HIGH - LOW
  */
 extern void DIO_WritePin(DIO_Pin_type pin, DIO_Voltage_type volt);
 
+/**
+ * @brief toggle any pin state
+ * 
+ * @param pin pin number PINA0:PINA7 PINB0:PINB7 PINC0:PINC7 PIND0:PIND7
+ */
 extern void DIO_TogglePin(DIO_Pin_type pin);
 
 /**
  * @brief read any pin value
  * 
  * @param pin pin number PINA0:PINA7 PINB0:PINB7 PINC0:PINC7 PIND0:PIND7
- * @return DIO_Voltage_type HIGH / LOW
+ * @return DIO_Voltage_type HIGH - LOW
  */
 extern DIO_Voltage_type DIO_ReadPin(DIO_Pin_type pin);
 
 /**
  * @brief set any port value
  * 
- * @param port PA / PB / PC / PD 
+ * @param port PA - PB - PC - PD 
  * @param value unsigned char value 0:255
  */
 extern void DIO_WritePort(DIO_Port_type port, u8 value);
@@ -115,7 +123,7 @@ extern void DIO_WritePort(DIO_Port_type port, u8 value);
 /**
  * @brief Edit four lower pins in port without affecting upper four pins
  * 
- * @param port PA / PB / PC / PD
+ * @param port PA - PB - PC - PD
  * @param value 0:F
  */
 extern void DIO_EditPort_LowerHalf(DIO_Port_type port, u8 value);
@@ -123,7 +131,7 @@ extern void DIO_EditPort_LowerHalf(DIO_Port_type port, u8 value);
 /**
  * @brief Edit four higher pins in port without affecting lower four pins
  * 
- * @param port PA / PB / PC / PD
+ * @param port PA - PB - PC - PD
  * @param value 0:F
  */
 extern void DIO_EditPort_HigherHalf(DIO_Port_type port, u8 value);
@@ -131,12 +139,10 @@ extern void DIO_EditPort_HigherHalf(DIO_Port_type port, u8 value);
 /**
  * @brief read any port value
  * 
- * @param port PA / PB / PC / PD
+ * @param port PA - PB - PC - PD
  * @return u8 port value 0:255
  */
 extern u8 DIO_ReadPort(DIO_Port_type port);
-
-extern const DIO_PinStatus_type PinsStatus[TOTAL_PINS];
 
 /**
  * @brief Init all DIO in the controller
