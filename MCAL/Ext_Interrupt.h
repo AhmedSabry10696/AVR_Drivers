@@ -20,7 +20,8 @@
  * @brief External Interrupt sources 
  * 
  */
-typedef enum{
+typedef enum
+{
 	EX_INT0=0,
 	EX_INT1,
 	EX_INT2
@@ -30,7 +31,8 @@ typedef enum{
  * @brief External Interrupt Events
  * 
  */
-typedef enum{
+typedef enum
+{
 	LOW_LEVEL=0,
 	ANY_LOGIC_CHANGE,
 	FALLING_EDGE,
@@ -40,29 +42,29 @@ typedef enum{
 /**
  * @brief External Interrupt Enable
  * 
- * @param Interrupt EX_INT0/EX_INT1/EX_INT2
+ * @param Interrupt EX_INT0 - EX_INT1 - EX_INT2
  */
 extern void EXI_Enable(ExInterruptSource_type Interrupt);
 
 /**
  * @brief External Interrupt Disable
  * 
- * @param Interrupt EX_INT0/EX_INT1/EX_INT2
+ * @param Interrupt EX_INT0 - EX_INT1 - EX_INT2
  */
 extern void EXI_Disable(ExInterruptSource_type Interrupt);
 
 /**
  * @brief External Interrupt configure edge
  * 
- * @param Interrupt EX_INT0/EX_INT1/EX_INT2
- * @param Edge 	LOW_LEVEL/ANY_LOGIC_CHANGE/FALLING_EDGE/RISING_EDGE
+ * @param Interrupt EX_INT0 - EX_INT1 - EX_INT2
+ * @param Edge 	LOW_LEVEL - ANY_LOGIC_CHANGE - FALLING_EDGE - RISING_EDGE
  */
 extern void EXI_TriggerEdge(ExInterruptSource_type Interrupt,TriggerEdge_type Edge);
 
 /**
  * @brief External Interrupt Set callback function
  * 
- * @param Interrupt EX_INT0/EX_INT1/EX_INT2
+ * @param Interrupt EX_INT0 - EX_INT1 - EX_INT2
  * @param LocalPtr void function(void) to be performed when interrupt fired 
  */
 extern void EXI_SetCallBack(ExInterruptSource_type Interrupt,void(*LocalPtr)(void));
