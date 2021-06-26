@@ -15,6 +15,11 @@
 #include "StdTypes.h"
 #include "DIO_Interface.h"
 
+/* motor connections */
+#define IN1 PIND0
+#define IN2 PIND1 
+#define EN  PIND2
+
 /**
  * @brief drive DC motor to rotate in clock wise directions
  * 

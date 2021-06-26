@@ -10,7 +10,6 @@
  */
 
 #include "DC_Motor_Interface.h"
-#include "DC_Motor_Config.h"
 
 void DC_Motor_CW(void)
 {
