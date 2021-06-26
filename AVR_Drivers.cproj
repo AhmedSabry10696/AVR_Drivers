@@ -159,6 +159,12 @@
     <Compile Include="HAL\Sensors.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Stepper_Motor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Stepper_Motor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LIB\MemMap.h">
       <SubType>compile</SubType>
     </Compile>

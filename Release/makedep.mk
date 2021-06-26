@@ -12,6 +12,8 @@ HAL\SEGMENT.c
 
 HAL\Sensors.c
 
+HAL\Stepper_Motor.c
+
 main.c
 
 MCAL\ADC.c
