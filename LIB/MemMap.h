@@ -85,7 +85,7 @@
 /* ISR is created with no prologue or epilogue code */
 #define ISR_NAKED     __attribute__((naked))
 
-#define ISR(vector,...) void vector (void) __attribute__ ((signal))__VA_ARGS__ ;\
+#define ISR(vector,...) void vector (void) __attribute__ ((signal))__VA_ARGS__;\
 void vector (void)
 
 /************ Interrupt functions ************/
