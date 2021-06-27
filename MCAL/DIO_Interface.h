@@ -16,9 +16,6 @@
 #include "MemMap.h"
 #include "Utils.h"
 
-/* array in DIO_Config.h file contains all pins direction */
-extern const DIO_PinStatus_type PinsStatus[TOTAL_PINS];
-
 typedef enum
 {
 	PINA0 = 0,
@@ -149,5 +146,8 @@ extern u8 DIO_ReadPort(DIO_Port_type port);
  * 
  */
 extern void DIO_Init(void);
+
+/* array in DIO_Config.h file contains all pins direction */
+extern const DIO_PinStatus_type PinsStatus[TOTAL_PINS];
 
 #endif /* DIO_INTERFACE_H_ */
