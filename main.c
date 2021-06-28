@@ -36,7 +36,7 @@ int main(void)
 	EXI_Enable(EX_INT1);
 	EXI_Enable(EX_INT2);
 	
-	EXI_TriggerEdge(EX_INT0,FALLING_EDGE);
+	EXI_TriggerEdge(EX_INT0,LOW_LEVEL);
 	EXI_TriggerEdge(EX_INT1,FALLING_EDGE);
 	EXI_TriggerEdge(EX_INT0,FALLING_EDGE);
 
