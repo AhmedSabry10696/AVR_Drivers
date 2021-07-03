@@ -4,51 +4,26 @@
 #include "Utils.h"
 #include "DIO_Interface.h"
 #include "Ext_Interrupt.h"
+#include "ADC_Interface.h"
+#include "Timer.h"
 
-void toggle_led1(void)
+void pwm(void)
 {
-	DIO_TogglePin(PINC0);
-	_delay_ms(2000);
-	DIO_TogglePin(PINC0);
-	_delay_ms(2000);
-}
-void toggle_led2(void)
-{
-	DIO_TogglePin(PINC1);
-	_delay_ms(2000);
-	DIO_TogglePin(PINC1);
-	_delay_ms(2000);
-}
-void toggle_led3(void)
-{
-	DIO_TogglePin(PINC2);
-	_delay_ms(2000);
-	DIO_TogglePin(PINC2);
-	_delay_ms(2000);
+
 }
 
 int main(void)
 {	
+	u16 adc;
+	sei();
 	/* DIO init */
 	DIO_Init();
-	sei();
-	EXI_Enable(EX_INT0);
-	EXI_Enable(EX_INT1);
-	EXI_Enable(EX_INT2);
-	
-	EXI_TriggerEdge(EX_INT0,LOW_LEVEL);
-	EXI_TriggerEdge(EX_INT1,FALLING_EDGE);
-	EXI_TriggerEdge(EX_INT0,FALLING_EDGE);
+	ADC_Init(REF_AREF,ADC_Scaler_64);
 
-	EXI_SetCallBack(EX_INT0,toggle_led1);
-	EXI_SetCallBack(EX_INT1,toggle_led2);
-	EXI_SetCallBack(EX_INT2,toggle_led3);
+	TIMER0_Init(TIMER0_CTC,TIMER0_Scaler_8,OC0_Toggle_OnCompMatch);
 
 	while(1)
 	{
-		DIO_TogglePin(PINC3);
-		_delay_ms(500);
-		DIO_TogglePin(PINC3);
-		_delay_ms(500);
+
 	}
 }
