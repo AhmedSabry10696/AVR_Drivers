@@ -24,3 +24,5 @@ MCAL\DIO_Config.c
 
 MCAL\Ext_Interrupt.c
 
+MCAL\Timer.c
+

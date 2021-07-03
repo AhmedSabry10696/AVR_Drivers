@@ -198,6 +198,12 @@
     <Compile Include="MCAL\Ext_Interrupt.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\Timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Timer.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md">

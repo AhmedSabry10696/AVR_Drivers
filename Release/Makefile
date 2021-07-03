@@ -51,7 +51,8 @@ C_SRCS +=  \
 ../MCAL/ADC.c \
 ../MCAL/DIO.c \
 ../MCAL/DIO_Config.c \
-../MCAL/Ext_Interrupt.c
+../MCAL/Ext_Interrupt.c \
+../MCAL/Timer.c
 
 
 PREPROCESSING_SRCS += 
@@ -71,7 +72,8 @@ main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o \
-MCAL/Ext_Interrupt.o
+MCAL/Ext_Interrupt.o \
+MCAL/Timer.o
 
 OBJS_AS_ARGS +=  \
 HAL/KEYPAD.o \
@@ -84,7 +86,8 @@ main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o \
-MCAL/Ext_Interrupt.o
+MCAL/Ext_Interrupt.o \
+MCAL/Timer.o
 
 C_DEPS +=  \
 HAL/KEYPAD.d \
@@ -97,7 +100,8 @@ main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d \
-MCAL/Ext_Interrupt.d
+MCAL/Ext_Interrupt.d \
+MCAL/Timer.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/KEYPAD.d \
@@ -110,7 +114,8 @@ main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d \
-MCAL/Ext_Interrupt.d
+MCAL/Ext_Interrupt.d \
+MCAL/Timer.d
 
 OUTPUT_FILE_PATH +=AVR_Drivers.elf
 
@@ -126,6 +131,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
