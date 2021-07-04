@@ -23,7 +23,7 @@ void PWM_Init(void)
 {
     Timer1_Init(TIMER1_FASTPWM_ICR_TOP_MODE,TIMER1_SCALER_8);
     Timer1_OCRA_Mode(OCRA_NON_INVERTING);
-    Timer1_OCB_Mode(OCRB_DISCONNECTED);
+    Timer1_OCRB_Mode(OCRB_DISCONNECTED);
 }
 void PWM_Duty(u16 duty)
 {
