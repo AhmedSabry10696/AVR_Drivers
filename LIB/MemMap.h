@@ -173,12 +173,15 @@ void vector (void)
 #define ICR1    (*((volatile u16*)0x46))
 #define ICR1L   (*((volatile u8*)0x46))
 #define ICR1H   (*((volatile u8*)0x47))
+
 #define OCR1B   (*((volatile u16*)0x48))
 #define OCR1BL  (*((volatile u8*)0x48))
 #define OCR1BH  (*((volatile u8*)0x49))
+
 #define OCR1A   (*((volatile u16*)0x4A))
 #define OCR1AL  (*((volatile u8*)0x4A))
 #define OCR1AH  (*((volatile u8*)0x4B))
+
 #define TCNT1   (*((volatile u16*)0x4C))
 #define TCNT1L  (*((volatile u8*)0x4C))
 #define TCNT1H  (*((volatile u8*)0x4D))
