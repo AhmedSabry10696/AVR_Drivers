@@ -6,6 +6,7 @@
 #include "Ext_Interrupt.h"
 #include "ADC_Interface.h"
 #include "Timer.h"
+#include "Timer_Services.h"
 
 
 int main(void)
