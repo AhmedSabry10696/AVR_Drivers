@@ -7,7 +7,7 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../LIB/MemMap.h ../LIB/StdTypes.h ../LIB/Utils.h ../MCAL/DIO_Interface.h \
  ../LIB/StdTypes.h ../MCAL/Ext_Interrupt.h ../MCAL/ADC_Interface.h \
- ../MCAL/Timer.h
+ ../MCAL/Timer.h ../SERVICES/Timer_Services.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -36,3 +36,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../MCAL/ADC_Interface.h:
 
 ../MCAL/Timer.h:
+
+../SERVICES/Timer_Services.h:

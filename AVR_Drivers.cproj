@@ -129,9 +129,6 @@
     <Compile Include="HAL\DC_Motor.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\DC_Motor_Config.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="HAL\DC_Motor_Interface.h">
       <SubType>compile</SubType>
     </Compile>
@@ -202,6 +199,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\Timer.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\Timer_Services.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\Timer_Services.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

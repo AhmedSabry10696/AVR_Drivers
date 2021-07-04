@@ -52,7 +52,8 @@ C_SRCS +=  \
 ../MCAL/DIO.c \
 ../MCAL/DIO_Config.c \
 ../MCAL/Ext_Interrupt.c \
-../MCAL/Timer.c
+../MCAL/Timer.c \
+../SERVICES/Timer_Services.c
 
 
 PREPROCESSING_SRCS += 
@@ -73,7 +74,8 @@ MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o \
 MCAL/Ext_Interrupt.o \
-MCAL/Timer.o
+MCAL/Timer.o \
+SERVICES/Timer_Services.o
 
 OBJS_AS_ARGS +=  \
 HAL/KEYPAD.o \
@@ -87,7 +89,8 @@ MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o \
 MCAL/Ext_Interrupt.o \
-MCAL/Timer.o
+MCAL/Timer.o \
+SERVICES/Timer_Services.o
 
 C_DEPS +=  \
 HAL/KEYPAD.d \
@@ -101,7 +104,8 @@ MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d \
 MCAL/Ext_Interrupt.d \
-MCAL/Timer.d
+MCAL/Timer.d \
+SERVICES/Timer_Services.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/KEYPAD.d \
@@ -115,7 +119,8 @@ MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d \
 MCAL/Ext_Interrupt.d \
-MCAL/Timer.d
+MCAL/Timer.d \
+SERVICES/Timer_Services.d
 
 OUTPUT_FILE_PATH +=AVR_Drivers.elf
 
@@ -156,6 +161,8 @@ LINKER_SCRIPT_DEP+=
 
 
 
+
+
 HAL/%.o: ../HAL/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -171,6 +178,13 @@ HAL/%.o: ../HAL/%.c
 	
 
 MCAL/%.o: ../MCAL/%.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../HAL" -I"../MCAL" -I"../SERVICES" -I"../LIB" -I".."  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+SERVICES/%.o: ../SERVICES/%.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DNDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\include" -I"../HAL" -I"../MCAL" -I"../SERVICES" -I"../LIB" -I".."  -Os -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.2.132\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
