@@ -11,23 +11,26 @@
 
 #include "Timer_Services.h"
 
-static volatile u16 t1,t2,t3,flag=0,C;
+/* for input capture unit and timer1 overflow */
+static volatile u32 t1,t2,t3;
+static volatile u8 flag=0,c=0;
+
+/* for Timer1_SetIntTime_s function and Timer_func */
 static u32 NofOverFlow=0;
 static void(*fptr_timer)(void);
 
-/*
 void PWM_Init(void)
 {
     Timer1_Init(TIMER1_FASTPWM_ICR_TOP_MODE,TIMER1_SCALER_8);
     Timer1_OCRA_Mode(OCRA_NON_INVERTING);
     Timer1_OCB_Mode(OCRB_DISCONNECTED);
 }
-*/
 void PWM_Duty(u16 duty)
 {
     if (duty <= 100)
 	{
-		u16 Ton = ((u32)duty*(ICR1+1))/100;
+        u16 top = Timer1_ICR_Get();
+		u16 Ton = ((u32)duty*(top+1))/100;
 		if (Ton > 1)
 		{
             Timer1_OCRA_Set(Ton-1);
@@ -81,7 +84,7 @@ static void Timer_func(void)
 	c++;
 	if (c == NofOverFlow)
 	{
-		c=0;
+		c = 0;
 		fptr_timer();
 	}
 }
@@ -113,52 +116,88 @@ void Timer1_SetIntTime_s (u16 time,void(*LocalFptr)(void))
 
     /* interrupt every 1ms */
     Timer1_OCRA_Set(999);
+
+    /* calculate number of overflows and set global var */
 	NofOverFlow = time*1000;
+
+    /* set fptr_timer with the address of the function to call as specifed time */
 	fptr_timer = LocalFptr;
+
+    /* set callback of compare match with another Timer_func to reach to NofOverFlow */
 	Timer1_OCA_IntSetCallBack(Timer_func);
 	Timer1_OCA_IntEnable();
 }
 
+static void Func_OV(void)
+{
+	c++;
+}
+static void Func_ICU(void)
+{
+    if (0 == flag)
+	{
+		t1 = Timer1_ICR_Get()+((u32)c*65536);
+		Timer1_InputCaptureEdge(FALLING);
+		flag = 1;
+	}
+	else if (1 == flag)
+	{
+		t2 = Timer1_ICR_Get()+((u32)c*65536);
+		Timer1_InputCaptureEdge(RISING);
+		flag = 2;		
+	}
+	else if (2 == flag)
+	{
+		t3 = Timer1_ICR_Get()+((u32)c*65536);
+		Timer1_ICU_IntDisable();
+		flag = 3;
+	}	
+}
 void PWM_Measure(u32* Pfreq,u8* Pduty)
 {
-    u16 Ton,Toff;
+    u32 Ton,Toff;
 	
-	//TCNT1=0;
+    Timer1_Set(0);
 	Timer1_ICU_IntSetCallBack(Func_ICU);
+    Timer1_OVF_IntSetCallBack(Func_OV);
 	Timer1_InputCaptureEdge(RISING);
-	Timer1_ICU_InterruptEnable();
-	Timer1_OVF_InterruptEnable();
-	Timer1_OVF_SetCallBack(Func_OV);
+	Timer1_ICU_IntEnable();
+	Timer1_OVF_IntEnable();
 	flag=0;
 
-	Ton=t2-t1+c2*TOP;
-	Toff=t3-t2+(c3-c2)*TOP;
+    while(flag<3);
 
-	*Pduty=((u32)Ton*100)/((u32)Ton+Toff);
-	*Pfreq=(u32)1000000/((u32)Toff+Ton);
+	Ton = t2-t1;
+	Toff= t3-t2;
+
+	*Pduty=(Ton*100)/(Ton+Toff);
+	*Pfreq=(u32)1000000/(Toff+Ton);
 }
-void PWM_Measure2(u32* Pfreq,u8* Pduty)
+void PMW_StartMeasure(void)
 {
-    u16 Ton,Toff;
-	flag = 0;
-	
-    TCNT1=0;
-    /* PIND6 high */
-	while (DIO_ReadPin(PIND6));
-    /* PIND6 low */
-	while (!DIO_ReadPin(PIND6));
-	
-    TCNT1=0;
-	while (DIO_ReadPin(PIND6));
-	Ton = TCNT1;
-	
-    TCNT1=0;
-	while (!DIO_ReadPin(PIND6));
-	Toff=TCNT1;
-
-    /* calculate duty and frequency */
-	*Pduty=((u32)Ton*100)/(Ton+Toff);
-	*Pfreq=(u32)1000000/((u32)Toff+Ton);
+    if(0 == flag)
+    {
+        Timer1_Set(0);
+        Timer1_ICU_IntSetCallBack(Func_ICU);
+        Timer1_OVF_IntSetCallBack(Func_OV);
+        Timer1_InputCaptureEdge(RISING);
+        Timer1_ICU_IntEnable();
+        Timer1_OVF_IntEnable();
+    }
 }
+u8 PWM_GetRead(u32 *Pfreq, u8 *Pduty)
+{
+    u32 Ton,Toff;
 
-static void Func_ICU(void);
+    if(3 == flag)
+    {
+        Ton = t2-t1;
+        Toff= t3-t2;
+
+        *Pduty=(Ton*100)/(Ton+Toff);
+        *Pfreq=(u32)1000000/(Toff+Ton);
+        flag = 0;
+        return 1;
+    }
+    return 0;
+}
