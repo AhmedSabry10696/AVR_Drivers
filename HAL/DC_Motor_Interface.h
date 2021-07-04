@@ -14,11 +14,12 @@
 
 #include "StdTypes.h"
 #include "DIO_Interface.h"
+#include "Timer.h"
 
 /* motor connections */
 #define IN1 PIND0
 #define IN2 PIND1 
-#define EN  PIND2
+#define EN  PINB3
 
 /**
  * @brief drive DC motor to rotate in clock wise directions
@@ -31,6 +32,17 @@ extern void DC_Motor_CW(void);
  * 
  */
 extern void DC_Motor_CCW(void);
+
+/**
+ * @brief Init Timer0 to generate pwm 
+ */
+extern void DC_Motor_Speed_Init(void);
+/**
+ * @brief Set DC motor speed 
+ * 
+ * @param speed 0:100
+ */
+extern void DC_Motor_Speed(u8 speed);
 
 /**
  * @brief stop DC motor
