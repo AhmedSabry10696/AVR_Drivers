@@ -7,20 +7,15 @@
 #include "ADC_Interface.h"
 #include "Timer.h"
 
-void pwm(void)
-{
-
-}
 
 int main(void)
 {	
-	u16 adc;
 	sei();
 	/* DIO init */
 	DIO_Init();
 	ADC_Init(REF_AREF,ADC_Scaler_64);
 
-	TIMER0_Init(TIMER0_CTC,TIMER0_Scaler_8,OC0_Toggle_OnCompMatch);
+	Timer0_Init(TIMER0_CTC,TIMER0_SCALER_8);
 
 	while(1)
 	{
