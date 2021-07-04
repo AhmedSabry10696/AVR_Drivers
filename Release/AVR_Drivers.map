@@ -148,7 +148,6 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text.pwm      0x00000000        0x2 main.o
  .text          0x00000000        0x0 MCAL/ADC.o
  .data          0x00000000        0x0 MCAL/ADC.o
  .bss           0x00000000        0x0 MCAL/ADC.o
@@ -202,17 +201,67 @@ Discarded input sections
  .text          0x00000000        0x0 MCAL/Timer.o
  .data          0x00000000        0x0 MCAL/Timer.o
  .bss           0x00000000        0x0 MCAL/Timer.o
- .text.TIMER0_OvfIntEnable
+ .text.Timer0_OC0_Mode
+                0x00000000       0x36 MCAL/Timer.o
+ .text.Timer0_Set
+                0x00000000        0x4 MCAL/Timer.o
+ .text.Timer0_Get
+                0x00000000        0x4 MCAL/Timer.o
+ .text.Timer0_OCR_Set
+                0x00000000        0x4 MCAL/Timer.o
+ .text.Timer0_OVF_IntEnable
                 0x00000000        0x8 MCAL/Timer.o
- .text.TIMER0_OvfIntDisable
+ .text.Timer0_OVF_IntDisable
                 0x00000000        0x8 MCAL/Timer.o
- .text.TIMER0_ComIntEnable
+ .text.Timer0_OC_IntEnable
                 0x00000000        0x8 MCAL/Timer.o
- .text.TIMER0_ComIntDisable
+ .text.Timer0_OC_IntDisable
                 0x00000000        0x8 MCAL/Timer.o
- .text.TIMER0_OvfIntSetCallBack
+ .text.Timer0_OVF_IntSetCallBack
                 0x00000000        0xa MCAL/Timer.o
- .text.TIMER0_ComIntSetCallBack
+ .text.Timer0_OC_IntSetCallBack
+                0x00000000        0xa MCAL/Timer.o
+ .text.Timer1_Init
+                0x00000000       0x78 MCAL/Timer.o
+ .text.Timer1_OCRA_Mode
+                0x00000000       0x36 MCAL/Timer.o
+ .text.Timer1_OCRB_Mode
+                0x00000000       0x36 MCAL/Timer.o
+ .text.Timer1_InputCaptureEdge
+                0x00000000       0x16 MCAL/Timer.o
+ .text.Timer1_Set
+                0x00000000        0x6 MCAL/Timer.o
+ .text.Timer1_Get
+                0x00000000        0x6 MCAL/Timer.o
+ .text.Timer1_OCRA_Set
+                0x00000000        0x6 MCAL/Timer.o
+ .text.Timer1_OCRB_Set
+                0x00000000        0x6 MCAL/Timer.o
+ .text.Timer1_ICR_Set
+                0x00000000        0x6 MCAL/Timer.o
+ .text.Timer1_OVF_IntEnable
+                0x00000000        0x8 MCAL/Timer.o
+ .text.Timer1_OVF_IntDisable
+                0x00000000        0x8 MCAL/Timer.o
+ .text.Timer1_OCA_IntEnable
+                0x00000000        0x8 MCAL/Timer.o
+ .text.Timer1_OCA_IntDisable
+                0x00000000        0x8 MCAL/Timer.o
+ .text.Timer1_OCB_IntEnable
+                0x00000000        0x8 MCAL/Timer.o
+ .text.Timer1_OCB_IntDisable
+                0x00000000        0x8 MCAL/Timer.o
+ .text.Timer1_ICU_IntEnable
+                0x00000000        0x8 MCAL/Timer.o
+ .text.Timer1_ICU_IntDisable
+                0x00000000        0x8 MCAL/Timer.o
+ .text.Timer1_OVF_IntSetCallBack
+                0x00000000        0xa MCAL/Timer.o
+ .text.Timer1_OCA_IntSetCallBack
+                0x00000000        0xa MCAL/Timer.o
+ .text.Timer1_OCB_IntSetCallBack
+                0x00000000        0xa MCAL/Timer.o
+ .text.Timer1_ICU_IntSetCallBack
                 0x00000000        0xa MCAL/Timer.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
@@ -637,7 +686,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x4e2
+.text           0x00000000      0x61a
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -698,59 +747,67 @@ END GROUP
  .text          0x0000008e        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x0000008e                __vector_12
                 0x0000008e                __bad_interrupt
-                0x0000008e                __vector_6
                 0x0000008e                __vector_13
                 0x0000008e                __vector_17
                 0x0000008e                __vector_19
-                0x0000008e                __vector_7
                 0x0000008e                __vector_5
                 0x0000008e                __vector_4
-                0x0000008e                __vector_9
                 0x0000008e                __vector_15
-                0x0000008e                __vector_8
                 0x0000008e                __vector_14
                 0x0000008e                __vector_18
                 0x0000008e                __vector_20
                 0x00000092                . = ALIGN (0x2)
  *(.text.*)
  .text.startup.main
-                0x00000092       0x1a main.o
+                0x00000092       0x18 main.o
                 0x00000092                main
  .text.ADC_Init
-                0x000000ac       0x2a MCAL/ADC.o
-                0x000000ac                ADC_Init
+                0x000000aa       0x2a MCAL/ADC.o
+                0x000000aa                ADC_Init
  .text.__vector_16
-                0x000000d6       0x52 MCAL/ADC.o
-                0x000000d6                __vector_16
+                0x000000d4       0x52 MCAL/ADC.o
+                0x000000d4                __vector_16
  .text.DIO_InitPin
-                0x00000128      0x1a8 MCAL/DIO.o
-                0x00000128                DIO_InitPin
+                0x00000126      0x1a8 MCAL/DIO.o
+                0x00000126                DIO_InitPin
  .text.DIO_Init
-                0x000002d0       0x26 MCAL/DIO.o
-                0x000002d0                DIO_Init
+                0x000002ce       0x26 MCAL/DIO.o
+                0x000002ce                DIO_Init
  .text.__vector_1
-                0x000002f6       0x52 MCAL/Ext_Interrupt.o
-                0x000002f6                __vector_1
+                0x000002f4       0x52 MCAL/Ext_Interrupt.o
+                0x000002f4                __vector_1
  .text.__vector_2
-                0x00000348       0x52 MCAL/Ext_Interrupt.o
-                0x00000348                __vector_2
+                0x00000346       0x52 MCAL/Ext_Interrupt.o
+                0x00000346                __vector_2
  .text.__vector_3
-                0x0000039a       0x52 MCAL/Ext_Interrupt.o
-                0x0000039a                __vector_3
- .text.TIMER0_Init
-                0x000003ec       0x4e MCAL/Timer.o
-                0x000003ec                TIMER0_Init
+                0x00000398       0x52 MCAL/Ext_Interrupt.o
+                0x00000398                __vector_3
+ .text.Timer0_Init
+                0x000003ea       0x40 MCAL/Timer.o
+                0x000003ea                Timer0_Init
  .text.__vector_11
-                0x0000043a       0x52 MCAL/Timer.o
-                0x0000043a                __vector_11
+                0x0000042a       0x52 MCAL/Timer.o
+                0x0000042a                __vector_11
  .text.__vector_10
-                0x0000048c       0x52 MCAL/Timer.o
-                0x0000048c                __vector_10
-                0x000004de                . = ALIGN (0x2)
+                0x0000047c       0x52 MCAL/Timer.o
+                0x0000047c                __vector_10
+ .text.__vector_9
+                0x000004ce       0x52 MCAL/Timer.o
+                0x000004ce                __vector_9
+ .text.__vector_7
+                0x00000520       0x52 MCAL/Timer.o
+                0x00000520                __vector_7
+ .text.__vector_8
+                0x00000572       0x52 MCAL/Timer.o
+                0x00000572                __vector_8
+ .text.__vector_6
+                0x000005c4       0x52 MCAL/Timer.o
+                0x000005c4                __vector_6
+                0x00000616                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000004de        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x000004de                _exit
-                0x000004de                exit
+ .fini9         0x00000616        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000616                _exit
+                0x00000616                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -769,11 +826,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000004de        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000616        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000004e2                _etext = .
+                0x0000061a                _etext = .
 
-.data           0x00800060       0x20 load address 0x000004e2
+.data           0x00800060       0x20 load address 0x0000061a
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -787,7 +844,7 @@ END GROUP
                 0x00800080                _edata = .
                 0x00800080                PROVIDE (__data_end, .)
 
-.bss            0x00800080        0xc
+.bss            0x00800080       0x14
                 0x00800080                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
@@ -799,20 +856,28 @@ END GROUP
                 0x00800084        0x2 MCAL/Ext_Interrupt.o
  .bss.INT0_Fptr
                 0x00800086        0x2 MCAL/Ext_Interrupt.o
- .bss.TIMER0_COM_IntFptr
+ .bss.Timer1_ICU_IntFptr
                 0x00800088        0x2 MCAL/Timer.o
- .bss.TIMER0_OVF_IntFptr
+ .bss.Timer1_OCB_IntFptr
                 0x0080008a        0x2 MCAL/Timer.o
+ .bss.Timer1_OCA_IntFptr
+                0x0080008c        0x2 MCAL/Timer.o
+ .bss.Timer1_OVF_IntFptr
+                0x0080008e        0x2 MCAL/Timer.o
+ .bss.TIMER0_COM_IntFptr
+                0x00800090        0x2 MCAL/Timer.o
+ .bss.TIMER0_OVF_IntFptr
+                0x00800092        0x2 MCAL/Timer.o
  *(COMMON)
-                0x0080008c                PROVIDE (__bss_end, .)
-                0x000004e2                __data_load_start = LOADADDR (.data)
-                0x00000502                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800094                PROVIDE (__bss_end, .)
+                0x0000061a                __data_load_start = LOADADDR (.data)
+                0x0000063a                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080008c        0x0
+.noinit         0x00800094        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080008c                _end = .
+                0x00800094                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
