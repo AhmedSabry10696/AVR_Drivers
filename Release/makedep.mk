@@ -14,6 +14,8 @@ HAL\Sensors.c
 
 HAL\Stepper_Motor.c
 
+HAL\UltraSonic.c
+
 main.c
 
 MCAL\ADC.c

@@ -162,6 +162,12 @@
     <Compile Include="HAL\Stepper_Motor.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\UltraSonic.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\UltraSonic.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="LIB\MemMap.h">
       <SubType>compile</SubType>
     </Compile>

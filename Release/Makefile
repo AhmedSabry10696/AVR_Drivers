@@ -47,6 +47,7 @@ C_SRCS +=  \
 ../HAL/SEGMENT.c \
 ../HAL/Sensors.c \
 ../HAL/Stepper_Motor.c \
+../HAL/UltraSonic.c \
 ../main.c \
 ../MCAL/ADC.c \
 ../MCAL/DIO.c \
@@ -69,6 +70,7 @@ HAL/LCD.o \
 HAL/SEGMENT.o \
 HAL/Sensors.o \
 HAL/Stepper_Motor.o \
+HAL/UltraSonic.o \
 main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
@@ -84,6 +86,7 @@ HAL/LCD.o \
 HAL/SEGMENT.o \
 HAL/Sensors.o \
 HAL/Stepper_Motor.o \
+HAL/UltraSonic.o \
 main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
@@ -99,6 +102,7 @@ HAL/LCD.d \
 HAL/SEGMENT.d \
 HAL/Sensors.d \
 HAL/Stepper_Motor.d \
+HAL/UltraSonic.d \
 main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
@@ -114,6 +118,7 @@ HAL/LCD.d \
 HAL/SEGMENT.d \
 HAL/Sensors.d \
 HAL/Stepper_Motor.d \
+HAL/UltraSonic.d \
 main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
@@ -136,6 +141,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
