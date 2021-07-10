@@ -62,7 +62,7 @@ void ULTRASONIC_Start(ULTRASONIC_type ultra)
 }
 u8 ULTRASONIC_GetReadNoBlock(u16 *pdistance)
 {
-    u16 d,time;
+    u16 time;
     if (2 == flag)
     {
         time = t2-t1;
