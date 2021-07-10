@@ -8,15 +8,16 @@
 #include "Timer.h"
 #include "Timer_Services.h"
 
+const int x = 10;
 
 int main(void)
 {	
-	sei();
+	//sei();
+	int *ptr = &x;
+	*ptr = 30;
+
 	/* DIO init */
 	DIO_Init();
-	ADC_Init(REF_AREF,ADC_Scaler_64);
-
-	Timer0_Init(TIMER0_CTC,TIMER0_SCALER_8);
 
 	while(1)
 	{
