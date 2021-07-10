@@ -70,32 +70,32 @@ void Timer0_OC0_Mode(TIMER0_OC0_type mode)
 	}
 }
 
-void Timer0_Set(u8 time)
+inline void Timer0_Set(u8 time)
 {
     TCNT0 = time;
 }
-u8   Timer0_Get(void)
+inline u8 Timer0_Get(void)
 {
     return TCNT0;
 }
-void Timer0_OCR_Set(u8 time)
+inline void Timer0_OCR_Set(u8 time)
 {
     OCR0 = time;
 }
 
-void Timer0_OVF_IntEnable(void)
+inline void Timer0_OVF_IntEnable(void)
 {
     SET_BIT(TIMSK,TOIE0);
 }
-void Timer0_OVF_IntDisable(void)
+inline void Timer0_OVF_IntDisable(void)
 {
     CLEAR_BIT(TIMSK,TOIE0);
 }
-void Timer0_OC_IntEnable(void)
+inline void Timer0_OC_IntEnable(void)
 {
     SET_BIT(TIMSK,OCIE0);
 }
-void Timer0_OC_IntDisable(void)
+inline void Timer0_OC_IntDisable(void)
 {
     CLEAR_BIT(TIMSK,OCIE0);
 }
@@ -204,27 +204,27 @@ void Timer1_InputCaptureEdge(TIMER1_ICU_Edge_type edge)
         CLEAR_BIT(TCCR1B,ICES1);
 }
 
-void Timer1_Set(u16 time)
+inline void Timer1_Set(u16 time)
 {
     TCNT1 = time;
 }
-u16  Timer1_Get(void)
+inline u16 Timer1_Get(void)
 {
     return TCNT1;
 }
-void Timer1_OCRA_Set(u16 time)
+inline void Timer1_OCRA_Set(u16 time)
 {
     OCR1A = time;
 }
-void Timer1_OCRB_Set(u16 time)
+inline void Timer1_OCRB_Set(u16 time)
 {
     OCR1B = time;
 }
-void Timer1_ICR_Set(u16 time)
+inline void Timer1_ICR_Set(u16 time)
 {
     ICR1 = time;
 }
-u16 Timer1_ICR_Get(void)
+inline u16 Timer1_ICR_Get(void)
 {
     return ICR1;
 }
