@@ -63,19 +63,19 @@ extern void Timer0_OC0_Mode(TIMER0_OC0_type mode);
  * 
  * @param time 0:255
  */
-extern void Timer0_Set(u8 time);
+extern inline void Timer0_Set(u8 time);
 /**
  * @brief Get TCNT0 value
  * 
  * @return u8 0:255
  */
-extern u8 Timer0_Get(void);
+extern inline u8 Timer0_Get(void);
 /**
  * @brief Set OCR register value
  * 
  * @param time 0:255
  */
-extern void Timer0_OCR_Set(u8 time);
+extern inline void Timer0_OCR_Set(u8 time);
 
 /**
  * @brief Enable interrupt for T0 overflow
@@ -184,37 +184,37 @@ extern void Timer1_InputCaptureEdge(TIMER1_ICU_Edge_type edge);
  * 
  * @param time 0:65535
  */
-extern void Timer1_Set(u16 time);
+extern inline void Timer1_Set(u16 time);
 /**
  * @brief Get timer1 value
  * 
  * @return u16 0:65535
  */
-extern u16 Timer1_Get(void);
+extern inline u16 Timer1_Get(void);
 /**
  * @brief Set OCRA register value
  * 
  * @param time 0:65535
  */
-extern void Timer1_OCRA_Set(u16 time);
+extern inline void Timer1_OCRA_Set(u16 time);
 /**
  * @brief Set OCRB register value
  * 
  * @param time 0:65535
  */
-extern void Timer1_OCRB_Set(u16 time);
+extern inline void Timer1_OCRB_Set(u16 time);
 /**
  * @brief Set ICR register value
  * 
  * @param time 0:65535
  */
-extern void Timer1_ICR_Set(u16 time);
+extern inline void Timer1_ICR_Set(u16 time);
 /**
  * @brief Get ICR1 register value
  * 
  * @return u16 0:65535
  */
-extern u16 Timer1_ICR_Get(void);
+extern inline u16 Timer1_ICR_Get(void);
 
 
 /**
