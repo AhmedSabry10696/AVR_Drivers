@@ -21,7 +21,7 @@
 
 /* LCD Data bits */
 #if (DATA_BITS_MODE == 8)
-	#define LCD_DATA_PORT PD
+	#define LCD_DATA_PORT PC
 
 #elif (DATA_BITS_MODE == 4)
 	#define D4  PINA4
@@ -31,9 +31,9 @@
 #endif
 
 /* LCD control Pins */
-#define E	PINB0
-#define RW	PINB1
-#define RS	PINB2
+#define E	PINA7
+#define RW	PINA6
+#define RS	PINA5
 
 /* LCD Commands */
 #define CURSOR_ON 0x0E
