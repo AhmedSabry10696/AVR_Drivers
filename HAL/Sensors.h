@@ -14,9 +14,9 @@
 
 #include "ADC_Interface.h"
 
-#define MPX4110 CH_0
-#define POT     CH_1
-#define LM35    CH_2
+#define MPX4110 CH_1
+#define POT     CH_2
+#define LM35    CH_0
 
 /**
  * @brief POT voltage read
