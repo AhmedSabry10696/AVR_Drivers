@@ -30,7 +30,6 @@
 #define PIND    (*((volatile u8 *)0x30))
 #define DDRD    (*((volatile u8 *)0x31))
 #define PORTD   (*((volatile u8 *)0x32))
-
 /*********** ADC Registers *************/
 #define SFIOR   (*((volatile u8 *)0x50))
 #define ADTS0   5
@@ -55,7 +54,6 @@
 #define ADCH    (*((volatile u8 *)0x25))
 #define ADCL    (*((volatile u8 *)0x24))
 #define ADC     (*((volatile u16*)0x24))
-
 /********External Interrupt REG*********/
 #define MCUCR   (*((volatile u8 *)0x55))
 #define ISC00   0
@@ -75,7 +73,6 @@
 #define INTF2   5
 #define INTF0   6
 #define INTF1   7
-
 /**************** Interrupt service routine ********************/
 #define _VECTOR(N) __vector_ ## N
 
@@ -86,16 +83,15 @@
 /* ISR is created with no prologue or epilogue code */
 #define ISR_NAKED     __attribute__((naked))
 
-/* ISR Macro with variable arguments */
+/* ISR Macro with variable arguments (variadic function) */
 #define ISR(vector,...) void vector (void) __attribute__ ((signal))__VA_ARGS__;\
 void vector (void)
 
-/************ Interrupt functions ************/
+/*************** Interrupt Macros *************/
 # define sei()  __asm__ __volatile__ ("sei" ::)
 # define cli()  __asm__ __volatile__ ("cli" ::)
 # define ret()  __asm__ __volatile__ ("ret" ::)
 # define reti() __asm__ __volatile__ ("reti" ::)
-
 /********** Interrupt Vector Table ***********/
 /* External Interrupt Request 0 */
 #define INT0_VECT __vector_1
@@ -139,8 +135,7 @@ void vector (void)
 #define SPM_RDY_VECT __vector_20
 /* Bad Interrupt Vector */
 #define BAD_VECT __vector_default
-
-/******************** Timers REG *********************/
+/************ Timers REG **************/
 #define TWCR    (*((volatile u8*)0x56))
 #define SPMCR   (*((volatile u8*)0x57))
 #define TIFR    (*((volatile u8*)0x58))
@@ -154,7 +149,6 @@ void vector (void)
 #define TOIE1   2
 #define OCIE0   1
 #define TOIE0   0
-
 /************ Timer0 REG **************/
 #define TCNT0   (*((volatile u8*)0x52))
 #define OCR0    (*((volatile u8*)0x5C))
@@ -168,7 +162,6 @@ void vector (void)
 #define CS02    2
 #define CS01    1
 #define CS00    0
-
 /************* TIMER1 REG **************/
 #define ICR1    (*((volatile u16*)0x46))
 #define ICR1L   (*((volatile u8*)0x46))
@@ -206,7 +199,6 @@ void vector (void)
 #define WGM10   0
 
 #define OSCCAL  (*((volatile u8*)0x51))
-
 /************* Timer 2 *****************/
 #define OCR2    (*((volatile u8*)0x43))
 #define TCNT2   (*((volatile u8*)0x44))
@@ -220,27 +212,18 @@ void vector (void)
 #define CS22    2
 #define CS21    1
 #define CS20    0
+/********** UART Registers ***********/
+#define UDR     (*(volatile u8*)0x2C)
+#define UCSRA   (*(volatile u8*)0x2B)
+#define RXC     7
+#define TXC     6
+#define UDRE    5
+#define FE      4
+#define DOR     3
+#define UPE     2
+#define U2X     1
+#define MPCM    0
 
-/*
-//ASSR
-#define AS2     3
-#define TCN2UB  2
-#define OCR2UB  1
-#define TCR2UB  0
-
-#define WDTCR    (*((volatile u8*)0x41))
-#define WDTOE   4
-#define WDE     3
-#define WDP2    2
-#define WDP1    1
-#define WDP0    0
-*/
-
-/*****************UART Registers*****************/
-/* USART Baud Rate Register Low */
-#define UBRRL   (*(volatile u8*)0x29)
-
-/* USART Control and Status Register B */
 #define UCSRB   (*(volatile u8*)0x2A)
 #define RXCIE   7
 #define TXCIE   6
@@ -252,35 +235,18 @@ void vector (void)
 #define RXB8    1
 #define TXB8    0
 
-/* USART Control and Status Register A */
-#define UCSRA   (*(volatile u8*)0x2B)
-#define RXC     7
-#define TXC     6
-#define UDRE    5
-#define FE      4
-#define DOR     3
-#define UPE     2
-#define U2X     1
-#define MPCM    0
-
-/* USART I/O Data Register */
-#define UDR     (*(volatile u8*)0x2C)
-
-/* USART Baud Rate Register High */
-#define UBRRH   (*(volatile u8*)0x40)
-
-/* USART Control and Status Register C */
 #define UCSRC   (*(volatile u8*)0x40)
+#define URSEL   7
+#define UMSEL   6
+#define UPM1    5
+#define UPM0    4
+#define USBS    3
+#define UCSZ1   2
+#define UCSZ0   1
+#define UCPOL   0
 
-/* USART Register C */
-#define URSEL        7
-#define UMSEL        6
-#define UPM1         5
-#define UPM0         4
-#define USBS         3
-#define UCSZ1        2
-#define UCSZ0        1
-#define UCPOL        0
+#define UBRRH   (*(volatile u8*)0x40)
+#define UBRRL   (*(volatile u8*)0x29)
 
 /************** SPI REG **************/
 /* SPI Control Register */
@@ -386,5 +352,20 @@ void vector (void)
 /* bit 2 reserved */
 #define TWPS1   1
 #define TWPS0   0
+
+/*
+//ASSR
+#define AS2     3
+#define TCN2UB  2
+#define OCR2UB  1
+#define TCR2UB  0
+
+#define WDTCR    (*((volatile u8*)0x41))
+#define WDTOE   4
+#define WDE     3
+#define WDP2    2
+#define WDP1    1
+#define WDP0    0
+*/
 
 #endif /* MEMMAP_H_ */
