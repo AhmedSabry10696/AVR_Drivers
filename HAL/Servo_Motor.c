@@ -20,7 +20,7 @@ void Servo_Init(void)
     Timer1_ICR_Set(20000-1);
 
     /* angle 0 ton=1ms*/
-    Timer1_OCRB_Set(1000-1);
+    Timer1_OCRB_Set(999);
 }
 
 void Servo_SetPosition(u8 angle)
