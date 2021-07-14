@@ -46,6 +46,7 @@ C_SRCS +=  \
 ../HAL/LCD.c \
 ../HAL/SEGMENT.c \
 ../HAL/Sensors.c \
+../HAL/Servo_Motor.c \
 ../HAL/Stepper_Motor.c \
 ../HAL/UltraSonic.c \
 ../main.c \
@@ -54,7 +55,10 @@ C_SRCS +=  \
 ../MCAL/DIO_Config.c \
 ../MCAL/Ext_Interrupt.c \
 ../MCAL/Timer.c \
-../SERVICES/Timer_Services.c
+../MCAL/Uart.c \
+../MCAL/Uart_Config.c \
+../SERVICES/Timer_Services.c \
+../SERVICES/Uart_Services.c
 
 
 PREPROCESSING_SRCS += 
@@ -69,6 +73,7 @@ HAL/DC_Motor.o \
 HAL/LCD.o \
 HAL/SEGMENT.o \
 HAL/Sensors.o \
+HAL/Servo_Motor.o \
 HAL/Stepper_Motor.o \
 HAL/UltraSonic.o \
 main.o \
@@ -77,7 +82,10 @@ MCAL/DIO.o \
 MCAL/DIO_Config.o \
 MCAL/Ext_Interrupt.o \
 MCAL/Timer.o \
-SERVICES/Timer_Services.o
+MCAL/Uart.o \
+MCAL/Uart_Config.o \
+SERVICES/Timer_Services.o \
+SERVICES/Uart_Services.o
 
 OBJS_AS_ARGS +=  \
 HAL/KEYPAD.o \
@@ -85,6 +93,7 @@ HAL/DC_Motor.o \
 HAL/LCD.o \
 HAL/SEGMENT.o \
 HAL/Sensors.o \
+HAL/Servo_Motor.o \
 HAL/Stepper_Motor.o \
 HAL/UltraSonic.o \
 main.o \
@@ -93,7 +102,10 @@ MCAL/DIO.o \
 MCAL/DIO_Config.o \
 MCAL/Ext_Interrupt.o \
 MCAL/Timer.o \
-SERVICES/Timer_Services.o
+MCAL/Uart.o \
+MCAL/Uart_Config.o \
+SERVICES/Timer_Services.o \
+SERVICES/Uart_Services.o
 
 C_DEPS +=  \
 HAL/KEYPAD.d \
@@ -101,6 +113,7 @@ HAL/DC_Motor.d \
 HAL/LCD.d \
 HAL/SEGMENT.d \
 HAL/Sensors.d \
+HAL/Servo_Motor.d \
 HAL/Stepper_Motor.d \
 HAL/UltraSonic.d \
 main.d \
@@ -109,7 +122,10 @@ MCAL/DIO.d \
 MCAL/DIO_Config.d \
 MCAL/Ext_Interrupt.d \
 MCAL/Timer.d \
-SERVICES/Timer_Services.d
+MCAL/Uart.d \
+MCAL/Uart_Config.d \
+SERVICES/Timer_Services.d \
+SERVICES/Uart_Services.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/KEYPAD.d \
@@ -117,6 +133,7 @@ HAL/DC_Motor.d \
 HAL/LCD.d \
 HAL/SEGMENT.d \
 HAL/Sensors.d \
+HAL/Servo_Motor.d \
 HAL/Stepper_Motor.d \
 HAL/UltraSonic.d \
 main.d \
@@ -125,7 +142,10 @@ MCAL/DIO.d \
 MCAL/DIO_Config.d \
 MCAL/Ext_Interrupt.d \
 MCAL/Timer.d \
-SERVICES/Timer_Services.d
+MCAL/Uart.d \
+MCAL/Uart_Config.d \
+SERVICES/Timer_Services.d \
+SERVICES/Uart_Services.d
 
 OUTPUT_FILE_PATH +=AVR_Drivers.elf
 
@@ -141,6 +161,14 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
+
+
 
 
 

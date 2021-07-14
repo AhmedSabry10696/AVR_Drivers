@@ -156,6 +156,12 @@
     <Compile Include="HAL\Sensors.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Servo_Motor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Servo_Motor.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\Stepper_Motor.c">
       <SubType>compile</SubType>
     </Compile>
@@ -207,10 +213,25 @@
     <Compile Include="MCAL\Timer.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\Uart.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Uart.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Uart_Config.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="SERVICES\Timer_Services.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="SERVICES\Timer_Services.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\Uart_Services.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\Uart_Services.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

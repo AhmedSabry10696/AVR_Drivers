@@ -12,6 +12,8 @@ HAL\SEGMENT.c
 
 HAL\Sensors.c
 
+HAL\Servo_Motor.c
+
 HAL\Stepper_Motor.c
 
 HAL\UltraSonic.c
@@ -28,5 +30,11 @@ MCAL\Ext_Interrupt.c
 
 MCAL\Timer.c
 
+MCAL\Uart.c
+
+MCAL\Uart_Config.c
+
 SERVICES\Timer_Services.c
+
+SERVICES\Uart_Services.c
 
