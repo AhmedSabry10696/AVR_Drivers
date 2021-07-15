@@ -30,6 +30,7 @@
 #define PIND    (*((volatile u8 *)0x30))
 #define DDRD    (*((volatile u8 *)0x31))
 #define PORTD   (*((volatile u8 *)0x32))
+
 /*********** ADC Registers *************/
 #define SFIOR   (*((volatile u8 *)0x50))
 #define ADTS0   5
@@ -54,6 +55,7 @@
 #define ADCH    (*((volatile u8 *)0x25))
 #define ADCL    (*((volatile u8 *)0x24))
 #define ADC     (*((volatile u16*)0x24))
+
 /********External Interrupt REG*********/
 #define MCUCR   (*((volatile u8 *)0x55))
 #define ISC00   0
@@ -73,6 +75,7 @@
 #define INTF2   5
 #define INTF0   6
 #define INTF1   7
+
 /**************** Interrupt service routine ********************/
 #define _VECTOR(N) __vector_ ## N
 
@@ -93,6 +96,7 @@ void vector (void)
 # define ret()  __asm__ __volatile__ ("ret" ::)
 # define reti() __asm__ __volatile__ ("reti" ::)
 /********** Interrupt Vector Table ***********/
+
 /* External Interrupt Request 0 */
 #define INT0_VECT __vector_1
 /* External Interrupt Request 1 */
@@ -135,10 +139,35 @@ void vector (void)
 #define SPM_RDY_VECT __vector_20
 /* Bad Interrupt Vector */
 #define BAD_VECT __vector_default
+
 /************ Timers REG **************/
 #define TWCR    (*((volatile u8*)0x56))
+#define TWINT   7
+#define TWEA    6
+#define TWSTA   5
+#define TWSTO   4
+#define TWWC    3
+#define TWEN    2
+#define TWIE    0
+
 #define SPMCR   (*((volatile u8*)0x57))
+#define SPMIE   7
+#define RWWSB   6
+#define RWWSRE  4
+#define BLBSET  3
+#define PGWRT   2
+#define PGERS   1
+#define SPMEN   0
+
 #define TIFR    (*((volatile u8*)0x58))
+#define OCF2    7
+#define TOV2    6
+#define ICF1    5
+#define OCF1A   4
+#define OCF1B   3
+#define TOV1    2
+#define OCF0    1
+#define TOV0    0
 
 #define TIMSK   (*((volatile u8*)0x59))
 #define OCIE2   7
@@ -149,6 +178,7 @@ void vector (void)
 #define TOIE1   2
 #define OCIE0   1
 #define TOIE0   0
+
 /************ Timer0 REG **************/
 #define TCNT0   (*((volatile u8*)0x52))
 #define OCR0    (*((volatile u8*)0x5C))
@@ -162,6 +192,7 @@ void vector (void)
 #define CS02    2
 #define CS01    1
 #define CS00    0
+
 /************* TIMER1 REG **************/
 #define ICR1    (*((volatile u16*)0x46))
 #define ICR1L   (*((volatile u8*)0x46))
@@ -199,6 +230,7 @@ void vector (void)
 #define WGM10   0
 
 #define OSCCAL  (*((volatile u8*)0x51))
+
 /************* Timer 2 *****************/
 #define OCR2    (*((volatile u8*)0x43))
 #define TCNT2   (*((volatile u8*)0x44))
@@ -212,6 +244,21 @@ void vector (void)
 #define CS22    2
 #define CS21    1
 #define CS20    0
+
+#define ASSR    (*(volatile u8*)0x42)
+#define AS2     3
+#define TCN2UB  2
+#define OCR2UB  1
+#define TCR2UB  0
+
+/******* Watch Dog Timer Register ******/
+#define WDTCR   (*((volatile u8*)0x41))
+#define WDTOE   4
+#define WDE     3
+#define WDP2    2
+#define WDP1    1
+#define WDP0    0
+
 /********** UART Registers ***********/
 #define UDR     (*(volatile u8*)0x2C)
 #define UCSRA   (*(volatile u8*)0x2B)
@@ -249,7 +296,6 @@ void vector (void)
 #define UBRRL   (*(volatile u8*)0x29)
 
 /************** SPI REG **************/
-/* SPI Control Register */
 #define SPCR    (*(volatile u8*)0x2D)
 #define SPIE         7
 #define SPE          6
@@ -260,80 +306,37 @@ void vector (void)
 #define SPR1         1
 #define SPR0         0
 
-/* SPI Status Register */
 #define SPSR    (*(volatile u8*)0x2E)
 #define SPIF         7
 #define WCOL         6
 #define SPI2X        0
 
-/* SPI I/O Data Register */
 #define SPDR    (*(volatile u8*)0x2F)
 
+/************* EEPROM Registers ***************/
+#define EECR	(*(volatile u8*)0x3C)
+#define EERIE   3
+#define EEMWE   2
+#define EEWE    1
+#define EERE    0
 
-/****************************** EEPROM Control Register ****************************/
-/* EEPROM Control Register */
-#define EECR	(*(volatile unsigned char*)0x3C)
+#define EEDR	(*(volatile u8*)0x3D)
+#define EEAR	(*(volatile u16*)0x3E)
+#define EEARL	(*(volatile u8*)0x3E)
+#define EEARH	(*(volatile u8*)0x3F)
 
-#define    EERIE        3
-#define    EEMWE        2
-#define    EEWE         1
-#define    EERE         0
+/********** I2C Registers ***********/
+#define TWBR    (*(volatile u8*)0x20)
+#define TWSR    (*(volatile u8*)0x21)
+#define TWS7    7
+#define TWS6    6
+#define TWS5    5
+#define TWS4    4
+#define TWS3    3
+#define TWPS1   1
+#define TWPS0   0
 
-/* EEPROM Data Register */
-#define EEDR	(*(volatile unsigned char*)0x3D)
-
-/* EEPROM Address Register */
-#define EEAR	(*(volatile unsigned short*)0x3E)
-#define EEARL	(*(volatile unsigned char*)0x3E)
-#define EEARH	(*(volatile unsigned char*)0x3F)
-
-/* TWI stands for "Two Wire Interface" or "TWI Was I2C(tm)" */
-#define TWBR    (*(volatile unsigned char*)0x20)
-#define TWSR    (*(volatile unsigned char*)0x21)
-#define TWAR    (*(volatile unsigned char*)0x22)
-#define TWDR    (*(volatile unsigned char*)0x23)
-
-/* TIMSK */
-#define OCIE2   7
-#define TOIE2   6
-#define TICIE1  5
-#define OCIE1A  4
-#define OCIE1B  3
-#define TOIE1   2
-#define OCIE0   1
-#define TOIE0   0
-
-/* TIFR */
-#define OCF2    7
-#define TOV2    6
-#define ICF1    5
-#define OCF1A   4
-#define OCF1B   3
-#define TOV1    2
-#define OCF0    1
-#define TOV0    0
-
-/* SPMCR */
-#define SPMIE   7
-#define RWWSB   6
-/* bit 5 reserved */
-#define RWWSRE  4
-#define BLBSET  3
-#define PGWRT   2
-#define PGERS   1
-#define SPMEN   0
-
-/* TWCR */
-#define TWINT   7
-#define TWEA    6
-#define TWSTA   5
-#define TWSTO   4
-#define TWWC    3
-#define TWEN    2
-/* bit 1 reserved */
-#define TWIE    0
-
-/* TWAR */
+#define TWAR    (*(volatile u8*)0x22)
 #define TWA6    7
 #define TWA5    6
 #define TWA4    5
@@ -343,29 +346,6 @@ void vector (void)
 #define TWA0    1
 #define TWGCE   0
 
-/* TWSR */
-#define TWS7    7
-#define TWS6    6
-#define TWS5    5
-#define TWS4    4
-#define TWS3    3
-/* bit 2 reserved */
-#define TWPS1   1
-#define TWPS0   0
-
-/*
-//ASSR
-#define AS2     3
-#define TCN2UB  2
-#define OCR2UB  1
-#define TCR2UB  0
-
-#define WDTCR    (*((volatile u8*)0x41))
-#define WDTOE   4
-#define WDE     3
-#define WDP2    2
-#define WDP1    1
-#define WDP0    0
-*/
+#define TWDR    (*(volatile u8*)0x23)
 
 #endif /* MEMMAP_H_ */
