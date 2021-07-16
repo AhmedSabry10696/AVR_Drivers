@@ -39,6 +39,8 @@ u16 ULTRASONIC_Read(ULTRASONIC_type ultra)
     Timer1_ICU_IntEnable();
     flag = 0;
     Timer1_InputCaptureEdge(RISING);
+    
+    /* trigger pin */
     DIO_WritePin(ultra,HIGH);
     _delay_us(10);
     DIO_WritePin(ultra,LOW);
@@ -55,6 +57,8 @@ void ULTRASONIC_Start(ULTRASONIC_type ultra)
         flag = 0;
         Timer1_InputCaptureEdge(RISING);
         Timer1_ICU_IntEnable();
+
+        /* trigger pin */
         DIO_WritePin(ultra,HIGH);
         _delay_us(10);
         DIO_WritePin(ultra,LOW);

@@ -13,17 +13,43 @@
 #define ULTRASONIC_H_
 
 #define F_CPU 8000000UL
-#include "Timer.h"
-#include "DIO_Interface.h"
 #include <util/delay.h>
+
+#include "Timer.h"
+#include "DIO.h"
 
 #define ULTRASONIC1 PINC7
 #define ULTRASONIC2 PINC6
+
 typedef DIO_Pin_type ULTRASONIC_type;
 
+/**
+ * @brief Initialize ultra sonic
+ * 
+ */
 extern void ULTRASONIC_Init(void);
+
+/**
+ * @brief read ultra sonic
+ * 
+ * @param ultra ULTRASONIC1/ULTRASONIC2
+ * @return u16 distance
+ */
 extern u16 ULTRASONIC_Read(ULTRASONIC_type ultra);
+
+/**
+ * @brief Ultrasonic start 
+ * 
+ * @param ultra ULTRASONIC1/ULTRASONIC2
+ */
 extern void ULTRASONIC_Start(ULTRASONIC_type ultra);
+
+/**
+ * @brief Ultrasonic get read no block
+ * 
+ * @param pdistance distance
+ * @return u8 result of operation 1:done 0:fail
+ */
 extern u8 ULTRASONIC_GetReadNoBlock(u16 *pdistance);
 
 #endif /* ULTRASONIC_H_ */
