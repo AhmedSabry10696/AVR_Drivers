@@ -16,7 +16,7 @@
  * 
  * @param str string to send
  */
-extern void Uart_SendString(u8 *str);
+extern void Uart_SendString(const u8 *str);
 
 
 /**
@@ -26,19 +26,6 @@ extern void Uart_SendString(u8 *str);
  */
 extern void Uart_ReceiveString(u8 *str);
 
-/**
- * @brief Uart Send string Async.
- * 
- * @param str string to send
- */
-extern void Uart_SendStringAsyn(u8 *str);
-
-/**
- * @brief Uart receive string Async
- * 
- * @param str buffer to store received string
- */
-extern void Uart_ReceiveStringAsyn(u8 *str);
 
 /**
  * @brief uart send long number
@@ -54,3 +41,17 @@ extern void Uart_SendLong(u32 num);
  * @return u32 received long number
  */
 extern u32 Uart_ReceiveLong(void);
+
+/**
+ * @brief Uart Send string Async.
+ * 
+ * @param str string to send
+ */
+extern void Uart_SendStringAsyn(const u8 *str);
+
+/**
+ * @brief Uart receive string Async
+ * 
+ * @param str buffer to store received string
+ */
+extern void Uart_ReceiveStringAsyn(u8 *str);

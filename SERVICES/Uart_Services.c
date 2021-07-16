@@ -11,7 +11,7 @@
 
 #include "Uart_Services.h"
 
-void Uart_SendString(u8 *str)
+void Uart_SendString(const u8 *str)
 {
 	u8 i;
 	
@@ -70,7 +70,7 @@ u32 Uart_ReceiveLong(void)
     /* receive fourth byte of long number */
 	u8 b4 = Uart_Receive();
 	
-    /* concate all four bytes to get long number */
+    /* concat all four bytes to get long number */
 	u32 num = b1 | ((u32)b2<<8) | ((u32)b3<<16) | ((u32)b4<<24);
 	
 	return num;
@@ -92,7 +92,7 @@ static void Uart_TXC_Func(void)
 		send_flag = 1;
 	}
 }
-void Uart_SendStringAsyn(u8 *str)
+void Uart_SendStringAsyn(const u8 *str)
 {
 	if(1 == send_flag)
 	{
