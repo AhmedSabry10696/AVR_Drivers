@@ -9,12 +9,12 @@
  * 
  */
 
-#include "ADC_Interface.h"
+#include "ADC.h"
 
 /* pointer to function to use it in callback function */
 static void (*ADC_IntFptr)(void) = NULLPTR;
 
-/* to prevent start conversion before the previous is finshed */
+/* to prevent start conversion before the previous is finished */
 static u8 Reading_Flag = 1;
 
 void ADC_Init(ADC_VoltRef_Type vref, ADC_Scaler_Type scaler)
