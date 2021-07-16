@@ -4,10 +4,10 @@
 #include "MemMap.h"
 #include "Utils.h"
 
-#include "DIO_Interface.h"
+#include "DIO.h"
 #include "Timer_Services.h"
 #include "Uart_Services.h"
-#include "LCD_Interface.h"
+#include "LCD.h"
 #include "Servo_Motor.h"
 #include "Sensors.h"
 
@@ -69,7 +69,7 @@ void check(u8 *comm,u8 num)
 		Uart_SendString(s);
 		Uart_Send('C');
 	}
-	else if (strcmp(comm,"pressureg") == 0)
+	else if (strcmp(comm,"pressure") == 0)
 	{
 		u8 s[20] = {0};
 		u8 size = IntToString(pres/10,s);
@@ -77,13 +77,13 @@ void check(u8 *comm,u8 num)
 		s[size+1] = (pres%10) + '0';
 		s[size+2] = 0;
 		
-		Uart_SendString("Pressure = ");
+		Uart_SendString((u8*)"Pressure = ");
 		Uart_SendString(s);
-		Uart_SendString("KPA");
+		Uart_SendString((u8*)"KPA");
 	}
 	else
 	{
-		Uart_SendString("Undefined Command");
+		Uart_SendString((u8*)"Undefined Command");
 	}
 }
 
