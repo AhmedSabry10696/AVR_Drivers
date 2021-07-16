@@ -129,7 +129,7 @@
     <Compile Include="HAL\DC_Motor.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\DC_Motor_Interface.h">
+    <Compile Include="HAL\DC_Motor.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\KEYPAD.h">
@@ -138,16 +138,16 @@
     <Compile Include="HAL\LCD.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\LCD_Interface.h">
+    <Compile Include="HAL\LCD.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\SEGMENT.c">
+    <Compile Include="HAL\Segment.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\SEGMENT_Config.h">
+    <Compile Include="HAL\Segment_Config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\SEGMENT_Interface.h">
+    <Compile Include="HAL\Segment.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\Sensors.c">
@@ -189,7 +189,7 @@
     <Compile Include="MCAL\ADC.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\ADC_Interface.h">
+    <Compile Include="MCAL\ADC.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\DIO.c">
@@ -198,7 +198,13 @@
     <Compile Include="MCAL\DIO_Config.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\DIO_Interface.h">
+    <Compile Include="MCAL\DIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EEPROM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\EEPROM.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\Ext_Interrupt.c">
@@ -222,6 +228,12 @@
     <Compile Include="MCAL\Uart_Config.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\WDT.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\WDT.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="SERVICES\Timer_Services.c">
       <SubType>compile</SubType>
     </Compile>
@@ -232,6 +244,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="SERVICES\Uart_Services.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\Uart_Stack.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\Uart_Stack.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

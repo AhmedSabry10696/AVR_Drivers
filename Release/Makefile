@@ -44,7 +44,7 @@ C_SRCS +=  \
 ../HAL/KEYPAD.c \
 ../HAL/DC_Motor.c \
 ../HAL/LCD.c \
-../HAL/SEGMENT.c \
+../HAL/Segment.c \
 ../HAL/Sensors.c \
 ../HAL/Servo_Motor.c \
 ../HAL/Stepper_Motor.c \
@@ -53,12 +53,15 @@ C_SRCS +=  \
 ../MCAL/ADC.c \
 ../MCAL/DIO.c \
 ../MCAL/DIO_Config.c \
+../MCAL/EEPROM.c \
 ../MCAL/Ext_Interrupt.c \
 ../MCAL/Timer.c \
 ../MCAL/Uart.c \
 ../MCAL/Uart_Config.c \
+../MCAL/WDT.c \
 ../SERVICES/Timer_Services.c \
-../SERVICES/Uart_Services.c
+../SERVICES/Uart_Services.c \
+../SERVICES/Uart_Stack.c
 
 
 PREPROCESSING_SRCS += 
@@ -71,7 +74,7 @@ OBJS +=  \
 HAL/KEYPAD.o \
 HAL/DC_Motor.o \
 HAL/LCD.o \
-HAL/SEGMENT.o \
+HAL/Segment.o \
 HAL/Sensors.o \
 HAL/Servo_Motor.o \
 HAL/Stepper_Motor.o \
@@ -80,18 +83,21 @@ main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o \
+MCAL/EEPROM.o \
 MCAL/Ext_Interrupt.o \
 MCAL/Timer.o \
 MCAL/Uart.o \
 MCAL/Uart_Config.o \
+MCAL/WDT.o \
 SERVICES/Timer_Services.o \
-SERVICES/Uart_Services.o
+SERVICES/Uart_Services.o \
+SERVICES/Uart_Stack.o
 
 OBJS_AS_ARGS +=  \
 HAL/KEYPAD.o \
 HAL/DC_Motor.o \
 HAL/LCD.o \
-HAL/SEGMENT.o \
+HAL/Segment.o \
 HAL/Sensors.o \
 HAL/Servo_Motor.o \
 HAL/Stepper_Motor.o \
@@ -100,18 +106,21 @@ main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_Config.o \
+MCAL/EEPROM.o \
 MCAL/Ext_Interrupt.o \
 MCAL/Timer.o \
 MCAL/Uart.o \
 MCAL/Uart_Config.o \
+MCAL/WDT.o \
 SERVICES/Timer_Services.o \
-SERVICES/Uart_Services.o
+SERVICES/Uart_Services.o \
+SERVICES/Uart_Stack.o
 
 C_DEPS +=  \
 HAL/KEYPAD.d \
 HAL/DC_Motor.d \
 HAL/LCD.d \
-HAL/SEGMENT.d \
+HAL/Segment.d \
 HAL/Sensors.d \
 HAL/Servo_Motor.d \
 HAL/Stepper_Motor.d \
@@ -120,18 +129,21 @@ main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d \
+MCAL/EEPROM.d \
 MCAL/Ext_Interrupt.d \
 MCAL/Timer.d \
 MCAL/Uart.d \
 MCAL/Uart_Config.d \
+MCAL/WDT.d \
 SERVICES/Timer_Services.d \
-SERVICES/Uart_Services.d
+SERVICES/Uart_Services.d \
+SERVICES/Uart_Stack.d
 
 C_DEPS_AS_ARGS +=  \
 HAL/KEYPAD.d \
 HAL/DC_Motor.d \
 HAL/LCD.d \
-HAL/SEGMENT.d \
+HAL/Segment.d \
 HAL/Sensors.d \
 HAL/Servo_Motor.d \
 HAL/Stepper_Motor.d \
@@ -140,12 +152,15 @@ main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_Config.d \
+MCAL/EEPROM.d \
 MCAL/Ext_Interrupt.d \
 MCAL/Timer.d \
 MCAL/Uart.d \
 MCAL/Uart_Config.d \
+MCAL/WDT.d \
 SERVICES/Timer_Services.d \
-SERVICES/Uart_Services.d
+SERVICES/Uart_Services.d \
+SERVICES/Uart_Stack.d
 
 OUTPUT_FILE_PATH +=AVR_Drivers.elf
 
@@ -161,6 +176,12 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
+
+
 
 
 

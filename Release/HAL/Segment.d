@@ -1,12 +1,12 @@
-HAL/SEGMENT.d HAL/SEGMENT.o: ../HAL/SEGMENT.c ../HAL/SEGMENT_Interface.h \
- ../LIB/StdTypes.h ../MCAL/DIO_Interface.h ../LIB/MemMap.h \
- ../LIB/StdTypes.h ../LIB/Utils.h ../HAL/SEGMENT_Config.h
+HAL/Segment.d HAL/Segment.o: ../HAL/Segment.c ../HAL/Segment.h \
+ ../LIB/StdTypes.h ../MCAL/DIO.h ../LIB/MemMap.h ../LIB/StdTypes.h \
+ ../LIB/Utils.h ../HAL/Segment_Config.h
 
-../HAL/SEGMENT_Interface.h:
+../HAL/Segment.h:
 
 ../LIB/StdTypes.h:
 
-../MCAL/DIO_Interface.h:
+../MCAL/DIO.h:
 
 ../LIB/MemMap.h:
 
@@ -14,4 +14,4 @@ HAL/SEGMENT.d HAL/SEGMENT.o: ../HAL/SEGMENT.c ../HAL/SEGMENT_Interface.h \
 
 ../LIB/Utils.h:
 
-../HAL/SEGMENT_Config.h:
+../HAL/Segment_Config.h:

@@ -8,7 +8,7 @@ HAL\DC_Motor.c
 
 HAL\LCD.c
 
-HAL\SEGMENT.c
+HAL\Segment.c
 
 HAL\Sensors.c
 
@@ -26,6 +26,8 @@ MCAL\DIO.c
 
 MCAL\DIO_Config.c
 
+MCAL\EEPROM.c
+
 MCAL\Ext_Interrupt.c
 
 MCAL\Timer.c
@@ -34,7 +36,11 @@ MCAL\Uart.c
 
 MCAL\Uart_Config.c
 
+MCAL\WDT.c
+
 SERVICES\Timer_Services.c
 
 SERVICES\Uart_Services.c
+
+SERVICES\Uart_Stack.c
 

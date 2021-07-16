@@ -1,7 +1,7 @@
-MCAL/DIO.d MCAL/DIO.o: ../MCAL/DIO.c ../MCAL/DIO.h ../LIB/StdTypes.h \
+MCAL/WDT.d MCAL/WDT.o: ../MCAL/WDT.c ../MCAL/WDT.h ../LIB/StdTypes.h \
  ../LIB/MemMap.h ../LIB/StdTypes.h ../LIB/Utils.h
 
-../MCAL/DIO.h:
+../MCAL/WDT.h:
 
 ../LIB/StdTypes.h:
 
