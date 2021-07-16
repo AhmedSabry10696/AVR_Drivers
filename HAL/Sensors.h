@@ -12,7 +12,7 @@
 #ifndef SENSORS_H_
 #define SENSORS_H_
 
-#include "ADC_Interface.h"
+#include "ADC.h"
 
 #define MPX4110 CH_1
 #define POT     CH_2
