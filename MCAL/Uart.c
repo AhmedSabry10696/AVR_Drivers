@@ -38,9 +38,6 @@ void Uart_Init(void)
 
     /* normal speed mode */
     CLEAR_BIT(UCSRA,U2X);    
-    /* Enable Transmitter and Receiver */
-    SET_BIT(UCSRB,TXEN);
-    SET_BIT(UCSRB,RXEN);
     
     /* parity setup */
 	switch (uart.parity)
@@ -147,9 +144,13 @@ void Uart_Init(void)
 		UBRRL = 0;
 		break;
     }
+	
+	/* Enable Transmitter and Receiver */
+	SET_BIT(UCSRB,TXEN);
+	SET_BIT(UCSRB,RXEN);
 }
 
-void Uart_Send(u8 data)
+void Uart_Send(const u8 data)
 {
     /* wait till flag being 1 */
 	while(0 == READ_BIT(UCSRA,UDRE));
@@ -179,7 +180,7 @@ u8 Uart_Receive_PeriodicCheck(u8 *pdata)
     }
 }
 
-void Uart_SendNoBlock(u8 data)
+void Uart_SendNoBlock(const u8 data)
 {
     /* write data in buffer */
     UDR = data;
@@ -215,31 +216,31 @@ void Uart_DEMPTY_IntDisable(void)
     CLEAR_BIT(UCSRB,UDRIE);
 }
 
+void Uart_TXC_IntSetCallBack(void(*LocalFptr)(void))
+{
+	Uart_TXC_IntFptr = LocalFptr;
+}
 void Uart_RXC_IntSetCallBack(void(*LocalFptr)(void))
 {
     Uart_RXC_IntFptr = LocalFptr;
-}
-void Uart_TXC_IntSetCallBack(void(*LocalFptr)(void))
-{
-    Uart_TXC_IntFptr = LocalFptr;
 }
 void Uart_DEMPTY_IntSetCallBack(void(*LocalFptr)(void))
 {
     Uart_DEMPTY_IntFptr = LocalFptr;
 }
 
-ISR(USART_RXC_VECT)
-{
-	if (Uart_RXC_IntFptr != NULLPTR)
-	{
-		Uart_RXC_IntFptr();
-	}
-}
 ISR(USART_TXC_VECT)
 {
 	if (Uart_TXC_IntFptr != NULLPTR)
 	{
 		Uart_TXC_IntFptr();
+	}
+}
+ISR(USART_RXC_VECT)
+{
+	if (Uart_RXC_IntFptr != NULLPTR)
+	{
+		Uart_RXC_IntFptr();
 	}
 }
 ISR(USART_UDRE_VECT)

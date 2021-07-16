@@ -87,7 +87,7 @@ extern void Uart_RX_Disable(void);
  * 
  * @param data byte to send
  */
-extern void Uart_Send(u8 data);
+extern void Uart_Send(const u8 data);
 /**
  * @brief Uart receive one byte
  * 
@@ -106,7 +106,7 @@ extern u8 Uart_Receive_PeriodicCheck(u8 *pdata);
  * 
  * @param data data to write in the buffer
  */
-extern void Uart_SendNoBlock(u8 data);
+extern void Uart_SendNoBlock(const u8 data);
 /**
  * @brief Uart read the value in the buffer
  * 
