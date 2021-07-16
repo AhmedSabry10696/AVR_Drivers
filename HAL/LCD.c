@@ -9,7 +9,7 @@
  * 
  */
 
-#include "LCD_Interface.h"
+#include "LCD.h"
 
 #if ( 8 == DATA_BITS_MODE)
 
@@ -164,17 +164,17 @@
 	}
 #endif
 
-void LCD_WriteChar(u8 ch)
+void LCD_WriteChar(const u8 ch)
 {
 	LCD_SendData(ch);	
 }
 
-void LCD_WriteString(u8 *str)
+void LCD_WriteString(const u8 *str)
 {
 	u8 i = 0;
 
 	/* loop till null */
-	while (0 != str[i])
+	while (str[i] != 0)
 	{
 		LCD_WriteChar(str[i]);
 		i++;
@@ -213,7 +213,7 @@ void LCD_GoTo(u8 row,u8 col)
 	LCD_SendCommand(Address | SET_CURSOR_LOCATION); 
 }
 
-void LCD_WriteStringRowCol(u8 row,u8 col,u8 *str)
+void LCD_WriteStringRowCol(u8 row,u8 col,const u8 *str)
 {
 	/* go to to the required LCD position */
 	LCD_GoTo(row,col);
@@ -222,7 +222,7 @@ void LCD_WriteStringRowCol(u8 row,u8 col,u8 *str)
 	LCD_WriteString(str); 
 }
 
-void LCD_WriteNum(s64 num)
+void LCD_WriteNum(s32 num)
 {
 	u8 i=0,j,digit,str[10];
 	
@@ -251,7 +251,7 @@ void LCD_WriteNum(s64 num)
 		i++;
 	}
 	
-	/* print str */
+	/* print str on lcd */
 	for (j=i;j>0;j--)
 	{
 		LCD_WriteChar(str[j-1]);
@@ -260,7 +260,7 @@ void LCD_WriteNum(s64 num)
 	
 void LCD_WriteFloat(f32 num)
 {
-	s64 left = (s64)num;
+	s32 left = (s32)num;
 	u8 right = (f32)(num-left)*100;
 	LCD_WriteNum(left);
 	LCD_WriteChar('.');
@@ -278,6 +278,8 @@ void LCD_WriteBinary(u16 num)
 			LCD_WriteChar('1');
 			flag = 1;
 		}
+		
+		/* ignore lefte side zero's */
 		else if(flag == 1)
 		{
 			LCD_WriteChar('0');
@@ -329,7 +331,7 @@ void LCD_WriteHex(u16 num)
 	}
 }
 
-void LCD_Create_Char(u8 *Pattern,u8 Location)
+void LCD_Create_Char(const u8 *Pattern,const u8 Location)
 {
 	u8 i=0;
 
