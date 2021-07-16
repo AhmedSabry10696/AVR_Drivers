@@ -11,7 +11,7 @@
 
 #include "WDT.h"
 
-void WDT_Set(TimeOut_type time)
+void WDT_Set(const TimeOut_type time)
 {
     u8 wdt_value = 0x08;
     wdt_value |= time;

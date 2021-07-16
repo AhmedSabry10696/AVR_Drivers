@@ -28,7 +28,7 @@ typedef enum
     TimeOut_2100ms 
 }TimeOut_type;
 
-extern void WDT_Set(TimeOut_type time);
+extern void WDT_Set(const TimeOut_type time);
 extern void WDT_Stop(void);
 
 #endif
