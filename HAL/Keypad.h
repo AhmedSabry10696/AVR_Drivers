@@ -13,7 +13,7 @@
 #ifndef KEYPAD_H_
 #define KEYPAD_H_
 
-#include "DIO_Interface.h"
+#include "DIO.h"
 
 /* keypad connections */
 #define FIRST_INPUT  PINA0
