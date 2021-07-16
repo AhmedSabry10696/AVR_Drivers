@@ -25,7 +25,7 @@ void PWM_Init(void)
     Timer1_OCRA_Mode(OCRA_NON_INVERTING);
     Timer1_OCRB_Mode(OCRB_DISCONNECTED);
 }
-void PWM_Duty(u16 duty)
+void PWM_Duty(const u16 duty)
 {
     if (duty <= 100)
 	{
@@ -41,7 +41,7 @@ void PWM_Duty(u16 duty)
         }
 	}
 }
-void PWM_Freq_HZ(u16 freq)
+void PWM_Freq_HZ(const u16 freq)
 {
     if (freq != 0)
 	{
@@ -59,7 +59,7 @@ void PWM_Freq_HZ(u16 freq)
         }
 	}
 }
-void PWM_Freq_KHZ(u16 freq)
+void PWM_Freq_KHZ(const u16 freq)
 {
     if (freq != 0)
 	{
@@ -88,7 +88,7 @@ static void Timer_func(void)
 		fptr_timer();
 	}
 }
-void Timer1_SetIntTime_us (u16 time,void(*LocalFptr)(void))
+void Timer1_SetIntTime_us (const u16 time,void(*LocalFptr)(void))
 {
     Timer1_Init(TIMER1_CTC_OCRA_TOP_MODE,TIMER1_SCALER_8);
     Timer1_OCRA_Mode(OCRA_DISCONNECTED);
@@ -99,7 +99,7 @@ void Timer1_SetIntTime_us (u16 time,void(*LocalFptr)(void))
     Timer1_OCA_IntSetCallBack(LocalFptr);
     Timer1_OCA_IntEnable();
 }
-void Timer1_SetIntTime_ms (u16 time,void(*LocalFptr)(void))
+void Timer1_SetIntTime_ms (const u16 time,void(*LocalFptr)(void))
 {
     Timer1_Init(TIMER1_CTC_OCRA_TOP_MODE,TIMER1_SCALER_8);
     Timer1_OCRA_Mode(OCRA_DISCONNECTED);
@@ -110,7 +110,7 @@ void Timer1_SetIntTime_ms (u16 time,void(*LocalFptr)(void))
     Timer1_OCA_IntSetCallBack(LocalFptr);
     Timer1_OCA_IntEnable();
 }
-void Timer1_SetIntTime_s (u16 time,void(*LocalFptr)(void))
+void Timer1_SetIntTime_s (const u16 time,void(*LocalFptr)(void))
 {
 	Timer1_Init(TIMER1_CTC_OCRA_TOP_MODE,TIMER1_SCALER_8);
 
@@ -120,7 +120,7 @@ void Timer1_SetIntTime_s (u16 time,void(*LocalFptr)(void))
     /* calculate number of overflows and set global var */
 	NofOverFlow = time*1000;
 
-    /* set fptr_timer with the address of the function to call as specifed time */
+    /* set fptr_timer with the address of the function to call as specified time */
 	fptr_timer = LocalFptr;
 
     /* set callback of compare match with another Timer_func to reach to NofOverFlow */
