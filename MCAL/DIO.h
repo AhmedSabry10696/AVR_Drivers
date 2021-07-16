@@ -115,7 +115,7 @@ extern DIO_Voltage_type DIO_ReadPin(DIO_Pin_type pin);
  * @param port PA - PB - PC - PD 
  * @param value unsigned char value 0:255
  */
-extern void DIO_WritePort(DIO_Port_type port, u8 value);
+extern void DIO_WritePort(DIO_Port_type port, const u8 value);
 
 /**
  * @brief Edit four lower pins in port without affecting upper four pins

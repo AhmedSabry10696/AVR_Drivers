@@ -9,7 +9,7 @@
  * 
  */
 
-#include "DIO_Interface.h"
+#include "DIO.h"
 
 const DIO_PinStatus_type PinsStatus[TOTAL_PINS] = 
 {

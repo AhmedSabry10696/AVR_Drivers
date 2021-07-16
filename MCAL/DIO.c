@@ -9,7 +9,7 @@
  * 
  */
 
-#include "DIO_Interface.h"
+#include "DIO.h"
 
 void DIO_InitPin(DIO_Pin_type pin, DIO_PinStatus_type status)
 {
@@ -167,7 +167,7 @@ DIO_Voltage_type DIO_ReadPin(DIO_Pin_type pin)
     return volt;
 }
 
-void DIO_WritePort(DIO_Port_type port, u8 value)
+void DIO_WritePort(DIO_Port_type port,const u8 value)
 {
     switch (port)
     {
