@@ -13,7 +13,7 @@
 #define DC_MOTOR_H_
 
 #include "StdTypes.h"
-#include "DIO_Interface.h"
+#include "DIO.h"
 #include "Timer.h"
 
 /* motor connections */
