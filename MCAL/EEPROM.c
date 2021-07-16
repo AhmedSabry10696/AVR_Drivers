@@ -11,7 +11,7 @@
 
 #include "EEPROM.h"
 
-void EEPROM_Write(u16 address,u8 data)
+void EEPROM_Write(const u16 address,const u8 data)
 {
     /* Wait for completion of previous write */
     while(1 == READ_BIT(EECR,EEWE));
@@ -23,11 +23,11 @@ void EEPROM_Write(u16 address,u8 data)
     /* Write logical one to EEMWE */
     SET_BIT(EECR,EEMWE);
     
-    /* Start eeprom write by setting EEWE */
+    /* Start EEPROM write by setting EEWE */
     SET_BIT(EECR,EEWE);
 }
 
-u8 EEPROM_Read(u16 address)
+u8 EEPROM_Read(const u16 address)
 {
     /* Wait for completion of previous write */
     while(1 == READ_BIT(EECR,EEWE));
@@ -35,7 +35,7 @@ u8 EEPROM_Read(u16 address)
     /* Set up address register */
     EEAR = address;
     
-    /* Start eeprom read by writing EERE */
+    /* Start EEPROM read by writing EERE */
     SET_BIT(EECR,EERE);
     
     /* Return data from data register */

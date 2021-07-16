@@ -16,7 +16,20 @@
 #include "MemMap.h"
 #include "Utils.h"
 
-extern void EEPROM_Write(u16 address,u8 data);
-extern u8 EEPROM_Read(u16 address);
+/**
+ * @brief EEPROM write byte at specific address
+ * 
+ * @param address to write at
+ * @param data to write in address
+ */
+extern void EEPROM_Write(const u16 address,const u8 data);
+
+/**
+ * @brief read byte from specific address
+ * 
+ * @param address to read from
+ * @return u8 byte from address
+ */
+extern u8 EEPROM_Read(const u16 address);
 
 #endif /* EEPROM_H_ */
