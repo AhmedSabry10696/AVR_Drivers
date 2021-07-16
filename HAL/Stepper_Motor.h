@@ -13,9 +13,10 @@
 #define STEPPER_MOTOR_H_
 
 #define F_CPU 8000000UL
-#include "StdTypes.h"
-#include "DIO_Interface.h"
 #include <util/delay.h>
+
+#include "StdTypes.h"
+#include "DIO.h"
 
 #define DELAY 100
 
