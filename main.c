@@ -15,25 +15,25 @@ u16 temp,pres;
 
 u8 IntToString(u8 num, u8 *str)
 {
-    u8 digit,i = 0,temp,size;
-    
-    while(num > 0)
-    {
-        digit = num % 10;
-        str[i] = digit + '0';
-        i++;
-        num /= 10;
-    }
-    size = i;
-    
-    /* revers string */
-    for (i = 0; i < size/2; i++)
-    {
-        temp = str[i];
-        str[i] = str[size-i-1];
-        str[size-i-1] = temp;
-    }
-    str[size] = '\0';
+	u8 digit,i = 0,temp,size;
+	
+	while(num > 0)
+	{
+		digit = num % 10;
+		str[i] = digit + '0';
+		i++;
+		num /= 10;
+	}
+	size = i;
+	
+	/* revers string */
+	for (i = 0; i < size/2; i++)
+	{
+		temp = str[i];
+		str[i] = str[size-i-1];
+		str[size-i-1] = temp;
+	}
+	str[size] = '\0';
 	return size;
 }
 
@@ -41,7 +41,7 @@ void check(u8 *comm,u8 num)
 {
 	if (strcmp(comm,"servo") == 0)
 	{
-		Servo_SetPosition(num);	
+		Servo_SetPosition(num);
 	}
 	else if (strcmp(comm,"lcd")==0)
 	{
@@ -77,13 +77,13 @@ void check(u8 *comm,u8 num)
 		s[size+1] = (pres%10) + '0';
 		s[size+2] = 0;
 		
-		Uart_SendString((u8*)"Pressure = ");
+		Uart_SendString("Pressure = ");
 		Uart_SendString(s);
-		Uart_SendString((u8*)"KPA");
+		Uart_SendString("KPA");
 	}
 	else
 	{
-		Uart_SendString((u8*)"Undefined Command");
+		Uart_SendString("Undefined Command");
 	}
 }
 

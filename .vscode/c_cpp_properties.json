@@ -4,12 +4,11 @@
             "name": "Win32",
             "includePath": [
                 "C:\\WinAVR-20100110\\avr\\include",
-                "D:\\Learning\\Embedded Systems\\AVR_Drivers",
-                "D:\\Learning\\Embedded Systems\\AVR_Drivers\\MCAL",
-                "D:\\Learning\\Embedded Systems\\AVR_Drivers\\HAL",
-                "D:\\Learning\\Embedded Systems\\AVR_Drivers\\LIB",
-                "D:\\Learning\\Embedded Systems\\AVR_Drivers\\SERVICES",
-                "C:/MinGW/lib/gcc/x86_64-w64-mingw32/6.2.0/include"
+                "${workspaceFolder}/",
+                "${workspaceFolder}/LIB",
+                "${workspaceFolder}/MCAL",
+                "${workspaceFolder}/HAL",
+                "${workspaceFolder}/SERVICES"
             ],
             "defines": [
                 "_DEBUG",

@@ -34,69 +34,69 @@ void Uart_RX_Disable(void)
 
 void Uart_Init(void)
 {
-    u8 temp = 0x80;
+    //u8 temp = 0x80;
 
     /* normal speed mode */
     CLEAR_BIT(UCSRA,U2X);    
-    
+    SET_BIT(UCSRC,URSEL);
     /* parity setup */
 	switch (uart.parity)
     {
     case NO_PARITY:
-        CLEAR_BIT(temp,UPM0);
-        CLEAR_BIT(temp,UPM1);
+        CLEAR_BIT(UCSRC,UPM0);
+        CLEAR_BIT(UCSRC,UPM1);
         break;
     
     case EVEN_PARITY:
-        CLEAR_BIT(temp,UPM0);
-        SET_BIT(temp,UPM1);        
+        CLEAR_BIT(UCSRC,UPM0);
+        SET_BIT(UCSRC,UPM1);        
         break;
     case ODD_PARITY:
-        SET_BIT(temp,UPM0);
-        SET_BIT(temp,UPM1);
+        SET_BIT(UCSRC,UPM0);
+        SET_BIT(UCSRC,UPM1);
     }
     
     /* stop bit setup */
     if (uart.stop == ONE_STOP_BIT)
     {
-        CLEAR_BIT(temp,USBS);
+        CLEAR_BIT(UCSRC,USBS);
     }
     else if (uart.stop == TWO_STOP_BIT)
     {
-        SET_BIT(temp,USBS);
+        SET_BIT(UCSRC,USBS);
     }
 
     /* data size setup */
     switch (uart.data)
     {
     case FIVE_BIT_DATA:
-        CLEAR_BIT(temp,UCSZ0);
-        CLEAR_BIT(temp,UCSZ1);
+        CLEAR_BIT(UCSRC,UCSZ0);
+        CLEAR_BIT(UCSRC,UCSZ1);
         CLEAR_BIT(UCSRB,UCSZ2);
         break;
     case SIX_BIT_DATA:
-        SET_BIT(temp,UCSZ0);
-        CLEAR_BIT(temp,UCSZ1);
+        SET_BIT(UCSRC,UCSZ0);
+        CLEAR_BIT(UCSRC,UCSZ1);
         CLEAR_BIT(UCSRB,UCSZ2);
         break;    
     case SEVEN_BIT_DATA:
-        CLEAR_BIT(temp,UCSZ0);
-        SET_BIT(temp,UCSZ1);
+        CLEAR_BIT(UCSRC,UCSZ0);
+        SET_BIT(UCSRC,UCSZ1);
         CLEAR_BIT(UCSRB,UCSZ2);
         break;
     case EIGHT_BIT_DATA:
-        SET_BIT(temp,UCSZ0);
-        SET_BIT(temp,UCSZ1);
+        SET_BIT(UCSRC,UCSZ0);
+        SET_BIT(UCSRC,UCSZ1);
         CLEAR_BIT(UCSRB,UCSZ2);
         break;
     case NINE_BIT_DATA:
-        SET_BIT(temp,UCSZ0);
-        SET_BIT(temp,UCSZ1);
+        SET_BIT(UCSRC,UCSZ0);
+        SET_BIT(UCSRC,UCSZ1);
         SET_BIT(UCSRB,UCSZ2);
         break;
     }
 
-    UCSRC = temp;
+    //UCSRC = temp;
 
     /* baud rate setup */
     switch (uart.baud)     

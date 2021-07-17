@@ -15,7 +15,8 @@
         "interrupt.h": "c",
         "ext_interrupt.h": "c",
         "timer_services.h": "c",
-        "string.h": "c"
+        "string.h": "c",
+        "uart_services.h": "c"
     },
     "AVR.source.compiler": "C:\\WinAVR-20100110\\bin\\avr-gcc.exe",
     "AVR.programmer.tool": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\eXtreme Burner - AVR\\eXtreme Burner - AVR.lnk"
