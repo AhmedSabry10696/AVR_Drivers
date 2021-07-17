@@ -4,10 +4,10 @@
 #include "MemMap.h"
 #include "Utils.h"
 
-#include "DIO_Interface.h"
+#include "DIO.h"
 #include "Timer_Services.h"
 #include "Uart_Services.h"
-#include "LCD_Interface.h"
+#include "LCD.h"
 #include "Servo_Motor.h"
 #include "Sensors.h"
 
