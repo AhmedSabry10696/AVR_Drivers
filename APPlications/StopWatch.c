@@ -3,7 +3,7 @@
 
 #include "MemMap.h"
 #include "Utils.h"
-#include "SEGMENT_Interface.h"
+#include "SEGMENT.h"
 
 #define START	PINA0
 #define STOP	PINA0

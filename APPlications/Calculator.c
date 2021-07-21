@@ -2,7 +2,7 @@
 #include <util/delay.h>
 #include "MemMap.h"
 #include "Utils.h"
-#include "LCD_Interface.h"
+#include "LCD.h"
 #include "Keypad.h"
 
 int main(void)

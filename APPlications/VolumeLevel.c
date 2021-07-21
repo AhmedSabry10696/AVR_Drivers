@@ -13,8 +13,8 @@
 #include <util/delay.h>
 #include "MemMap.h"
 #include "Utils.h"
-#include "LCD_Interface.h"
-#include "ADC_interface.h"
+#include "LCD.h"
+#include "ADC.h"
 
 /**
  * @brief get previous and current value of the volume
