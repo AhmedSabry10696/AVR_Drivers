@@ -83,7 +83,7 @@
 /* infinitely recursive interrupts: UART interrupts or level-triggered external interrupts */
 #define ISR_NOBLOCK   __attribute__((interrupt))
 
-/* ISR is created with no prologue or epilogue code */
+/* ISR is created with no prologue or epilogue code dev have to context save and reti at end */
 #define ISR_NAKED     __attribute__((naked))
 
 /* ISR Macro with variable arguments (variadic function) */
