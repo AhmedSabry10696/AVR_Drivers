@@ -24,7 +24,7 @@ int main(void)
 		y = SPI_Send_Receive(x);
 		x++;
 		LCD_GoTo(1,0);
-		LCD_WriteChar(y);
+		LCD_WriteNum(y);
 		_delay_ms(1000);
 	}
 }
