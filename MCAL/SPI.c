@@ -104,9 +104,8 @@ u8 SPI_Send_Receive(u8 data)
     SPDR = data;
 
     /* note that polling in SPI to send data is better than interrupt cause spi is fast (to send one byte faster than interrupt response) */
-    /* wait till tramsmission complete */
-    while (0 == READ_BIT(SPCR, SPIF))
-        ;
+    /* wait till transmission complete */
+    while (0 == READ_BIT(SPSR, SPIF));
 
     return SPDR;
 }
@@ -123,9 +122,9 @@ u8 SPI_Receive_NoBlock(void)
 
 u8 SPI_Receive_Periodic(u8 *pdata)
 {
-    if (1 == READ_BIT(SPCR, SPIF))
+    if (1 == READ_BIT(SPSR, SPIF))
     {
-        *pdata = SPCR;
+        *pdata = SPDR;
         return 1;
     }
     else
