@@ -8,7 +8,7 @@
 2. ADC Driver: (voltmeter, temp sensor{lm35}, pressure sensor{MPX4110}).
 3. External Interrupt Driver.
 4. Timers Driver: (timer0{8 bit}, timer1{16 bit})
-5. Servo Motor Driver.
+5. Servo Motor Driver{PWM}
 6. Ultrasonic Driver: (Input Capture Unit).
 7. UART Driver: (Synchronous and Asynchronous concept, Uart Stack).
 8. SPI Driver.
