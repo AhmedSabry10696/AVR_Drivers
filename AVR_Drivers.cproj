@@ -213,6 +213,15 @@
     <Compile Include="MCAL\Ext_Interrupt.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\SPI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\SPI_Config.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\Timer.c">
       <SubType>compile</SubType>
     </Compile>

@@ -30,6 +30,10 @@ MCAL\EEPROM.c
 
 MCAL\Ext_Interrupt.c
 
+MCAL\SPI.c
+
+MCAL\SPI_Config.c
+
 MCAL\Timer.c
 
 MCAL\Uart.c
