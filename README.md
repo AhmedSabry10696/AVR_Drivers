@@ -1,4 +1,4 @@
-## Atmega32 Microcontroller Drivers(layered software architecture):
+## Atmega32 Microcontroller Drivers (layered software architecture):
 
 ### Atmega32 Microcontroller kit:
 ![Tasksdiagram](./APP%20Videos/AVR_KIT.png)
@@ -16,4 +16,8 @@
 10. Watch Dog Timer Driver.
 11. Internal EEPROM Driver.
 
-## don't hesitate to contact me if you have any questions or feedback.
+note: All interrupts implemented using call back functions and there are a lot of tips and tricks related to static and dynamic design.
+
+### don't hesitate to contact me if you have any questions or feedback:
+Linkedin Account👇:
+**https://www.linkedin.com/in/ahmedsabry10696/**
