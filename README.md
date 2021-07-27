@@ -1,6 +1,7 @@
 ## Atmega32 Microcontroller Drivers (layered software architecture):
 
 ### Atmega32 Microcontroller kit:
+![Tasksdiagram](./APP%20Videos/AVR_KIT.png)
 
 ### Implemented Drivers:
 1. DIO Driver: (leds, buttons, keypad, 7_seg, LCD, DC Motors, Stepper Motors).
