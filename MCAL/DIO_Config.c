@@ -46,7 +46,7 @@ const DIO_PinStatus_type PinsStatus[TOTAL_PINS] =
     /* PORTD PINS 0:7*/
     INFREE, /* RXD  {uart} */
     OUTPUT, /* TXD  {uart} */
-    OUTPUT, /* INT0 {external interrupt 0} */
+    INPULLUP, /* INT0 {external interrupt 0} */
     OUTPUT, /* INT1 {external interrupt 1} */
     OUTPUT, /* OC1B {output compare B T1} */ 
     OUTPUT, /* OC1A {output compare A T1} */
