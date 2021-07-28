@@ -35,10 +35,9 @@
  */
 
 const SPI_Config spi =
-{
-    LSB_FIRST,
-    MASTER,
-    LEADING_EDGE_RISING,
-    SETUP_LEADING,
-    FCPU_DIV_8
-};
+    {
+        LSB_FIRST,
+        MASTER,
+        LEADING_EDGE_RISING,
+        SETUP_LEADING,
+        FCPU_DIV_4};
