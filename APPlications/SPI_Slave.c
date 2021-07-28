@@ -10,7 +10,7 @@
  * 
  */
 
-#define  F_CPU 8000000UL
+#define F_CPU 8000000UL
 #include <util/delay.h>
 
 #include "MemMap.h"
@@ -33,40 +33,40 @@ static void SPI_Func(void)
 
 int main(void)
 {
-	u16 x = 0,temp;
+	u16 x = 0, temp;
 	sei();
 	DIO_Init();
-	LCD_Init();	
-	ADC_Init(REF_AVCC,ADC_Scaler_64);
-	
+	LCD_Init();
+	ADC_Init(REF_AVCC, ADC_Scaler_64);
+
 	SPI_Init();
 	SPI_STC_IntSetCallBack(SPI_Func);
 	SPI_Int_Enable();
-	
+
 	LCD_WriteString("     SPI Slave");
-	
-	LCD_GoTo(1,0);
+
+	LCD_GoTo(1, 0);
 	LCD_WriteString("x: ");
-	
-	LCD_GoTo(2,0);
+
+	LCD_GoTo(2, 0);
 	LCD_WriteString("Uart Data: ");
-	
-	LCD_GoTo(3,0);
+
+	LCD_GoTo(3, 0);
 	LCD_WriteString("Temp: ");
-	
-	while(1)
-	{	
+
+	while (1)
+	{
 		temp = LM35_TempRead();
-		
-		LCD_GoTo(3,10);
-		LCD_WriteNum(temp/10);
-		
-		LCD_GoTo(2,10);
+
+		LCD_GoTo(3, 10);
+		LCD_WriteNum(temp / 10);
+
+		LCD_GoTo(2, 10);
 		LCD_WriteChar(uart_data);
-		
-		SPI_Send_NoBlock(temp/10);
-		
-		LCD_GoTo(1,5);
+
+		SPI_Send_NoBlock(temp / 10);
+
+		LCD_GoTo(1, 5);
 		LCD_WriteNum(x);
 		x++;
 		if (x == 10)
