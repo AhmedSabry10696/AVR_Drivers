@@ -7,7 +7,7 @@
 
 #define LOW_PINS    0
 #define HIGH_PINS   1
-#define FULL_PORT	2
+#define FULL_PORT   2
 
 #define COM_ANODE   0
 #define COM_CATHODE 1
