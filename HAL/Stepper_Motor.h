@@ -21,10 +21,10 @@
 #define DELAY 100
 
 /* stepper motor control pins */
-#define COIL1A  PINC0
-#define COIL1B  PINC1
-#define COIL2A  PINC2
-#define COIL2B  PINC3
+#define COIL1A PINC0
+#define COIL1B PINC1
+#define COIL2A PINC2
+#define COIL2B PINC3
 
 /**
  * @brief rotate stepper 4 steps in clock wise direction
@@ -62,6 +62,4 @@ extern void Stepper_UniPolarHalf_CW(void);
  */
 extern void Stepper_UniPolarHalf_CCW(void);
 
-
 #endif /* STEPPER_MOTOR_H_ */
-
