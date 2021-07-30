@@ -28,7 +28,19 @@ typedef enum
     TimeOut_2100ms 
 }TimeOut_type;
 
+/**
+ * @brief set watch dog timer value 
+ * 
+ * @param time time to set watch dog timer with
+ *  TimeOut_16ms/TimeOut_32ms/TimeOut_65ms/TimeOut_130ms
+ *  TimeOut_260ms/TimeOut_520ms/TimeOut_1000ms/TimeOut_2100ms 
+ */
 extern void WDT_Set(const TimeOut_type time);
+
+/**
+ * @brief Stop watch dog timer
+ * 
+ */
 extern void WDT_Stop(void);
 
-#endif
+#endif  /* WDT_H_ */

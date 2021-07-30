@@ -15,13 +15,13 @@ void WDT_Set(const TimeOut_type time)
 {
     u8 wdt_value = 0x08;
     wdt_value |= time;
-    
-    WDTCR |= (1<<WDTOE)|(1<<WDE);
+
+    WDTCR |= (1 << WDTOE) | (1 << WDE);
     WDTCR = wdt_value;
 }
 void WDT_Stop(void)
 {
-    WDTCR = (1<<WDTOE)|(1<<WDE);
+    WDTCR = (1 << WDTOE) | (1 << WDE);
 
     cli();
     /* with in only 4 cycles write 0 */
