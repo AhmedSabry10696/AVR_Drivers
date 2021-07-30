@@ -11,33 +11,33 @@
 
 #include "EEPROM.h"
 
-void EEPROM_Write(const u16 address,const u8 data)
+void EEPROM_Write(const u16 address, const u8 data)
 {
     /* Wait for completion of previous write */
-    while(1 == READ_BIT(EECR,EEWE));
-    
+    while (1 == READ_BIT(EECR, EEWE));
+
     /* Set up address and data registers */
     EEAR = address;
     EEDR = data;
-    
+
     /* Write logical one to EEMWE */
-    SET_BIT(EECR,EEMWE);
-    
+    SET_BIT(EECR, EEMWE);
+
     /* Start EEPROM write by setting EEWE */
-    SET_BIT(EECR,EEWE);
+    SET_BIT(EECR, EEWE);
 }
 
 u8 EEPROM_Read(const u16 address)
 {
     /* Wait for completion of previous write */
-    while(1 == READ_BIT(EECR,EEWE));
-    
+    while (1 == READ_BIT(EECR, EEWE));
+
     /* Set up address register */
     EEAR = address;
-    
+
     /* Start EEPROM read by writing EERE */
-    SET_BIT(EECR,EERE);
-    
+    SET_BIT(EECR, EERE);
+
     /* Return data from data register */
     return EEDR;
 }

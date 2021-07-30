@@ -22,7 +22,7 @@
  * @param address to write at
  * @param data to write in address
  */
-extern void EEPROM_Write(const u16 address,const u8 data);
+extern void EEPROM_Write(const u16 address, const u8 data);
 
 /**
  * @brief read byte from specific address
