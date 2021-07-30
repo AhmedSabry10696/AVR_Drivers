@@ -18,7 +18,7 @@
 
 /* motor connections */
 #define IN1 PIND0
-#define IN2 PIND1 
+#define IN2 PIND1
 #define EN  PINB3
 
 /**

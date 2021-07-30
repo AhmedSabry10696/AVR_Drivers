@@ -13,31 +13,31 @@
 
 void DC_Motor_CW(void)
 {
-    DIO_WritePin(IN1,HIGH);
-    DIO_WritePin(IN2,LOW);
+    DIO_WritePin(IN1, HIGH);
+    DIO_WritePin(IN2, LOW);
 }
 
 void DC_Motor_CCW(void)
 {
-    DIO_WritePin(IN1,LOW);
-    DIO_WritePin(IN2,HIGH);
+    DIO_WritePin(IN1, LOW);
+    DIO_WritePin(IN2, HIGH);
 }
 
 void DC_Motor_Speed_Init(void)
 {
-    Timer0_Init(TIMER0_FAST_PWM,TIMER0_SCALER_8);
+    Timer0_Init(TIMER0_FAST_PWM, TIMER0_SCALER_8);
     Timer0_OC0_Mode(OC0_NON_INVERTING);
 }
 
 void DC_Motor_Speed(u8 speed)
 {
-    u8 temp = (255*speed)/100;
+    u8 temp = (255 * speed) / 100;
     Timer0_OCR_Set(temp);
 }
 
 void DC_Motor_Stop(void)
 {
-    DIO_WritePin(EN,LOW);
-	DIO_WritePin(IN1,LOW);
-	DIO_WritePin(IN2,LOW);
+    DIO_WritePin(EN, LOW);
+    DIO_WritePin(IN1, LOW);
+    DIO_WritePin(IN2, LOW);
 }
