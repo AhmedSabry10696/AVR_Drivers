@@ -13,7 +13,7 @@
 #define STDTYPES_H_
 
 /* Null Pointer */
-#define NULLPTR	((void*)0)
+#define NULLPTR ((void *)0)
 
 /* unsigned data types */
 typedef unsigned char u8;
@@ -32,11 +32,11 @@ typedef float f32;
 typedef double f64;
 
 /* boolean data types */
-typedef enum 
+typedef enum
 {
 	FALSE = 0,
 	TRUE = 1
-}Bool_t;
+} Bool_t;
 
 /* register data type */
 typedef union
@@ -44,15 +44,15 @@ typedef union
 	u8 Data;
 	struct
 	{
-		u8 BIT0:1;
-		u8 BIT1:1;
-		u8 BIT2:1;
-		u8 BIT3:1;
-		u8 BIT4:1;
-		u8 BIT5:1;
-		u8 BIT6:1;
-		u8 BIT7:1;
-	}BITS; /* share the same values that is in Data var */
-}Reg_8bit;
+		u8 BIT0 : 1;
+		u8 BIT1 : 1;
+		u8 BIT2 : 1;
+		u8 BIT3 : 1;
+		u8 BIT4 : 1;
+		u8 BIT5 : 1;
+		u8 BIT6 : 1;
+		u8 BIT7 : 1;
+	} BITS; /* share the same values that is in Data var */
+} Reg_8bit;
 
 #endif /* STDTYPES_H_ */
