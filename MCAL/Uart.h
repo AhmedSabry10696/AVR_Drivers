@@ -16,18 +16,17 @@
 #include "Utils.h"
 #include "MemMap.h"
 
-
 typedef enum
 {
-    NO_PARITY=0,
+    NO_PARITY = 0,
     EVEN_PARITY,
     ODD_PARITY
-}Parity_type;
+} Parity_type;
 typedef enum
 {
-    ONE_STOP_BIT=0,
+    ONE_STOP_BIT = 0,
     TWO_STOP_BIT
-}Stop_Bit_type;
+} Stop_Bit_type;
 typedef enum
 {
     FIVE_BIT_DATA = 0,
@@ -35,8 +34,8 @@ typedef enum
     SEVEN_BIT_DATA,
     EIGHT_BIT_DATA,
     NINE_BIT_DATA
-}Data_size_type;
-typedef enum 
+} Data_size_type;
+typedef enum
 {
     BAUD_2400 = 0,
     BAUD_4800,
@@ -52,14 +51,14 @@ typedef enum
     BAUD_250000,
     BAUD_500000,
     BAUD_1000000
-}BaudRate_type;
+} BaudRate_type;
 typedef struct
 {
     Parity_type parity;
     Stop_Bit_type stop;
     Data_size_type data;
     BaudRate_type baud;
-}Uart_Config;
+} Uart_Config;
 
 extern void Uart_Init(void);
 /**
@@ -148,19 +147,19 @@ extern void Uart_DEMPTY_IntDisable(void);
  * 
  * @param LocalFptr address of function to run when TXC interrupt occur
  */
-extern void Uart_TXC_IntSetCallBack(void(*LocalFptr)(void));
+extern void Uart_TXC_IntSetCallBack(void (*LocalFptr)(void));
 /**
  * @brief Uart RXC interrupt set call back
  * 
  * @param LocalFptr address of function to run when RXC interrupt occur.
  */
-extern void Uart_RXC_IntSetCallBack(void(*LocalFptr)(void));
+extern void Uart_RXC_IntSetCallBack(void (*LocalFptr)(void));
 /**
  * @brief Uart buffer empty interrupt set call back
  * 
  * @param LocalFptr address of function to run when buffer empty interrupt occur.
  */
-extern void Uart_DEMPTY_IntSetCallBack(void(*LocalFptr)(void));
+extern void Uart_DEMPTY_IntSetCallBack(void (*LocalFptr)(void));
 
 /**
  * @brief Uart configuration struct

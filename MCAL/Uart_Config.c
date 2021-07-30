@@ -9,7 +9,6 @@
  * 
  */
 
-
 #include "Uart.h"
 
 /**
@@ -28,7 +27,7 @@
  *          BAUD_115200,BAUD_230400,BAUD_250000,
  *          BAUD_500000,BAUD_1000000
  */
-const Uart_Config uart = 
+const Uart_Config uart =
 {
     NO_PARITY,
     ONE_STOP_BIT,
