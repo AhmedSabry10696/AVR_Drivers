@@ -9,6 +9,9 @@
  * 
  */
 
+#ifndef SERVO_H_
+#define SERVO_H_
+
 #include "Timer.h"
 
 /**
@@ -22,3 +25,5 @@ extern void Servo_Init(void);
  * @param angle 0:180
  */
 extern void Servo_SetPosition(u8 angle);
+
+#endif /* SERVO_H_ */

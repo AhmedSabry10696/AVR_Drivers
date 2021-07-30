@@ -13,11 +13,11 @@
 
 void Servo_Init(void)
 {
-    Timer1_Init(TIMER1_FASTPWM_ICR_TOP_MODE,TIMER1_SCALER_8);
+    Timer1_Init(TIMER1_FASTPWM_ICR_TOP_MODE, TIMER1_SCALER_8);
     Timer1_OCRB_Mode(OCRB_NON_INVERTING);
-    
+
     /* set top to 20000us f=50HZ */
-    Timer1_ICR_Set(20000-1);
+    Timer1_ICR_Set(20000 - 1);
 
     /* angle 0 ton=1ms*/
     Timer1_OCRB_Set(999);
@@ -29,7 +29,7 @@ void Servo_SetPosition(u8 angle)
     {
         angle -= 180;
     }
-    
-    u16 temp = ((u32)angle*1000)/180+999;
+
+    u16 temp = ((u32)angle * 1000) / 180 + 999;
     Timer1_OCRB_Set(temp);
 }
