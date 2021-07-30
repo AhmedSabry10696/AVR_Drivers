@@ -9,7 +9,6 @@
  * 
  */
 
-
 #ifndef UART_STACK_H_
 #define UART_STACK_H_
 
@@ -19,10 +18,10 @@
 
 typedef enum
 {
-    STACK_FULL=0,
-    STACK_EMPTY=0,
+    STACK_FULL = 0,
+    STACK_EMPTY = 0,
     DONE
-}StackStatus_type;
+} StackStatus_type;
 
 /**
  * @brief push one byte into uart stack
@@ -31,7 +30,6 @@ typedef enum
  * @return StackStatus_type STACK_FULL/DONE
  */
 extern StackStatus_type Uart_Push(const u8 data);
-
 
 /**
  * @brief pop one byte from stack

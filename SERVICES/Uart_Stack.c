@@ -16,11 +16,11 @@ static u8 sp;
 
 StackStatus_type Uart_Push(const u8 data)
 {
-    if(sp == STACK_SIZE)
+    if (sp == STACK_SIZE)
     {
         return STACK_FULL;
     }
-	
+
     stack[sp] = data;
     sp++;
     return DONE;
@@ -28,11 +28,11 @@ StackStatus_type Uart_Push(const u8 data)
 
 StackStatus_type Uart_Pop(u8 *pdata)
 {
-    if(0 == sp)
+    if (0 == sp)
     {
         return STACK_EMPTY;
     }
-	
+
     sp--;
     *pdata = stack[sp];
     return DONE;
