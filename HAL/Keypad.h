@@ -9,21 +9,20 @@
  * 
  */
 
-
 #ifndef KEYPAD_H_
 #define KEYPAD_H_
 
 #include "DIO.h"
 
 /* keypad connections */
-#define FIRST_INPUT  PINA0
-#define FIRST_OUTPUT PINA4 
+#define FIRST_INPUT PINA0
+#define FIRST_OUTPUT PINA4
 
 /* number of rows and cols */
-#define ROW 4 
+#define ROW 4
 #define COL 4
 
-#define NO_KEY  '.'
+#define NO_KEY '.'
 
 /**
  * @brief get the pressed key from keypad
