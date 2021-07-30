@@ -45,21 +45,21 @@ extern void PWM_Freq_KHZ(const u16 freq);
  * @param time time in us
  * @param LocalFptr address of function to call at this time
  */
-extern void Timer1_SetIntTime_us (const u16 time,void(*LocalFptr)(void));
+extern void Timer1_SetIntTime_us(const u16 time, void (*LocalFptr)(void));
 /**
  * @brief Set interrupt time in ms and call function at this time
  * 
  * @param time time in ms
  * @param LocalFptr address of function to call at this time
  */
-extern void Timer1_SetIntTime_ms (const u16 time,void(*LocalFptr)(void));
+extern void Timer1_SetIntTime_ms(const u16 time, void (*LocalFptr)(void));
 /**
  * @brief Set interrupt time in s and call function at this time
  * 
  * @param time time in seconds
  * @param LocalFptr address of function to call at this time
  */
-extern void Timer1_SetIntTime_s (const u16 time,void(*LocalFptr)(void));
+extern void Timer1_SetIntTime_s(const u16 time, void (*LocalFptr)(void));
 
 /**
  * @brief measure PWM frequency and duty cycle (blocked)
@@ -67,7 +67,7 @@ extern void Timer1_SetIntTime_s (const u16 time,void(*LocalFptr)(void));
  * @param Pfreq address to store PWM frequency
  * @param Pduty address to store PWM duty
  */
-extern void PWM_Measure(u32* Pfreq,u8* Pduty);
+extern void PWM_Measure(u32 *Pfreq, u8 *Pduty);
 /**
  * @brief Init ICU to start measure PWM (no block)
  * 
