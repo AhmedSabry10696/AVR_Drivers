@@ -9,8 +9,8 @@
  * 
  */
 
-#ifndef DIO_INTERFACE_H_
-#define DIO_INTERFACE_H_
+#ifndef DIO_H_
+#define DIO_H_
 
 #include "StdTypes.h"
 #include "MemMap.h"
@@ -26,7 +26,7 @@ typedef enum
 	PINA5,
 	PINA6,
 	PINA7,
-	
+
 	PINB0,
 	PINB1,
 	PINB2,
@@ -35,7 +35,7 @@ typedef enum
 	PINB5,
 	PINB6,
 	PINB7,
-	
+
 	PINC0,
 	PINC1,
 	PINC2,
@@ -44,7 +44,7 @@ typedef enum
 	PINC5,
 	PINC6,
 	PINC7,
-	
+
 	PIND0,
 	PIND1,
 	PIND2,
@@ -53,30 +53,30 @@ typedef enum
 	PIND5,
 	PIND6,
 	PIND7,
-	
+
 	TOTAL_PINS = 32
-}DIO_Pin_type;
+} DIO_Pin_type;
 
 typedef enum
 {
 	OUTPUT,
 	INFREE,
-	INPULLUP	
-}DIO_PinStatus_type;
+	INPULLUP
+} DIO_PinStatus_type;
 
 typedef enum
 {
 	PA = 0,
 	PB,
 	PC,
-	PD		
-}DIO_Port_type;
+	PD
+} DIO_Port_type;
 
 typedef enum
 {
 	LOW = 0,
-	HIGH	
-}DIO_Voltage_type;
+	HIGH
+} DIO_Voltage_type;
 
 /**
  * @brief Initialize any pin as output or input with or without pull up resistor
@@ -150,4 +150,4 @@ extern void DIO_Init(void);
 /* array in DIO_Config.h file contains all pins direction */
 extern const DIO_PinStatus_type PinsStatus[TOTAL_PINS];
 
-#endif /* DIO_INTERFACE_H_ */
+#endif /* DIO_H_ */

@@ -34,8 +34,8 @@ const DIO_PinStatus_type PinsStatus[TOTAL_PINS] =
     OUTPUT, /* SCK    {SPI} */
 
     /* PORTC PINS 0:7*/    
-    OUTPUT, /* SCL {I2C} */
-    OUTPUT, /* SDA {I2C} */
+    INFREE, /* SCL {I2C} */
+    INFREE, /* SDA {I2C} */
     OUTPUT, /* TCK */
     OUTPUT, /* TMS */
     OUTPUT, /* TDO */
@@ -44,9 +44,9 @@ const DIO_PinStatus_type PinsStatus[TOTAL_PINS] =
     OUTPUT, /* TOSC2  {T2} */
 
     /* PORTD PINS 0:7*/
-    INFREE, /* RXD  {uart} */
-    OUTPUT, /* TXD  {uart} */
-    INPULLUP, /* INT0 {external interrupt 0} */
+    OUTPUT, /* RXD  {uart INFREE} */
+    OUTPUT, /* TXD  {uart OUTPUT} */
+    OUTPUT, /* INT0 {external interrupt 0} */
     OUTPUT, /* INT1 {external interrupt 1} */
     OUTPUT, /* OC1B {output compare B T1} */ 
     OUTPUT, /* OC1A {output compare A T1} */
