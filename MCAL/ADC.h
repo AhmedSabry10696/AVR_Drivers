@@ -21,7 +21,7 @@ typedef enum
     REF_AREF,
     REF_AVCC,
     REF_256V
-}ADC_VoltRef_Type;
+} ADC_VoltRef_Type;
 
 typedef enum
 {
@@ -32,7 +32,7 @@ typedef enum
     ADC_Scaler_32,
     ADC_Scaler_64,
     ADC_Scaler_128
-}ADC_Scaler_Type;
+} ADC_Scaler_Type;
 
 typedef enum
 {
@@ -44,7 +44,7 @@ typedef enum
     CH_5,
     CH_6,
     CH_7
-}ADC_Channel_Type;
+} ADC_Channel_Type;
 
 /**
  * @brief 
@@ -82,7 +82,7 @@ extern u16 ADC_GetReadNoBlock(void);
  * @param pdata pointer to store adc value 0:1023
  * @return u8 (1) if get adc value, (0) if adc not finished yet
  */
-extern u8 ADC_GetRead_Periodic(u16* pdata);
+extern u8 ADC_GetRead_Periodic(u16 *pdata);
 
 /**
  * @brief Enable ADC interrupt on conversion complete
@@ -101,7 +101,6 @@ extern void ADC_IntDisable(void);
  * 
  * @param LocalPtr address of the function
  */
-extern void ADC_IntSetCallBack(void(*LocalPtr)(void));
-
+extern void ADC_IntSetCallBack(void (*LocalPtr)(void));
 
 #endif /* ADC_H_ */
