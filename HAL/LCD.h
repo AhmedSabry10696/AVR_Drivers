@@ -9,10 +9,10 @@
  * 
  */
 
-#ifndef LCD_INTERFACE_H_
-#define LCD_INTERFACE_H_
+#ifndef LCD_H_
+#define LCD_H_
 
-#define  F_CPU 8000000UL
+#define F_CPU 8000000UL
 #include <util/delay.h>
 #include "DIO.h"
 
@@ -21,19 +21,19 @@
 
 /* LCD Data bits */
 #if (8 == DATA_BITS_MODE)
-	#define LCD_DATA_PORT PC
+#define LCD_DATA_PORT PD
 
 #elif (4 == DATA_BITS_MODE)
-	#define D4  PINA4
-	#define D5  PINA5
-	#define D6  PINA6
-	#define D7  PINA7
+#define D4 PINA4
+#define D5 PINA5
+#define D6 PINA6
+#define D7 PINA7
 #endif
 
 /* LCD control Pins */
-#define E	PINA7
-#define RW	PINA6
-#define RS	PINA5
+#define E PINA7
+#define RW PINA6
+#define RS PINA5
 
 /* LCD Commands */
 #define CURSOR_ON 0x0E
@@ -43,7 +43,7 @@
 #define FOUR_BITS_DATA_MODE 0x02
 #define SET_CURSOR_LOCATION 0x80
 #define TWO_LINE_LCD_Four_BIT_MODE 0x28
-#define TWO_LINE_LCD_Eight_BIT_MODE 0x38 
+#define TWO_LINE_LCD_Eight_BIT_MODE 0x38
 
 /**
  * @brief initialize lcd 
@@ -77,7 +77,7 @@ extern void LCD_WriteString(const u8 *str);
  * @param row 
  * @param col 
  */
-extern void LCD_GoTo(u8 row,u8 col);
+extern void LCD_GoTo(u8 row, u8 col);
 
 /**
  * @brief display string at specific row and column
@@ -86,7 +86,7 @@ extern void LCD_GoTo(u8 row,u8 col);
  * @param col col of beginning to display 
  * @param str string to display
  */
-extern void LCD_WriteStringRowCol(u8 row,u8 col,const u8 *str);
+extern void LCD_WriteStringRowCol(u8 row, u8 col, const u8 *str);
 
 /**
  * @brief convert num to string and display it on lcd
@@ -101,7 +101,7 @@ extern void LCD_WriteNum(s32 num);
  * @param Pattern array contains the pattern of special char
  * @param Location location to store this pattern in lcd
  */
-extern void LCD_Create_Char(const u8 *Pattern,const u8 Location);
+extern void LCD_Create_Char(const u8 *Pattern, const u8 Location);
 
 /**
  * @brief display binary representation of num
@@ -131,6 +131,6 @@ extern void LCD_WriteFloat(f32 num);
  * @param col col to start from
  * @param cell numbers of cells to clear
  */
-extern void LCD_ClearCells(u8 row,u8 col,u8 cell);
+extern void LCD_ClearCells(u8 row, u8 col, u8 cell);
 
-#endif /* LCD_INTERFACE_H_ */
+#endif /* LCD_H_ */
