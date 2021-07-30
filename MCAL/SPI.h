@@ -9,6 +9,9 @@
  * 
  */
 
+#ifndef SPI_H_
+#define SPI_H_
+
 #include "StdTypes.h"
 #include "Utils.h"
 #include "MemMap.h"
@@ -109,3 +112,5 @@ extern void SPI_Int_Disable(void);
  * @param LocalFptr address of function to call when int occurred
  */
 extern void SPI_STC_IntSetCallBack(void (*LocalFptr)(void));
+
+#endif /* SPI_H_ */
