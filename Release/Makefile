@@ -55,12 +55,14 @@ C_SRCS +=  \
 ../MCAL/DIO_Config.c \
 ../MCAL/EEPROM.c \
 ../MCAL/Ext_Interrupt.c \
+../MCAL/I2C.c \
 ../MCAL/SPI.c \
 ../MCAL/SPI_Config.c \
 ../MCAL/Timer.c \
 ../MCAL/Uart.c \
 ../MCAL/Uart_Config.c \
 ../MCAL/WDT.c \
+../SERVICES/I2C_Services.c \
 ../SERVICES/Timer_Services.c \
 ../SERVICES/Uart_Services.c \
 ../SERVICES/Uart_Stack.c
@@ -87,12 +89,14 @@ MCAL/DIO.o \
 MCAL/DIO_Config.o \
 MCAL/EEPROM.o \
 MCAL/Ext_Interrupt.o \
+MCAL/I2C.o \
 MCAL/SPI.o \
 MCAL/SPI_Config.o \
 MCAL/Timer.o \
 MCAL/Uart.o \
 MCAL/Uart_Config.o \
 MCAL/WDT.o \
+SERVICES/I2C_Services.o \
 SERVICES/Timer_Services.o \
 SERVICES/Uart_Services.o \
 SERVICES/Uart_Stack.o
@@ -112,12 +116,14 @@ MCAL/DIO.o \
 MCAL/DIO_Config.o \
 MCAL/EEPROM.o \
 MCAL/Ext_Interrupt.o \
+MCAL/I2C.o \
 MCAL/SPI.o \
 MCAL/SPI_Config.o \
 MCAL/Timer.o \
 MCAL/Uart.o \
 MCAL/Uart_Config.o \
 MCAL/WDT.o \
+SERVICES/I2C_Services.o \
 SERVICES/Timer_Services.o \
 SERVICES/Uart_Services.o \
 SERVICES/Uart_Stack.o
@@ -137,12 +143,14 @@ MCAL/DIO.d \
 MCAL/DIO_Config.d \
 MCAL/EEPROM.d \
 MCAL/Ext_Interrupt.d \
+MCAL/I2C.d \
 MCAL/SPI.d \
 MCAL/SPI_Config.d \
 MCAL/Timer.d \
 MCAL/Uart.d \
 MCAL/Uart_Config.d \
 MCAL/WDT.d \
+SERVICES/I2C_Services.d \
 SERVICES/Timer_Services.d \
 SERVICES/Uart_Services.d \
 SERVICES/Uart_Stack.d
@@ -162,12 +170,14 @@ MCAL/DIO.d \
 MCAL/DIO_Config.d \
 MCAL/EEPROM.d \
 MCAL/Ext_Interrupt.d \
+MCAL/I2C.d \
 MCAL/SPI.d \
 MCAL/SPI_Config.d \
 MCAL/Timer.d \
 MCAL/Uart.d \
 MCAL/Uart_Config.d \
 MCAL/WDT.d \
+SERVICES/I2C_Services.d \
 SERVICES/Timer_Services.d \
 SERVICES/Uart_Services.d \
 SERVICES/Uart_Stack.d
@@ -186,6 +196,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

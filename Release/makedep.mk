@@ -30,6 +30,8 @@ MCAL\EEPROM.c
 
 MCAL\Ext_Interrupt.c
 
+MCAL\I2C.c
+
 MCAL\SPI.c
 
 MCAL\SPI_Config.c
@@ -41,6 +43,8 @@ MCAL\Uart.c
 MCAL\Uart_Config.c
 
 MCAL\WDT.c
+
+SERVICES\I2C_Services.c
 
 SERVICES\Timer_Services.c
 

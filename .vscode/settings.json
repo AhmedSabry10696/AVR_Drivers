@@ -18,7 +18,9 @@
         "string.h": "c",
         "uart_services.h": "c",
         "io.h": "c",
-        "iom32.h": "c"
+        "iom32.h": "c",
+        "i2c_services.h": "c",
+        "i2c.h": "c"
     },
     "AVR.source.compiler": "C:\\WinAVR-20100110\\bin\\avr-gcc.exe",
     "AVR.programmer.tool": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\eXtreme Burner - AVR\\eXtreme Burner - AVR.lnk"

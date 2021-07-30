@@ -213,6 +213,12 @@
     <Compile Include="MCAL\Ext_Interrupt.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\I2C.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\I2C.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\SPI.c">
       <SubType>compile</SubType>
     </Compile>
@@ -241,6 +247,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\WDT.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\I2C_Services.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="SERVICES\I2C_Services.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="SERVICES\Timer_Services.c">
