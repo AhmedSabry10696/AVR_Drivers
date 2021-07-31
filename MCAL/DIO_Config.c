@@ -30,7 +30,7 @@ const DIO_PinStatus_type PinsStatus[TOTAL_PINS] =
     OUTPUT, /* OC0    {output compare pin T0} */
     OUTPUT, /* SS     {SPI} */
     OUTPUT, /* MOSI   {SPI} */
-    INFREE, /* MISO   {SPI} */ 
+    OUTPUT, /* MISO   {SPI INFREE} */ 
     OUTPUT, /* SCK    {SPI} */
 
     /* PORTC PINS 0:7*/    
