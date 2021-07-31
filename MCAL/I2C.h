@@ -16,6 +16,17 @@
 #include "Utils.h"
 #include "MemMap.h"
 
+typedef enum
+{
+	TWI_OK,
+	TWI_SC_ERROR,
+	TWI_RSC_ERROR,
+	TWI_MT_SLA_W_ERROR,
+	TWI_MR_SLA_R_ERROR,
+	TWI_MT_Data_ERROR,
+	TWI_MR_Data_ERROR
+} TWI_Error_type;
+
 /* I2C Status Bits in the TWSR Register */
 /* start condition transmitted */
 #define TW_START 0x08
@@ -81,16 +92,57 @@
 #define TW_W 0
 
 /**
- * @brief TWI interface initialization
+ * @brief TWI Initialization with clk {400 KHZ}
  * 
+ * @param address slave address {7 bit address}
  */
-extern void TWI_Init(void);
+extern void TWI_Init(u8 address);
 
 /**
  * @brief TWI send start condition
  * 
+ * @return TWI_Error_type TWI_OK/TWI_SC_ERROR
  */
-extern void TWI_Start(void);
+extern TWI_Error_type TWI_Start(void);
+
+/**
+ * @brief TWI send repeated start condition 
+ * 
+ * @return TWI_Error_type TWI_OK/TWI_RSC_ERROR
+ */
+extern TWI_Error_type TWI_RepStart(void);
+
+/**
+ * @brief TWI send slave address with write request
+ * 
+ * @param address slave addres {7 bit}
+ * @return TWI_Error_type TWI_OK/TWI_MT_SLA_W_ERROR
+ */
+extern TWI_Error_type TWI_Write_SLA_Write(u8 address);
+
+/**
+ * @brief TWI send slave address with read request
+ * 
+ * @param address slave addres {7 bit}
+ * @return TWI_Error_type TWI_OK/TWI_MR_SLA_R_ERROR
+ */
+extern TWI_Error_type TWI_Write_SLA_Read(u8 address);
+
+/**
+ * @brief TWI master send byte
+ * 
+ * @param data byte to send
+ * @return TWI_Error_type TWI_OK/TWI_MT_Data_ERROR
+ */
+extern TWI_Error_type TWI_WriteByte(u8 data);
+
+/**
+ * @brief TWI master read byte
+ * 
+ * @param data pointer to received data
+ * @return TWI_Error_type TWI_OK/TWI_MR_Data_ERROR
+ */
+extern TWI_Error_type TWI_ReadByte(u8 *data);
 
 /**
  * @brief TWI send stop condition
@@ -99,25 +151,10 @@ extern void TWI_Start(void);
 extern void TWI_Stop(void);
 
 /**
- * @brief TWI write data
+ * @brief TWI listen for the flag {polling}
  * 
- * @param data Address+W or data to write
  */
-extern void TWI_Write(u8 data);
-
-/**
- * @brief TWI read data and replay with ACK
- * 
- * @return u8 Returned data
- */
-extern u8 TWI_Read_With_ACK(void);
-
-/**
- * @brief TWI read data and don't replay with ACK
- * 
- * @return u8 Returned data
- */
-extern u8 TWI_Read_With_NACK(void);
+extern void TWI_Listen(void);
 
 /**
  * @brief TWI interrupt enable
