@@ -123,6 +123,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="HAL\EXT_EEPROM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\EXT_EEPROM.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\KEYPAD.c">
       <SubType>compile</SubType>
     </Compile>

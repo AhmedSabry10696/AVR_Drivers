@@ -41,6 +41,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../HAL/EXT_EEPROM.c \
 ../HAL/KEYPAD.c \
 ../HAL/DC_Motor.c \
 ../HAL/LCD.c \
@@ -75,6 +76,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+HAL/EXT_EEPROM.o \
 HAL/KEYPAD.o \
 HAL/DC_Motor.o \
 HAL/LCD.o \
@@ -102,6 +104,7 @@ SERVICES/Uart_Services.o \
 SERVICES/Uart_Stack.o
 
 OBJS_AS_ARGS +=  \
+HAL/EXT_EEPROM.o \
 HAL/KEYPAD.o \
 HAL/DC_Motor.o \
 HAL/LCD.o \
@@ -129,6 +132,7 @@ SERVICES/Uart_Services.o \
 SERVICES/Uart_Stack.o
 
 C_DEPS +=  \
+HAL/EXT_EEPROM.d \
 HAL/KEYPAD.d \
 HAL/DC_Motor.d \
 HAL/LCD.d \
@@ -156,6 +160,7 @@ SERVICES/Uart_Services.d \
 SERVICES/Uart_Stack.d
 
 C_DEPS_AS_ARGS +=  \
+HAL/EXT_EEPROM.d \
 HAL/KEYPAD.d \
 HAL/DC_Motor.d \
 HAL/LCD.d \
@@ -196,6 +201,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

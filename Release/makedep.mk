@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+HAL\EXT_EEPROM.c
+
 HAL\KEYPAD.c
 
 HAL\DC_Motor.c
