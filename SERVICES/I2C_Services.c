@@ -10,147 +10,104 @@
  */
 
 #include "I2C_Services.h"
+#include "LCD.h"
 
-u8 TWI_Master_WriteByte(u8 SlaveAddress, u8 data)
+
+TWI_Error_type TWI_Master_SendByte(u8 address, u8 data)
 {
+    TWI_Error_type local = TWI_OK;
+    
     /* send start condition */
-    TWI_Start();
-    if (TW_STATUS != TW_START)
+    local = TWI_Start();
+    if (local != TWI_OK)
     {
-        return 0;
+        return local;
     }
-
-    /* send slave address + write */
+    
     /* I2C terminal in proteus write address with no shift {bit 0 R/W}*/
-    TWI_Write((SlaveAddress << 1) | TW_W);
-    if (TW_STATUS != TW_MT_SLA_W_ACK)
+    local = TWI_Write_SLA_Write(address);
+    if (local != TWI_OK)
     {
-        return 0;
+        return local;
     }
-
+    
     /* send byte */
-    TWI_Write(data);
-    if (TW_STATUS != TW_MT_DATA_ACK)
+    local = TWI_WriteByte(data);
+    if (local != TWI_OK)
     {
-        return 0;
+        return local;
     }
-
+    
     /* send stop condition */
     TWI_Stop();
 
     /* Byte sent successfully */
-    return 1;
+    return local;
 }
 
-u8 TWI_Master_ReadByte(u8 SlaveAddress, u8 *data)
+TWI_Error_type TWI_Master_ReceiveByte(u8 address, u8 *data)
 {
+    TWI_Error_type local = TWI_OK;
+    
     /* send start condition */
-    TWI_Start();
-
-    if (TW_STATUS != TW_START)
+    local = TWI_Start();
+    if (local != TWI_OK)
     {
-        return 0;
+        return local;
     }
-
+    
     /* send slave address + read */
-    TWI_Write((SlaveAddress << 1) | TW_R);
-    if (TW_STATUS != TW_MT_SLA_R_ACK)
+    local = TWI_Write_SLA_Read(address);
+    if (local != TWI_OK)
     {
-        return 0;
+        return local;
     }
 
     /*  read received data */
-    *data = TWI_Read_With_NACK();
-    if (TW_STATUS != TW_MR_DATA_NACK)
+    local = TWI_ReadByte(data);
+    if (local != TWI_OK)
     {
-        return 0;
+        return local;
     }
 
     /* send stop condition */
     TWI_Stop();
 
     /* Byte received successfully */
-    return 1;
+    return local;
 }
 
-u8 TWI_Slave_ReadByte(u8 *data)
+TWI_Error_type TWI_Master_SendString(u8 address, u8 *str)
 {
-    while (TW_STATUS != TW_SR_SLA_ACK)
-    {
-        /* clear flag and wait to set flag again */
-        TWI_FlagPolling();
-    }
+    TWI_Error_type local = TWI_OK;
 
-    /* read data */
-    *data = TWI_Read_With_ACK();
-
-    /* check status */
-    if (TW_STATUS == TW_SR_DATA_ACK || TW_STATUS == TW_SR_DATA_NACK)
-    {
-        /* correct data */
-        return 1;
-    }
-    else
-    {
-        /* wrong data */
-        return 0;
-    }
-}
-
-u8 TWI_Slave_WriteByte(u8 data)
-{
-    while (TW_STATUS != TW_ST_SLA_ACK)
-    {
-        /* clear flag and wait to set flag again */
-        TWI_FlagPolling();
-    }
-
-    /* write data */
-    TWI_Write(data);
-
-    /* check status */
-    if (TW_STATUS == TW_ST_DATA_ACK || TW_STATUS == TW_ST_DATA_NACK)
-    {
-        /* Done */
-        return 1;
-    }
-    else
-    {
-        /* Error */
-        return 0;
-    }
-}
-
-u8 TWI_Master_WriteString(u8 SlaveAddress, u8 *str)
-{
     /* send start condition */
-    TWI_Start();
-
-    if (TW_STATUS != TW_START)
+    local = TWI_Start();
+    if(local != TWI_OK)
     {
-        return 0;
+        return local;
     }
 
     /* send slave address + write*/
-    TWI_Write((SlaveAddress << 1) | TW_W);
-    if (TW_STATUS != TW_MT_SLA_W_ACK)
+    local = TWI_Write_SLA_Write(address);
+    if(local != TWI_OK)
     {
-        return 0;
+        return local;
     }
 
     /* loop on string till null */
     for (u8 i = 0; i < str[i]; i++)
     {
-        TWI_Write(str[i]);
-        if (TW_STATUS != TW_MT_DATA_ACK)
+        local = TWI_WriteByte(str[i]);
+        if (local != TWI_OK)
         {
-            return 0;
+            return local;
         }
     }
 
     /* send stop condition */
     TWI_Stop();
 
-    /* Byte sent successfully */
-    return 1;
+    /* str sent successfully */
+    return local;
 }
