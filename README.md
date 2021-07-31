@@ -4,19 +4,18 @@
 ![Tasksdiagram](./APP%20Videos/AVR_KIT.png)
 
 ### Implemented Drivers:
-1. DIO Driver: (leds, buttons, keypad, 7_seg, LCD, DC Motors, Stepper Motors).
-2. ADC Driver: (voltmeter, temp sensor{lm35}, pressure sensor{MPX4110}).
-3. External Interrupt Driver.
-4. Timers Driver: (timer0{8 bit}, timer1{16 bit})
-5. Servo Motor Driver{PWM}
-6. Ultrasonic Driver: (Input Capture Unit).
-7. UART Driver: (Synchronous and Asynchronous concept, Uart Stack).
-8. SPI Driver.
-9. I2C Driver.
-10. Watch Dog Timer Driver.
-11. Internal EEPROM Driver.
-
-Note: All interrupts implemented using call back functions and there are a lot of tips and tricks related to static and dynamic design.
+1. DIO driver: leds, buttons, keypad, 7_seg, lcd, dc motors, stepper motors.
+2. ADC driver: voltmeter, temp sensor{lm35}, pressure sensor{MPX4110}.
+3. External interrupt driver.
+4. Timers driver: timer0 {8 bit}, timer1{16 bit}.
+5. Servo motor driver: {PWM}.
+6. Ultrasonic driver: (input capture unit).
+7. UART driver: (synchronous and asynchronous concept, UART Stack).
+8. SPI driver.
+9. I2C driver.
+10. External EEPROM driver: {M24C16(2KB) I2C}.
+11. Watch dog timer driver.
+12. Internal EEPROM driver.
 
 ### don't hesitate to contact me if you have any questions or feedback:
 Linkedin Account👇:
