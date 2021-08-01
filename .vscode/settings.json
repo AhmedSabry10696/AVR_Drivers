@@ -22,7 +22,8 @@
         "i2c_services.h": "c",
         "i2c.h": "c",
         "i2c_interface.h": "c",
-        "ext_eeprom.h": "c"
+        "ext_eeprom.h": "c",
+        "uart_stack.h": "c"
     },
     "AVR.source.compiler": "C:\\WinAVR-20100110\\bin\\avr-gcc.exe",
     "AVR.programmer.tool": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\eXtreme Burner - AVR\\eXtreme Burner - AVR.lnk"
