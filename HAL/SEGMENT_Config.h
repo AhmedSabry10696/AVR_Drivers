@@ -12,7 +12,7 @@
 #ifndef SEGMENT_LCFG_H_
 #define SEGMENT_LCFG_H_
 
-#include "DIO.h"
+#include "dio.h"
 
 /**
  * @brief 	define BCD: LOW_PINS if segment used with decoder in low 4 pins in the port

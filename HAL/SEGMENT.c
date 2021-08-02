@@ -9,33 +9,33 @@
  * 
  */
 
-#include "Segment.h"
-#include "Segment_Config.h"
+#include "segment.h"
+#include "segment_config.h"
 
 #ifndef BCD
-static u8 Seg_Nums[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6f, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71};
+static u8 seg_nums[] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6f, 0x77, 0x7C, 0x39, 0x5E, 0x79, 0x71};
 #endif
 
-void SEGMENT_Display(u8 num)
+void SEGMENT_display(u8 num)
 {
 #ifndef BCD
 #if (COM_CATHODE == SEGMENT_TYPE)
-	DIO_WritePort(SEGMENT_PORT, Seg_Nums[num % 16]);
+	DIO_writePort(SEGMENT_PORT, seg_nums[num % 16]);
 
 #elif (COM_ANODE == SEGMENT_TYPE)
-	DIO_WritePort(SEGMENT_PORT, ~(Seg_Nums[num % 16]));
+	DIO_writePort(SEGMENT_PORT, ~(seg_nums[num % 16]));
 #endif
 #else
 #if (LOW_PINS == BCD)
-	DIO_EditPort_LowerHalf(SEGMENT_PORT, num);
+	DIO_editPort_lowNibble(SEGMENT_PORT, num);
 #elif (HIGH_PINS == BCD)
-	DIO_EditPort_HigherHalf(SEGMENT_PORT, num);
+	DIO_editPort_highNibble(SEGMENT_PORT, num);
 #elif (FULL_PORT == BCD)
 	u8 digit = num % 10;
-	DIO_EditPort_LowerHalf(SEGMENT_PORT, digit);
+	DIO_editPort_lowNibble(SEGMENT_PORT, digit);
 	num /= 10;
 	digit = num % 10;
-	DIO_EditPort_HigherHalf(SEGMENT_PORT, digit);
+	DIO_editPort_highNibble(SEGMENT_PORT, digit);
 #endif
 #endif
 }

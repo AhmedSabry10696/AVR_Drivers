@@ -2,8 +2,8 @@
 #ifndef SEGMENT_H_
 #define SEGMENT_H_
 
-#include "StdTypes.h"
-#include "DIO.h"
+#include "std_types.h"
+#include "dio.h"
 
 #define LOW_PINS    0
 #define HIGH_PINS   1
@@ -17,6 +17,6 @@
  * 
  * @param num (0:F) when using only 1 segment and (0:99) when using 2 segment 
  */
-extern void SEGMENT_Display(u8 num);
+extern void SEGMENT_display(u8 num);
 
 #endif /* SEGMENT_H_ */
