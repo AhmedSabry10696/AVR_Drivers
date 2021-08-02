@@ -1,5 +1,5 @@
 /**
- * @file EXT_EEPROM.c
+ * @file ext_eeprom.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief External EEPROM driver implementation
  * @version 0.1
@@ -9,88 +9,116 @@
  * 
  */
 
-#include "EXT_EEPROM.h"
+#include "ext_eeprom.h"
 
-void EEPROM_Init(void)
+void EEPROM_init(void)
 {
     /* address of the controller in case it used as slave */
-    TWI_Init(0x40);
+    TWI_init(0x40);
 }
 
-EEPROM_Error_type EEPROM_Write_Byte(u16 address, u8 data)
+EEPROM_Error_type EEPROM_writeByte(u16 address, u8 data)
 {
-    TWI_Error_type local = TWI_OK;
+    TwiError_type local = TWI_OK;
 
-    local = TWI_Start();
+    /* send start condition */
+    local = TWI_start();
+
+    /* if failed return error code */
     if (local != TWI_OK)
     {
         return ERROR;
     }
 
-    local = TWI_Write_SLA_Write((u8)(0x50 | ((address & 0x0700) >> 8)));
+    /* send slave address with write request
+    * {0101 0000} | {0000 0 A9 A8 A7} = {0101 0987} 
+    * in function shifted left 1010 987{0} write      
+    */ 
+    local = TWI_write_SLA_write((u8)(0x50 | ((address & 0x0700) >> 8)));
+    
+    /* if failed return error code */
+    if (local != TWI_OK)
+    {
+        return ERROR;    
+    }
+
+    /* send second byte of address */
+    local = TWI_writeByte((u8)(address));
     if (local != TWI_OK)
     {
         return ERROR;
     }
 
-    local = TWI_WriteByte((u8)(address));
+    /* send byte to write in address */
+    local = TWI_writeByte(data);
+    /* if failed, return error */
     if (local != TWI_OK)
     {
         return ERROR;
     }
 
-    local = TWI_WriteByte(data);
-    if (local != TWI_OK)
-    {
-        return ERROR;
-    }
+    /* send stop condition */
+    TWI_stop();
 
-    TWI_Stop();
-
+    /* return success */
     return SUCCESS;
 }
 
-EEPROM_Error_type EEPROM_Read_Byte(u16 address, u8 *data)
+EEPROM_Error_type EEPROM_readByte(u16 address, u8 *data_ptr)
 {
-    TWI_Error_type local = TWI_OK;
+    TwiError_type local = TWI_OK;
 
-    local = TWI_Start();
+    /* send start condition */
+    local = TWI_start();
+    /* return error if failed */
     if (local != TWI_OK)
     {
         return ERROR;
     }
 
-    local = TWI_Write_SLA_Write((u8)(0x50 | ((address & 0x0700) >> 8)));
+    /* send slave address with write request */
+    local = TWI_write_SLA_write((u8)(0x50 | ((address & 0x0700) >> 8)));
+    /* return error if failed */
     if (local != TWI_OK)
     {
         return ERROR;
     }
 
-    local = TWI_WriteByte((u8)(address));
+    /* send second byte of the address */
+    local = TWI_writeByte((u8)(address));
+    /* return error if failed */
     if (local != TWI_OK)
     {
         return ERROR;
     }
 
-    local = TWI_RepStart();
+    /* send repeated start condition */
+    local = TWI_repStart();
+    /* return error if failed */
     if (local != TWI_OK)
     {
         return ERROR;
     }
 
-    local = TWI_Write_SLA_Read((u8)(0x50 | ((address & 0x0700) >> 8)));
+    /* send slave address with read request */
+    local = TWI_write_SLA_read((u8)(0x50 | ((address & 0x0700) >> 8)));
+    /* return error if failed */
     if (local != TWI_OK)
     {
         return ERROR;
     }
     
-    local = TWI_ReadByte(data);
+    /* read byte */
+    local = TWI_readByte(data_ptr);
+    /* return error if failed */
     if (local != TWI_OK)
     {
         return ERROR;
     }
 
-    TWI_Stop();
+    /* send stop condition */
+    TWI_stop();
 
+    /* return success */
     return SUCCESS;
 }

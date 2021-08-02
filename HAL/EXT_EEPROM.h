@@ -1,5 +1,5 @@
 /**
- * @file EXT_EEPROM.h
+ * @file ext_eeprom.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief External EEPROM header file
  * @version 0.1
@@ -20,8 +20,28 @@ typedef enum
     SUCCESS
 } EEPROM_Error_type;
 
-void EEPROM_Init(void);
-EEPROM_Error_type EEPROM_Write_Byte(u16 address, u8 data);
-EEPROM_Error_type EEPROM_Read_Byte(u16 address, u8 *data);
+/**
+ * @brief EEPROM initialization
+ * 
+ */
+void EEPROM_init(void);
+
+/**
+ * @brief Write byte in EEPROM
+ * 
+ * @param address address to write data in
+ * @param data data to write at address in EEPROM
+ * @return EEPROM_Error_type ERROR/SUCCESS
+ */
+EEPROM_Error_type EEPROM_writeByte(u16 address, u8 data);
+
+/**
+ * @brief read byte from specified address in EEPROM
+ * 
+ * @param address address to read from
+ * @param data_ptr pointer to save byte
+ * @return EEPROM_Error_type ERROR/SUCCESS
+ */
+EEPROM_Error_type EEPROM_readByte(u16 address, u8 *data_ptr);
 
 #endif /* EXT_EEPROM_H_ */
