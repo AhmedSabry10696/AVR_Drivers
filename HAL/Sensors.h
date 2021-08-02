@@ -1,5 +1,5 @@
 /**
- * @file Sensors.h
+ * @file sensors.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Sensors header file 
  * @version 0.1
@@ -12,7 +12,7 @@
 #ifndef SENSORS_H_
 #define SENSORS_H_
 
-#include "ADC.h"
+#include "adc.h"
 
 #define MPX4110 CH_1
 #define POT     CH_2
@@ -23,20 +23,20 @@
  * 
  * @return u16 Voltage (mv)
  */
-extern u16 POT_VoltRead(void);
+extern u16 POT_voltRead(void);
 
 /**
  * @brief Temp sensor read
  * 
  * @return u16 Temp*10: consider Least significant digit right to the floating point
  */
-extern u16 LM35_TempRead(void);
+extern u16 LM35_tempRead(void);
 
 /**
  * @brief Pressure sensor get read
  * 
  * @return u16 pressure*10: consider Least significant digit right to the floating point
  */
-extern u16 MPX4110_PressureRead(void);
+extern u16 MPX4110_pressureRead(void);
 
 #endif /* SENSORS_H_ */
