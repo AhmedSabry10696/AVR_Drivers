@@ -1,5 +1,5 @@
 /**
- * @file Utils.h
+ * @file utils.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Utils header file
  * @version 0.1
@@ -16,10 +16,10 @@
 #define SET_BIT(REG, BIT) (REG |= (1 << BIT))
 
 /* Clear a certain bit in any register */
-#define CLEAR_BIT(REG, BIT) (REG &= (~(1 << BIT)))
+#define CLR_BIT(REG, BIT) (REG &= (~(1 << BIT)))
 
 /* Toggle a certain bit in any register */
-#define TOGGLE_BIT(REG, BIT) (REG ^= (1 << BIT))
+#define TOG_BIT(REG, BIT) (REG ^= (1 << BIT))
 
 /* Rotate right the register value with specific number of rotates */
 #define ROR(REG, num) (REG = (REG >> num) | (REG << (8 - num)))
@@ -37,9 +37,9 @@
 #define READ_BIT(REG, BIT) ((REG >> BIT) & 0x01)
 
 /* Edit four lower bits in a register without affecting others bits */
-#define EDIT_FOUR_LBITS(REG, VALUE) (REG = (REG & 0xF0) | (VALUE & 0x0F));
+#define EDIT_LOW_NIBBLE(REG, VALUE) (REG = (REG & 0xF0) | (VALUE & 0x0F));
 
 /* Edit four higher bits in a register without affecting others bits */
-#define EDIT_FOUR_HBITS(REG, VALUE) (REG = (REG & 0x0F) | ((VALUE << 4) & 0xF0));
+#define EDIT_HIGH_NIBBLE(REG, VALUE) (REG = (REG & 0x0F) | ((VALUE << 4) & 0xF0));
 
 #endif /* UTILS_H_ */
