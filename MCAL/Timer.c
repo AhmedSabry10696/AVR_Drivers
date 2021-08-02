@@ -1,5 +1,5 @@
 /**
- * @file Timer.c
+ * @file timer.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Timer driver 
  * @version 0.1
@@ -9,30 +9,30 @@
  * 
  */
 
-#include "Timer.h"
+#include "timer.h"
 
-static void (*TIMER0_OVF_IntFptr)(void) = NULLPTR;
-static void (*TIMER0_COM_IntFptr)(void) = NULLPTR;
+static void (*timer0_ovf_fPtr)(void) = NULLPTR;
+static void (*timer0_com_fPtr)(void) = NULLPTR;
 
-static void (*Timer1_OVF_IntFptr)(void) = NULLPTR;
-static void (*Timer1_OCA_IntFptr)(void) = NULLPTR;
-static void (*Timer1_OCB_IntFptr)(void) = NULLPTR;
-static void (*Timer1_ICU_IntFptr)(void) = NULLPTR;
+static void (*timer1_ovf_fPtr)(void) = NULLPTR;
+static void (*timer1_oca_fPtr)(void) = NULLPTR;
+static void (*timer1_ocb_fPtr)(void) = NULLPTR;
+static void (*timer1_icu_fPtr)(void) = NULLPTR;
 
-void Timer0_Init(TIMER0_Mode_type mode, TIMER0_Scaler_type scaler)
+void TIMER0_init(Timer0Mode_type mode, Timer0Scaler_type scaler)
 {
     switch (mode)
     {
     case TIMER0_NORMAL:
-        CLEAR_BIT(TCCR0, WGM00);
-        CLEAR_BIT(TCCR0, WGM01);
+        CLR_BIT(TCCR0, WGM00);
+        CLR_BIT(TCCR0, WGM01);
         break;
     case TIMER0_PWM_PHASE_CORRECT:
         SET_BIT(TCCR0, WGM00);
-        CLEAR_BIT(TCCR0, WGM01);
+        CLR_BIT(TCCR0, WGM01);
         break;
     case TIMER0_CTC:
-        CLEAR_BIT(TCCR0, WGM00);
+        CLR_BIT(TCCR0, WGM00);
         SET_BIT(TCCR0, WGM01);
         break;
     case TIMER0_FAST_PWM:
@@ -48,20 +48,20 @@ void Timer0_Init(TIMER0_Mode_type mode, TIMER0_Scaler_type scaler)
     TCCR0 |= scaler;
 }
 
-void Timer0_OC0_Mode(TIMER0_OC0_type mode)
+void TIMER0_OC0_mode(Timer0_oc0_type mode)
 {
     switch (mode)
     {
     case OC0_DISCONNECTED:
-        CLEAR_BIT(TCCR0, COM00);
-        CLEAR_BIT(TCCR0, COM01);
+        CLR_BIT(TCCR0, COM00);
+        CLR_BIT(TCCR0, COM01);
         break;
     case OC0_TOGGLE:
         SET_BIT(TCCR0, COM00);
-        CLEAR_BIT(TCCR0, COM01);
+        CLR_BIT(TCCR0, COM01);
         break;
     case OC0_NON_INVERTING:
-        CLEAR_BIT(TCCR0, COM00);
+        CLR_BIT(TCCR0, COM00);
         SET_BIT(TCCR0, COM01);
         break;
     case OC0_INVERTING:
@@ -71,69 +71,75 @@ void Timer0_OC0_Mode(TIMER0_OC0_type mode)
     }
 }
 
-void Timer0_Set(const u8 time)
+void TIMER0_set(const u8 time)
 {
     TCNT0 = time;
 }
-u8 Timer0_Get(void)
+
+u8 TIMER0_get(void)
 {
     return TCNT0;
 }
-void Timer0_OCR_Set(const u8 time)
+
+void TIMER0_OCR_set(const u8 time)
 {
     OCR0 = time;
 }
 
-void Timer0_OVF_IntEnable(void)
+void TIMER0_OVF_intEnable(void)
 {
     SET_BIT(TIMSK, TOIE0);
 }
-void Timer0_OVF_IntDisable(void)
+
+void TIMER0_OVF_intDisable(void)
 {
-    CLEAR_BIT(TIMSK, TOIE0);
+    CLR_BIT(TIMSK, TOIE0);
 }
-void Timer0_OC_IntEnable(void)
+
+void TIMER0_OC_intEnable(void)
 {
     SET_BIT(TIMSK, OCIE0);
 }
-void Timer0_OC_IntDisable(void)
+
+void TIMER0_OC_intDisable(void)
 {
-    CLEAR_BIT(TIMSK, OCIE0);
+    CLR_BIT(TIMSK, OCIE0);
 }
 
-void Timer0_OVF_IntSetCallBack(void (*LocalFptr)(void))
+void TIMER0_OVF_intSetCallBack(void (*localFptr)(void))
 {
-    TIMER0_OVF_IntFptr = LocalFptr;
-}
-void Timer0_OC_IntSetCallBack(void (*LocalFptr)(void))
-{
-    TIMER0_COM_IntFptr = LocalFptr;
+    timer0_ovf_fPtr = localFptr;
 }
 
-void Timer1_Init(TIMER1_Mode_type mode, TIMER1_Scaler_type scaler)
+void TIMER0_OC_intSetCallBack(void (*localFptr)(void))
+{
+    timer0_com_fPtr = localFptr;
+}
+
+void TIMER1_init(Timer1Mode_type mode, Timer1Scaler_type scaler)
 {
     switch (mode)
     {
     case TIMER1_NORMAL_MODE:
-        CLEAR_BIT(TCCR1A, WGM10);
-        CLEAR_BIT(TCCR1A, WGM11);
-        CLEAR_BIT(TCCR1B, WGM12);
-        CLEAR_BIT(TCCR1B, WGM13);
+        CLR_BIT(TCCR1A, WGM10);
+        CLR_BIT(TCCR1A, WGM11);
+        CLR_BIT(TCCR1B, WGM12);
+        CLR_BIT(TCCR1B, WGM13);
         break;
     case TIMER1_CTC_ICR_TOP_MODE:
-        CLEAR_BIT(TCCR1A, WGM10);
-        CLEAR_BIT(TCCR1A, WGM11);
+        CLR_BIT(TCCR1A, WGM10);
+        CLR_BIT(TCCR1A, WGM11);
         SET_BIT(TCCR1B, WGM12);
         SET_BIT(TCCR1B, WGM13);
         break;
     case TIMER1_CTC_OCRA_TOP_MODE:
-        CLEAR_BIT(TCCR1A, WGM10);
-        CLEAR_BIT(TCCR1A, WGM11);
+        CLR_BIT(TCCR1A, WGM10);
+        CLR_BIT(TCCR1A, WGM11);
         SET_BIT(TCCR1B, WGM12);
-        CLEAR_BIT(TCCR1B, WGM13);
+        CLR_BIT(TCCR1B, WGM13);
         break;
     case TIMER1_FASTPWM_ICR_TOP_MODE:
-        CLEAR_BIT(TCCR1A, WGM10);
+        CLR_BIT(TCCR1A, WGM10);
         SET_BIT(TCCR1A, WGM11);
         SET_BIT(TCCR1B, WGM12);
         SET_BIT(TCCR1B, WGM13);
@@ -152,20 +158,21 @@ void Timer1_Init(TIMER1_Mode_type mode, TIMER1_Scaler_type scaler)
     /* add scaler to TCCR1B register */
     TCCR1B |= scaler;
 }
-void Timer1_OCRA_Mode(TIMER1_OC1A_type oc1a_mode)
+
+void TIMER1_OCRA_mode(Timer1_oc1a_type oc1a_mode)
 {
     switch (oc1a_mode)
     {
     case OCRA_DISCONNECTED:
-        CLEAR_BIT(TCCR1A, COM1A0);
-        CLEAR_BIT(TCCR1A, COM1A1);
+        CLR_BIT(TCCR1A, COM1A0);
+        CLR_BIT(TCCR1A, COM1A1);
         break;
     case OCRA_TOGGLE:
         SET_BIT(TCCR1A, COM1A0);
-        CLEAR_BIT(TCCR1A, COM1A1);
+        CLR_BIT(TCCR1A, COM1A1);
         break;
     case OCRA_NON_INVERTING:
-        CLEAR_BIT(TCCR1A, COM1A0);
+        CLR_BIT(TCCR1A, COM1A0);
         SET_BIT(TCCR1A, COM1A1);
         break;
     case OCRA_INVERTING:
@@ -174,20 +181,21 @@ void Timer1_OCRA_Mode(TIMER1_OC1A_type oc1a_mode)
         break;
     }
 }
-void Timer1_OCRB_Mode(TIMER1_OC1B_type oc1b_mode)
+
+void TIMER1_OCRB_mode(Timer1_oc1b_type oc1b_mode)
 {
     switch (oc1b_mode)
     {
     case OCRB_DISCONNECTED:
-        CLEAR_BIT(TCCR1A, COM1B0);
-        CLEAR_BIT(TCCR1A, COM1B1);
+        CLR_BIT(TCCR1A, COM1B0);
+        CLR_BIT(TCCR1A, COM1B1);
         break;
     case OCRB_TOGGLE:
         SET_BIT(TCCR1A, COM1B0);
-        CLEAR_BIT(TCCR1A, COM1B1);
+        CLR_BIT(TCCR1A, COM1B1);
         break;
     case OCRB_NON_INVERTING:
-        CLEAR_BIT(TCCR1A, COM1B0);
+        CLR_BIT(TCCR1A, COM1B0);
         SET_BIT(TCCR1A, COM1B1);
         break;
     case OCRB_INVERTING:
@@ -196,129 +204,150 @@ void Timer1_OCRB_Mode(TIMER1_OC1B_type oc1b_mode)
         break;
     }
 }
-void Timer1_InputCaptureEdge(TIMER1_ICU_Edge_type edge)
+
+void TIMER1_inputCaptureEdge(Timer1_icuEdge_type edge)
 {
     if (edge == RISING)
         SET_BIT(TCCR1B, ICES1);
 
     else if (edge == FALLING)
-        CLEAR_BIT(TCCR1B, ICES1);
+        CLR_BIT(TCCR1B, ICES1);
 }
 
-void Timer1_Set(const u16 time)
+void TIMER1_set(const u16 time)
 {
     TCNT1 = time;
 }
-u16 Timer1_Get(void)
+
+u16 TIMER1_get(void)
 {
     return TCNT1;
 }
-void Timer1_OCRA_Set(const u16 time)
+
+void TIMER1_OCRA_set(const u16 time)
 {
     OCR1A = time;
 }
-void Timer1_OCRB_Set(const u16 time)
+
+void TIMER1_OCRB_set(const u16 time)
 {
     OCR1B = time;
 }
-void Timer1_ICR_Set(const u16 time)
+
+void TIMER1_ICR_set(const u16 time)
 {
     ICR1 = time;
 }
-u16 Timer1_ICR_Get(void)
+
+u16 TIMER1_ICR_get(void)
 {
     return ICR1;
 }
 
-void Timer1_OVF_IntEnable(void)
+void TIMER1_OVF_intEnable(void)
 {
     SET_BIT(TIMSK, TOIE1);
 }
-void Timer1_OVF_IntDisable(void)
+
+void TIMER1_OVF_intDisable(void)
 {
-    CLEAR_BIT(TIMSK, TOIE1);
+    CLR_BIT(TIMSK, TOIE1);
 }
-void Timer1_OCA_IntEnable(void)
+
+void TIMER1_OCA_intEnable(void)
 {
     SET_BIT(TIMSK, OCIE1A);
 }
-void Timer1_OCA_IntDisable(void)
+
+void TIMER1_OCA_intDisable(void)
 {
-    CLEAR_BIT(TIMSK, OCIE1A);
+    CLR_BIT(TIMSK, OCIE1A);
 }
-void Timer1_OCB_IntEnable(void)
+
+void TIMER1_OCB_intEnable(void)
 {
     SET_BIT(TIMSK, OCIE1B);
 }
-void Timer1_OCB_IntDisable(void)
+
+void TIMER1_OCB_intDisable(void)
 {
-    CLEAR_BIT(TIMSK, OCIE1B);
+    CLR_BIT(TIMSK, OCIE1B);
 }
-void Timer1_ICU_IntEnable(void)
+
+void TIMER1_ICU_intEnable(void)
 {
     SET_BIT(TIMSK, TICIE1);
 }
-void Timer1_ICU_IntDisable(void)
+
+void TIMER1_ICU_intDisable(void)
 {
-    CLEAR_BIT(TIMSK, TICIE1);
+    CLR_BIT(TIMSK, TICIE1);
 }
 
-void Timer1_OVF_IntSetCallBack(void (*LocalFptr)(void))
+void TIMER1_OVF_intSetCallBack(void (*localFptr)(void))
 {
-    Timer1_OVF_IntFptr = LocalFptr;
+    timer1_ovf_fPtr = localFptr;
 }
-void Timer1_OCA_IntSetCallBack(void (*LocalFptr)(void))
+
+void TIMER1_OCA_intSetCallBack(void (*localFptr)(void))
 {
-    Timer1_OCA_IntFptr = LocalFptr;
+    timer1_oca_fPtr = localFptr;
 }
-void Timer1_OCB_IntSetCallBack(void (*LocalFptr)(void))
+
+void TIMER1_OCB_intSetCallBack(void (*localFptr)(void))
 {
-    Timer1_OCB_IntFptr = LocalFptr;
+    timer1_ocb_fPtr = localFptr;
 }
-void Timer1_ICU_IntSetCallBack(void (*LocalFptr)(void))
+
+void TIMER1_ICU_intSetCallBack(void (*localFptr)(void))
 {
-    Timer1_ICU_IntFptr = LocalFptr;
+    timer1_icu_fPtr = localFptr;
 }
 
 ISR(TIMER0_OVF_VECT)
 {
-    if (TIMER0_OVF_IntFptr != NULLPTR)
+    if (timer0_ovf_fPtr != NULLPTR)
     {
-        TIMER0_OVF_IntFptr();
+        timer0_ovf_fPtr();
     }
 }
+
 ISR(TIMER0_COMP_VECT)
 {
-    if (TIMER0_COM_IntFptr != NULLPTR)
+    if (timer0_com_fPtr != NULLPTR)
     {
-        TIMER0_COM_IntFptr();
+        timer0_com_fPtr();
     }
 }
+
 ISR(TIMER1_OVF_VECT)
 {
-    if (Timer1_OVF_IntFptr != NULLPTR)
+    if (timer1_ovf_fPtr != NULLPTR)
     {
-        Timer1_OVF_IntFptr();
+        timer1_ovf_fPtr();
     }
 }
+
 ISR(TIMER1_COMPA_VECT)
 {
-    if (Timer1_OCA_IntFptr != NULLPTR)
+    if (timer1_oca_fPtr != NULLPTR)
     {
-        Timer1_OCA_IntFptr();
+        timer1_oca_fPtr();
     }
 }
+
 ISR(TIMER1_COMPB_VECT)
 {
-    if (Timer1_OCB_IntFptr != NULLPTR)
+    if (timer1_ocb_fPtr != NULLPTR)
     {
-        Timer1_OCB_IntFptr();
+        timer1_ocb_fPtr();
     }
 }
+
 ISR(TIMER1_CAPT_VECT)
 {
-    if (Timer1_ICU_IntFptr != NULLPTR)
+    if (timer1_icu_fPtr != NULLPTR)
     {
-        Timer1_ICU_IntFptr();
+        timer1_icu_fPtr();
     }
 }

@@ -1,5 +1,5 @@
 /**
- * @file Timer.h
+ * @file timer.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Timer header file
  * @version 0.1
@@ -12,9 +12,9 @@
 #ifndef TIMER_H_
 #define TIMER_H_
 
-#include "StdTypes.h"
-#include "Utils.h"
-#include "MemMap.h"
+#include "std_types.h"
+#include "utils.h"
+#include "memory_map.h"
 
 typedef enum
 {
@@ -22,7 +22,8 @@ typedef enum
 	TIMER0_PWM_PHASE_CORRECT,
 	TIMER0_CTC,
 	TIMER0_FAST_PWM
-} TIMER0_Mode_type;
+} Timer0Mode_type;
+
 typedef enum
 {
 	TIMER0_STOP = 0,
@@ -33,14 +34,15 @@ typedef enum
 	TIMER0_SCALER_1024,
 	EXT_CLK_T0_FALLING,
 	EXT_CLK_T0_RISING
-} TIMER0_Scaler_type;
+} Timer0Scaler_type;
+
 typedef enum
 {
 	OC0_DISCONNECTED = 0,
 	OC0_TOGGLE,
 	OC0_NON_INVERTING,
 	OC0_INVERTING
-} TIMER0_OC0_type;
+} Timer0_oc0_type;
 
 typedef enum
 {
@@ -52,7 +54,8 @@ typedef enum
 	TIMER1_SCALER_1024,
 	EXT_CLK_T1_FALLING,
 	EXT_CLK_T1_RISING
-} TIMER1_Scaler_type;
+} Timer1Scaler_type;
+
 typedef enum
 {
 	TIMER1_NORMAL_MODE = 0,
@@ -60,27 +63,29 @@ typedef enum
 	TIMER1_CTC_OCRA_TOP_MODE,
 	TIMER1_FASTPWM_ICR_TOP_MODE,
 	TIMER1_FASTPWM_OCRA_TOP_MODE
-} TIMER1_Mode_type;
+} Timer1Mode_type;
+
 typedef enum
 {
 	OCRA_DISCONNECTED = 0,
 	OCRA_TOGGLE,
 	OCRA_NON_INVERTING,
 	OCRA_INVERTING
-} TIMER1_OC1A_type;
+} Timer1_oc1a_type;
+
 typedef enum
 {
 	OCRB_DISCONNECTED = 0,
 	OCRB_TOGGLE,
 	OCRB_NON_INVERTING,
 	OCRB_INVERTING
+} Timer1_oc1b_type;
 
-} TIMER1_OC1B_type;
 typedef enum
 {
 	RISING,
 	FALLING
-} TIMER1_ICU_Edge_type;
+} Timer1_icuEdge_type;
 
 /**
  * @brief Timer0 initialization 
@@ -90,66 +95,66 @@ typedef enum
     TIMER0_SCALER_64/TIMER0_SCALER_256/TIMER0_SCALER_1024
     EXT_CLK_T0_FALLING/EXT_CLK_T0_RISING
  */
-extern void Timer0_Init(TIMER0_Mode_type mode, TIMER0_Scaler_type scaler);
+extern void TIMER0_init(Timer0Mode_type mode, Timer0Scaler_type scaler);
 /**
  * @brief Timer0 OC0 pin mode
  * 
  * @param mode OC0_DISCONNECTED/OC0_TOGGLE/OC0_NON_INVERTING/OC0_INVERTING
  */
-extern void Timer0_OC0_Mode(TIMER0_OC0_type mode);
+extern void TIMER0_OC0_mode(Timer0_oc0_type mode);
 
 /**
  * @brief Set TCNT0 value
  * 
  * @param time 0:255
  */
-extern void Timer0_Set(const u8 time);
+extern void TIMER0_set(const u8 time);
 /**
  * @brief Get TCNT0 value
  * 
  * @return u8 0:255
  */
-extern u8 Timer0_Get(void);
+extern u8 TIMER0_get(void);
 /**
  * @brief Set OCR register value
  * 
  * @param time 0:255
  */
-extern void Timer0_OCR_Set(const u8 time);
+extern void TIMER0_OCR_set(const u8 time);
 
 /**
  * @brief Enable interrupt for T0 overflow
  * 
  */
-extern void Timer0_OVF_IntEnable(void);
+extern void TIMER0_OVF_intEnable(void);
 /**
  * @brief Disable interrupt for T0 overflow
  * 
  */
-extern void Timer0_OVF_IntDisable(void);
+extern void TIMER0_OVF_intDisable(void);
 /**
  * @brief Enable interrupt for T0 out compare match
  * 
  */
-extern void Timer0_OC_IntEnable(void);
+extern void TIMER0_OC_intEnable(void);
 /**
  * @brief Disable interrupt for T0 out compare match
  * 
  */
-extern void Timer0_OC_IntDisable(void);
+extern void TIMER0_OC_intDisable(void);
 
 /**
  * @brief set call back function for T0 overflow interrupt
  * 
- * @param LocalFptr address of function to run on interrupt
+ * @param localFptr address of function to run on interrupt
  */
-extern void Timer0_OVF_IntSetCallBack(void (*LocalFptr)(void));
+extern void TIMER0_OVF_intSetCallBack(void (*localFptr)(void));
 /**
  * @brief Set call back function for T0 out compare match interrupt
  * 
- * @param LocalFptr address of function to run on interrupt
+ * @param localFptr address of function to run on interrupt
  */
-extern void Timer0_OC_IntSetCallBack(void (*LocalFptr)(void));
+extern void TIMER0_OC_intSetCallBack(void (*localFptr)(void));
 
 /**
  * @brief Timer1 initialization
@@ -159,127 +164,127 @@ extern void Timer0_OC_IntSetCallBack(void (*LocalFptr)(void));
  * @param scaler TIMER1_STOP/TIMER1_SCALER_1/TIMER1_SCALER_8/TIMER1_SCALER_64
 	TIMER1_SCALER_256/TIMER1_SCALER_1024/EXT_CLK_T1_FALLING/EXT_CLK_T1_RISING
  */
-extern void Timer1_Init(TIMER1_Mode_type mode, TIMER1_Scaler_type scaler);
+extern void TIMER1_init(Timer1Mode_type mode, Timer1Scaler_type scaler);
 /**
  * @brief Set oc1a pin mode
  * 
  * @param oc1a_mode OCRA_DISCONNECTED/OCRA_TOGGLE/OCRA_NON_INVERTING/OCRA_INVERTING
  */
-extern void Timer1_OCRA_Mode(TIMER1_OC1A_type oc1a_mode);
+extern void TIMER1_OCRA_mode(Timer1_oc1a_type oc1a_mode);
 /**
  * @brief Set oc1b pin mode
  * 
  * @param oc1b_mode OCRB_DISCONNECTED/OCRB_TOGGLE/OCRB_NON_INVERTING/OCRB_INVERTING
  */
-extern void Timer1_OCRB_Mode(TIMER1_OC1B_type oc1b_mode);
+extern void TIMER1_OCRB_mode(Timer1_oc1b_type oc1b_mode);
 /**
  * @brief Set edge for input capture unit in timer1
  * 
  * @param edge RISING/FALLING
  */
-extern void Timer1_InputCaptureEdge(TIMER1_ICU_Edge_type edge);
+extern void TIMER1_inputCaptureEdge(Timer1_icuEdge_type edge);
 
 /**
  * @brief Set timer1 value
  * 
  * @param time 0:65535
  */
-extern void Timer1_Set(const u16 time);
+extern void TIMER1_set(const u16 time);
 /**
  * @brief Get timer1 value
  * 
  * @return u16 0:65535
  */
-extern u16 Timer1_Get(void);
+extern u16 TIMER1_get(void);
 /**
  * @brief Set OCRA register value
  * 
  * @param time 0:65535
  */
-extern void Timer1_OCRA_Set(const u16 time);
+extern void TIMER1_OCRA_set(const u16 time);
 /**
  * @brief Set OCRB register value
  * 
  * @param time 0:65535
  */
-extern void Timer1_OCRB_Set(const u16 time);
+extern void TIMER1_OCRB_set(const u16 time);
 /**
  * @brief Set ICR register value
  * 
  * @param time 0:65535
  */
-extern void Timer1_ICR_Set(const u16 time);
+extern void TIMER1_ICR_set(const u16 time);
 /**
  * @brief Get ICR1 register value
  * 
  * @return u16 0:65535
  */
-extern u16 Timer1_ICR_Get(void);
+extern u16 TIMER1_ICR_get(void);
 
 /**
  * @brief Enable Timer1 overflow interrupt
  * 
  */
-extern void Timer1_OVF_IntEnable(void);
+extern void TIMER1_OVF_intEnable(void);
 /**
  * @brief Disable Timer1 overflow interrupt
  * 
  */
-extern void Timer1_OVF_IntDisable(void);
+extern void TIMER1_OVF_intDisable(void);
 /**
  * @brief Enable OCA interrupt of Timer1
  * 
  */
-extern void Timer1_OCA_IntEnable(void);
+extern void TIMER1_OCA_intEnable(void);
 /**
  * @brief Disable OCA interrupt of Timer1
  * 
  */
-extern void Timer1_OCA_IntDisable(void);
+extern void TIMER1_OCA_intDisable(void);
 /**
  * @brief Enable OCB interrupt for Timer1
  * 
  */
-extern void Timer1_OCB_IntEnable(void);
+extern void TIMER1_OCB_intEnable(void);
 /**
  * @brief Disable OCB interrupt for Timer1
  * 
  */
-extern void Timer1_OCB_IntDisable(void);
+extern void TIMER1_OCB_intDisable(void);
 /**
  * @brief Enable input capture interrupt
  * 
  */
-extern void Timer1_ICU_IntEnable(void);
+extern void TIMER1_ICU_intEnable(void);
 /**
  * @brief Disable input capture interrupt
  * 
  */
-extern void Timer1_ICU_IntDisable(void);
+extern void TIMER1_ICU_intDisable(void);
 
 /**
  * @brief Set call back function for T1 overflow interrupt 
  * 
- * @param LocalFptr Address of function to run on interrupt 
+ * @param localFptr Address of function to run on interrupt 
  */
-extern void Timer1_OVF_IntSetCallBack(void (*LocalFptr)(void));
+extern void TIMER1_OVF_intSetCallBack(void (*localFptr)(void));
 /**
  * @brief Set call back function of OCA interrupt of timer1
  * 
- * @param LocalFptr Address to function to run on OCA interrupt
+ * @param localFptr Address to function to run on OCA interrupt
  */
-extern void Timer1_OCA_IntSetCallBack(void (*LocalFptr)(void));
+extern void TIMER1_OCA_intSetCallBack(void (*localFptr)(void));
 /**
  * @brief Set call back function for OCB interrupt
  * 
- * @param LocalFptr Address of function to run on OCB interrupt
+ * @param localFptr Address of function to run on OCB interrupt
  */
-extern void Timer1_OCB_IntSetCallBack(void (*LocalFptr)(void));
+extern void TIMER1_OCB_intSetCallBack(void (*localFptr)(void));
 /**
  * @brief Set call back function for input capture interrupt
  * 
- * @param LocalFptr address to function to run on input capture interrupt
+ * @param localFptr address to function to run on input capture interrupt
  */
-extern void Timer1_ICU_IntSetCallBack(void (*LocalFptr)(void));
+extern void TIMER1_ICU_intSetCallBack(void (*localFptr)(void));
 
 #endif /* TIMER_H_ */
