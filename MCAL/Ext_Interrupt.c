@@ -1,5 +1,5 @@
 /**
- * @file Ext_Interrupt.c
+ * @file ext_interrupt.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief External Interrupt Driver
  * @version 0.1
@@ -9,16 +9,16 @@
  * 
  */
 
-#include "Ext_Interrupt.h"
+#include "ext_interrupt.h"
 
 /* pointers to functions take void and return void */
-static void (*INT0_Fptr)(void) = NULLPTR;
-static void (*INT1_Fptr)(void) = NULLPTR;
-static void (*INT2_Fptr)(void) = NULLPTR;
+static void (*int0_fPtr)(void) = NULLPTR;
+static void (*int1_fPtr)(void) = NULLPTR;
+static void (*int2_fPtr)(void) = NULLPTR;
 
-void EXI_Enable(ExInterruptSource_type Interrupt)
+void EXI_enable(ExInterruptSource_type interrupt)
 {
-    switch (Interrupt)
+    switch (interrupt)
     {
     case EX_INT0:
         SET_BIT(GICR, INT0);
@@ -32,39 +32,39 @@ void EXI_Enable(ExInterruptSource_type Interrupt)
     }
 }
 
-void EXI_Disable(ExInterruptSource_type Interrupt)
+void EXI_disable(ExInterruptSource_type interrupt)
 {
-    switch (Interrupt)
+    switch (interrupt)
     {
     case EX_INT0:
-        CLEAR_BIT(GICR, INT0);
+        CLR_BIT(GICR, INT0);
         break;
     case EX_INT1:
-        CLEAR_BIT(GICR, INT1);
+        CLR_BIT(GICR, INT1);
         break;
     case EX_INT2:
-        CLEAR_BIT(GICR, INT2);
+        CLR_BIT(GICR, INT2);
         break;
     }
 }
 
-void EXI_TriggerEdge(ExInterruptSource_type Interrupt, TriggerEdge_type Edge)
+void EXI_triggerEdge(ExInterruptSource_type interrupt, TriggerEdge_type edge)
 {
-    switch (Interrupt)
+    switch (interrupt)
     {
     case EX_INT0:
-        switch (Edge)
+        switch (edge)
         {
         case LOW_LEVEL:
-            CLEAR_BIT(MCUCR, ISC00);
-            CLEAR_BIT(MCUCR, ISC01);
+            CLR_BIT(MCUCR, ISC00);
+            CLR_BIT(MCUCR, ISC01);
             break;
         case ANY_LOGIC_CHANGE:
             SET_BIT(MCUCR, ISC00);
-            CLEAR_BIT(MCUCR, ISC01);
+            CLR_BIT(MCUCR, ISC01);
             break;
         case FALLING_EDGE:
-            CLEAR_BIT(MCUCR, ISC00);
+            CLR_BIT(MCUCR, ISC00);
             SET_BIT(MCUCR, ISC01);
             break;
         case RISING_EDGE:
@@ -73,19 +73,20 @@ void EXI_TriggerEdge(ExInterruptSource_type Interrupt, TriggerEdge_type Edge)
             break;
         }
         break;
+
     case EX_INT1:
-        switch (Edge)
+        switch (edge)
         {
         case LOW_LEVEL:
-            CLEAR_BIT(MCUCR, ISC10);
-            CLEAR_BIT(MCUCR, ISC11);
+            CLR_BIT(MCUCR, ISC10);
+            CLR_BIT(MCUCR, ISC11);
             break;
         case ANY_LOGIC_CHANGE:
             SET_BIT(MCUCR, ISC10);
-            CLEAR_BIT(MCUCR, ISC11);
+            CLR_BIT(MCUCR, ISC11);
             break;
         case FALLING_EDGE:
-            CLEAR_BIT(MCUCR, ISC10);
+            CLR_BIT(MCUCR, ISC10);
             SET_BIT(MCUCR, ISC11);
             break;
         case RISING_EDGE:
@@ -94,58 +95,59 @@ void EXI_TriggerEdge(ExInterruptSource_type Interrupt, TriggerEdge_type Edge)
             break;
         }
         break;
+    
     case EX_INT2:
-        switch (Edge)
+        switch (edge)
         {
         case FALLING_EDGE:
-            CLEAR_BIT(MCUCSR, ISC2);
+            CLR_BIT(MCUCSR, ISC2);
             break;
         case RISING_EDGE:
             SET_BIT(MCUCSR, ISC2);
             break;
         default:
-            CLEAR_BIT(MCUCSR, ISC2);
+            CLR_BIT(MCUCSR, ISC2);
         }
         break;
     }
 }
 
-void EXI_SetCallBack(ExInterruptSource_type Interrupt, void (*LocalPtr)(void))
+void EXI_setCallBack(ExInterruptSource_type interrupt, void (*localPtr)(void))
 {
-    switch (Interrupt)
+    switch (interrupt)
     {
     case EX_INT0:
-        INT0_Fptr = LocalPtr;
+        int0_fPtr = localPtr;
         break;
     case EX_INT1:
-        INT1_Fptr = LocalPtr;
+        int1_fPtr = localPtr;
         break;
     case EX_INT2:
-        INT2_Fptr = LocalPtr;
+        int2_fPtr = localPtr;
         break;
     }
 }
 
 ISR(INT0_VECT)
 {
-    if (INT0_Fptr != NULLPTR)
+    if (int0_fPtr != NULLPTR)
     {
-        INT0_Fptr();
+        int0_fPtr();
     }
 }
 
 ISR(INT1_VECT)
 {
-    if (INT1_Fptr != NULLPTR)
+    if (int1_fPtr != NULLPTR)
     {
-        INT1_Fptr();
+        int1_fPtr();
     }
 }
 
 ISR(INT2_VECT)
 {
-    if (INT2_Fptr != NULLPTR)
+    if (int2_fPtr != NULLPTR)
     {
-        INT2_Fptr();
+        int2_fPtr();
     }
 }

@@ -1,5 +1,5 @@
 /**
- * @file Ext_Interrupt.h
+ * @file ext_interrupt.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief External Interrupt header file
  * @version 0.1
@@ -12,9 +12,9 @@
 #ifndef EXT_INTERRUPT_H_
 #define EXT_INTERRUPT_H_
 
-#include "StdTypes.h"
-#include "MemMap.h"
-#include "Utils.h"
+#include "std_types.h"
+#include "memory_map.h"
+#include "utils.h"
 
 /**
  * @brief External Interrupt sources 
@@ -42,31 +42,31 @@ typedef enum
 /**
  * @brief External Interrupt Enable
  * 
- * @param Interrupt EX_INT0 - EX_INT1 - EX_INT2
+ * @param interrupt EX_INT0 - EX_INT1 - EX_INT2
  */
-extern void EXI_Enable(ExInterruptSource_type Interrupt);
+extern void EXI_enable(ExInterruptSource_type interrupt);
 
 /**
  * @brief External Interrupt Disable
  * 
- * @param Interrupt EX_INT0 - EX_INT1 - EX_INT2
+ * @param interrupt EX_INT0 - EX_INT1 - EX_INT2
  */
-extern void EXI_Disable(ExInterruptSource_type Interrupt);
+extern void EXI_disable(ExInterruptSource_type interrupt);
 
 /**
  * @brief External Interrupt configure edge
  * 
- * @param Interrupt EX_INT0 - EX_INT1 - EX_INT2
- * @param Edge 	LOW_LEVEL - ANY_LOGIC_CHANGE - FALLING_EDGE - RISING_EDGE
+ * @param interrupt EX_INT0 - EX_INT1 - EX_INT2
+ * @param edge 	LOW_LEVEL - ANY_LOGIC_CHANGE - FALLING_EDGE - RISING_EDGE
  */
-extern void EXI_TriggerEdge(ExInterruptSource_type Interrupt, TriggerEdge_type Edge);
+extern void EXI_triggerEdge(ExInterruptSource_type interrupt, TriggerEdge_type edge);
 
 /**
  * @brief External Interrupt Set callback function
  * 
- * @param Interrupt EX_INT0 - EX_INT1 - EX_INT2
- * @param LocalPtr void function(void) to be performed when interrupt fired 
+ * @param interrupt EX_INT0 - EX_INT1 - EX_INT2
+ * @param localPtr void function(void) to be performed when interrupt fired 
  */
-extern void EXI_SetCallBack(ExInterruptSource_type Interrupt, void (*LocalPtr)(void));
+extern void EXI_setCallBack(ExInterruptSource_type interrupt, void (*localPtr)(void));
 
 #endif /* EXT_INTERRUPT_H_ */
