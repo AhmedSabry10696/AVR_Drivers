@@ -1,5 +1,5 @@
 /**
- * @file I2C_Services.h
+ * @file   i2c_services.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief 
  * @version 0.1
@@ -12,33 +12,33 @@
 #ifndef I2C_SERVICES_H_
 #define I2C_SERVICES_H_
 
-#include "I2C.h"
+#include "i2c.h"
 
 /**
  * @brief Master send byte to slave through TWI
  * 
  * @param address slave address 
  * @param data data to send
- * @return u8 tWI_Error_type
+ * @return u8 TwiError_type
  */
-extern TWI_Error_type TWI_Master_SendByte(u8 address, u8 data);
+extern TwiError_type TWI_Master_SendByte(u8 address, u8 data);
 
 /**
  * @brief Master read byte from slave through TWI
  * 
  * @param address slave address
  * @param data pointer to store received data
- * @return tWI_Error_type
+ * @return TwiError_type
  */
-extern TWI_Error_type TWI_Master_ReceiveByte(u8 address, u8 *data);
+extern TwiError_type TWI_masterReceiveByte(u8 address, u8 *data_ptr);
 
 /**
  * @brief Maser send string to slave
  * 
  * @param address slave address
  * @param str string to send
- * @return u8 tWI_Error_type
+ * @return u8 TwiError_type
  */
-extern TWI_Error_type TWI_Master_SendString(u8 address, u8 *str);
+extern TwiError_type TWI_masterSendString(u8 address, u8 *str);
 
 #endif /* I2C_SERVICES_H_ */
