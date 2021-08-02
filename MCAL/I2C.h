@@ -1,5 +1,5 @@
 /**
- * @file I2C.h
+ * @file i2c.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief I2C header file
  * @version 0.1
@@ -12,9 +12,9 @@
 #ifndef I2C_H_
 #define I2C_H_
 
-#include "StdTypes.h"
-#include "Utils.h"
-#include "MemMap.h"
+#include "std_types.h"
+#include "utils.h"
+#include "memory_map.h"
 
 typedef enum
 {
@@ -25,7 +25,7 @@ typedef enum
 	TWI_MR_SLA_R_ERROR,
 	TWI_MT_Data_ERROR,
 	TWI_MR_Data_ERROR
-} TWI_Error_type;
+} TwiError_type;
 
 /* I2C Status Bits in the TWSR Register */
 /* start condition transmitted */
@@ -96,21 +96,21 @@ typedef enum
  * 
  * @param address slave address {7 bit address}
  */
-extern void TWI_Init(u8 address);
+extern void TWI_init(u8 address);
 
 /**
  * @brief TWI send start condition
  * 
  * @return TWI_Error_type TWI_OK/TWI_SC_ERROR
  */
-extern TWI_Error_type TWI_Start(void);
+extern TwiError_type TWI_start(void);
 
 /**
  * @brief TWI send repeated start condition 
  * 
  * @return TWI_Error_type TWI_OK/TWI_RSC_ERROR
  */
-extern TWI_Error_type TWI_RepStart(void);
+extern TwiError_type TWI_repStart(void);
 
 /**
  * @brief TWI send slave address with write request
@@ -118,7 +118,7 @@ extern TWI_Error_type TWI_RepStart(void);
  * @param address slave addres {7 bit}
  * @return TWI_Error_type TWI_OK/TWI_MT_SLA_W_ERROR
  */
-extern TWI_Error_type TWI_Write_SLA_Write(u8 address);
+extern TwiError_type TWI_write_SLA_write(u8 address);
 
 /**
  * @brief TWI send slave address with read request
@@ -126,7 +126,7 @@ extern TWI_Error_type TWI_Write_SLA_Write(u8 address);
  * @param address slave addres {7 bit}
  * @return TWI_Error_type TWI_OK/TWI_MR_SLA_R_ERROR
  */
-extern TWI_Error_type TWI_Write_SLA_Read(u8 address);
+extern TwiError_type TWI_write_SLA_read(u8 address);
 
 /**
  * @brief TWI master send byte
@@ -134,7 +134,7 @@ extern TWI_Error_type TWI_Write_SLA_Read(u8 address);
  * @param data byte to send
  * @return TWI_Error_type TWI_OK/TWI_MT_Data_ERROR
  */
-extern TWI_Error_type TWI_WriteByte(u8 data);
+extern TwiError_type TWI_writeByte(u8 data);
 
 /**
  * @brief TWI master read byte
@@ -142,37 +142,37 @@ extern TWI_Error_type TWI_WriteByte(u8 data);
  * @param data pointer to received data
  * @return TWI_Error_type TWI_OK/TWI_MR_Data_ERROR
  */
-extern TWI_Error_type TWI_ReadByte(u8 *data);
+extern TwiError_type TWI_readByte(u8 *data_ptr);
 
 /**
  * @brief TWI send stop condition
  * 
  */
-extern void TWI_Stop(void);
+extern void TWI_stop(void);
 
 /**
  * @brief TWI listen for the flag {polling}
  * 
  */
-extern void TWI_Listen(void);
+extern void TWI_listen(void);
 
 /**
  * @brief TWI interrupt enable
  * 
  */
-extern void TWI_IntEnable(void);
+extern void TWI_intEnable(void);
 
 /**
  * @brief TWI interrupt disable
  * 
  */
-void TWI_IntDisable(void);
+void TWI_intDisable(void);
 
 /**
  * @brief TWI interrupt set call back
  * 
  * @param LocalFptr pointer to function to call when interrupt occurred
  */
-extern void TWI_IntSetCallBack(void (*LocalFptr)(void));
+extern void TWI_intSetCallBack(void (*localFptr)(void));
 
 #endif /* I2C_H_ */

@@ -1,5 +1,5 @@
 /**
- * @file I2C.c
+ * @file i2c.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief I2C Driver implementation
  * @version 0.1
@@ -9,15 +9,15 @@
  * 
  */
 
-#include "I2C.h"
+#include "i2c.h"
 
-static void (*TWI_IntFptr)(void) = NULLPTR;
+static void (*twi_fPtr)(void) = NULLPTR;
 
-void TWI_Init(u8 address)
+void TWI_init(u8 address)
 {
     /* TWSR prescaler value */
-    CLEAR_BIT(TWSR,TWPS0);
-    CLEAR_BIT(TWSR,TWPS1);
+    CLR_BIT(TWSR,TWPS0);
+    CLR_BIT(TWSR,TWPS1);
     
     /* FCPU {8 MHZ} Bit rate: 400 KHZ */
     TWBR = 0x02;
@@ -31,9 +31,9 @@ void TWI_Init(u8 address)
     SET_BIT(TWCR,TWEN);
 }
 
-TWI_Error_type TWI_Start(void)
+TwiError_type TWI_start(void)
 {
-    TWI_Error_type local = TWI_OK;
+    TwiError_type local = TWI_OK;
 
     /* send start condition */
     SET_BIT(TWCR,TWSTA);
@@ -51,9 +51,9 @@ TWI_Error_type TWI_Start(void)
     return local;
 }
 
-TWI_Error_type TWI_RepStart(void)
+TwiError_type TWI_repStart(void)
 {
-    TWI_Error_type local = TWI_OK;
+    TwiError_type local = TWI_OK;
     
     /* send start condition */
     SET_BIT(TWCR,TWSTA);
@@ -71,17 +71,17 @@ TWI_Error_type TWI_RepStart(void)
     return local;
 }
 
-TWI_Error_type TWI_Write_SLA_Write(u8 address)
+TwiError_type TWI_write_SLA_write(u8 address)
 {
-    TWI_Error_type local = TWI_OK;
+    TwiError_type local = TWI_OK;
 
     TWDR = (address<<1);
 
     /* write operation */
-    CLEAR_BIT(TWDR,0);
+    CLR_BIT(TWDR,0);
 
     /* clear start condition bit */
-    CLEAR_BIT(TWCR, TWSTA);
+    CLR_BIT(TWCR, TWSTA);
 
     /* clear flag */
     SET_BIT(TWCR, TWINT);
@@ -96,9 +96,9 @@ TWI_Error_type TWI_Write_SLA_Write(u8 address)
     return local;
 }
 
-TWI_Error_type TWI_Write_SLA_Read(u8 address)
+TwiError_type TWI_write_SLA_read(u8 address)
 {
-    TWI_Error_type local = TWI_OK;
+    TwiError_type local = TWI_OK;
 
     TWDR = (address<<1);
 
@@ -106,7 +106,7 @@ TWI_Error_type TWI_Write_SLA_Read(u8 address)
     SET_BIT(TWDR,0);
 
     /* clear start condition bit */
-    CLEAR_BIT(TWCR, TWSTA);
+    CLR_BIT(TWCR, TWSTA);
 
     /* clear flag */
     SET_BIT(TWCR, TWINT);
@@ -121,9 +121,9 @@ TWI_Error_type TWI_Write_SLA_Read(u8 address)
     return local;
 }
 
-TWI_Error_type TWI_WriteByte(u8 data)
+TwiError_type TWI_writeByte(u8 data)
 {
-    TWI_Error_type local = TWI_OK;
+    TwiError_type local = TWI_OK;
 
     TWDR = data;
 
@@ -140,12 +140,12 @@ TWI_Error_type TWI_WriteByte(u8 data)
     return local;
 }
 
-TWI_Error_type TWI_ReadByte(u8 *data)
+TwiError_type TWI_readByte(u8 *data_ptr)
 {
-    TWI_Error_type local = TWI_OK;
+    TwiError_type local = TWI_OK;
 
     /* disable ACK */
-    CLEAR_BIT(TWCR,TWEA);
+    CLR_BIT(TWCR,TWEA);
 
      /* clear flag */
     SET_BIT(TWCR, TWINT);
@@ -159,7 +159,7 @@ TWI_Error_type TWI_ReadByte(u8 *data)
     }
     else
     {
-        *data = TWDR;
+        *data_ptr = TWDR;
     }
     
     /* enable ACK again */
@@ -168,7 +168,7 @@ TWI_Error_type TWI_ReadByte(u8 *data)
     return local;
 }
 
-void TWI_Stop(void)
+void TWI_stop(void)
 {
     /* send stop condition */
     SET_BIT(TWCR,TWSTO);
@@ -177,32 +177,32 @@ void TWI_Stop(void)
     SET_BIT(TWCR,TWINT);
 }
 
-void TWI_Listen(void)
+void TWI_listen(void)
 {
     /* Wait for TWINT flag set in TWCR Register */
     while (0 == READ_BIT(TWCR, TWINT));
 }
 
-void TWI_IntEnable(void)
+void TWI_intEnable(void)
 {
     SET_BIT(TWCR, TWIE);
 }
 
-void TWI_IntDisable(void)
+void TWI_intDisable(void)
 {
-    CLEAR_BIT(TWCR, TWIE);
+    CLR_BIT(TWCR, TWIE);
 }
 
-void TWI_IntSetCallBack(void (*LocalFptr)(void))
+void TWI_intSetCallBack(void (*localFptr)(void))
 {
-    TWI_IntFptr = LocalFptr;
+    twi_fPtr = localFptr;
 }
 
 ISR(TWI_VECT)
 {
-    if (TWI_IntFptr != NULLPTR)
+    if (twi_fPtr != NULLPTR)
     {
-        TWI_IntFptr();
+        twi_fPtr();
     }
 }
 
