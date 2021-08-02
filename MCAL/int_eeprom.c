@@ -1,5 +1,5 @@
 /**
- * @file EEPROM.c
+ * @file int_eeprom.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief EEPROM driver implementation
  * @version 0.1
@@ -9,9 +9,9 @@
  * 
  */
 
-#include "EEPROM.h"
+#include "int_eeprom.h"
 
-void EEPROM_Write(const u16 address, const u8 data)
+void EEPROM_write(const u16 address, const u8 data)
 {
     /* Wait for completion of previous write */
     while (1 == READ_BIT(EECR, EEWE));
@@ -27,7 +27,7 @@ void EEPROM_Write(const u16 address, const u8 data)
     SET_BIT(EECR, EEWE);
 }
 
-u8 EEPROM_Read(const u16 address)
+u8 EEPROM_read(const u16 address)
 {
     /* Wait for completion of previous write */
     while (1 == READ_BIT(EECR, EEWE));

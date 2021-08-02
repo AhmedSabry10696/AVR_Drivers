@@ -1,5 +1,5 @@
 /**
- * @file EEPROM.h
+ * @file int_eeprom.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief EEPROM header file
  * @version 0.1
@@ -12,9 +12,9 @@
 #ifndef EEPROM_H_
 #define EEPROM_H_
 
-#include "StdTypes.h"
-#include "MemMap.h"
-#include "Utils.h"
+#include "std_types.h"
+#include "memory_map.h"
+#include "utils.h"
 
 /**
  * @brief EEPROM write byte at specific address
@@ -22,7 +22,7 @@
  * @param address to write at
  * @param data to write in address
  */
-extern void EEPROM_Write(const u16 address, const u8 data);
+extern void EEPROM_write(const u16 address, const u8 data);
 
 /**
  * @brief read byte from specific address
@@ -30,6 +30,6 @@ extern void EEPROM_Write(const u16 address, const u8 data);
  * @param address to read from
  * @return u8 byte from address
  */
-extern u8 EEPROM_Read(const u16 address);
+extern u8 EEPROM_read(const u16 address);
 
 #endif /* EEPROM_H_ */
