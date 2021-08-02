@@ -1,5 +1,5 @@
 /**
- * @file Uart.c
+ * @file uart.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief uart driver implementation
  * @version 0.1
@@ -9,46 +9,48 @@
  * 
  */
 
-#include "Uart.h"
+#include "uart.h"
 
-static void (*Uart_TXC_IntFptr)(void) = NULLPTR;
-static void (*Uart_RXC_IntFptr)(void) = NULLPTR;
-static void (*Uart_DEMPTY_IntFptr)(void) = NULLPTR;
+static void (*uart_txc_fPtr)(void) = NULLPTR;
+static void (*uart_rxc_fPtr)(void) = NULLPTR;
+static void (*uart_dEmpty_fPtr)(void) = NULLPTR;
 
-void Uart_TX_Enable(void)
+void UART_TX_enable(void)
 {
     SET_BIT(UCSRB, TXEN);
 }
-void Uart_TX_Disable(void)
+
+void UART_TX_disable(void)
 {
-    CLEAR_BIT(UCSRB, TXEN);
+    CLR_BIT(UCSRB, TXEN);
 }
-void Uart_RX_Enable(void)
+
+void UART_RX_enable(void)
 {
     SET_BIT(UCSRB, RXEN);
 }
-void Uart_RX_Disable(void)
+
+void UART_RX_disable(void)
 {
-    CLEAR_BIT(UCSRB, RXEN);
+    CLR_BIT(UCSRB, RXEN);
 }
 
-void Uart_Init(void)
+void UART_init(void)
 {
-    //u8 temp = 0x80;
-
     /* normal speed mode */
-    CLEAR_BIT(UCSRA, U2X);
+    CLR_BIT(UCSRA, U2X);
     SET_BIT(UCSRC, URSEL);
+
     /* parity setup */
     switch (uart.parity)
     {
     case NO_PARITY:
-        CLEAR_BIT(UCSRC, UPM0);
-        CLEAR_BIT(UCSRC, UPM1);
+        CLR_BIT(UCSRC, UPM0);
+        CLR_BIT(UCSRC, UPM1);
         break;
 
     case EVEN_PARITY:
-        CLEAR_BIT(UCSRC, UPM0);
+        CLR_BIT(UCSRC, UPM0);
         SET_BIT(UCSRC, UPM1);
         break;
     case ODD_PARITY:
@@ -59,7 +61,7 @@ void Uart_Init(void)
     /* stop bit setup */
     if (uart.stop == ONE_STOP_BIT)
     {
-        CLEAR_BIT(UCSRC, USBS);
+        CLR_BIT(UCSRC, USBS);
     }
     else if (uart.stop == TWO_STOP_BIT)
     {
@@ -70,24 +72,24 @@ void Uart_Init(void)
     switch (uart.data)
     {
     case FIVE_BIT_DATA:
-        CLEAR_BIT(UCSRC, UCSZ0);
-        CLEAR_BIT(UCSRC, UCSZ1);
-        CLEAR_BIT(UCSRB, UCSZ2);
+        CLR_BIT(UCSRC, UCSZ0);
+        CLR_BIT(UCSRC, UCSZ1);
+        CLR_BIT(UCSRB, UCSZ2);
         break;
     case SIX_BIT_DATA:
         SET_BIT(UCSRC, UCSZ0);
-        CLEAR_BIT(UCSRC, UCSZ1);
-        CLEAR_BIT(UCSRB, UCSZ2);
+        CLR_BIT(UCSRC, UCSZ1);
+        CLR_BIT(UCSRB, UCSZ2);
         break;
     case SEVEN_BIT_DATA:
-        CLEAR_BIT(UCSRC, UCSZ0);
+        CLR_BIT(UCSRC, UCSZ0);
         SET_BIT(UCSRC, UCSZ1);
-        CLEAR_BIT(UCSRB, UCSZ2);
+        CLR_BIT(UCSRB, UCSZ2);
         break;
     case EIGHT_BIT_DATA:
         SET_BIT(UCSRC, UCSZ0);
         SET_BIT(UCSRC, UCSZ1);
-        CLEAR_BIT(UCSRB, UCSZ2);
+        CLR_BIT(UCSRB, UCSZ2);
         break;
     case NINE_BIT_DATA:
         SET_BIT(UCSRC, UCSZ0);
@@ -95,8 +97,6 @@ void Uart_Init(void)
         SET_BIT(UCSRB, UCSZ2);
         break;
     }
-
-    //UCSRC = temp;
 
     /* baud rate setup */
     switch (uart.baud)
@@ -150,16 +150,16 @@ void Uart_Init(void)
     SET_BIT(UCSRB, RXEN);
 }
 
-void Uart_Send(const u8 data)
+void UART_send(const u8 data)
 {
     /* wait till flag being 1 */
-    while (0 == READ_BIT(UCSRA, UDRE))
-        ;
+    while (0 == READ_BIT(UCSRA, UDRE));
 
     /* write data */
     UDR = data;
 }
-u8 Uart_Receive(void)
+
+u8 UART_receive(void)
 {
     /* wait till flag being 1 */
     while (0 == READ_BIT(UCSRA, RXC))
@@ -169,11 +169,11 @@ u8 Uart_Receive(void)
     return UDR;
 }
 
-u8 Uart_Receive_PeriodicCheck(u8 *pdata)
+u8 UART_receivePeriodicCheck(u8 *data_ptr)
 {
     if (1 == READ_BIT(UCSRA, RXC))
     {
-        *pdata = UDR;
+        *data_ptr = UDR;
         return 1;
     }
     else
@@ -182,73 +182,81 @@ u8 Uart_Receive_PeriodicCheck(u8 *pdata)
     }
 }
 
-void Uart_SendNoBlock(const u8 data)
+void UART_sendNoBlock(const u8 data)
 {
     /* write data in buffer */
     UDR = data;
 }
-u8 Uart_ReceiveNoBlock(void)
+u8 UART_receiveNoBlock(void)
 {
     /* retrieve data from buffer */
     return UDR;
 }
 
-void Uart_TXC_IntEnable(void)
+void UART_TXC_intEnable(void)
 {
     SET_BIT(UCSRB, TXCIE);
 }
-void Uart_TXC_IntDisable(void)
+
+void UART_TXC_intDisable(void)
 {
-    CLEAR_BIT(UCSRB, TXCIE);
+    CLR_BIT(UCSRB, TXCIE);
 }
-void Uart_RXC_IntEnable(void)
+
+void UART_RXC_intEnable(void)
 {
     SET_BIT(UCSRB, RXCIE);
 }
-void Uart_RXC_IntDisable(void)
+
+void UART_RXC_intDisable(void)
 {
-    CLEAR_BIT(UCSRB, RXCIE);
+    CLR_BIT(UCSRB, RXCIE);
 }
-void Uart_DEMPTY_IntEnable(void)
+
+void UART_DEMPTY_intEnable(void)
 {
     SET_BIT(UCSRB, UDRIE);
 }
-void Uart_DEMPTY_IntDisable(void)
+
+void UART_DEMPTY_intDisable(void)
 {
-    CLEAR_BIT(UCSRB, UDRIE);
+    CLR_BIT(UCSRB, UDRIE);
 }
 
-void Uart_TXC_IntSetCallBack(void (*LocalFptr)(void))
+void UART_TXC_intSetCallBack(void (*localFptr)(void))
 {
-    Uart_TXC_IntFptr = LocalFptr;
+    uart_txc_fPtr = localFptr;
 }
-void Uart_RXC_IntSetCallBack(void (*LocalFptr)(void))
+
+void UART_RXC_intSetCallBack(void (*localFptr)(void))
 {
-    Uart_RXC_IntFptr = LocalFptr;
+    uart_rxc_fPtr = localFptr;
 }
-void Uart_DEMPTY_IntSetCallBack(void (*LocalFptr)(void))
+
+void UART_DEMPTY_intSetCallBack(void (*localFptr)(void))
 {
-    Uart_DEMPTY_IntFptr = LocalFptr;
+    uart_dEmpty_fPtr = localFptr;
 }
 
 ISR(USART_TXC_VECT)
 {
-    if (Uart_TXC_IntFptr != NULLPTR)
+    if (uart_txc_fPtr != NULLPTR)
     {
-        Uart_TXC_IntFptr();
+        uart_txc_fPtr();
     }
 }
 ISR(USART_RXC_VECT)
 {
-    if (Uart_RXC_IntFptr != NULLPTR)
+    if (uart_rxc_fPtr != NULLPTR)
     {
-        Uart_RXC_IntFptr();
+        uart_rxc_fPtr();
     }
 }
+
 ISR(USART_UDRE_VECT)
 {
-    if (Uart_DEMPTY_IntFptr != NULLPTR)
+    if (uart_dEmpty_fPtr != NULLPTR)
     {
-        Uart_DEMPTY_IntFptr();
+        uart_dEmpty_fPtr();
     }
 }

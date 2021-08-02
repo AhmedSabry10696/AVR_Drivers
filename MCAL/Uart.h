@@ -1,5 +1,5 @@
 /**
- * @file Uart.h
+ * @file uart.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief uart header file
  * @version 0.1
@@ -12,9 +12,9 @@
 #ifndef UART_H_
 #define UART_H_
 
-#include "StdTypes.h"
-#include "Utils.h"
-#include "MemMap.h"
+#include "std_types.h"
+#include "utils.h"
+#include "memory_map.h"
 
 typedef enum
 {
@@ -22,11 +22,13 @@ typedef enum
     EVEN_PARITY,
     ODD_PARITY
 } Parity_type;
+
 typedef enum
 {
     ONE_STOP_BIT = 0,
     TWO_STOP_BIT
-} Stop_Bit_type;
+} StopBit_type;
+
 typedef enum
 {
     FIVE_BIT_DATA = 0,
@@ -34,7 +36,8 @@ typedef enum
     SEVEN_BIT_DATA,
     EIGHT_BIT_DATA,
     NINE_BIT_DATA
-} Data_size_type;
+} DataSize_type;
+
 typedef enum
 {
     BAUD_2400 = 0,
@@ -52,119 +55,142 @@ typedef enum
     BAUD_500000,
     BAUD_1000000
 } BaudRate_type;
+
 typedef struct
 {
     Parity_type parity;
-    Stop_Bit_type stop;
-    Data_size_type data;
+    StopBit_type stop;
+    DataSize_type data;
     BaudRate_type baud;
-} Uart_Config;
+} UartConfig;
 
-extern void Uart_Init(void);
 /**
- * @brief Uart transmitter enable
+ * @brief Uart init based on Uart_config.c file
  * 
  */
-extern void Uart_TX_Enable(void);
+extern void UART_init(void);
+
 /**
- * @brief Uart transmitter disable
+ * @brief UART transmitter enable
  * 
  */
-extern void Uart_TX_Disable(void);
+extern void UART_TX_enable(void);
+
 /**
- * @brief Uart receiver enable
+ * @brief UART transmitter disable
  * 
  */
-extern void Uart_RX_Enable(void);
+extern void UART_TX_disable(void);
+
 /**
- * @brief Uart receiver disable
+ * @brief UART receiver enable
  * 
  */
-extern void Uart_RX_Disable(void);
+extern void UART_RX_enable(void);
+
 /**
- * @brief Uart send one byte
+ * @brief UART receiver disable
+ * 
+ */
+extern void UART_RX_disable(void);
+
+/**
+ * @brief UART send one byte
  * 
  * @param data byte to send
  */
-extern void Uart_Send(const u8 data);
+extern void UART_send(const u8 data);
+
 /**
- * @brief Uart receive one byte
+ * @brief UART receive one byte
  * 
  * @return u8 received byte
  */
-extern u8 Uart_Receive(void);
+extern u8 UART_receive(void);
+
 /**
- * @brief Uart received one byte using periodic check(no block)
+ * @brief UART received one byte using periodic check(no block)
  * 
- * @param pdata pointer to store received byte
+ * @param data_ptr pointer to store received byte
  * @return u8 result 0 if no data received/ 1 if data received
  */
-extern u8 Uart_Receive_PeriodicCheck(u8 *pdata);
+extern u8 UART_receivePeriodicCheck(u8 *data_ptr);
+
 /**
- * @brief Uart write data in the buffer
+ * @brief UART write data in the buffer
  * 
  * @param data data to write in the buffer
  */
-extern void Uart_SendNoBlock(const u8 data);
+extern void UART_sendNoBlock(const u8 data);
+
 /**
- * @brief Uart read the value in the buffer
+ * @brief UART read the value in the buffer
  * 
  * @return u8 the value in the buffer
  */
-extern u8 Uart_ReceiveNoBlock(void);
-/**
- * @brief Uart TXC interrupt enable
- * 
- */
-extern void Uart_TXC_IntEnable(void);
-/**
- * @brief Uart TXC interrupt disable
- * 
- */
-extern void Uart_TXC_IntDisable(void);
-/**
- * @brief Uart RXC interrupt enable 
- * 
- */
-extern void Uart_RXC_IntEnable(void);
-/**
- * @brief Uart RXC interrupt disable 
- * 
- */
-extern void Uart_RXC_IntDisable(void);
-/**
- * @brief Uart buffer empty interrupt enable 
- * 
- */
-extern void Uart_DEMPTY_IntEnable(void);
-/**
- * @brief Uart buffer empty interrupt disable
- * 
- */
-extern void Uart_DEMPTY_IntDisable(void);
-/**
- * @brief Uart TXC interrupt set callback 
- * 
- * @param LocalFptr address of function to run when TXC interrupt occur
- */
-extern void Uart_TXC_IntSetCallBack(void (*LocalFptr)(void));
-/**
- * @brief Uart RXC interrupt set call back
- * 
- * @param LocalFptr address of function to run when RXC interrupt occur.
- */
-extern void Uart_RXC_IntSetCallBack(void (*LocalFptr)(void));
-/**
- * @brief Uart buffer empty interrupt set call back
- * 
- * @param LocalFptr address of function to run when buffer empty interrupt occur.
- */
-extern void Uart_DEMPTY_IntSetCallBack(void (*LocalFptr)(void));
+extern u8 UART_receiveNoBlock(void);
 
 /**
- * @brief Uart configuration struct
+ * @brief UART TXC interrupt enable
  * 
  */
-extern const Uart_Config uart;
+extern void UART_TXC_intEnable(void);
+
+/**
+ * @brief UART TXC interrupt disable
+ * 
+ */
+extern void UART_TXC_intDisable(void);
+
+/**
+ * @brief UART RXC interrupt enable 
+ * 
+ */
+extern void UART_RXC_intEnable(void);
+
+/**
+ * @brief UART RXC interrupt disable 
+ * 
+ */
+extern void UART_RXC_intDisable(void);
+
+/**
+ * @brief UART buffer empty interrupt enable 
+ * 
+ */
+extern void UART_DEMPTY_intEnable(void);
+
+/**
+ * @brief UART buffer empty interrupt disable
+ * 
+ */
+extern void UART_DEMPTY_intDisable(void);
+
+/**
+ * @brief UART TXC interrupt set callback 
+ * 
+ * @param localFptr address of function to run when TXC interrupt occur
+ */
+extern void UART_TXC_intSetCallBack(void (*localFptr)(void));
+
+/**
+ * @brief UART RXC interrupt set call back
+ * 
+ * @param localFptr address of function to run when RXC interrupt occur.
+ */
+extern void UART_RXC_intSetCallBack(void (*localFptr)(void));
+
+/**
+ * @brief UART buffer empty interrupt set call back
+ * 
+ * @param localFptr address of function to run when buffer empty interrupt occur.
+ */
+extern void UART_DEMPTY_intSetCallBack(void (*localFptr)(void));
+
+/**
+ * @brief UART configuration struct
+ * 
+ */
+extern const UartConfig uart;
 
 #endif /* UART_H_ */

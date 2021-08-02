@@ -1,5 +1,5 @@
 /**
- * @file Uart_Config.c
+ * @file uart_config.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Uart configuration file
  * @version 0.1
@@ -9,7 +9,7 @@
  * 
  */
 
-#include "Uart.h"
+#include "uart.h"
 
 /**
  * @brief   Configuration struct for Uart with FCPU= 8 MHZ
@@ -27,7 +27,7 @@
  *          BAUD_115200,BAUD_230400,BAUD_250000,
  *          BAUD_500000,BAUD_1000000
  */
-const Uart_Config uart =
+const UartConfig uart =
 {
     NO_PARITY,
     ONE_STOP_BIT,
