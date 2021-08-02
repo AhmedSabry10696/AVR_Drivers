@@ -1,5 +1,5 @@
 /**
- * @file Segment_Config.h
+ * @file segment_config.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Segment configuration file
  * @version 0.1

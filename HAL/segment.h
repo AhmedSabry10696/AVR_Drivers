@@ -1,3 +1,13 @@
+/**
+ * @file segment.h
+ * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
+ * @brief  7 segment header file
+ * @version 0.1
+ * @date 02-08-2021
+ * 
+ * @copyright Copyright (c) 2021
+ * 
+ */
 
 #ifndef SEGMENT_H_
 #define SEGMENT_H_
