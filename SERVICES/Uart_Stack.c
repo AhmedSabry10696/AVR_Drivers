@@ -1,5 +1,5 @@
 /**
- * @file Uart_stack.c
+ * @file uart_stack.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Uart stack driver implementation
  * @version 0.1
@@ -9,12 +9,12 @@
  * 
  */
 
-#include "Uart_Stack.h"
+#include "uart_stack.h"
 
 static u8 stack[STACK_SIZE];
 static u8 sp;
 
-StackStatus_type Uart_Push(const u8 data)
+StackStatus_type UART_push(const u8 data)
 {
     if (sp == STACK_SIZE)
     {
@@ -26,7 +26,7 @@ StackStatus_type Uart_Push(const u8 data)
     return DONE;
 }
 
-StackStatus_type Uart_Pop(u8 *pdata)
+StackStatus_type UART_pop(u8 *data_ptr)
 {
     if (0 == sp)
     {
@@ -34,6 +34,6 @@ StackStatus_type Uart_Pop(u8 *pdata)
     }
 
     sp--;
-    *pdata = stack[sp];
+    *data_ptr = stack[sp];
     return DONE;
 }

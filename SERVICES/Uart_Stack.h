@@ -1,5 +1,5 @@
 /**
- * @file Uart_Stack.h
+ * @file uart_stack.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Uart stack header file
  * @version 0.1
@@ -12,7 +12,7 @@
 #ifndef UART_STACK_H_
 #define UART_STACK_H_
 
-#include "StdTypes.h"
+#include "std_types.h"
 
 #define STACK_SIZE 5
 
@@ -29,14 +29,14 @@ typedef enum
  * @param data byte to push
  * @return StackStatus_type STACK_FULL/DONE
  */
-extern StackStatus_type Uart_Push(const u8 data);
+extern StackStatus_type UART_push(const u8 data);
 
 /**
  * @brief pop one byte from stack
  * 
- * @param pdata pointer to write poped byte
+ * @param data_ptr pointer to write poped byte
  * @return StackStatus_type STACK_EMPTY/DONE
  */
-extern StackStatus_type Uart_Pop(u8 *pdata);
+extern StackStatus_type UART_pop(u8 *data_ptr);
 
 #endif /* UART_STACK_H_ */
