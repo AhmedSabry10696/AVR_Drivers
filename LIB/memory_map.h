@@ -1,5 +1,5 @@
 /**
- * @file MemMap.h
+ * @file memory_map.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Memory map for Atmega32 micro controller
  * @version 0.1
@@ -12,7 +12,7 @@
 #ifndef MEMMAP_H_
 #define MEMMAP_H_
 
-#include "StdTypes.h"
+#include "std_types.h"
 
 /********** DIO Registers **************/
 #define PINA    (*((volatile u8 *)0x39))
