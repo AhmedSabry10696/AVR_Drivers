@@ -1,5 +1,5 @@
 /**
- * @file DIO.c
+ * @file dio.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief DIO driver
  * @version 0.1
@@ -9,12 +9,12 @@
  * 
  */
 
-#include "DIO.h"
+#include "dio.h"
 
-void DIO_InitPin(DIO_Pin_type pin, DIO_PinStatus_type status)
+void DIO_initPin(DioPin_type pin, DioPinStatus_type status)
 {
     u8 pin_num = pin % 8;
-    DIO_Port_type port = pin / 8;
+    DioPort_type port = pin / 8;
 
     switch (status)
     {
@@ -40,16 +40,16 @@ void DIO_InitPin(DIO_Pin_type pin, DIO_PinStatus_type status)
         switch (port)
         {
         case PA:
-            CLEAR_BIT(DDRA, pin_num);
+            CLR_BIT(DDRA, pin_num);
             break;
         case PB:
-            CLEAR_BIT(DDRB, pin_num);
+            CLR_BIT(DDRB, pin_num);
             break;
         case PC:
-            CLEAR_BIT(DDRC, pin_num);
+            CLR_BIT(DDRC, pin_num);
             break;
         case PD:
-            CLEAR_BIT(DDRD, pin_num);
+            CLR_BIT(DDRD, pin_num);
             break;
         }
         break;
@@ -58,19 +58,19 @@ void DIO_InitPin(DIO_Pin_type pin, DIO_PinStatus_type status)
         switch (port)
         {
         case PA:
-            CLEAR_BIT(DDRA, pin_num);
+            CLR_BIT(DDRA, pin_num);
             SET_BIT(PORTA, pin_num);
             break;
         case PB:
-            CLEAR_BIT(DDRB, pin_num);
+            CLR_BIT(DDRB, pin_num);
             SET_BIT(PORTB, pin_num);
             break;
         case PC:
-            CLEAR_BIT(DDRC, pin_num);
+            CLR_BIT(DDRC, pin_num);
             SET_BIT(PORTC, pin_num);
             break;
         case PD:
-            CLEAR_BIT(DDRD, pin_num);
+            CLR_BIT(DDRD, pin_num);
             SET_BIT(PORTD, pin_num);
             break;
         }
@@ -78,10 +78,10 @@ void DIO_InitPin(DIO_Pin_type pin, DIO_PinStatus_type status)
     }
 }
 
-void DIO_WritePin(DIO_Pin_type pin, DIO_Voltage_type volt)
+void DIO_writePin(DioPin_type pin, DioVoltage_type volt)
 {
     u8 pin_num = pin % 8;
-    DIO_Port_type port = pin / 8;
+    DioPort_type port = pin / 8;
 
     if (HIGH == volt)
     {
@@ -106,48 +106,48 @@ void DIO_WritePin(DIO_Pin_type pin, DIO_Voltage_type volt)
         switch (port)
         {
         case PA:
-            CLEAR_BIT(PORTA, pin_num);
+            CLR_BIT(PORTA, pin_num);
             break;
         case PB:
-            CLEAR_BIT(PORTB, pin_num);
+            CLR_BIT(PORTB, pin_num);
             break;
         case PC:
-            CLEAR_BIT(PORTC, pin_num);
+            CLR_BIT(PORTC, pin_num);
             break;
         case PD:
-            CLEAR_BIT(PORTD, pin_num);
+            CLR_BIT(PORTD, pin_num);
             break;
         }
     }
 }
 
-void DIO_TogglePin(DIO_Pin_type pin)
+void DIO_togglePin(DioPin_type pin)
 {
     u8 pin_num = pin % 8;
-    DIO_Port_type port = pin / 8;
+    DioPort_type port = pin / 8;
 
     switch (port)
     {
     case PA:
-        TOGGLE_BIT(PORTA, pin_num);
+        TOG_BIT(PORTA, pin_num);
         break;
     case PB:
-        TOGGLE_BIT(PORTB, pin_num);
+        TOG_BIT(PORTB, pin_num);
         break;
     case PC:
-        TOGGLE_BIT(PORTC, pin_num);
+        TOG_BIT(PORTC, pin_num);
         break;
     case PD:
-        TOGGLE_BIT(PORTD, pin_num);
+        TOG_BIT(PORTD, pin_num);
         break;
     }
 }
 
-DIO_Voltage_type DIO_ReadPin(DIO_Pin_type pin)
+DioVoltage_type DIO_readPin(DioPin_type pin)
 {
     u8 pin_num = pin % 8;
-    DIO_Port_type port = pin / 8;
-    DIO_Voltage_type volt = LOW;
+    DioPort_type port = pin / 8;
+    DioVoltage_type volt = LOW;
 
     switch (port)
     {
@@ -167,7 +167,7 @@ DIO_Voltage_type DIO_ReadPin(DIO_Pin_type pin)
     return volt;
 }
 
-void DIO_WritePort(DIO_Port_type port, const u8 value)
+void DIO_writePort(DioPort_type port, const u8 value)
 {
     switch (port)
     {
@@ -186,45 +186,45 @@ void DIO_WritePort(DIO_Port_type port, const u8 value)
     }
 }
 
-void DIO_EditPort_LowerHalf(DIO_Port_type port, u8 value)
+void DIO_editPort_lowNibble(DioPort_type port, u8 value)
 {
     switch (port)
     {
     case PA:
-        EDIT_FOUR_LBITS(PORTA, value);
+        EDIT_LOW_NIBBLE(PORTA, value);
         break;
     case PB:
-        EDIT_FOUR_LBITS(PORTB, value);
+        EDIT_LOW_NIBBLE(PORTB, value);
         break;
     case PC:
-        EDIT_FOUR_LBITS(PORTC, value);
+        EDIT_LOW_NIBBLE(PORTC, value);
         break;
     case PD:
-        EDIT_FOUR_LBITS(PORTD, value);
+        EDIT_LOW_NIBBLE(PORTD, value);
         break;
     }
 }
 
-void DIO_EditPort_HigherHalf(DIO_Port_type port, u8 value)
+void DIO_editPort_highNibble(DioPort_type port, u8 value)
 {
     switch (port)
     {
     case PA:
-        EDIT_FOUR_HBITS(PORTA, value);
+        EDIT_HIGH_NIBBLE(PORTA, value);
         break;
     case PB:
-        EDIT_FOUR_HBITS(PORTB, value);
+        EDIT_HIGH_NIBBLE(PORTB, value);
         break;
     case PC:
-        EDIT_FOUR_HBITS(PORTC, value);
+        EDIT_HIGH_NIBBLE(PORTC, value);
         break;
     case PD:
-        EDIT_FOUR_HBITS(PORTD, value);
+        EDIT_HIGH_NIBBLE(PORTD, value);
         break;
     }
 }
 
-u8 DIO_ReadPort(DIO_Port_type port)
+u8 DIO_readPort(DioPort_type port)
 {
     u8 value = 0;
     switch (port)
@@ -245,12 +245,12 @@ u8 DIO_ReadPort(DIO_Port_type port)
     return value;
 }
 
-void DIO_Init(void)
+void DIO_init(void)
 {
-    DIO_Pin_type i;
+    DioPin_type i;
 
     for (i = 0; i < TOTAL_PINS; i++)
     {
-        DIO_InitPin(i, PinsStatus[i]);
+        DIO_initPin(i, pins_status[i]);
     }
 }

@@ -1,5 +1,5 @@
 /**
- * @file DIO_Config.c
+ * @file dio_config.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief DIO configuration file
  * @version 0.1
@@ -9,9 +9,9 @@
  * 
  */
 
-#include "DIO.h"
+#include "dio.h"
 
-const DIO_PinStatus_type PinsStatus[TOTAL_PINS] = 
+const DioPinStatus_type pins_status[TOTAL_PINS] = 
 {
     /* PORTA PINS 0:7*/
     OUTPUT, /* ADC0 */
