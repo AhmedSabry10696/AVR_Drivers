@@ -31,8 +31,8 @@ EEPROM_Error_type EEPROM_writeByte(u16 address, u8 data)
     }
 
     /* send slave address with write request
-    * {0101 0000} | {0000 0 A9 A8 A7} = {0101 0987} 
-    * in function shifted left 1010 987{0} write      
+    * {0101 0000} | {0000 0 A10 A9 A8} = {0101 0---} 
+    * in function shifted left 1010 ---{0} write      
     */ 
     local = TWI_write_SLA_write((u8)(0x50 | ((address & 0x0700) >> 8)));
     
