@@ -1,5 +1,5 @@
 /**
- * @file Stepper_Motor.c
+ * @file stepper_motor.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Stepper motor driver
  * @version 0.1
@@ -9,214 +9,214 @@
  * 
  */
 
-#include "Stepper_Motor.h"
+#include "stepper_motor.h"
 
-void Stepper_BiPolarFull_CW(void)
+void STEPPER_biPolarFull_cw(void)
 {
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 }
 
-void Stepper_BiPolarFull_CCW(void)
+void STEPPER_biPolarFull_ccw(void)
 {
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 }
 
-void Stepper_UniPolarFull_CW(void)
+void STEPPER_uniPolarFull_cw(void)
 {
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 }
 
-void Stepper_UniPolarFull_CCW(void)
+void Stepper_uniPolarFull_ccw(void)
 {
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 }
 
-void Stepper_UniPolarHalf_CW(void)
+void STEPPER_uniPolarHalf_cw(void)
 {
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 }
 
-void Stepper_UniPolarHalf_CCW(void)
+void STEPPER_uniPolarHalf_ccw(void)
 {
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, HIGH);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, HIGH);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, HIGH);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, HIGH);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, LOW);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, LOW);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, HIGH);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, HIGH);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 
-    DIO_WritePin(COIL1A, HIGH);
-    DIO_WritePin(COIL1B, LOW);
-    DIO_WritePin(COIL2A, LOW);
-    DIO_WritePin(COIL2B, LOW);
+    DIO_writePin(COIL1A, HIGH);
+    DIO_writePin(COIL1B, LOW);
+    DIO_writePin(COIL2A, LOW);
+    DIO_writePin(COIL2B, LOW);
     _delay_ms(DELAY);
 }
