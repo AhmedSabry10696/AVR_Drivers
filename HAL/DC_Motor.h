@@ -1,5 +1,5 @@
 /**
- * @file DC_Motor_Interface.h
+ * @file dc_motor.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief DC Motor header file
  * @version 0.1
@@ -12,9 +12,9 @@
 #ifndef DC_MOTOR_H_
 #define DC_MOTOR_H_
 
-#include "StdTypes.h"
-#include "DIO.h"
-#include "Timer.h"
+#include "std_types.h"
+#include "dio.h"
+#include "timer.h"
 
 /* motor connections */
 #define IN1 PIND0
@@ -25,29 +25,29 @@
  * @brief drive DC motor to rotate in clock wise directions
  * 
  */
-extern void DC_Motor_CW(void);
+extern void DC_motor_cw(void);
 
 /**
  * @brief drive DC motor to rotate in counter clock wise direction 
  * 
  */
-extern void DC_Motor_CCW(void);
+extern void DC_motor_ccw(void);
 
 /**
  * @brief Init Timer0 to generate pwm 
  */
-extern void DC_Motor_Speed_Init(void);
+extern void DC_motorSpeedInit(void);
 /**
  * @brief Set DC motor speed 
  * 
  * @param speed 0:100
  */
-extern void DC_Motor_Speed(u8 speed);
+extern void DC_motorSpeed(u8 speed);
 
 /**
  * @brief stop DC motor
  * 
  */
-extern void DC_Motor_Stop(void);
+extern void DC_motorStop(void);
 
 #endif /* DC_MOTOR_H_ */

@@ -1,5 +1,5 @@
 /**
- * @file DC_Motor.c
+ * @file dc_motor.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief DC Motor driver implementation
  * @version 0.1
@@ -9,35 +9,35 @@
  * 
  */
 
-#include "DC_Motor.h"
+#include "dc_motor.h"
 
-void DC_Motor_CW(void)
+void DC_motor_cw(void)
 {
-    DIO_WritePin(IN1, HIGH);
-    DIO_WritePin(IN2, LOW);
+    DIO_writePin(IN1, HIGH);
+    DIO_writePin(IN2, LOW);
 }
 
-void DC_Motor_CCW(void)
+void DC_motor_ccw(void)
 {
-    DIO_WritePin(IN1, LOW);
-    DIO_WritePin(IN2, HIGH);
+    DIO_writePin(IN1, LOW);
+    DIO_writePin(IN2, HIGH);
 }
 
-void DC_Motor_Speed_Init(void)
+void DC_motorSpeedInit(void)
 {
-    Timer0_Init(TIMER0_FAST_PWM, TIMER0_SCALER_8);
-    Timer0_OC0_Mode(OC0_NON_INVERTING);
+    TIMER0_init(TIMER0_FAST_PWM, TIMER0_SCALER_8);
+    TIMER0_OC0_mode(OC0_NON_INVERTING);
 }
 
-void DC_Motor_Speed(u8 speed)
+void DC_motorSpeed(u8 speed)
 {
     u8 temp = (255 * speed) / 100;
-    Timer0_OCR_Set(temp);
+    TIMER0_OCR_set(temp);
 }
 
-void DC_Motor_Stop(void)
+void DC_motorStop(void)
 {
-    DIO_WritePin(EN, LOW);
-    DIO_WritePin(IN1, LOW);
-    DIO_WritePin(IN2, LOW);
+    DIO_writePin(EN, LOW);
+    DIO_writePin(IN1, LOW);
+    DIO_writePin(IN2, LOW);
 }
