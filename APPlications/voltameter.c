@@ -11,11 +11,10 @@
 
 #define  F_CPU 8000000UL
 #include <util/delay.h>
-#include "MemMap.h"
-#include "Utils.h"
-#include "LCD.h"
-#include "ADC.h"
-
+#include "memory_map.h"
+#include "utils.h"
+#include "lcd.h"
+#include "adc.h"
 
 int main(void)
 {
@@ -23,34 +22,34 @@ int main(void)
 	f32 volt = 0;
 
 	/* dio init */
-	DIO_Init();
+	DIO_init();
 
 	/* lcd init */
-	LCD_Init();
+	LCD_init();
 
 	/* adc init with AREF volt and 64 prescaller  125 KHZ */
-	ADC_Init(REF_AREF,ADC_Scaler_64);
+	ADC_init(REF_AREF,ADC_Scaler_64);
 	
 	/* print labels on lcd */
-	LCD_WriteString("ADC Read: ");
-	LCD_GoTo(2,0);
-	LCD_WriteString(" Voltage: ");
+	LCD_writeString("ADC Read: ");
+	LCD_goTo(2,0);
+	LCD_writeString(" Voltage: ");
 	
 	while(1)
 	{
 		/* read adc value */
-		read = ADC_Read(CH_0);
+		read = ADC_read(CH_0);
 
 		/* convert adc read to volt */
 		volt = read*5.0/1023;
 		
 		/* clear 4 cells to print adc read */
-		LCD_ClearCells(0,12,4);
-		LCD_WriteNum(read);
+		LCD_clearCells(0,12,4);
+		LCD_writeNum(read);
 
 		/* clear 4 cells to print volt value */
-		LCD_ClearCells(2,12,4);
-		LCD_WriteFloat(volt);
+		LCD_clearCells(2,12,4);
+		LCD_writeFloat(volt);
 
 		_delay_ms(300);
 	}/*  end of while 1 */

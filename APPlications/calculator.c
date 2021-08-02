@@ -1,9 +1,9 @@
 #define  F_CPU 8000000UL
 #include <util/delay.h>
-#include "MemMap.h"
-#include "Utils.h"
-#include "LCD.h"
-#include "Keypad.h"
+#include "memory_map.h"
+#include "utils.h"
+#include "lcd.h"
+#include "keypad.h"
 
 int main(void)
 {
@@ -11,14 +11,14 @@ int main(void)
 	s32 num1=0,num2=0,result=0;
 	u8 num1_f=0,res_f = 0,num2_f=0,invalidop = 0,sign_f= 0,num2_st = 0;
 	
-	DIO_Init();
-	LCD_Init();
-	LCD_WriteStringRowCol(0,5,"Calculator");
-	LCD_GoTo(1,0);
+	DIO_init();
+	LCD_init();
+	LCD_writeStringRowCol(0,5,"Calculator");
+	LCD_goTo(1,0);
 
 	while(1)
 	{
-		key = KEYPAD_GeyKey();
+		key = KEYPAD_getKey();
 
 		/* if any key pressed */
 		if (key != NO_KEY)
@@ -27,7 +27,7 @@ int main(void)
 			if (key >='0' && key <='9' && res_f == 0)
 			{
 				/* display it */
-				LCD_WriteChar(key);
+				LCD_writeChar(key);
 
 				/* get the first operand */
 				if (num1_f == 0)
@@ -45,7 +45,7 @@ int main(void)
 
 			if(key == '-' && num2_st == 0 && num1_f == 1)
 			{
-				LCD_WriteChar('-');
+				LCD_writeChar('-');
 				sign_f = 1;
 				num2_st = 0;
 			}
@@ -65,7 +65,7 @@ int main(void)
 					op = key;
 
 					/* already got op */
-					LCD_WriteChar(key);
+					LCD_writeChar(key);
 					num2_st = 0;
 					num1_f = 1;
 					num2 = 0;
@@ -82,14 +82,14 @@ int main(void)
 					num2_st = 0;
 					num1_f = 1;
 					
-					LCD_Clear();
-					LCD_WriteStringRowCol(0,5,"Calculator");
-					LCD_GoTo(1,0);
-					LCD_WriteNum(num1);
+					LCD_clear();
+					LCD_writeStringRowCol(0,5,"Calculator");
+					LCD_goTo(1,0);
+					LCD_writeNum(num1);
 					res_f = 0;
 
 					/* display operation */
-					LCD_WriteChar(key);
+					LCD_writeChar(key);
 				}
 			}
 	
@@ -125,14 +125,14 @@ int main(void)
 							result = num1/num2;
 						break;
 				}
-				LCD_GoTo(2,0);
+				LCD_goTo(2,0);
 				if(invalidop == 1)
 				{
-					LCD_WriteStringRowCol(2,2,"Invalid Operation");
+					LCD_writeStringRowCol(2,2,"Invalid Operation");
 				}
 				else
 				{
-					LCD_WriteNum(result);
+					LCD_writeNum(result);
 				}
 				num1_f = 0;
 				res_f = 1;
@@ -146,9 +146,9 @@ int main(void)
 				res_f = 0;
 				invalidop = 0;
 				sign_f = 0;
-				LCD_Clear();
-				LCD_WriteStringRowCol(0,5,"Calculator");
-				LCD_GoTo(1,0);
+				LCD_clear();
+				LCD_writeStringRowCol(0,5,"Calculator");
+				LCD_goTo(1,0);
 			}
 		}/* end of no key pressed */
 	}/*  end of while 1 */

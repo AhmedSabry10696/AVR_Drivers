@@ -26,7 +26,14 @@
             "cStandard": "c11",
             "cppStandard": "c++14",
             "compilerPath": "C:\\WinAVR-20100110\\bin\\avr-gcc.exe",
-            "includePath": [],
+            "includePath": [
+                "C:\\WinAVR-20100110\\avr\\include",
+                "${workspaceFolder}/",
+                "${workspaceFolder}/LIB",
+                "${workspaceFolder}/MCAL",
+                "${workspaceFolder}/HAL",
+                "${workspaceFolder}/SERVICES"
+            ],
             "compilerArgs": []
         }
     ],

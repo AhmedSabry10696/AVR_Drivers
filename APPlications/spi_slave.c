@@ -13,61 +13,62 @@
 #define F_CPU 8000000UL
 #include <util/delay.h>
 
-#include "MemMap.h"
-#include "Utils.h"
-#include "StdTypes.h"
-#include "DIO.h"
-#include "Ext_Interrupt.h"
-#include "Uart.h"
-#include "LCD.h"
-#include "SPI.h"
-#include "Sensors.h"
+#include "memory_map.h"
+#include "utils.h"
+#include "std_types.h"
+#include "dio.h"
+#include "ext_interrupt.h"
+#include "uart.h"
+#include "lcd.h"
+#include "spi.h"
+#include "sensors.h"
 
 static volatile u8 flag = 0;
 static volatile u8 uart_data = '#';
 
-static void SPI_Func(void)
+static void SPI_func(void)
 {
-	uart_data = SPI_Receive_NoBlock();
+	uart_data = SPI_receiveNoBlock();
 }
 
 int main(void)
 {
 	u16 x = 0, temp;
 	sei();
-	DIO_Init();
-	LCD_Init();
-	ADC_Init(REF_AVCC, ADC_Scaler_64);
+	DIO_init();
+	LCD_init();
+	ADC_init(REF_AVCC, ADC_Scaler_64);
 
-	SPI_Init();
-	SPI_STC_IntSetCallBack(SPI_Func);
-	SPI_Int_Enable();
+	SPI_init();
+	SPI_STC_intSetCallBack(SPI_Func);
+	SPI_intEnable();
 
-	LCD_WriteString("     SPI Slave");
+	LCD_writeString("     SPI Slave");
 
-	LCD_GoTo(1, 0);
-	LCD_WriteString("x: ");
+	LCD_goTo(1, 0);
+	LCD_writeString("x: ");
 
-	LCD_GoTo(2, 0);
-	LCD_WriteString("Uart Data: ");
+	LCD_goTo(2, 0);
+	LCD_writeString("Uart Data: ");
 
-	LCD_GoTo(3, 0);
-	LCD_WriteString("Temp: ");
+	LCD_goTo(3, 0);
+	LCD_writeString("Temp: ");
 
 	while (1)
 	{
-		temp = LM35_TempRead();
+		temp = LM35_tempRead();
 
-		LCD_GoTo(3, 10);
-		LCD_WriteNum(temp / 10);
+		LCD_goTo(3, 10);
+		LCD_writeNum(temp / 10);
 
-		LCD_GoTo(2, 10);
-		LCD_WriteChar(uart_data);
+		LCD_goTo(2, 10);
+		LCD_writeChar(uart_data);
 
-		SPI_Send_NoBlock(temp / 10);
+		SPI_sendNoBlock(temp / 10);
 
-		LCD_GoTo(1, 5);
-		LCD_WriteNum(x);
+		LCD_goTo(1, 5);
+		LCD_writeNum(x);
+		
 		x++;
 		if (x == 10)
 		{

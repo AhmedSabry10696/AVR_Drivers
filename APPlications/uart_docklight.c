@@ -1,15 +1,15 @@
 #define  F_CPU 8000000UL
 #include <util/delay.h>
 #include <string.h>
-#include "MemMap.h"
-#include "Utils.h"
+#include "memory_map.h"
+#include "utils.h"
 
-#include "DIO.h"
-#include "Timer_Services.h"
-#include "Uart_Services.h"
-#include "LCD.h"
-#include "Servo_Motor.h"
-#include "Sensors.h"
+#include "dio.h"
+#include "timer_services.h"
+#include "uart_services.h"
+#include "lcd.h"
+#include "servo_motor.h"
+#include "sensors.h"
 
 u16 temp,pres;
 
@@ -41,21 +41,21 @@ void check(u8 *comm,u8 num)
 {
 	if (strcmp(comm,"servo") == 0)
 	{
-		Servo_SetPosition(num);	
+		SERVO_setPosition(num);	
 	}
 	else if (strcmp(comm,"lcd")==0)
 	{
-		LCD_GoTo(3,8);
-		LCD_WriteNum(num);
-		LCD_WriteString("   ");
+		LCD_goTo(3,8);
+		LCD_writeNum(num);
+		LCD_writeString("   ");
 	}
 	else if(strcmp(comm,"ledon") == 0)
 	{
-		DIO_WritePin(PINB0+num,HIGH);
+		DIO_writePin(PINB0+num,HIGH);
 	}
 	else if (strcmp(comm,"ledoff")==0)
 	{
-		DIO_WritePin(PINB0+num,LOW);
+		DIO_writePin(PINB0+num,LOW);
 	}
 	else if(strcmp(comm,"temp")==0)
 	{
@@ -65,11 +65,11 @@ void check(u8 *comm,u8 num)
 		s[size+1] = (temp%10) + '0';
 		s[size+2] = 0;
 		
-		Uart_SendString("Temperature = ");
-		Uart_SendString(s);
-		Uart_Send('C');
+		UART_sendString("Temperature = ");
+		UART_sendString(s);
+		UART_send('C');
 	}
-	else if (strcmp(comm,"pressureg") == 0)
+	else if (strcmp(comm,"pressure") == 0)
 	{
 		u8 s[20] = {0};
 		u8 size = IntToString(pres/10,s);
@@ -77,13 +77,13 @@ void check(u8 *comm,u8 num)
 		s[size+1] = (pres%10) + '0';
 		s[size+2] = 0;
 		
-		Uart_SendString("Pressure = ");
-		Uart_SendString(s);
-		Uart_SendString("KPA");
+		UART_sendString("Pressure = ");
+		UART_sendString(s);
+		UART_sendString("KPA");
 	}
 	else
 	{
-		Uart_SendString("Undefined Command");
+		UART_sendString("Undefined Command");
 	}
 }
 
@@ -114,39 +114,39 @@ int main(void)
 	char str[100] = {0};
 	sei();
 	
-	DIO_Init();
-	LCD_Init();
-	Uart_Init();
-	Servo_Init();
-	ADC_Init(REF_AREF,ADC_Scaler_64);
+	DIO_init();
+	LCD_init();
+	UART_init();
+	SERVO_init();
+	ADC_init(REF_AREF,ADC_Scaler_64);
 
-	LCD_WriteString("Temp: ");
-	LCD_GoTo(0,16);
-	LCD_WriteChar('C');
-	LCD_GoTo(1,0);
-	LCD_WriteString("Pres: ");
-	LCD_GoTo(1,16);
-	LCD_WriteString("kPA");
+	LCD_writeString("Temp: ");
+	LCD_goTo(0,16);
+	LCD_writeChar('C');
+	LCD_goTo(1,0);
+	LCD_writeString("Pres: ");
+	LCD_goTo(1,16);
+	LCD_writeString("kPA");
 	
-	LCD_GoTo(3,0);
-	LCD_WriteString("Num:");
+	LCD_goTo(3,0);
+	LCD_writeString("Num:");
 	
-	Uart_ReceiveStringAsyn(str);
+	UART_receiveStringAsyn(str);
 	
 	while(1)
 	{
-		temp = LM35_TempRead();
-		pres = MPX4110_PressureRead();
+		temp = LM35_tempRead();
+		pres = MPX4110_pressureRead();
 		
-		LCD_GoTo(0,8);
-		LCD_WriteNum(temp/10);
-		LCD_WriteString("    ");
+		LCD_goTo(0,8);
+		LCD_writeNum(temp/10);
+		LCD_writeString("    ");
 		
-		LCD_GoTo(1,8);
-		LCD_WriteNum(pres/10);
-		LCD_WriteChar('.');
-		LCD_WriteNum(pres%10);
-		LCD_WriteString("    ");
+		LCD_goTo(1,8);
+		LCD_writeNum(pres/10);
+		LCD_writeChar('.');
+		LCD_writeNum(pres%10);
+		LCD_writeString("    ");
 		
 		if (str[0] != 0)
 		{

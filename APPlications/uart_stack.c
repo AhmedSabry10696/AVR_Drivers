@@ -9,53 +9,53 @@
  * 
  */
 
-#include "StdTypes.h"
-#include "Uart.h"
-#include "Uart_Stack.h"
+#include "std_types.h"
+#include "uart.h"
+#include "uart_stack.h"
 
 static volatile u8 full_flag =0,flag = 0;
 
-static void RX_Func(void)
+static void RX_func(void)
 {
-    u8 data = Uart_ReceiveNoBlock();
+    u8 data = UART_receiveNoBlock();
     
-    if(Uart_Push(data) == STACK_FULL)
+    if(UART_push(data) == STACK_FULL)
     {
         full_flag = 1;
     }
 }
 
-static void EX_Func(void)
+static void EX_func(void)
 {
     flag = 1;
 }
 
 int main(void)
 {
-    DIO_Init();
-    LCD_Init();
+    DIO_init();
+    LCD_init();
     u8 data;
     
     while (1)
     {
         if(1 == full_flag)
         {
-            Uart_SendString("stack is full");
-            LCD_GoTo(1,0);
-            LCD_WriteString("stack is full");
+            UART_sendString("stack is full");
+            LCD_goTo(1,0);
+            LCD_writeString("stack is full");
             full_flag = 0;
         }
         if(1 == flag)
         {
-            if(DONE == Uart_Pop(&data))
+            if(DONE == UART_pop(&data))
             {
-                LCD_WriteChar(data);
-                LCD_WriteString("     ");
+                LCD_writeChar(data);
+                LCD_writeString("     ");
             }
             else
             {
-                LCD_GoTo(1,0);
-                LCD_WriteString("Stack Empty");
+                LCD_goTo(1,0);
+                LCD_writeString("Stack Empty");
             }
             flag = 0;
         }
