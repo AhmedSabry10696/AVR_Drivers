@@ -1,5 +1,5 @@
 /**
- * @file Timer_Services.c
+ * @file timer_services.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Timer services functions implementation
  * @version 0.1
@@ -9,39 +9,41 @@
  * 
  */
 
-#include "Timer_Services.h"
+#include "timer_services.h"
 
 /* for input capture unit and timer1 overflow */
 static volatile u32 t1, t2, t3;
 static volatile u8 flag = 0, c = 0;
 
 /* for Timer1_SetIntTime_s function and Timer_func */
-static u32 NofOverFlow = 0;
-static void (*fptr_timer)(void);
+static u32 overflow_count = 0;
+static void (*timer_fPtr)(void);
 
-void PWM_Init(void)
+void PWM_init(void)
 {
-    Timer1_Init(TIMER1_FASTPWM_ICR_TOP_MODE, TIMER1_SCALER_8);
-    Timer1_OCRA_Mode(OCRA_NON_INVERTING);
-    Timer1_OCRB_Mode(OCRB_DISCONNECTED);
+    TIMER1_init(TIMER1_FASTPWM_ICR_TOP_MODE, TIMER1_SCALER_8);
+    TIMER1_OCRA_mode(OCRA_NON_INVERTING);
+    TIMER1_OCRB_mode(OCRB_DISCONNECTED);
 }
-void PWM_Duty(const u16 duty)
+
+void PWM_duty(const u16 duty)
 {
     if (duty <= 100)
     {
-        u16 top = Timer1_ICR_Get();
+        u16 top = TIMER1_ICR_get();
         u16 Ton = ((u32)duty * (top + 1)) / 100;
         if (Ton > 1)
         {
-            Timer1_OCRA_Set(Ton - 1);
+            TIMER1_OCRA_set(Ton - 1);
         }
         else
         {
-            Timer1_OCRA_Set(0);
+            TIMER1_OCRA_set(0);
         }
     }
 }
-void PWM_Freq_HZ(const u16 freq)
+
+void PWM_freq_HZ(const u16 freq)
 {
     if (freq != 0)
     {
@@ -51,15 +53,16 @@ void PWM_Freq_HZ(const u16 freq)
         if (Ttotal >= 1)
         {
             /* update top to period T */
-            Timer1_ICR_Set(Ttotal - 1);
+            TIMER1_ICR_set(Ttotal - 1);
         }
         else
         {
-            Timer1_ICR_Set(0);
+            TIMER1_ICR_set(0);
         }
     }
 }
-void PWM_Freq_KHZ(const u16 freq)
+
+void PWM_freq_KHZ(const u16 freq)
 {
     if (freq != 0)
     {
@@ -69,100 +72,105 @@ void PWM_Freq_KHZ(const u16 freq)
         if (Ttotal >= 1)
         {
             /* update top value to T */
-            Timer1_ICR_Set(Ttotal - 1);
+            TIMER1_ICR_set(Ttotal - 1);
         }
         else
         {
-            Timer1_ICR_Set(0);
+            TIMER1_ICR_set(0);
         }
     }
 }
 
-static void Timer_func(void)
+static void TIMER_func(void)
 {
     static u32 c = 0;
     c++;
-    if (c == NofOverFlow)
+    if (c == overflow_count)
     {
         c = 0;
-        fptr_timer();
+        timer_fPtr();
     }
 }
-void Timer1_SetIntTime_us(const u16 time, void (*LocalFptr)(void))
+
+void TIMER1_setIntTime_us(const u16 time, void (*localFptr)(void))
 {
-    Timer1_Init(TIMER1_CTC_OCRA_TOP_MODE, TIMER1_SCALER_8);
-    Timer1_OCRA_Mode(OCRA_DISCONNECTED);
-    Timer1_OCRB_Mode(OCRB_DISCONNECTED);
+    TIMER1_init(TIMER1_CTC_OCRA_TOP_MODE, TIMER1_SCALER_8);
+    TIMER1_OCRA_mode(OCRA_DISCONNECTED);
+    TIMER1_OCRB_mode(OCRB_DISCONNECTED);
 
-    Timer1_OCRA_Set(time - 1);
+    TIMER1_OCRA_set(time - 1);
 
-    Timer1_OCA_IntSetCallBack(LocalFptr);
-    Timer1_OCA_IntEnable();
+    TIMER1_OCA_intSetCallBack(localFptr);
+    TIMER1_OCA_intEnable();
 }
-void Timer1_SetIntTime_ms(const u16 time, void (*LocalFptr)(void))
+
+void Timer1_setIntTime_ms(const u16 time, void (*localFptr)(void))
 {
-    Timer1_Init(TIMER1_CTC_OCRA_TOP_MODE, TIMER1_SCALER_8);
-    Timer1_OCRA_Mode(OCRA_DISCONNECTED);
-    Timer1_OCRB_Mode(OCRB_DISCONNECTED);
+    TIMER1_init(TIMER1_CTC_OCRA_TOP_MODE, TIMER1_SCALER_8);
+    TIMER1_OCRA_mode(OCRA_DISCONNECTED);
+    TIMER1_OCRB_mode(OCRB_DISCONNECTED);
 
-    Timer1_OCRA_Set((time * 1000) - 1);
+    TIMER1_OCRA_set((time * 1000) - 1);
 
-    Timer1_OCA_IntSetCallBack(LocalFptr);
-    Timer1_OCA_IntEnable();
+    TIMER1_OCA_intSetCallBack(localFptr);
+    TIMER1_OCA_intEnable();
 }
-void Timer1_SetIntTime_s(const u16 time, void (*LocalFptr)(void))
+
+void Timer1_setIntTime_s(const u16 time, void (*localFptr)(void))
 {
-    Timer1_Init(TIMER1_CTC_OCRA_TOP_MODE, TIMER1_SCALER_8);
+    TIMER1_init(TIMER1_CTC_OCRA_TOP_MODE, TIMER1_SCALER_8);
 
     /* interrupt every 1ms */
-    Timer1_OCRA_Set(999);
+    TIMER1_OCRA_set(999);
 
     /* calculate number of overflows and set global var */
-    NofOverFlow = time * 1000;
+    overflow_count = time * 1000;
 
-    /* set fptr_timer with the address of the function to call as specified time */
-    fptr_timer = LocalFptr;
+    /* set timer_fPtr with the address of the function to call as specified time */
+    timer_fPtr = localFptr;
 
-    /* set callback of compare match with another Timer_func to reach to NofOverFlow */
-    Timer1_OCA_IntSetCallBack(Timer_func);
-    Timer1_OCA_IntEnable();
+    /* set callback of compare match with another Timer_func to reach to overflow_count */
+    TIMER1_OCA_intSetCallBack(TIMER_func);
+    TIMER1_OCA_intEnable();
 }
 
-static void Func_OV(void)
+static void TIMER_ovf_func(void)
 {
     c++;
 }
-static void Func_ICU(void)
+
+static void TIMER_icu_func(void)
 {
     if (0 == flag)
     {
-        t1 = Timer1_ICR_Get() + ((u32)c * 65536);
-        Timer1_InputCaptureEdge(FALLING);
+        t1 = TIMER1_ICR_get() + ((u32)c * 65536);
+        TIMER1_inputCaptureEdge(FALLING);
         flag = 1;
     }
     else if (1 == flag)
     {
-        t2 = Timer1_ICR_Get() + ((u32)c * 65536);
-        Timer1_InputCaptureEdge(RISING);
+        t2 = TIMER1_ICR_get() + ((u32)c * 65536);
+        TIMER1_inputCaptureEdge(RISING);
         flag = 2;
     }
     else if (2 == flag)
     {
-        t3 = Timer1_ICR_Get() + ((u32)c * 65536);
-        Timer1_ICU_IntDisable();
+        t3 = TIMER1_ICR_get() + ((u32)c * 65536);
+        TIMER1_ICU_intDisable();
         flag = 3;
     }
 }
-void PWM_Measure(u32 *Pfreq, u8 *Pduty)
+
+void PWM_measure(u32 *freq_ptr, u8 *duty_ptr)
 {
     u32 Ton, Toff;
 
-    Timer1_Set(0);
-    Timer1_ICU_IntSetCallBack(Func_ICU);
-    Timer1_OVF_IntSetCallBack(Func_OV);
-    Timer1_InputCaptureEdge(RISING);
-    Timer1_ICU_IntEnable();
-    Timer1_OVF_IntEnable();
+    TIMER1_set(0);
+    TIMER1_ICU_intSetCallBack(TIMER_icu_func);
+    TIMER1_OVF_intSetCallBack(TIMER_ovf_func);
+    TIMER1_inputCaptureEdge(RISING);
+    TIMER1_ICU_intEnable();
+    TIMER1_OVF_intEnable();
     flag = 0;
 
     while (flag < 3)
@@ -171,22 +179,24 @@ void PWM_Measure(u32 *Pfreq, u8 *Pduty)
     Ton = t2 - t1;
     Toff = t3 - t2;
 
-    *Pduty = (Ton * 100) / (Ton + Toff);
-    *Pfreq = (u32)1000000 / (Toff + Ton);
+    *duty_ptr = (Ton * 100) / (Ton + Toff);
+    *freq_ptr = (u32)1000000 / (Toff + Ton);
 }
-void PMW_StartMeasure(void)
+
+void PMW_startMeasure(void)
 {
     if (0 == flag)
     {
-        Timer1_Set(0);
-        Timer1_ICU_IntSetCallBack(Func_ICU);
-        Timer1_OVF_IntSetCallBack(Func_OV);
-        Timer1_InputCaptureEdge(RISING);
-        Timer1_ICU_IntEnable();
-        Timer1_OVF_IntEnable();
+        TIMER1_set(0);
+        TIMER1_ICU_intSetCallBack(TIMER_icu_func);
+        TIMER1_OVF_intSetCallBack(TIMER_ovf_func);
+        TIMER1_inputCaptureEdge(RISING);
+        TIMER1_ICU_intEnable();
+        TIMER1_OVF_intEnable();
     }
 }
-u8 PWM_GetRead(u32 *Pfreq, u8 *Pduty)
+
+u8 PWM_getRead(u32 *freq_ptr, u8 *duty_ptr)
 {
     u32 Ton, Toff;
 
@@ -195,8 +205,8 @@ u8 PWM_GetRead(u32 *Pfreq, u8 *Pduty)
         Ton = t2 - t1;
         Toff = t3 - t2;
 
-        *Pduty = (Ton * 100) / (Ton + Toff);
-        *Pfreq = (u32)1000000 / (Toff + Ton);
+        *duty_ptr = (Ton * 100) / (Ton + Toff);
+        *freq_ptr = (u32)1000000 / (Toff + Ton);
         flag = 0;
         return 1;
     }
