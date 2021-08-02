@@ -1,5 +1,5 @@
 /**
- * @file SPI.h
+ * @file spi.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief SPI driver header file
  * @version 0.1
@@ -12,30 +12,34 @@
 #ifndef SPI_H_
 #define SPI_H_
 
-#include "StdTypes.h"
-#include "Utils.h"
-#include "MemMap.h"
+#include "std_types.h"
+#include "utils.h"
+#include "memory_map.h"
 
 typedef enum
 {
     LSB_FIRST = 0,
     MSB_FIRST
-} Data_Order_type;
+} DataOrder_type;
+
 typedef enum
 {
     SLAVE = 0,
     MASTER
-} SPI_type;
+} Spi_type;
+
 typedef enum
 {
     LEADING_EDGE_RISING = 0,
     LEADING_EDGE_FALLING
-} Clock_Polarity_type;
+} ClockPolarity_type;
+
 typedef enum
 {
     SETUP_LEADING = 0,
     SETUP_TRAILING
-} Clock_Phase_type;
+} ClockPhase_type;
+
 typedef enum
 {
     FCPU_DIV_2 = 0,
@@ -45,22 +49,24 @@ typedef enum
     FCPU_DIV_32,
     FCPU_DIV_64,
     FCPU_DIV_128
-} Clock_Speed_type;
+} ClockSpeed_type;
+
 typedef struct
 {
-    Data_Order_type data_order;
-    SPI_type type;
-    Clock_Polarity_type clock_pol;
-    Clock_Phase_type clock_phase;
-    Clock_Speed_type clock_speed;
-} SPI_Config;
-extern const SPI_Config spi;
+    DataOrder_type data_order;
+    Spi_type type;
+    ClockPolarity_type clock_pol;
+    ClockPhase_type clock_phase;
+    ClockSpeed_type clock_speed;
+} SpiConfig;
+
+extern const SpiConfig spi;
 
 /**
  * @brief SPI Init based on SPI_Config.c file 
  * 
  */
-extern void SPI_Init(void);
+extern void SPI_init(void);
 
 /**
  * @brief SPI send data from master
@@ -68,7 +74,7 @@ extern void SPI_Init(void);
  * @param data data to send 
  * @return u8 received data from slave
  */
-extern u8 SPI_Send_Receive(u8 data);
+extern u8 SPI_sendReceive(u8 data);
 
 /**
  * @brief write data into slave buffer so that when 
@@ -76,41 +82,41 @@ extern u8 SPI_Send_Receive(u8 data);
  *
  * @param data data to write in slave buffer
  */
-extern void SPI_Send_NoBlock(u8 data);
+extern void SPI_sendNoBlock(u8 data);
 
 /**
  * @brief return received data in slave buffer (call in isr)
  * 
  * @return u8 received data
  */
-extern u8 SPI_Receive_NoBlock(void);
+extern u8 SPI_receiveNoBlock(void);
 
 /**
  * @brief check if there is data received from master then return it
  * @note if slave code is too long received data may be missing 
  *  
- * @param pdata pointer to write data if(data received)
+ * @param data_ptr pointer to write data if(data received)
  * @return u8 result if there is data {1} or not{0}
  */
-extern u8 SPI_Receive_Periodic(u8 *pdata);
+extern u8 SPI_receivePeriodic(u8 *data_ptr);
 
 /**
  * @brief SPI interrupt enable
  * 
  */
-extern void SPI_Int_Enable(void);
+extern void SPI_intEnable(void);
 
 /**
  * @brief SPI interrupt disable
  * 
  */
-extern void SPI_Int_Disable(void);
+extern void SPI_intDisable(void);
 
 /**
  * @brief SET call back function of SPI transmission complete interrupt 
  * 
- * @param LocalFptr address of function to call when int occurred
+ * @param localFptr address of function to call when int occurred
  */
-extern void SPI_STC_IntSetCallBack(void (*LocalFptr)(void));
+extern void SPI_STC_intSetCallBack(void (*localFptr)(void));
 
 #endif /* SPI_H_ */

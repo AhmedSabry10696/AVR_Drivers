@@ -1,5 +1,5 @@
 /**
- * @file SPI.c
+ * @file spi.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief SPI driver implementation
  * @version 0.1
@@ -9,11 +9,11 @@
  * 
  */
 
-#include "SPI.h"
+#include "spi.h"
 
-static void (*SPI_STC_IntFptr)(void) = NULLPTR;
+static void (*spi_stc_fPtr)(void) = NULLPTR;
 
-void SPI_Init(void)
+void SPI_init(void)
 {
     /* data order config */
     if (LSB_FIRST == spi.data_order)
@@ -22,7 +22,7 @@ void SPI_Init(void)
     }
     else
     {
-        CLEAR_BIT(SPCR, DORD);
+        CLR_BIT(SPCR, DORD);
     }
 
     /* master or slave config */
@@ -32,13 +32,13 @@ void SPI_Init(void)
     }
     else
     {
-        CLEAR_BIT(SPCR, MSTR);
+        CLR_BIT(SPCR, MSTR);
     }
 
     /* clock polarity */
     if (LEADING_EDGE_RISING == spi.clock_pol)
     {
-        CLEAR_BIT(SPCR, CPOL);
+        CLR_BIT(SPCR, CPOL);
     }
     else
     {
@@ -52,7 +52,7 @@ void SPI_Init(void)
     }
     else
     {
-        CLEAR_BIT(SPCR, CPHA);
+        CLR_BIT(SPCR, CPHA);
     }
 
     /* clock speed */
@@ -60,36 +60,36 @@ void SPI_Init(void)
     {
     case FCPU_DIV_2:
         SET_BIT(SPSR, SPI2X);
-        CLEAR_BIT(SPCR, SPR0);
-        CLEAR_BIT(SPCR, SPR1);
+        CLR_BIT(SPCR, SPR0);
+        CLR_BIT(SPCR, SPR1);
         break;
     case FCPU_DIV_4:
-        CLEAR_BIT(SPSR, SPI2X);
-        CLEAR_BIT(SPCR, SPR0);
-        CLEAR_BIT(SPCR, SPR1);
+        CLR_BIT(SPSR, SPI2X);
+        CLR_BIT(SPCR, SPR0);
+        CLR_BIT(SPCR, SPR1);
         break;
     case FCPU_DIV_8:
         SET_BIT(SPSR, SPI2X);
         SET_BIT(SPCR, SPR0);
-        CLEAR_BIT(SPCR, SPR1);
+        CLR_BIT(SPCR, SPR1);
         break;
     case FCPU_DIV_16:
-        CLEAR_BIT(SPSR, SPI2X);
+        CLR_BIT(SPSR, SPI2X);
         SET_BIT(SPCR, SPR0);
-        CLEAR_BIT(SPCR, SPR1);
+        CLR_BIT(SPCR, SPR1);
         break;
     case FCPU_DIV_32:
         SET_BIT(SPSR, SPI2X);
-        CLEAR_BIT(SPCR, SPR0);
+        CLR_BIT(SPCR, SPR0);
         SET_BIT(SPCR, SPR1);
         break;
     case FCPU_DIV_64:
-        CLEAR_BIT(SPSR, SPI2X);
-        CLEAR_BIT(SPCR, SPR0);
+        CLR_BIT(SPSR, SPI2X);
+        CLR_BIT(SPCR, SPR0);
         SET_BIT(SPCR, SPR1);
         break;
     case FCPU_DIV_128:
-        CLEAR_BIT(SPSR, SPI2X);
+        CLR_BIT(SPSR, SPI2X);
         SET_BIT(SPCR, SPR0);
         SET_BIT(SPCR, SPR1);
         break;
@@ -99,33 +99,32 @@ void SPI_Init(void)
     SET_BIT(SPCR, SPE);
 }
 
-u8 SPI_Send_Receive(u8 data)
+u8 SPI_sendReceive(u8 data)
 {
     SPDR = data;
 
     /* note that polling in SPI to send data is better than interrupt cause spi is fast (to send one byte faster than interrupt response) */
     /* wait till transmission complete */
-    while (0 == READ_BIT(SPSR, SPIF))
-        ;
+    while (0 == READ_BIT(SPSR, SPIF));
 
     return SPDR;
 }
 
-void SPI_Send_NoBlock(u8 data)
+void SPI_sendNoBlock(u8 data)
 {
     SPDR = data;
 }
 
-u8 SPI_Receive_NoBlock(void)
+u8 SPI_receiveNoBlock(void)
 {
     return SPDR;
 }
 
-u8 SPI_Receive_Periodic(u8 *pdata)
+u8 SPI_receivePeriodic(u8 *data_ptr)
 {
     if (1 == READ_BIT(SPSR, SPIF))
     {
-        *pdata = SPDR;
+        *data_ptr = SPDR;
         return 1;
     }
     else
@@ -134,24 +133,25 @@ u8 SPI_Receive_Periodic(u8 *pdata)
     }
 }
 
-void SPI_Int_Enable(void)
+void SPI_intEnable(void)
 {
     SET_BIT(SPCR, SPIE);
 }
-void SPI_Int_Disable(void)
+
+void SPI_intDisable(void)
 {
-    CLEAR_BIT(SPCR, SPIE);
+    CLR_BIT(SPCR, SPIE);
 }
 
-void SPI_STC_IntSetCallBack(void (*LocalFptr)(void))
+void SPI_STC_intSetCallBack(void (*localFptr)(void))
 {
-    SPI_STC_IntFptr = LocalFptr;
+    spi_stc_fPtr = localFptr;
 }
 
 ISR(SPI_STC_VECT)
 {
-    if (SPI_STC_IntFptr != NULLPTR)
+    if (spi_stc_fPtr != NULLPTR)
     {
-        SPI_STC_IntFptr();
+        spi_stc_fPtr();
     }
 }

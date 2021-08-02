@@ -1,5 +1,5 @@
 /**
- * @file SPI_Config.c
+ * @file spi_config.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief SPI configuration file
  * @version 0.1
@@ -9,7 +9,7 @@
  * 
  */
 
-#include "SPI.h"
+#include "spi.h"
 
 /**
  * @brief spi configuration struct 
@@ -34,7 +34,7 @@
  * @slave MOSI/SCK/SS {input by default}, MISO is user defined {DIO_Config.c}
  */
 
-const SPI_Config spi =
+const SpiConfig spi =
 {
     LSB_FIRST,
     MASTER,
