@@ -1,5 +1,5 @@
 /**
- * @file ADC.c
+ * @file adc.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief ADC driver implementation
  * @version 0.1
@@ -9,27 +9,27 @@
  * 
  */
 
-#include "ADC.h"
+#include "adc.h"
 
 /* pointer to function to use it in callback function */
-static void (*ADC_IntFptr)(void) = NULLPTR;
+static void (*adc_fPtr)(void) = NULLPTR;
 
 /* to prevent start conversion before the previous is finished */
-static u8 Reading_Flag = 1;
+static u8 reading_flag = 1;
 
-void ADC_Init(ADC_VoltRef_Type vref, ADC_Scaler_Type scaler)
+void ADC_init(AdcVoltRef_type vref, AdcScaler_type scaler)
 {
     /* voltage reference */
     switch (vref)
     {
     case REF_AREF:
-        CLEAR_BIT(ADMUX, REFS0);
-        CLEAR_BIT(ADMUX, REFS1);
+        CLR_BIT(ADMUX, REFS0);
+        CLR_BIT(ADMUX, REFS1);
         break;
 
     case REF_AVCC:
         SET_BIT(ADMUX, REFS0);
-        CLEAR_BIT(ADMUX, REFS1);
+        CLR_BIT(ADMUX, REFS1);
         break;
 
     case REF_256V:
@@ -43,13 +43,13 @@ void ADC_Init(ADC_VoltRef_Type vref, ADC_Scaler_Type scaler)
     ADCSRA = ADCSRA | scaler;
 
     /* left adjustment */
-    CLEAR_BIT(ADMUX, ADLAR);
+    CLR_BIT(ADMUX, ADLAR);
 
     /* enable ADC */
     SET_BIT(ADCSRA, ADEN);
 }
 
-u16 ADC_Read(ADC_Channel_Type ch)
+u16 ADC_read(Adc_channel_type ch)
 {
     u16 read = 0;
     /* channel selection */
@@ -68,9 +68,9 @@ u16 ADC_Read(ADC_Channel_Type ch)
     return read;
 }
 
-void ADC_StartConversion(ADC_Channel_Type ch)
+void ADC_startConversion(Adc_channel_type ch)
 {
-    if (Reading_Flag == 1)
+    if (reading_flag == 1)
     {
         /* Channel selection */
         ADMUX = ADMUX & 0xE0;
@@ -78,46 +78,46 @@ void ADC_StartConversion(ADC_Channel_Type ch)
 
         /* ADC start conversion */
         SET_BIT(ADCSRA, ADSC);
-        Reading_Flag = 0;
+        reading_flag = 0;
     }
 }
 
-u16 ADC_GetReadNoBlock(void)
+u16 ADC_getReadNoBlock(void)
 {
     return ADC;
 }
 
-u8 ADC_GetRead_Periodic(u16 *pdata)
+u8 ADC_getReadPeriodic(u16 *read_ptr)
 {
     /* if conversion completed */
     if (0 == READ_BIT(ADCSRA, ADSC))
     {
-        *pdata = ADC;
-        Reading_Flag = 1;
+        *read_ptr = ADC;
+        reading_flag = 1;
         return 1;
     }
     return 0;
 }
 
-void ADC_IntEnable(void)
+void ADC_intEnable(void)
 {
     SET_BIT(ADCSRA, ADIE);
 }
 
-void ADC_IntDisable(void)
+void ADC_intDisable(void)
 {
-    CLEAR_BIT(ADCSRA, ADIE);
+    CLR_BIT(ADCSRA, ADIE);
 }
 
-void ADC_IntSetCallBack(void (*LocalPtr)(void))
+void ADC_intSetCallBack(void (*localPtr)(void))
 {
-    ADC_IntFptr = LocalPtr;
+    adc_fPtr = localPtr;
 }
 
 ISR(ADC_VECT)
 {
-    if (ADC_IntFptr != NULLPTR)
+    if (adc_fPtr != NULLPTR)
     {
-        ADC_IntFptr();
+        adc_fPtr();
     }
 }

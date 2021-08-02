@@ -1,5 +1,5 @@
 /**
- * @file ADC_Interface.h
+ * @file adc.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief ADC interface header file
  * @version 0.1
@@ -12,27 +12,27 @@
 #ifndef ADC_H_
 #define ADC_H_
 
-#include "StdTypes.h"
-#include "Utils.h"
-#include "MemMap.h"
+#include "std_types.h"
+#include "utils.h"
+#include "memory_map.h"
 
 typedef enum
 {
     REF_AREF,
     REF_AVCC,
     REF_256V
-} ADC_VoltRef_Type;
+} AdcVoltRef_type;
 
 typedef enum
 {
-    ADC_Scaler_2 = 1,
-    ADC_Scaler_4,
-    ADC_Scaler_8,
-    ADC_Scaler_16,
-    ADC_Scaler_32,
-    ADC_Scaler_64,
-    ADC_Scaler_128
-} ADC_Scaler_Type;
+    ADC_SCALER_2 = 1,
+    ADC_SCALER_4,
+    ADC_SCALER_8,
+    ADC_SCALER_16,
+    ADC_SCALER_32,
+    ADC_SCALER_64,
+    ADC_SCALER_128
+} AdcScaler_type;
 
 typedef enum
 {
@@ -44,7 +44,7 @@ typedef enum
     CH_5,
     CH_6,
     CH_7
-} ADC_Channel_Type;
+} Adc_channel_type;
 
 /**
  * @brief 
@@ -52,7 +52,7 @@ typedef enum
  * @param vref   REF_AREF - REF_AVCC - REF_256V
  * @param scaler ADC_Scaler_2 : ADC_Scaler_128
  */
-extern void ADC_Init(ADC_VoltRef_Type vref, ADC_Scaler_Type scaler);
+extern void ADC_init(AdcVoltRef_type vref, AdcScaler_type scaler);
 
 /**
  * @brief ADC read channel
@@ -60,47 +60,47 @@ extern void ADC_Init(ADC_VoltRef_Type vref, ADC_Scaler_Type scaler);
  * @param ch CH_0 : CH_7
  * @return u16 ADC reading value 0 : 1023
  */
-extern u16 ADC_Read(ADC_Channel_Type ch);
+extern u16 ADC_read(Adc_channel_type ch);
 
 /**
  * @brief ADC Start conversion
  * 
  * @param ch CH_0 : CH_7
  */
-extern void ADC_StartConversion(ADC_Channel_Type ch);
+extern void ADC_startConversion(Adc_channel_type ch);
 
 /**
  * @brief get value of ADC register
  * 
  * @return u16 ADC read after conversion completed 0:1023
  */
-extern u16 ADC_GetReadNoBlock(void);
+extern u16 ADC_getReadNoBlock(void);
 
 /**
  * @brief Get adc read if completed
  * 
- * @param pdata pointer to store adc value 0:1023
+ * @param read_ptr pointer to store adc value 0:1023
  * @return u8 (1) if get adc value, (0) if adc not finished yet
  */
-extern u8 ADC_GetRead_Periodic(u16 *pdata);
+extern u8 ADC_getReadPeriodic(u16 *read_ptr);
 
 /**
  * @brief Enable ADC interrupt on conversion complete
  * 
  */
-extern void ADC_IntEnable(void);
+extern void ADC_intEnable(void);
 
 /**
  * @brief Disable ADC interrupt on conversion complete
  * 
  */
-extern void ADC_IntDisable(void);
+extern void ADC_intDisable(void);
 
 /**
  * @brief set address of the function to run when adc interrupt fired
  * 
- * @param LocalPtr address of the function
+ * @param localPtr address of the function
  */
-extern void ADC_IntSetCallBack(void (*LocalPtr)(void));
+extern void ADC_intSetCallBack(void (*localPtr)(void));
 
 #endif /* ADC_H_ */
