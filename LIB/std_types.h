@@ -36,7 +36,7 @@ typedef enum
 {
 	FALSE = 0,
 	TRUE = 1
-} Bool_t;
+} Bool_type;
 
 /* register data type */
 typedef union
