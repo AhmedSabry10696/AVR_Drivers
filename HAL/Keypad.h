@@ -1,5 +1,5 @@
 /**
- * @file Keypad.h
+ * @file keypad.h
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief keypad header file
  * @version 0.1
@@ -12,7 +12,7 @@
 #ifndef KEYPAD_H_
 #define KEYPAD_H_
 
-#include "DIO.h"
+#include "dio.h"
 
 /* keypad connections */
 #define FIRST_INPUT PINA0
@@ -29,6 +29,6 @@
  * 
  * @return u8 pressed key or NO_KEY ('.') if no button pressed 
  */
-extern u8 KEYPAD_GeyKey(void);
+extern u8 KEYPAD_getKey(void);
 
 #endif /* KEYPAD_H_ */
