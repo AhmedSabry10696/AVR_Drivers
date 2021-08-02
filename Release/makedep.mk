@@ -2,55 +2,55 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-HAL\EXT_EEPROM.c
+HAL\ext_eeprom.c
 
-HAL\KEYPAD.c
+HAL\keypad.c
 
-HAL\DC_Motor.c
+HAL\dc_motor.c
 
-HAL\LCD.c
+HAL\lcd.c
 
-HAL\Segment.c
+HAL\segment.c
 
-HAL\Sensors.c
+HAL\sensors.c
 
-HAL\Servo_Motor.c
+HAL\servo_motor.c
 
-HAL\Stepper_Motor.c
+HAL\stepper_motor.c
 
-HAL\UltraSonic.c
+HAL\ultra_sonic.c
 
 main.c
 
-MCAL\ADC.c
+MCAL\adc.c
 
-MCAL\DIO.c
+MCAL\dio.c
 
-MCAL\DIO_Config.c
+MCAL\dio_config.c
 
-MCAL\EEPROM.c
+MCAL\ext_interrupt.c
 
-MCAL\Ext_Interrupt.c
+MCAL\i2c.c
 
-MCAL\I2C.c
+MCAL\int_eeprom.c
 
-MCAL\SPI.c
+MCAL\spi.c
 
-MCAL\SPI_Config.c
+MCAL\spi_config.c
 
-MCAL\Timer.c
+MCAL\timer.c
 
-MCAL\Uart.c
+MCAL\uart.c
 
-MCAL\Uart_Config.c
+MCAL\uart_config.c
 
-MCAL\WDT.c
+MCAL\watch_dog_timer.c
 
-SERVICES\I2C_Services.c
+SERVICES\i2c_services.c
 
-SERVICES\Timer_Services.c
+SERVICES\timer_services.c
 
-SERVICES\Uart_Services.c
+SERVICES\uart_services.c
 
-SERVICES\Uart_Stack.c
+SERVICES\uart_stack.c
 

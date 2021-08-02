@@ -1,13 +1,13 @@
-MCAL/Uart_Config.d MCAL/Uart_Config.o: ../MCAL/Uart_Config.c \
- ../MCAL/Uart.h ../LIB/StdTypes.h ../LIB/Utils.h ../LIB/MemMap.h \
- ../LIB/StdTypes.h
+MCAL/uart_config.d MCAL/uart_config.o: ../MCAL/uart_config.c \
+ ../MCAL/uart.h ../LIB/std_types.h ../LIB/utils.h ../LIB/memory_map.h \
+ ../LIB/std_types.h
 
-../MCAL/Uart.h:
+../MCAL/uart.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

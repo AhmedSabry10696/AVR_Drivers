@@ -1,17 +1,17 @@
-HAL/Segment.d HAL/Segment.o: ../HAL/Segment.c ../HAL/Segment.h \
- ../LIB/StdTypes.h ../MCAL/DIO.h ../LIB/MemMap.h ../LIB/StdTypes.h \
- ../LIB/Utils.h ../HAL/Segment_Config.h
+HAL/segment.d HAL/segment.o: ../HAL/segment.c ../HAL/segment.h \
+ ../LIB/std_types.h ../MCAL/dio.h ../LIB/memory_map.h ../LIB/std_types.h \
+ ../LIB/utils.h ../HAL/segment_config.h
 
-../HAL/Segment.h:
+../HAL/segment.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../MCAL/DIO.h:
+../MCAL/dio.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../HAL/Segment_Config.h:
+../HAL/segment_config.h:

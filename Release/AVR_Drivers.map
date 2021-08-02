@@ -1,15 +1,15 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                              HAL/LCD.o (__subsf3)
+                              HAL/lcd.o (__subsf3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o) (__addsf3x)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                              HAL/LCD.o (__fixsfsi)
+                              HAL/lcd.o (__fixsfsi)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                              HAL/LCD.o (__fixunssfsi)
+                              HAL/lcd.o (__fixunssfsi)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                              HAL/LCD.o (__floatsisf)
+                              HAL/lcd.o (__floatsisf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o) (__fp_inf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
@@ -25,474 +25,449 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o) (__fp_zero)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                              HAL/LCD.o (__mulsf3)
+                              HAL/lcd.o (__mulsf3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o) (__mulsf3x)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
-                              HAL/Segment.o (__udivmodqi4)
+                              HAL/segment.o (__udivmodqi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
-                              HAL/UltraSonic.o (__udivmodhi4)
+                              HAL/ultra_sonic.o (__udivmodhi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
-                              HAL/DC_Motor.o (__divmodhi4)
+                              HAL/dc_motor.o (__divmodhi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                              HAL/Sensors.o (__udivmodsi4)
+                              HAL/sensors.o (__udivmodsi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
-                              HAL/LCD.o (__divmodsi4)
+                              HAL/lcd.o (__divmodsi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o) (__negsi2)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                              MCAL/SPI.o (__tablejump2__)
+                              MCAL/spi.o (__tablejump2__)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              HAL/KEYPAD.o (__do_copy_data)
+                              HAL/keypad.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                              HAL/UltraSonic.o (__do_clear_bss)
+                              HAL/ultra_sonic.o (__do_clear_bss)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_umulhisi3.o)
-                              HAL/Sensors.o (__umulhisi3)
+                              HAL/sensors.o (__umulhisi3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_muluhisi3.o)
-                              SERVICES/Timer_Services.o (__muluhisi3)
+                              SERVICES/timer_services.o (__muluhisi3)
 
 Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/atmega32/avr5/crtatmega32.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/atmega32/avr5/crtatmega32.o
- .text          0x00000000        0x0 HAL/EXT_EEPROM.o
- .data          0x00000000        0x0 HAL/EXT_EEPROM.o
- .bss           0x00000000        0x0 HAL/EXT_EEPROM.o
- .text.EEPROM_Init
-                0x00000000        0x6 HAL/EXT_EEPROM.o
- .text.EEPROM_Write_Byte
-                0x00000000       0x4a HAL/EXT_EEPROM.o
- .text.EEPROM_Read_Byte
-                0x00000000       0x66 HAL/EXT_EEPROM.o
- .comment       0x00000000       0x31 HAL/EXT_EEPROM.o
- .text          0x00000000        0x0 HAL/KEYPAD.o
- .data          0x00000000        0x0 HAL/KEYPAD.o
- .bss           0x00000000        0x0 HAL/KEYPAD.o
- .text.KEYPAD_GeyKey
-                0x00000000       0x92 HAL/KEYPAD.o
- .rodata.KeysArray
-                0x00000000       0x10 HAL/KEYPAD.o
- .comment       0x00000000       0x31 HAL/KEYPAD.o
- .text          0x00000000        0x0 HAL/DC_Motor.o
- .data          0x00000000        0x0 HAL/DC_Motor.o
- .bss           0x00000000        0x0 HAL/DC_Motor.o
- .text.DC_Motor_CW
-                0x00000000       0x10 HAL/DC_Motor.o
- .text.DC_Motor_CCW
-                0x00000000       0x10 HAL/DC_Motor.o
- .text.DC_Motor_Speed_Init
-                0x00000000        0xe HAL/DC_Motor.o
- .text.DC_Motor_Speed
-                0x00000000       0x16 HAL/DC_Motor.o
- .text.DC_Motor_Stop
-                0x00000000       0x18 HAL/DC_Motor.o
- .comment       0x00000000       0x31 HAL/DC_Motor.o
- .text          0x00000000        0x0 HAL/LCD.o
- .data          0x00000000        0x0 HAL/LCD.o
- .bss           0x00000000        0x0 HAL/LCD.o
- .text.LCD_WriteChar
-                0x00000000        0x4 HAL/LCD.o
- .text.LCD_WriteString
-                0x00000000       0x26 HAL/LCD.o
- .text.LCD_GoTo
-                0x00000000       0x24 HAL/LCD.o
- .text.LCD_WriteStringRowCol
-                0x00000000       0x14 HAL/LCD.o
- .text.LCD_WriteFloat
-                0x00000000       0x64 HAL/LCD.o
- .text.LCD_WriteBinary
-                0x00000000       0x4c HAL/LCD.o
- .text.LCD_WriteHex
-                0x00000000       0x84 HAL/LCD.o
- .text.LCD_Create_Char
-                0x00000000       0x38 HAL/LCD.o
- .text.LCD_Clear
-                0x00000000        0x6 HAL/LCD.o
- .text.LCD_ClearCells
-                0x00000000       0x32 HAL/LCD.o
- .text          0x00000000        0x0 HAL/Segment.o
- .data          0x00000000        0x0 HAL/Segment.o
- .bss           0x00000000        0x0 HAL/Segment.o
- .text.SEGMENT_Display
-                0x00000000       0x2a HAL/Segment.o
- .comment       0x00000000       0x31 HAL/Segment.o
- .text          0x00000000        0x0 HAL/Sensors.o
- .data          0x00000000        0x0 HAL/Sensors.o
- .bss           0x00000000        0x0 HAL/Sensors.o
- .text.POT_VoltRead
-                0x00000000       0x24 HAL/Sensors.o
- .text.LM35_TempRead
-                0x00000000       0x24 HAL/Sensors.o
- .text.MPX4110_PressureRead
-                0x00000000       0x28 HAL/Sensors.o
- .comment       0x00000000       0x31 HAL/Sensors.o
- .text          0x00000000        0x0 HAL/Servo_Motor.o
- .data          0x00000000        0x0 HAL/Servo_Motor.o
- .bss           0x00000000        0x0 HAL/Servo_Motor.o
- .text.Servo_Init
-                0x00000000       0x1e HAL/Servo_Motor.o
- .text.Servo_SetPosition
-                0x00000000       0x28 HAL/Servo_Motor.o
- .comment       0x00000000       0x31 HAL/Servo_Motor.o
- .text          0x00000000        0x0 HAL/Stepper_Motor.o
- .data          0x00000000        0x0 HAL/Stepper_Motor.o
- .bss           0x00000000        0x0 HAL/Stepper_Motor.o
- .text.Stepper_BiPolarFull_CW
-                0x00000000       0xca HAL/Stepper_Motor.o
- .text.Stepper_BiPolarFull_CCW
-                0x00000000       0xca HAL/Stepper_Motor.o
- .text.Stepper_UniPolarFull_CW
-                0x00000000       0xca HAL/Stepper_Motor.o
- .text.Stepper_UniPolarFull_CCW
-                0x00000000       0xca HAL/Stepper_Motor.o
- .text.Stepper_UniPolarHalf_CW
-                0x00000000      0x192 HAL/Stepper_Motor.o
- .text.Stepper_UniPolarHalf_CCW
-                0x00000000      0x192 HAL/Stepper_Motor.o
- .comment       0x00000000       0x31 HAL/Stepper_Motor.o
- .text          0x00000000        0x0 HAL/UltraSonic.o
- .data          0x00000000        0x0 HAL/UltraSonic.o
- .bss           0x00000000        0x0 HAL/UltraSonic.o
- .text.ICU_Func
-                0x00000000       0x3a HAL/UltraSonic.o
- .text.UlTRASONIC_Init
-                0x00000000       0x10 HAL/UltraSonic.o
+ .text          0x00000000        0x0 HAL/ext_eeprom.o
+ .data          0x00000000        0x0 HAL/ext_eeprom.o
+ .bss           0x00000000        0x0 HAL/ext_eeprom.o
+ .text          0x00000000        0x0 HAL/keypad.o
+ .data          0x00000000        0x0 HAL/keypad.o
+ .bss           0x00000000        0x0 HAL/keypad.o
+ .text.KEYPAD_getKey
+                0x00000000       0x92 HAL/keypad.o
+ .rodata.keysArray
+                0x00000000       0x10 HAL/keypad.o
+ .comment       0x00000000       0x31 HAL/keypad.o
+ .text          0x00000000        0x0 HAL/dc_motor.o
+ .data          0x00000000        0x0 HAL/dc_motor.o
+ .bss           0x00000000        0x0 HAL/dc_motor.o
+ .text.DC_motor_cw
+                0x00000000       0x10 HAL/dc_motor.o
+ .text.DC_motor_ccw
+                0x00000000       0x10 HAL/dc_motor.o
+ .text.DC_motorSpeedInit
+                0x00000000        0xe HAL/dc_motor.o
+ .text.DC_motorSpeed
+                0x00000000       0x16 HAL/dc_motor.o
+ .text.DC_motorStop
+                0x00000000       0x18 HAL/dc_motor.o
+ .comment       0x00000000       0x31 HAL/dc_motor.o
+ .text          0x00000000        0x0 HAL/lcd.o
+ .data          0x00000000        0x0 HAL/lcd.o
+ .bss           0x00000000        0x0 HAL/lcd.o
+ .text.LCD_writeChar
+                0x00000000        0x4 HAL/lcd.o
+ .text.LCD_writeString
+                0x00000000       0x26 HAL/lcd.o
+ .text.LCD_writeStringRowCol
+                0x00000000       0x14 HAL/lcd.o
+ .text.LCD_writeFloat
+                0x00000000       0x64 HAL/lcd.o
+ .text.LCD_writeBinary
+                0x00000000       0x4c HAL/lcd.o
+ .text.LCD_writeHex
+                0x00000000       0x84 HAL/lcd.o
+ .text.LCD_createChar
+                0x00000000       0x38 HAL/lcd.o
+ .text.LCD_clear
+                0x00000000        0x6 HAL/lcd.o
+ .text.LCD_clearCells
+                0x00000000       0x32 HAL/lcd.o
+ .text          0x00000000        0x0 HAL/segment.o
+ .data          0x00000000        0x0 HAL/segment.o
+ .bss           0x00000000        0x0 HAL/segment.o
+ .text.SEGMENT_display
+                0x00000000       0x2a HAL/segment.o
+ .comment       0x00000000       0x31 HAL/segment.o
+ .text          0x00000000        0x0 HAL/sensors.o
+ .data          0x00000000        0x0 HAL/sensors.o
+ .bss           0x00000000        0x0 HAL/sensors.o
+ .text.POT_voltRead
+                0x00000000       0x24 HAL/sensors.o
+ .text.LM35_tempRead
+                0x00000000       0x24 HAL/sensors.o
+ .text.MPX4110_pressureRead
+                0x00000000       0x28 HAL/sensors.o
+ .comment       0x00000000       0x31 HAL/sensors.o
+ .text          0x00000000        0x0 HAL/servo_motor.o
+ .data          0x00000000        0x0 HAL/servo_motor.o
+ .bss           0x00000000        0x0 HAL/servo_motor.o
+ .text.SERVO_init
+                0x00000000       0x1e HAL/servo_motor.o
+ .text.SERVO_setPosition
+                0x00000000       0x28 HAL/servo_motor.o
+ .comment       0x00000000       0x31 HAL/servo_motor.o
+ .text          0x00000000        0x0 HAL/stepper_motor.o
+ .data          0x00000000        0x0 HAL/stepper_motor.o
+ .bss           0x00000000        0x0 HAL/stepper_motor.o
+ .text.STEPPER_biPolarFull_cw
+                0x00000000       0xca HAL/stepper_motor.o
+ .text.STEPPER_biPolarFull_ccw
+                0x00000000       0xca HAL/stepper_motor.o
+ .text.STEPPER_uniPolarFull_cw
+                0x00000000       0xca HAL/stepper_motor.o
+ .text.Stepper_uniPolarFull_ccw
+                0x00000000       0xca HAL/stepper_motor.o
+ .text.STEPPER_uniPolarHalf_cw
+                0x00000000      0x192 HAL/stepper_motor.o
+ .text.STEPPER_uniPolarHalf_ccw
+                0x00000000      0x192 HAL/stepper_motor.o
+ .comment       0x00000000       0x31 HAL/stepper_motor.o
+ .text          0x00000000        0x0 HAL/ultra_sonic.o
+ .data          0x00000000        0x0 HAL/ultra_sonic.o
+ .bss           0x00000000        0x0 HAL/ultra_sonic.o
+ .text.ICU_func
+                0x00000000       0x3a HAL/ultra_sonic.o
+ .text.UlTRASONIC_init
+                0x00000000       0x10 HAL/ultra_sonic.o
  .text.ULTRASONIC_Read
-                0x00000000       0x54 HAL/UltraSonic.o
- .text.ULTRASONIC_Start
-                0x00000000       0x38 HAL/UltraSonic.o
- .text.ULTRASONIC_GetReadNoBlock
-                0x00000000       0x38 HAL/UltraSonic.o
- .data.flag     0x00000000        0x1 HAL/UltraSonic.o
- .bss.t2        0x00000000        0x2 HAL/UltraSonic.o
- .bss.t1        0x00000000        0x2 HAL/UltraSonic.o
- .comment       0x00000000       0x31 HAL/UltraSonic.o
+                0x00000000       0x54 HAL/ultra_sonic.o
+ .text.ULTRASONIC_start
+                0x00000000       0x38 HAL/ultra_sonic.o
+ .text.ULTRASONIC_getReadNoBlock
+                0x00000000       0x38 HAL/ultra_sonic.o
+ .data.flag     0x00000000        0x1 HAL/ultra_sonic.o
+ .bss.t2        0x00000000        0x2 HAL/ultra_sonic.o
+ .bss.t1        0x00000000        0x2 HAL/ultra_sonic.o
+ .comment       0x00000000       0x31 HAL/ultra_sonic.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text.max      0x00000000        0xc main.o
- .text          0x00000000        0x0 MCAL/ADC.o
- .data          0x00000000        0x0 MCAL/ADC.o
- .bss           0x00000000        0x0 MCAL/ADC.o
- .text.ADC_Init
-                0x00000000       0x2a MCAL/ADC.o
- .text.ADC_Read
-                0x00000000       0x1c MCAL/ADC.o
- .text.ADC_StartConversion
-                0x00000000       0x1e MCAL/ADC.o
- .text.ADC_GetReadNoBlock
-                0x00000000        0x6 MCAL/ADC.o
- .text.ADC_GetRead_Periodic
-                0x00000000       0x1a MCAL/ADC.o
- .text.ADC_IntEnable
-                0x00000000        0x4 MCAL/ADC.o
- .text.ADC_IntDisable
-                0x00000000        0x4 MCAL/ADC.o
- .text.ADC_IntSetCallBack
-                0x00000000        0xa MCAL/ADC.o
- .data.Reading_Flag
-                0x00000000        0x1 MCAL/ADC.o
- .text          0x00000000        0x0 MCAL/DIO.o
- .data          0x00000000        0x0 MCAL/DIO.o
- .bss           0x00000000        0x0 MCAL/DIO.o
- .text.DIO_TogglePin
-                0x00000000       0x6a MCAL/DIO.o
- .text.DIO_ReadPin
-                0x00000000       0x3a MCAL/DIO.o
- .text.DIO_EditPort_LowerHalf
-                0x00000000       0x40 MCAL/DIO.o
- .text.DIO_EditPort_HigherHalf
-                0x00000000       0x62 MCAL/DIO.o
- .text.DIO_ReadPort
-                0x00000000       0x22 MCAL/DIO.o
- .text          0x00000000        0x0 MCAL/DIO_Config.o
- .data          0x00000000        0x0 MCAL/DIO_Config.o
- .bss           0x00000000        0x0 MCAL/DIO_Config.o
- .text          0x00000000        0x0 MCAL/EEPROM.o
- .data          0x00000000        0x0 MCAL/EEPROM.o
- .bss           0x00000000        0x0 MCAL/EEPROM.o
- .text.EEPROM_Write
-                0x00000000       0x10 MCAL/EEPROM.o
- .text.EEPROM_Read
-                0x00000000        0xe MCAL/EEPROM.o
- .comment       0x00000000       0x31 MCAL/EEPROM.o
- .text          0x00000000        0x0 MCAL/Ext_Interrupt.o
- .data          0x00000000        0x0 MCAL/Ext_Interrupt.o
- .bss           0x00000000        0x0 MCAL/Ext_Interrupt.o
- .text.EXI_Enable
-                0x00000000       0x20 MCAL/Ext_Interrupt.o
- .text.EXI_Disable
-                0x00000000       0x20 MCAL/Ext_Interrupt.o
- .text.EXI_TriggerEdge
-                0x00000000       0x8c MCAL/Ext_Interrupt.o
- .text.EXI_SetCallBack
-                0x00000000       0x2a MCAL/Ext_Interrupt.o
- .text          0x00000000        0x0 MCAL/I2C.o
- .data          0x00000000        0x0 MCAL/I2C.o
- .bss           0x00000000        0x0 MCAL/I2C.o
- .text.TWI_Init
-                0x00000000       0x1a MCAL/I2C.o
- .text.TWI_Start
-                0x00000000       0x20 MCAL/I2C.o
- .text.TWI_RepStart
-                0x00000000       0x22 MCAL/I2C.o
- .text.TWI_Write_SLA_Write
-                0x00000000       0x28 MCAL/I2C.o
- .text.TWI_Write_SLA_Read
-                0x00000000       0x28 MCAL/I2C.o
- .text.TWI_WriteByte
-                0x00000000       0x1e MCAL/I2C.o
- .text.TWI_ReadByte
-                0x00000000       0x2e MCAL/I2C.o
- .text.TWI_Stop
-                0x00000000        0xe MCAL/I2C.o
- .text.TWI_Listen
-                0x00000000        0x8 MCAL/I2C.o
- .text.TWI_IntEnable
-                0x00000000        0x8 MCAL/I2C.o
- .text.TWI_IntDisable
-                0x00000000        0x8 MCAL/I2C.o
- .text.TWI_IntSetCallBack
-                0x00000000        0xa MCAL/I2C.o
- .text          0x00000000        0x0 MCAL/SPI.o
- .data          0x00000000        0x0 MCAL/SPI.o
- .bss           0x00000000        0x0 MCAL/SPI.o
- .text.SPI_Init
-                0x00000000       0x7a MCAL/SPI.o
- .progmem.gcc_sw_table.SPI_Init
-                0x00000000        0xe MCAL/SPI.o
- .text.SPI_Send_Receive
-                0x00000000        0xa MCAL/SPI.o
- .text.SPI_Send_NoBlock
-                0x00000000        0x4 MCAL/SPI.o
- .text.SPI_Receive_NoBlock
-                0x00000000        0x4 MCAL/SPI.o
- .text.SPI_Receive_Periodic
-                0x00000000       0x16 MCAL/SPI.o
- .text.SPI_Int_Enable
-                0x00000000        0x4 MCAL/SPI.o
- .text.SPI_Int_Disable
-                0x00000000        0x4 MCAL/SPI.o
- .text.SPI_STC_IntSetCallBack
-                0x00000000        0xa MCAL/SPI.o
- .text          0x00000000        0x0 MCAL/SPI_Config.o
- .data          0x00000000        0x0 MCAL/SPI_Config.o
- .bss           0x00000000        0x0 MCAL/SPI_Config.o
- .rodata.spi    0x00000000        0x5 MCAL/SPI_Config.o
- .comment       0x00000000       0x31 MCAL/SPI_Config.o
- .text          0x00000000        0x0 MCAL/Timer.o
- .data          0x00000000        0x0 MCAL/Timer.o
- .bss           0x00000000        0x0 MCAL/Timer.o
- .text.Timer0_Init
-                0x00000000       0x40 MCAL/Timer.o
- .text.Timer0_OC0_Mode
-                0x00000000       0x36 MCAL/Timer.o
- .text.Timer0_Set
-                0x00000000        0x4 MCAL/Timer.o
- .text.Timer0_Get
-                0x00000000        0x4 MCAL/Timer.o
- .text.Timer0_OCR_Set
-                0x00000000        0x4 MCAL/Timer.o
- .text.Timer0_OVF_IntEnable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer0_OVF_IntDisable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer0_OC_IntEnable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer0_OC_IntDisable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer0_OVF_IntSetCallBack
-                0x00000000        0xa MCAL/Timer.o
- .text.Timer0_OC_IntSetCallBack
-                0x00000000        0xa MCAL/Timer.o
- .text.Timer1_Init
-                0x00000000       0x78 MCAL/Timer.o
- .text.Timer1_OCRA_Mode
-                0x00000000       0x36 MCAL/Timer.o
- .text.Timer1_OCRB_Mode
-                0x00000000       0x36 MCAL/Timer.o
- .text.Timer1_InputCaptureEdge
-                0x00000000       0x16 MCAL/Timer.o
- .text.Timer1_Set
-                0x00000000        0x6 MCAL/Timer.o
- .text.Timer1_Get
-                0x00000000        0x6 MCAL/Timer.o
- .text.Timer1_OCRA_Set
-                0x00000000        0x6 MCAL/Timer.o
- .text.Timer1_OCRB_Set
-                0x00000000        0x6 MCAL/Timer.o
- .text.Timer1_ICR_Set
-                0x00000000        0x6 MCAL/Timer.o
- .text.Timer1_ICR_Get
-                0x00000000        0x6 MCAL/Timer.o
- .text.Timer1_OVF_IntEnable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer1_OVF_IntDisable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer1_OCA_IntEnable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer1_OCA_IntDisable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer1_OCB_IntEnable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer1_OCB_IntDisable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer1_ICU_IntEnable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer1_ICU_IntDisable
-                0x00000000        0x8 MCAL/Timer.o
- .text.Timer1_OVF_IntSetCallBack
-                0x00000000        0xa MCAL/Timer.o
- .text.Timer1_OCA_IntSetCallBack
-                0x00000000        0xa MCAL/Timer.o
- .text.Timer1_OCB_IntSetCallBack
-                0x00000000        0xa MCAL/Timer.o
- .text.Timer1_ICU_IntSetCallBack
-                0x00000000        0xa MCAL/Timer.o
- .text          0x00000000        0x0 MCAL/Uart.o
- .data          0x00000000        0x0 MCAL/Uart.o
- .bss           0x00000000        0x0 MCAL/Uart.o
- .text.Uart_TX_Enable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_TX_Disable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_RX_Enable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_RX_Disable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_Init
-                0x00000000       0xec MCAL/Uart.o
- .progmem.gcc_sw_table.Uart_Init
-                0x00000000       0x1c MCAL/Uart.o
- .text.Uart_Send
-                0x00000000        0x8 MCAL/Uart.o
- .text.Uart_Receive
-                0x00000000        0x8 MCAL/Uart.o
- .text.Uart_Receive_PeriodicCheck
-                0x00000000       0x16 MCAL/Uart.o
- .text.Uart_SendNoBlock
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_ReceiveNoBlock
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_TXC_IntEnable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_TXC_IntDisable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_RXC_IntEnable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_RXC_IntDisable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_DEMPTY_IntEnable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_DEMPTY_IntDisable
-                0x00000000        0x4 MCAL/Uart.o
- .text.Uart_TXC_IntSetCallBack
-                0x00000000        0xa MCAL/Uart.o
- .text.Uart_RXC_IntSetCallBack
-                0x00000000        0xa MCAL/Uart.o
- .text.Uart_DEMPTY_IntSetCallBack
-                0x00000000        0xa MCAL/Uart.o
- .text          0x00000000        0x0 MCAL/Uart_Config.o
- .data          0x00000000        0x0 MCAL/Uart_Config.o
- .bss           0x00000000        0x0 MCAL/Uart_Config.o
- .rodata.uart   0x00000000        0x4 MCAL/Uart_Config.o
- .comment       0x00000000       0x31 MCAL/Uart_Config.o
- .text          0x00000000        0x0 MCAL/WDT.o
- .data          0x00000000        0x0 MCAL/WDT.o
- .bss           0x00000000        0x0 MCAL/WDT.o
- .text.WDT_Set  0x00000000        0xc MCAL/WDT.o
- .text.WDT_Stop
-                0x00000000        0xc MCAL/WDT.o
- .comment       0x00000000       0x31 MCAL/WDT.o
- .text          0x00000000        0x0 SERVICES/I2C_Services.o
- .data          0x00000000        0x0 SERVICES/I2C_Services.o
- .bss           0x00000000        0x0 SERVICES/I2C_Services.o
- .text.TWI_Master_SendByte
-                0x00000000       0x30 SERVICES/I2C_Services.o
- .text.TWI_Master_ReceiveByte
-                0x00000000       0x34 SERVICES/I2C_Services.o
- .text.TWI_Master_SendString
-                0x00000000       0x44 SERVICES/I2C_Services.o
- .comment       0x00000000       0x31 SERVICES/I2C_Services.o
- .text          0x00000000        0x0 SERVICES/Timer_Services.o
- .data          0x00000000        0x0 SERVICES/Timer_Services.o
- .bss           0x00000000        0x0 SERVICES/Timer_Services.o
- .text.Func_OV  0x00000000        0xc SERVICES/Timer_Services.o
- .text.Timer_func
-                0x00000000       0x5c SERVICES/Timer_Services.o
- .text.Func_ICU
-                0x00000000       0xbc SERVICES/Timer_Services.o
- .text.PWM_Init
-                0x00000000       0x14 SERVICES/Timer_Services.o
- .text.PWM_Duty
-                0x00000000       0x44 SERVICES/Timer_Services.o
- .text.PWM_Freq_HZ
-                0x00000000       0x2c SERVICES/Timer_Services.o
- .text.PWM_Freq_KHZ
-                0x00000000       0x24 SERVICES/Timer_Services.o
- .text.Timer1_SetIntTime_us
-                0x00000000       0x3a SERVICES/Timer_Services.o
- .text.Timer1_SetIntTime_ms
-                0x00000000       0x4a SERVICES/Timer_Services.o
- .text.Timer1_SetIntTime_s
-                0x00000000       0x5e SERVICES/Timer_Services.o
- .text.PWM_Measure
-                0x00000000       0xf8 SERVICES/Timer_Services.o
- .text.PMW_StartMeasure
-                0x00000000       0x30 SERVICES/Timer_Services.o
- .text.PWM_GetRead
-                0x00000000       0xda SERVICES/Timer_Services.o
- .bss.c.1778    0x00000000        0x4 SERVICES/Timer_Services.o
- .bss.fptr_timer
-                0x00000000        0x2 SERVICES/Timer_Services.o
- .bss.NofOverFlow
-                0x00000000        0x4 SERVICES/Timer_Services.o
- .bss.c         0x00000000        0x1 SERVICES/Timer_Services.o
- .bss.flag      0x00000000        0x1 SERVICES/Timer_Services.o
- .bss.t3        0x00000000        0x4 SERVICES/Timer_Services.o
- .bss.t2        0x00000000        0x4 SERVICES/Timer_Services.o
- .bss.t1        0x00000000        0x4 SERVICES/Timer_Services.o
- .comment       0x00000000       0x31 SERVICES/Timer_Services.o
- .text          0x00000000        0x0 SERVICES/Uart_Services.o
- .data          0x00000000        0x0 SERVICES/Uart_Services.o
- .bss           0x00000000        0x0 SERVICES/Uart_Services.o
- .text.Uart_TXC_Func
-                0x00000000       0x32 SERVICES/Uart_Services.o
- .text.Uart_RXC_Func
-                0x00000000       0x44 SERVICES/Uart_Services.o
- .text.Uart_SendString
-                0x00000000       0x26 SERVICES/Uart_Services.o
- .text.Uart_ReceiveString
-                0x00000000       0x42 SERVICES/Uart_Services.o
- .text.Uart_SendLong
-                0x00000000       0x2a SERVICES/Uart_Services.o
- .text.Uart_ReceiveLong
-                0x00000000       0x44 SERVICES/Uart_Services.o
- .text.Uart_SendStringAsyn
-                0x00000000       0x32 SERVICES/Uart_Services.o
- .text.Uart_ReceiveStringAsyn
-                0x00000000       0x14 SERVICES/Uart_Services.o
- .bss.i.1724    0x00000000        0x1 SERVICES/Uart_Services.o
- .data.i.1716   0x00000000        0x1 SERVICES/Uart_Services.o
- .bss.Preceive_str
-                0x00000000        0x2 SERVICES/Uart_Services.o
+ .text          0x00000000        0x0 MCAL/adc.o
+ .data          0x00000000        0x0 MCAL/adc.o
+ .bss           0x00000000        0x0 MCAL/adc.o
+ .text.ADC_init
+                0x00000000       0x2a MCAL/adc.o
+ .text.ADC_read
+                0x00000000       0x1c MCAL/adc.o
+ .text.ADC_startConversion
+                0x00000000       0x1e MCAL/adc.o
+ .text.ADC_getReadNoBlock
+                0x00000000        0x6 MCAL/adc.o
+ .text.ADC_getReadPeriodic
+                0x00000000       0x1a MCAL/adc.o
+ .text.ADC_intEnable
+                0x00000000        0x4 MCAL/adc.o
+ .text.ADC_intDisable
+                0x00000000        0x4 MCAL/adc.o
+ .text.ADC_intSetCallBack
+                0x00000000        0xa MCAL/adc.o
+ .data.reading_flag
+                0x00000000        0x1 MCAL/adc.o
+ .text          0x00000000        0x0 MCAL/dio.o
+ .data          0x00000000        0x0 MCAL/dio.o
+ .bss           0x00000000        0x0 MCAL/dio.o
+ .text.DIO_togglePin
+                0x00000000       0x6a MCAL/dio.o
+ .text.DIO_readPin
+                0x00000000       0x3a MCAL/dio.o
+ .text.DIO_editPort_lowNibble
+                0x00000000       0x40 MCAL/dio.o
+ .text.DIO_editPort_highNibble
+                0x00000000       0x62 MCAL/dio.o
+ .text.DIO_readPort
+                0x00000000       0x22 MCAL/dio.o
+ .text          0x00000000        0x0 MCAL/dio_config.o
+ .data          0x00000000        0x0 MCAL/dio_config.o
+ .bss           0x00000000        0x0 MCAL/dio_config.o
+ .text          0x00000000        0x0 MCAL/ext_interrupt.o
+ .data          0x00000000        0x0 MCAL/ext_interrupt.o
+ .bss           0x00000000        0x0 MCAL/ext_interrupt.o
+ .text.EXI_enable
+                0x00000000       0x20 MCAL/ext_interrupt.o
+ .text.EXI_disable
+                0x00000000       0x20 MCAL/ext_interrupt.o
+ .text.EXI_triggerEdge
+                0x00000000       0x8c MCAL/ext_interrupt.o
+ .text.EXI_setCallBack
+                0x00000000       0x2a MCAL/ext_interrupt.o
+ .text          0x00000000        0x0 MCAL/i2c.o
+ .data          0x00000000        0x0 MCAL/i2c.o
+ .bss           0x00000000        0x0 MCAL/i2c.o
+ .text.TWI_listen
+                0x00000000        0x8 MCAL/i2c.o
+ .text.TWI_intEnable
+                0x00000000        0x8 MCAL/i2c.o
+ .text.TWI_intDisable
+                0x00000000        0x8 MCAL/i2c.o
+ .text.TWI_intSetCallBack
+                0x00000000        0xa MCAL/i2c.o
+ .text          0x00000000        0x0 MCAL/int_eeprom.o
+ .data          0x00000000        0x0 MCAL/int_eeprom.o
+ .bss           0x00000000        0x0 MCAL/int_eeprom.o
+ .text.EEPROM_write
+                0x00000000       0x10 MCAL/int_eeprom.o
+ .text.EEPROM_read
+                0x00000000        0xe MCAL/int_eeprom.o
+ .comment       0x00000000       0x31 MCAL/int_eeprom.o
+ .text          0x00000000        0x0 MCAL/spi.o
+ .data          0x00000000        0x0 MCAL/spi.o
+ .bss           0x00000000        0x0 MCAL/spi.o
+ .text.SPI_init
+                0x00000000       0x7a MCAL/spi.o
+ .progmem.gcc_sw_table.SPI_init
+                0x00000000        0xe MCAL/spi.o
+ .text.SPI_sendReceive
+                0x00000000        0xa MCAL/spi.o
+ .text.SPI_sendNoBlock
+                0x00000000        0x4 MCAL/spi.o
+ .text.SPI_receiveNoBlock
+                0x00000000        0x4 MCAL/spi.o
+ .text.SPI_receivePeriodic
+                0x00000000       0x16 MCAL/spi.o
+ .text.SPI_intEnable
+                0x00000000        0x4 MCAL/spi.o
+ .text.SPI_intDisable
+                0x00000000        0x4 MCAL/spi.o
+ .text.SPI_STC_intSetCallBack
+                0x00000000        0xa MCAL/spi.o
+ .text          0x00000000        0x0 MCAL/spi_config.o
+ .data          0x00000000        0x0 MCAL/spi_config.o
+ .bss           0x00000000        0x0 MCAL/spi_config.o
+ .rodata.spi    0x00000000        0x5 MCAL/spi_config.o
+ .comment       0x00000000       0x31 MCAL/spi_config.o
+ .text          0x00000000        0x0 MCAL/timer.o
+ .data          0x00000000        0x0 MCAL/timer.o
+ .bss           0x00000000        0x0 MCAL/timer.o
+ .text.TIMER0_init
+                0x00000000       0x40 MCAL/timer.o
+ .text.TIMER0_OC0_mode
+                0x00000000       0x36 MCAL/timer.o
+ .text.TIMER0_set
+                0x00000000        0x4 MCAL/timer.o
+ .text.TIMER0_get
+                0x00000000        0x4 MCAL/timer.o
+ .text.TIMER0_OCR_set
+                0x00000000        0x4 MCAL/timer.o
+ .text.TIMER0_OVF_intEnable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER0_OVF_intDisable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER0_OC_intEnable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER0_OC_intDisable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER0_OVF_intSetCallBack
+                0x00000000        0xa MCAL/timer.o
+ .text.TIMER0_OC_intSetCallBack
+                0x00000000        0xa MCAL/timer.o
+ .text.TIMER1_init
+                0x00000000       0x78 MCAL/timer.o
+ .text.TIMER1_OCRA_mode
+                0x00000000       0x36 MCAL/timer.o
+ .text.TIMER1_OCRB_mode
+                0x00000000       0x36 MCAL/timer.o
+ .text.TIMER1_inputCaptureEdge
+                0x00000000       0x16 MCAL/timer.o
+ .text.TIMER1_set
+                0x00000000        0x6 MCAL/timer.o
+ .text.TIMER1_get
+                0x00000000        0x6 MCAL/timer.o
+ .text.TIMER1_OCRA_set
+                0x00000000        0x6 MCAL/timer.o
+ .text.TIMER1_OCRB_set
+                0x00000000        0x6 MCAL/timer.o
+ .text.TIMER1_ICR_set
+                0x00000000        0x6 MCAL/timer.o
+ .text.TIMER1_ICR_get
+                0x00000000        0x6 MCAL/timer.o
+ .text.TIMER1_OVF_intEnable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER1_OVF_intDisable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER1_OCA_intEnable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER1_OCA_intDisable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER1_OCB_intEnable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER1_OCB_intDisable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER1_ICU_intEnable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER1_ICU_intDisable
+                0x00000000        0x8 MCAL/timer.o
+ .text.TIMER1_OVF_intSetCallBack
+                0x00000000        0xa MCAL/timer.o
+ .text.TIMER1_OCA_intSetCallBack
+                0x00000000        0xa MCAL/timer.o
+ .text.TIMER1_OCB_intSetCallBack
+                0x00000000        0xa MCAL/timer.o
+ .text.TIMER1_ICU_intSetCallBack
+                0x00000000        0xa MCAL/timer.o
+ .text          0x00000000        0x0 MCAL/uart.o
+ .data          0x00000000        0x0 MCAL/uart.o
+ .bss           0x00000000        0x0 MCAL/uart.o
+ .text.UART_TX_enable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_TX_disable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_RX_enable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_RX_disable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_init
+                0x00000000       0xec MCAL/uart.o
+ .progmem.gcc_sw_table.UART_init
+                0x00000000       0x1c MCAL/uart.o
+ .text.UART_send
+                0x00000000        0x8 MCAL/uart.o
+ .text.UART_receive
+                0x00000000        0x8 MCAL/uart.o
+ .text.UART_receivePeriodicCheck
+                0x00000000       0x16 MCAL/uart.o
+ .text.UART_sendNoBlock
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_receiveNoBlock
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_TXC_intEnable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_TXC_intDisable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_RXC_intEnable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_RXC_intDisable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_DEMPTY_intEnable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_DEMPTY_intDisable
+                0x00000000        0x4 MCAL/uart.o
+ .text.UART_TXC_intSetCallBack
+                0x00000000        0xa MCAL/uart.o
+ .text.UART_RXC_intSetCallBack
+                0x00000000        0xa MCAL/uart.o
+ .text.UART_DEMPTY_intSetCallBack
+                0x00000000        0xa MCAL/uart.o
+ .text          0x00000000        0x0 MCAL/uart_config.o
+ .data          0x00000000        0x0 MCAL/uart_config.o
+ .bss           0x00000000        0x0 MCAL/uart_config.o
+ .rodata.uart   0x00000000        0x4 MCAL/uart_config.o
+ .comment       0x00000000       0x31 MCAL/uart_config.o
+ .text          0x00000000        0x0 MCAL/watch_dog_timer.o
+ .data          0x00000000        0x0 MCAL/watch_dog_timer.o
+ .bss           0x00000000        0x0 MCAL/watch_dog_timer.o
+ .text.WDT_set  0x00000000        0xc MCAL/watch_dog_timer.o
+ .text.WDT_stop
+                0x00000000        0xc MCAL/watch_dog_timer.o
+ .comment       0x00000000       0x31 MCAL/watch_dog_timer.o
+ .text          0x00000000        0x0 SERVICES/i2c_services.o
+ .data          0x00000000        0x0 SERVICES/i2c_services.o
+ .bss           0x00000000        0x0 SERVICES/i2c_services.o
+ .text.TWI_masterSendByte
+                0x00000000       0x30 SERVICES/i2c_services.o
+ .text.TWI_masterReceiveByte
+                0x00000000       0x34 SERVICES/i2c_services.o
+ .text.TWI_masterSendString
+                0x00000000       0x44 SERVICES/i2c_services.o
+ .comment       0x00000000       0x31 SERVICES/i2c_services.o
+ .text          0x00000000        0x0 SERVICES/timer_services.o
+ .data          0x00000000        0x0 SERVICES/timer_services.o
+ .bss           0x00000000        0x0 SERVICES/timer_services.o
+ .text.TIMER_ovf_func
+                0x00000000        0xc SERVICES/timer_services.o
+ .text.TIMER_func
+                0x00000000       0x5c SERVICES/timer_services.o
+ .text.TIMER_icu_func
+                0x00000000       0xbc SERVICES/timer_services.o
+ .text.PWM_init
+                0x00000000       0x14 SERVICES/timer_services.o
+ .text.PWM_duty
+                0x00000000       0x44 SERVICES/timer_services.o
+ .text.PWM_freq_HZ
+                0x00000000       0x2c SERVICES/timer_services.o
+ .text.PWM_freq_KHZ
+                0x00000000       0x24 SERVICES/timer_services.o
+ .text.TIMER1_setIntTime_us
+                0x00000000       0x3a SERVICES/timer_services.o
+ .text.Timer1_setIntTime_ms
+                0x00000000       0x4a SERVICES/timer_services.o
+ .text.Timer1_setIntTime_s
+                0x00000000       0x5e SERVICES/timer_services.o
+ .text.PWM_measure
+                0x00000000       0xf8 SERVICES/timer_services.o
+ .text.PMW_startMeasure
+                0x00000000       0x30 SERVICES/timer_services.o
+ .text.PWM_getRead
+                0x00000000       0xda SERVICES/timer_services.o
+ .bss.c.1778    0x00000000        0x4 SERVICES/timer_services.o
+ .bss.timer_fPtr
+                0x00000000        0x2 SERVICES/timer_services.o
+ .bss.overflow_count
+                0x00000000        0x4 SERVICES/timer_services.o
+ .bss.c         0x00000000        0x1 SERVICES/timer_services.o
+ .bss.flag      0x00000000        0x1 SERVICES/timer_services.o
+ .bss.t3        0x00000000        0x4 SERVICES/timer_services.o
+ .bss.t2        0x00000000        0x4 SERVICES/timer_services.o
+ .bss.t1        0x00000000        0x4 SERVICES/timer_services.o
+ .comment       0x00000000       0x31 SERVICES/timer_services.o
+ .text          0x00000000        0x0 SERVICES/uart_services.o
+ .data          0x00000000        0x0 SERVICES/uart_services.o
+ .bss           0x00000000        0x0 SERVICES/uart_services.o
+ .text.UART_TXC_func
+                0x00000000       0x32 SERVICES/uart_services.o
+ .text.UART_RXC_func
+                0x00000000       0x44 SERVICES/uart_services.o
+ .text.UART_sendString
+                0x00000000       0x26 SERVICES/uart_services.o
+ .text.UART_receiveString
+                0x00000000       0x42 SERVICES/uart_services.o
+ .text.UART_sendLong
+                0x00000000       0x2a SERVICES/uart_services.o
+ .text.UART_receiveLong
+                0x00000000       0x44 SERVICES/uart_services.o
+ .text.UART_sendStringAsyn
+                0x00000000       0x32 SERVICES/uart_services.o
+ .text.UART_receiveStringAsyn
+                0x00000000       0x14 SERVICES/uart_services.o
+ .bss.i.1724    0x00000000        0x1 SERVICES/uart_services.o
+ .data.i.1716   0x00000000        0x1 SERVICES/uart_services.o
+ .bss.receiveStr_ptr
+                0x00000000        0x2 SERVICES/uart_services.o
  .data.send_flag
-                0x00000000        0x1 SERVICES/Uart_Services.o
- .bss.Psend_str
-                0x00000000        0x2 SERVICES/Uart_Services.o
- .comment       0x00000000       0x31 SERVICES/Uart_Services.o
- .text          0x00000000        0x0 SERVICES/Uart_Stack.o
- .data          0x00000000        0x0 SERVICES/Uart_Stack.o
- .bss           0x00000000        0x0 SERVICES/Uart_Stack.o
- .text.Uart_Push
-                0x00000000       0x20 SERVICES/Uart_Stack.o
- .text.Uart_Pop
-                0x00000000       0x22 SERVICES/Uart_Stack.o
- .bss.sp        0x00000000        0x1 SERVICES/Uart_Stack.o
- .bss.stack     0x00000000        0x5 SERVICES/Uart_Stack.o
- .comment       0x00000000       0x31 SERVICES/Uart_Stack.o
+                0x00000000        0x1 SERVICES/uart_services.o
+ .bss.sendStr_ptr
+                0x00000000        0x2 SERVICES/uart_services.o
+ .comment       0x00000000       0x31 SERVICES/uart_services.o
+ .text          0x00000000        0x0 SERVICES/uart_stack.o
+ .data          0x00000000        0x0 SERVICES/uart_stack.o
+ .bss           0x00000000        0x0 SERVICES/uart_stack.o
+ .text.UART_push
+                0x00000000       0x20 SERVICES/uart_stack.o
+ .text.UART_pop
+                0x00000000       0x22 SERVICES/uart_stack.o
+ .bss.sp        0x00000000        0x1 SERVICES/uart_stack.o
+ .bss.stack     0x00000000        0x5 SERVICES/uart_stack.o
+ .comment       0x00000000       0x31 SERVICES/uart_stack.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
@@ -760,37 +735,37 @@ fuse             0x00820000         0x00000002         rw !x
 lock             0x00830000         0x00000400         rw !x
 signature        0x00840000         0x00000400         rw !x
 user_signatures  0x00850000         0x00000400         rw !x
-*default*        0x00000000         0xffffffffz
+*default*        0x00000000         0xffffffff
 
 Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/atmega32/avr5/crtatmega32.o
-LOAD HAL/EXT_EEPROM.o
-LOAD HAL/KEYPAD.o
-LOAD HAL/DC_Motor.o
-LOAD HAL/LCD.o
-LOAD HAL/Segment.o
-LOAD HAL/Sensors.o
-LOAD HAL/Servo_Motor.o
-LOAD HAL/Stepper_Motor.o
-LOAD HAL/UltraSonic.o
+LOAD HAL/ext_eeprom.o
+LOAD HAL/keypad.o
+LOAD HAL/dc_motor.o
+LOAD HAL/lcd.o
+LOAD HAL/segment.o
+LOAD HAL/sensors.o
+LOAD HAL/servo_motor.o
+LOAD HAL/stepper_motor.o
+LOAD HAL/ultra_sonic.o
 LOAD main.o
-LOAD MCAL/ADC.o
-LOAD MCAL/DIO.o
-LOAD MCAL/DIO_Config.o
-LOAD MCAL/EEPROM.o
-LOAD MCAL/Ext_Interrupt.o
-LOAD MCAL/I2C.o
-LOAD MCAL/SPI.o
-LOAD MCAL/SPI_Config.o
-LOAD MCAL/Timer.o
-LOAD MCAL/Uart.o
-LOAD MCAL/Uart_Config.o
-LOAD MCAL/WDT.o
-LOAD SERVICES/I2C_Services.o
-LOAD SERVICES/Timer_Services.o
-LOAD SERVICES/Uart_Services.o
-LOAD SERVICES/Uart_Stack.o
+LOAD MCAL/adc.o
+LOAD MCAL/dio.o
+LOAD MCAL/dio_config.o
+LOAD MCAL/ext_interrupt.o
+LOAD MCAL/i2c.o
+LOAD MCAL/int_eeprom.o
+LOAD MCAL/spi.o
+LOAD MCAL/spi_config.o
+LOAD MCAL/timer.o
+LOAD MCAL/uart.o
+LOAD MCAL/uart_config.o
+LOAD MCAL/watch_dog_timer.o
+LOAD SERVICES/i2c_services.o
+LOAD SERVICES/timer_services.o
+LOAD SERVICES/uart_services.o
+LOAD SERVICES/uart_stack.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 END GROUP
@@ -898,7 +873,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xaac
+.text           0x00000000      0xcb0
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.132/gcc/dev/atmega32/avr5/crtatmega32.o
                 0x00000000                __vector_default
@@ -965,90 +940,126 @@ END GROUP
                 0x0000008e                __bad_interrupt
                 0x00000092                . = ALIGN (0x2)
  *(.text.*)
- .text.LCD_SendCommand
-                0x00000092       0x42 HAL/LCD.o
- .text.LCD_SendData
-                0x000000d4       0x42 HAL/LCD.o
- .text.LCD_Init
-                0x00000116       0x2c HAL/LCD.o
-                0x00000116                LCD_Init
- .text.LCD_WriteNum
-                0x00000142       0xf6 HAL/LCD.o
-                0x00000142                LCD_WriteNum
+ .text.EEPROM_init
+                0x00000092        0x6 HAL/ext_eeprom.o
+                0x00000092                EEPROM_init
+ .text.EEPROM_writeByte
+                0x00000098       0x4a HAL/ext_eeprom.o
+                0x00000098                EEPROM_writeByte
+ .text.EEPROM_readByte
+                0x000000e2       0x66 HAL/ext_eeprom.o
+                0x000000e2                EEPROM_readByte
+ .text.LCD_sendCommand
+                0x00000148       0x42 HAL/lcd.o
+ .text.LCD_sendData
+                0x0000018a       0x42 HAL/lcd.o
+ .text.LCD_init
+                0x000001cc       0x2c HAL/lcd.o
+                0x000001cc                LCD_init
+ .text.LCD_goTo
+                0x000001f8       0x24 HAL/lcd.o
+                0x000001f8                LCD_goTo
+ .text.LCD_writeNum
+                0x0000021c       0xf6 HAL/lcd.o
+                0x0000021c                LCD_writeNum
  .text.startup.main
-                0x00000238       0x30 main.o
-                0x00000238                main
+                0x00000312       0x54 main.o
+                0x00000312                main
  .text.__vector_16
-                0x00000268       0x52 MCAL/ADC.o
-                0x00000268                __vector_16
- .text.DIO_InitPin
-                0x000002ba      0x1a8 MCAL/DIO.o
-                0x000002ba                DIO_InitPin
- .text.DIO_WritePin
-                0x00000462      0x102 MCAL/DIO.o
-                0x00000462                DIO_WritePin
- .text.DIO_WritePort
-                0x00000564       0x20 MCAL/DIO.o
-                0x00000564                DIO_WritePort
- .text.DIO_Init
-                0x00000584       0x26 MCAL/DIO.o
-                0x00000584                DIO_Init
+                0x00000366       0x52 MCAL/adc.o
+                0x00000366                __vector_16
+ .text.DIO_initPin
+                0x000003b8      0x1a8 MCAL/dio.o
+                0x000003b8                DIO_initPin
+ .text.DIO_writePin
+                0x00000560      0x102 MCAL/dio.o
+                0x00000560                DIO_writePin
+ .text.DIO_writePort
+                0x00000662       0x20 MCAL/dio.o
+                0x00000662                DIO_writePort
+ .text.DIO_init
+                0x00000682       0x26 MCAL/dio.o
+                0x00000682                DIO_init
  .text.__vector_1
-                0x000005aa       0x52 MCAL/Ext_Interrupt.o
-                0x000005aa                __vector_1
+                0x000006a8       0x52 MCAL/ext_interrupt.o
+                0x000006a8                __vector_1
  .text.__vector_2
-                0x000005fc       0x52 MCAL/Ext_Interrupt.o
-                0x000005fc                __vector_2
+                0x000006fa       0x52 MCAL/ext_interrupt.o
+                0x000006fa                __vector_2
  .text.__vector_3
-                0x0000064e       0x52 MCAL/Ext_Interrupt.o
-                0x0000064e                __vector_3
+                0x0000074c       0x52 MCAL/ext_interrupt.o
+                0x0000074c                __vector_3
+ .text.TWI_init
+                0x0000079e       0x1a MCAL/i2c.o
+                0x0000079e                TWI_init
+ .text.TWI_start
+                0x000007b8       0x20 MCAL/i2c.o
+                0x000007b8                TWI_start
+ .text.TWI_repStart
+                0x000007d8       0x22 MCAL/i2c.o
+                0x000007d8                TWI_repStart
+ .text.TWI_write_SLA_write
+                0x000007fa       0x28 MCAL/i2c.o
+                0x000007fa                TWI_write_SLA_write
+ .text.TWI_write_SLA_read
+                0x00000822       0x28 MCAL/i2c.o
+                0x00000822                TWI_write_SLA_read
+ .text.TWI_writeByte
+                0x0000084a       0x1e MCAL/i2c.o
+                0x0000084a                TWI_writeByte
+ .text.TWI_readByte
+                0x00000868       0x2e MCAL/i2c.o
+                0x00000868                TWI_readByte
+ .text.TWI_stop
+                0x00000896        0xe MCAL/i2c.o
+                0x00000896                TWI_stop
  .text.__vector_19
-                0x000006a0       0x52 MCAL/I2C.o
-                0x000006a0                __vector_19
+                0x000008a4       0x52 MCAL/i2c.o
+                0x000008a4                __vector_19
  .text.__vector_12
-                0x000006f2       0x52 MCAL/SPI.o
-                0x000006f2                __vector_12
+                0x000008f6       0x52 MCAL/spi.o
+                0x000008f6                __vector_12
  .text.__vector_11
-                0x00000744       0x52 MCAL/Timer.o
-                0x00000744                __vector_11
+                0x00000948       0x52 MCAL/timer.o
+                0x00000948                __vector_11
  .text.__vector_10
-                0x00000796       0x52 MCAL/Timer.o
-                0x00000796                __vector_10
+                0x0000099a       0x52 MCAL/timer.o
+                0x0000099a                __vector_10
  .text.__vector_9
-                0x000007e8       0x52 MCAL/Timer.o
-                0x000007e8                __vector_9
+                0x000009ec       0x52 MCAL/timer.o
+                0x000009ec                __vector_9
  .text.__vector_7
-                0x0000083a       0x52 MCAL/Timer.o
-                0x0000083a                __vector_7
+                0x00000a3e       0x52 MCAL/timer.o
+                0x00000a3e                __vector_7
  .text.__vector_8
-                0x0000088c       0x52 MCAL/Timer.o
-                0x0000088c                __vector_8
+                0x00000a90       0x52 MCAL/timer.o
+                0x00000a90                __vector_8
  .text.__vector_6
-                0x000008de       0x52 MCAL/Timer.o
-                0x000008de                __vector_6
+                0x00000ae2       0x52 MCAL/timer.o
+                0x00000ae2                __vector_6
  .text.__vector_15
-                0x00000930       0x52 MCAL/Uart.o
-                0x00000930                __vector_15
+                0x00000b34       0x52 MCAL/uart.o
+                0x00000b34                __vector_15
  .text.__vector_13
-                0x00000982       0x52 MCAL/Uart.o
-                0x00000982                __vector_13
+                0x00000b86       0x52 MCAL/uart.o
+                0x00000b86                __vector_13
  .text.__vector_14
-                0x000009d4       0x52 MCAL/Uart.o
-                0x000009d4                __vector_14
+                0x00000bd8       0x52 MCAL/uart.o
+                0x00000bd8                __vector_14
  .text.libgcc.div
-                0x00000a26       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
-                0x00000a26                __udivmodsi4
+                0x00000c2a       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000c2a                __udivmodsi4
  .text.libgcc.div
-                0x00000a6a       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
-                0x00000a6a                __divmodsi4
+                0x00000c6e       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodsi4.o)
+                0x00000c6e                __divmodsi4
  .text.libgcc.div
-                0x00000a98       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
-                0x00000a98                __negsi2
-                0x00000aa8                . = ALIGN (0x2)
+                0x00000c9c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_negsi2.o)
+                0x00000c9c                __negsi2
+                0x00000cac                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000aa8        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000aa8                _exit
-                0x00000aa8                exit
+ .fini9         0x00000cac        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000cac                _exit
+                0x00000cac                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1067,19 +1078,19 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000aa8        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000cac        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000aac                _etext = .
+                0x00000cb0                _etext = .
 
-.data           0x00800060       0x20 load address 0x00000aac
+.data           0x00800060       0x20 load address 0x00000cb0
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.rodata)
  *(.rodata*)
- .rodata.PinsStatus
-                0x00800060       0x20 MCAL/DIO_Config.o
-                0x00800060                PinsStatus
+ .rodata.pins_status
+                0x00800060       0x20 MCAL/dio_config.o
+                0x00800060                pins_status
  *(.gnu.linkonce.d*)
                 0x00800080                . = ALIGN (0x2)
                 0x00800080                _edata = .
@@ -1089,40 +1100,38 @@ END GROUP
                 0x00800080                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.ADC_IntFptr
-                0x00800080        0x2 MCAL/ADC.o
- .bss.INT2_Fptr
-                0x00800082        0x2 MCAL/Ext_Interrupt.o
- .bss.INT1_Fptr
-                0x00800084        0x2 MCAL/Ext_Interrupt.o
- .bss.INT0_Fptr
-                0x00800086        0x2 MCAL/Ext_Interrupt.o
- .bss.TWI_IntFptr
-                0x00800088        0x2 MCAL/I2C.o
- .bss.SPI_STC_IntFptr
-                0x0080008a        0x2 MCAL/SPI.o
- .bss.Timer1_ICU_IntFptr
-                0x0080008c        0x2 MCAL/Timer.o
- .bss.Timer1_OCB_IntFptr
-                0x0080008e        0x2 MCAL/Timer.o
- .bss.Timer1_OCA_IntFptr
-                0x00800090        0x2 MCAL/Timer.o
- .bss.Timer1_OVF_IntFptr
-                0x00800092        0x2 MCAL/Timer.o
- .bss.TIMER0_COM_IntFptr
-                0x00800094        0x2 MCAL/Timer.o
- .bss.TIMER0_OVF_IntFptr
-                0x00800096        0x2 MCAL/Timer.o
- .bss.Uart_DEMPTY_IntFptr
-                0x00800098        0x2 MCAL/Uart.o
- .bss.Uart_RXC_IntFptr
-                0x0080009a        0x2 MCAL/Uart.o
- .bss.Uart_TXC_IntFptr
-                0x0080009c        0x2 MCAL/Uart.o
+ .bss.adc_fPtr  0x00800080        0x2 MCAL/adc.o
+ .bss.int2_fPtr
+                0x00800082        0x2 MCAL/ext_interrupt.o
+ .bss.int1_fPtr
+                0x00800084        0x2 MCAL/ext_interrupt.o
+ .bss.int0_fPtr
+                0x00800086        0x2 MCAL/ext_interrupt.o
+ .bss.twi_fPtr  0x00800088        0x2 MCAL/i2c.o
+ .bss.spi_stc_fPtr
+                0x0080008a        0x2 MCAL/spi.o
+ .bss.timer1_icu_fPtr
+                0x0080008c        0x2 MCAL/timer.o
+ .bss.timer1_ocb_fPtr
+                0x0080008e        0x2 MCAL/timer.o
+ .bss.timer1_oca_fPtr
+                0x00800090        0x2 MCAL/timer.o
+ .bss.timer1_ovf_fPtr
+                0x00800092        0x2 MCAL/timer.o
+ .bss.timer0_com_fPtr
+                0x00800094        0x2 MCAL/timer.o
+ .bss.timer0_ovf_fPtr
+                0x00800096        0x2 MCAL/timer.o
+ .bss.uart_dEmpty_fPtr
+                0x00800098        0x2 MCAL/uart.o
+ .bss.uart_rxc_fPtr
+                0x0080009a        0x2 MCAL/uart.o
+ .bss.uart_txc_fPtr
+                0x0080009c        0x2 MCAL/uart.o
  *(COMMON)
                 0x0080009e                PROVIDE (__bss_end, .)
-                0x00000aac                __data_load_start = LOADADDR (.data)
-                0x00000acc                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00000cb0                __data_load_start = LOADADDR (.data)
+                0x00000cd0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080009e        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
@@ -1170,17 +1179,18 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 HAL/LCD.o
+ .comment       0x00000000       0x30 HAL/ext_eeprom.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 HAL/lcd.o
  .comment       0x00000030       0x31 main.o
- .comment       0x00000030       0x31 MCAL/ADC.o
- .comment       0x00000030       0x31 MCAL/DIO.o
- .comment       0x00000030       0x31 MCAL/DIO_Config.o
- .comment       0x00000030       0x31 MCAL/Ext_Interrupt.o
- .comment       0x00000030       0x31 MCAL/I2C.o
- .comment       0x00000030       0x31 MCAL/SPI.o
- .comment       0x00000030       0x31 MCAL/Timer.o
- .comment       0x00000030       0x31 MCAL/Uart.o
+ .comment       0x00000030       0x31 MCAL/adc.o
+ .comment       0x00000030       0x31 MCAL/dio.o
+ .comment       0x00000030       0x31 MCAL/dio_config.o
+ .comment       0x00000030       0x31 MCAL/ext_interrupt.o
+ .comment       0x00000030       0x31 MCAL/i2c.o
+ .comment       0x00000030       0x31 MCAL/spi.o
+ .comment       0x00000030       0x31 MCAL/timer.o
+ .comment       0x00000030       0x31 MCAL/uart.o
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x3c

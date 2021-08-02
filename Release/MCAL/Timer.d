@@ -1,12 +1,12 @@
-MCAL/Timer.d MCAL/Timer.o: ../MCAL/Timer.c ../MCAL/Timer.h \
- ../LIB/StdTypes.h ../LIB/Utils.h ../LIB/MemMap.h ../LIB/StdTypes.h
+MCAL/timer.d MCAL/timer.o: ../MCAL/timer.c ../MCAL/timer.h \
+ ../LIB/std_types.h ../LIB/utils.h ../LIB/memory_map.h ../LIB/std_types.h
 
-../MCAL/Timer.h:
+../MCAL/timer.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

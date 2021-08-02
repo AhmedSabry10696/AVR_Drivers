@@ -1,15 +1,15 @@
-SERVICES/Uart_Services.d SERVICES/Uart_Services.o: \
- ../SERVICES/Uart_Services.c ../SERVICES/Uart_Services.h ../MCAL/Uart.h \
- ../LIB/StdTypes.h ../LIB/Utils.h ../LIB/MemMap.h ../LIB/StdTypes.h
+SERVICES/uart_services.d SERVICES/uart_services.o: \
+ ../SERVICES/uart_services.c ../SERVICES/uart_services.h ../MCAL/uart.h \
+ ../LIB/std_types.h ../LIB/utils.h ../LIB/memory_map.h ../LIB/std_types.h
 
-../SERVICES/Uart_Services.h:
+../SERVICES/uart_services.h:
 
-../MCAL/Uart.h:
+../MCAL/uart.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

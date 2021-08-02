@@ -1,12 +1,12 @@
-MCAL/DIO_Config.d MCAL/DIO_Config.o: ../MCAL/DIO_Config.c ../MCAL/DIO.h \
- ../LIB/StdTypes.h ../LIB/MemMap.h ../LIB/StdTypes.h ../LIB/Utils.h
+MCAL/dio_config.d MCAL/dio_config.o: ../MCAL/dio_config.c ../MCAL/dio.h \
+ ../LIB/std_types.h ../LIB/memory_map.h ../LIB/std_types.h ../LIB/utils.h
 
-../MCAL/DIO.h:
+../MCAL/dio.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:

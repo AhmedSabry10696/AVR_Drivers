@@ -1,15 +1,15 @@
-HAL/Servo_Motor.d HAL/Servo_Motor.o: ../HAL/Servo_Motor.c \
- ../HAL/Servo_Motor.h ../MCAL/Timer.h ../LIB/StdTypes.h ../LIB/Utils.h \
- ../LIB/MemMap.h ../LIB/StdTypes.h
+HAL/servo_motor.d HAL/servo_motor.o: ../HAL/servo_motor.c \
+ ../HAL/servo_motor.h ../MCAL/timer.h ../LIB/std_types.h ../LIB/utils.h \
+ ../LIB/memory_map.h ../LIB/std_types.h
 
-../HAL/Servo_Motor.h:
+../HAL/servo_motor.h:
 
-../MCAL/Timer.h:
+../MCAL/timer.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

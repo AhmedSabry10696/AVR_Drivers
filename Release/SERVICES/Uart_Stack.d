@@ -1,6 +1,6 @@
-SERVICES/Uart_Stack.d SERVICES/Uart_Stack.o: ../SERVICES/Uart_Stack.c \
- ../SERVICES/Uart_Stack.h ../LIB/StdTypes.h
+SERVICES/uart_stack.d SERVICES/uart_stack.o: ../SERVICES/uart_stack.c \
+ ../SERVICES/uart_stack.h ../LIB/std_types.h
 
-../SERVICES/Uart_Stack.h:
+../SERVICES/uart_stack.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

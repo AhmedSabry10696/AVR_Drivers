@@ -41,32 +41,32 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../HAL/EXT_EEPROM.c \
-../HAL/KEYPAD.c \
-../HAL/DC_Motor.c \
-../HAL/LCD.c \
-../HAL/Segment.c \
-../HAL/Sensors.c \
-../HAL/Servo_Motor.c \
-../HAL/Stepper_Motor.c \
-../HAL/UltraSonic.c \
+../HAL/ext_eeprom.c \
+../HAL/keypad.c \
+../HAL/dc_motor.c \
+../HAL/lcd.c \
+../HAL/segment.c \
+../HAL/sensors.c \
+../HAL/servo_motor.c \
+../HAL/stepper_motor.c \
+../HAL/ultra_sonic.c \
 ../main.c \
-../MCAL/ADC.c \
-../MCAL/DIO.c \
-../MCAL/DIO_Config.c \
-../MCAL/EEPROM.c \
-../MCAL/Ext_Interrupt.c \
-../MCAL/I2C.c \
-../MCAL/SPI.c \
-../MCAL/SPI_Config.c \
-../MCAL/Timer.c \
-../MCAL/Uart.c \
-../MCAL/Uart_Config.c \
-../MCAL/WDT.c \
-../SERVICES/I2C_Services.c \
-../SERVICES/Timer_Services.c \
-../SERVICES/Uart_Services.c \
-../SERVICES/Uart_Stack.c
+../MCAL/adc.c \
+../MCAL/dio.c \
+../MCAL/dio_config.c \
+../MCAL/ext_interrupt.c \
+../MCAL/i2c.c \
+../MCAL/int_eeprom.c \
+../MCAL/spi.c \
+../MCAL/spi_config.c \
+../MCAL/timer.c \
+../MCAL/uart.c \
+../MCAL/uart_config.c \
+../MCAL/watch_dog_timer.c \
+../SERVICES/i2c_services.c \
+../SERVICES/timer_services.c \
+../SERVICES/uart_services.c \
+../SERVICES/uart_stack.c
 
 
 PREPROCESSING_SRCS += 
@@ -76,116 +76,116 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-HAL/EXT_EEPROM.o \
-HAL/KEYPAD.o \
-HAL/DC_Motor.o \
-HAL/LCD.o \
-HAL/Segment.o \
-HAL/Sensors.o \
-HAL/Servo_Motor.o \
-HAL/Stepper_Motor.o \
-HAL/UltraSonic.o \
+HAL/ext_eeprom.o \
+HAL/keypad.o \
+HAL/dc_motor.o \
+HAL/lcd.o \
+HAL/segment.o \
+HAL/sensors.o \
+HAL/servo_motor.o \
+HAL/stepper_motor.o \
+HAL/ultra_sonic.o \
 main.o \
-MCAL/ADC.o \
-MCAL/DIO.o \
-MCAL/DIO_Config.o \
-MCAL/EEPROM.o \
-MCAL/Ext_Interrupt.o \
-MCAL/I2C.o \
-MCAL/SPI.o \
-MCAL/SPI_Config.o \
-MCAL/Timer.o \
-MCAL/Uart.o \
-MCAL/Uart_Config.o \
-MCAL/WDT.o \
-SERVICES/I2C_Services.o \
-SERVICES/Timer_Services.o \
-SERVICES/Uart_Services.o \
-SERVICES/Uart_Stack.o
+MCAL/adc.o \
+MCAL/dio.o \
+MCAL/dio_config.o \
+MCAL/ext_interrupt.o \
+MCAL/i2c.o \
+MCAL/int_eeprom.o \
+MCAL/spi.o \
+MCAL/spi_config.o \
+MCAL/timer.o \
+MCAL/uart.o \
+MCAL/uart_config.o \
+MCAL/watch_dog_timer.o \
+SERVICES/i2c_services.o \
+SERVICES/timer_services.o \
+SERVICES/uart_services.o \
+SERVICES/uart_stack.o
 
 OBJS_AS_ARGS +=  \
-HAL/EXT_EEPROM.o \
-HAL/KEYPAD.o \
-HAL/DC_Motor.o \
-HAL/LCD.o \
-HAL/Segment.o \
-HAL/Sensors.o \
-HAL/Servo_Motor.o \
-HAL/Stepper_Motor.o \
-HAL/UltraSonic.o \
+HAL/ext_eeprom.o \
+HAL/keypad.o \
+HAL/dc_motor.o \
+HAL/lcd.o \
+HAL/segment.o \
+HAL/sensors.o \
+HAL/servo_motor.o \
+HAL/stepper_motor.o \
+HAL/ultra_sonic.o \
 main.o \
-MCAL/ADC.o \
-MCAL/DIO.o \
-MCAL/DIO_Config.o \
-MCAL/EEPROM.o \
-MCAL/Ext_Interrupt.o \
-MCAL/I2C.o \
-MCAL/SPI.o \
-MCAL/SPI_Config.o \
-MCAL/Timer.o \
-MCAL/Uart.o \
-MCAL/Uart_Config.o \
-MCAL/WDT.o \
-SERVICES/I2C_Services.o \
-SERVICES/Timer_Services.o \
-SERVICES/Uart_Services.o \
-SERVICES/Uart_Stack.o
+MCAL/adc.o \
+MCAL/dio.o \
+MCAL/dio_config.o \
+MCAL/ext_interrupt.o \
+MCAL/i2c.o \
+MCAL/int_eeprom.o \
+MCAL/spi.o \
+MCAL/spi_config.o \
+MCAL/timer.o \
+MCAL/uart.o \
+MCAL/uart_config.o \
+MCAL/watch_dog_timer.o \
+SERVICES/i2c_services.o \
+SERVICES/timer_services.o \
+SERVICES/uart_services.o \
+SERVICES/uart_stack.o
 
 C_DEPS +=  \
-HAL/EXT_EEPROM.d \
-HAL/KEYPAD.d \
-HAL/DC_Motor.d \
-HAL/LCD.d \
-HAL/Segment.d \
-HAL/Sensors.d \
-HAL/Servo_Motor.d \
-HAL/Stepper_Motor.d \
-HAL/UltraSonic.d \
+HAL/ext_eeprom.d \
+HAL/keypad.d \
+HAL/dc_motor.d \
+HAL/lcd.d \
+HAL/segment.d \
+HAL/sensors.d \
+HAL/servo_motor.d \
+HAL/stepper_motor.d \
+HAL/ultra_sonic.d \
 main.d \
-MCAL/ADC.d \
-MCAL/DIO.d \
-MCAL/DIO_Config.d \
-MCAL/EEPROM.d \
-MCAL/Ext_Interrupt.d \
-MCAL/I2C.d \
-MCAL/SPI.d \
-MCAL/SPI_Config.d \
-MCAL/Timer.d \
-MCAL/Uart.d \
-MCAL/Uart_Config.d \
-MCAL/WDT.d \
-SERVICES/I2C_Services.d \
-SERVICES/Timer_Services.d \
-SERVICES/Uart_Services.d \
-SERVICES/Uart_Stack.d
+MCAL/adc.d \
+MCAL/dio.d \
+MCAL/dio_config.d \
+MCAL/ext_interrupt.d \
+MCAL/i2c.d \
+MCAL/int_eeprom.d \
+MCAL/spi.d \
+MCAL/spi_config.d \
+MCAL/timer.d \
+MCAL/uart.d \
+MCAL/uart_config.d \
+MCAL/watch_dog_timer.d \
+SERVICES/i2c_services.d \
+SERVICES/timer_services.d \
+SERVICES/uart_services.d \
+SERVICES/uart_stack.d
 
 C_DEPS_AS_ARGS +=  \
-HAL/EXT_EEPROM.d \
-HAL/KEYPAD.d \
-HAL/DC_Motor.d \
-HAL/LCD.d \
-HAL/Segment.d \
-HAL/Sensors.d \
-HAL/Servo_Motor.d \
-HAL/Stepper_Motor.d \
-HAL/UltraSonic.d \
+HAL/ext_eeprom.d \
+HAL/keypad.d \
+HAL/dc_motor.d \
+HAL/lcd.d \
+HAL/segment.d \
+HAL/sensors.d \
+HAL/servo_motor.d \
+HAL/stepper_motor.d \
+HAL/ultra_sonic.d \
 main.d \
-MCAL/ADC.d \
-MCAL/DIO.d \
-MCAL/DIO_Config.d \
-MCAL/EEPROM.d \
-MCAL/Ext_Interrupt.d \
-MCAL/I2C.d \
-MCAL/SPI.d \
-MCAL/SPI_Config.d \
-MCAL/Timer.d \
-MCAL/Uart.d \
-MCAL/Uart_Config.d \
-MCAL/WDT.d \
-SERVICES/I2C_Services.d \
-SERVICES/Timer_Services.d \
-SERVICES/Uart_Services.d \
-SERVICES/Uart_Stack.d
+MCAL/adc.d \
+MCAL/dio.d \
+MCAL/dio_config.d \
+MCAL/ext_interrupt.d \
+MCAL/i2c.d \
+MCAL/int_eeprom.d \
+MCAL/spi.d \
+MCAL/spi_config.d \
+MCAL/timer.d \
+MCAL/uart.d \
+MCAL/uart_config.d \
+MCAL/watch_dog_timer.d \
+SERVICES/i2c_services.d \
+SERVICES/timer_services.d \
+SERVICES/uart_services.d \
+SERVICES/uart_stack.d
 
 OUTPUT_FILE_PATH +=AVR_Drivers.elf
 

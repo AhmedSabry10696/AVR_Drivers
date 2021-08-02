@@ -1,12 +1,12 @@
-MCAL/I2C.d MCAL/I2C.o: ../MCAL/I2C.c ../MCAL/I2C.h ../LIB/StdTypes.h \
- ../LIB/Utils.h ../LIB/MemMap.h ../LIB/StdTypes.h
+MCAL/i2c.d MCAL/i2c.o: ../MCAL/i2c.c ../MCAL/i2c.h ../LIB/std_types.h \
+ ../LIB/utils.h ../LIB/memory_map.h ../LIB/std_types.h
 
-../MCAL/I2C.h:
+../MCAL/i2c.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

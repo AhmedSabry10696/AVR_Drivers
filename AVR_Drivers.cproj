@@ -123,160 +123,160 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="HAL\EXT_EEPROM.c">
+    <Compile Include="HAL\ext_eeprom.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\EXT_EEPROM.h">
+    <Compile Include="HAL\ext_eeprom.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\KEYPAD.c">
+    <Compile Include="HAL\keypad.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\DC_Motor.c">
+    <Compile Include="HAL\dc_motor.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\DC_Motor.h">
+    <Compile Include="HAL\dc_motor.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\KEYPAD.h">
+    <Compile Include="HAL\keypad.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\LCD.c">
+    <Compile Include="HAL\lcd.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\LCD.h">
+    <Compile Include="HAL\lcd.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Segment.c">
+    <Compile Include="HAL\segment.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Segment_Config.h">
+    <Compile Include="HAL\segment_config.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Segment.h">
+    <Compile Include="HAL\segment.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Sensors.c">
+    <Compile Include="HAL\sensors.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Sensors.h">
+    <Compile Include="HAL\sensors.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Servo_Motor.c">
+    <Compile Include="HAL\servo_motor.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Servo_Motor.h">
+    <Compile Include="HAL\servo_motor.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Stepper_Motor.c">
+    <Compile Include="HAL\stepper_motor.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\Stepper_Motor.h">
+    <Compile Include="HAL\stepper_motor.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\UltraSonic.c">
+    <Compile Include="HAL\ultra_sonic.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="HAL\UltraSonic.h">
+    <Compile Include="HAL\ultra_sonic.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LIB\MemMap.h">
+    <Compile Include="LIB\memory_map.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LIB\StdTypes.h">
+    <Compile Include="LIB\std_types.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LIB\Utils.h">
+    <Compile Include="LIB\utils.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\ADC.c">
+    <Compile Include="MCAL\adc.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\ADC.h">
+    <Compile Include="MCAL\adc.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\DIO.c">
+    <Compile Include="MCAL\dio.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\DIO_Config.c">
+    <Compile Include="MCAL\dio_config.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\DIO.h">
+    <Compile Include="MCAL\dio.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\EEPROM.c">
+    <Compile Include="MCAL\ext_interrupt.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\EEPROM.h">
+    <Compile Include="MCAL\ext_interrupt.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\Ext_Interrupt.c">
+    <Compile Include="MCAL\i2c.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\Ext_Interrupt.h">
+    <Compile Include="MCAL\i2c.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\I2C.c">
+    <Compile Include="MCAL\int_eeprom.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\I2C.h">
+    <Compile Include="MCAL\int_eeprom.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\SPI.c">
+    <Compile Include="MCAL\spi.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\SPI.h">
+    <Compile Include="MCAL\spi.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\SPI_Config.c">
+    <Compile Include="MCAL\spi_config.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\Timer.c">
+    <Compile Include="MCAL\timer.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\Timer.h">
+    <Compile Include="MCAL\timer.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\Uart.c">
+    <Compile Include="MCAL\uart.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\Uart.h">
+    <Compile Include="MCAL\uart.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\Uart_Config.c">
+    <Compile Include="MCAL\uart_config.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\WDT.c">
+    <Compile Include="MCAL\watch_dog_timer.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCAL\WDT.h">
+    <Compile Include="MCAL\watch_dog_timer.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SERVICES\I2C_Services.c">
+    <Compile Include="SERVICES\i2c_services.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SERVICES\I2C_Services.h">
+    <Compile Include="SERVICES\i2c_services.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SERVICES\Timer_Services.c">
+    <Compile Include="SERVICES\timer_services.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SERVICES\Timer_Services.h">
+    <Compile Include="SERVICES\timer_services.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SERVICES\Uart_Services.c">
+    <Compile Include="SERVICES\uart_services.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SERVICES\Uart_Services.h">
+    <Compile Include="SERVICES\uart_services.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SERVICES\Uart_Stack.c">
+    <Compile Include="SERVICES\uart_stack.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="SERVICES\Uart_Stack.h">
+    <Compile Include="SERVICES\uart_stack.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

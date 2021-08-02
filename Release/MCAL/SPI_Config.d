@@ -1,12 +1,12 @@
-MCAL/SPI_Config.d MCAL/SPI_Config.o: ../MCAL/SPI_Config.c ../MCAL/SPI.h \
- ../LIB/StdTypes.h ../LIB/Utils.h ../LIB/MemMap.h ../LIB/StdTypes.h
+MCAL/spi_config.d MCAL/spi_config.o: ../MCAL/spi_config.c ../MCAL/spi.h \
+ ../LIB/std_types.h ../LIB/utils.h ../LIB/memory_map.h ../LIB/std_types.h
 
-../MCAL/SPI.h:
+../MCAL/spi.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

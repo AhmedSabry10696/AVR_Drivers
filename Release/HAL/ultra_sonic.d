@@ -1,15 +1,15 @@
-HAL/UltraSonic.d HAL/UltraSonic.o: ../HAL/UltraSonic.c \
- ../HAL/UltraSonic.h \
+HAL/ultra_sonic.d HAL/ultra_sonic.o: ../HAL/ultra_sonic.c \
+ ../HAL/ultra_sonic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- ../MCAL/Timer.h ../LIB/StdTypes.h ../LIB/Utils.h ../LIB/MemMap.h \
- ../LIB/StdTypes.h ../MCAL/DIO.h
+ ../MCAL/timer.h ../LIB/std_types.h ../LIB/utils.h ../LIB/memory_map.h \
+ ../LIB/std_types.h ../MCAL/dio.h
 
-../HAL/UltraSonic.h:
+../HAL/ultra_sonic.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -23,14 +23,14 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-../MCAL/Timer.h:
+../MCAL/timer.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../MCAL/DIO.h:
+../MCAL/dio.h:

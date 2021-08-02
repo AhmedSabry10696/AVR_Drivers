@@ -1,17 +1,17 @@
-HAL/DC_Motor.d HAL/DC_Motor.o: ../HAL/DC_Motor.c ../HAL/DC_Motor.h \
- ../LIB/StdTypes.h ../MCAL/DIO.h ../LIB/MemMap.h ../LIB/StdTypes.h \
- ../LIB/Utils.h ../MCAL/Timer.h
+HAL/dc_motor.d HAL/dc_motor.o: ../HAL/dc_motor.c ../HAL/dc_motor.h \
+ ../LIB/std_types.h ../MCAL/dio.h ../LIB/memory_map.h ../LIB/std_types.h \
+ ../LIB/utils.h ../MCAL/timer.h
 
-../HAL/DC_Motor.h:
+../HAL/dc_motor.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../MCAL/DIO.h:
+../MCAL/dio.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../MCAL/Timer.h:
+../MCAL/timer.h:

@@ -1,12 +1,12 @@
-MCAL/ADC.d MCAL/ADC.o: ../MCAL/ADC.c ../MCAL/ADC.h ../LIB/StdTypes.h \
- ../LIB/Utils.h ../LIB/MemMap.h ../LIB/StdTypes.h
+MCAL/adc.d MCAL/adc.o: ../MCAL/adc.c ../MCAL/adc.h ../LIB/std_types.h \
+ ../LIB/utils.h ../LIB/memory_map.h ../LIB/std_types.h
 
-../MCAL/ADC.h:
+../MCAL/adc.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

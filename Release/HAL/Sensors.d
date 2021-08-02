@@ -1,15 +1,15 @@
-HAL/Sensors.d HAL/Sensors.o: ../HAL/Sensors.c ../HAL/Sensors.h \
- ../MCAL/ADC.h ../LIB/StdTypes.h ../LIB/Utils.h ../LIB/MemMap.h \
- ../LIB/StdTypes.h
+HAL/sensors.d HAL/sensors.o: ../HAL/sensors.c ../HAL/sensors.h \
+ ../MCAL/adc.h ../LIB/std_types.h ../LIB/utils.h ../LIB/memory_map.h \
+ ../LIB/std_types.h
 
-../HAL/Sensors.h:
+../HAL/sensors.h:
 
-../MCAL/ADC.h:
+../MCAL/adc.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

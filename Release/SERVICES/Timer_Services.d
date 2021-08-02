@@ -1,16 +1,16 @@
-SERVICES/Timer_Services.d SERVICES/Timer_Services.o: \
- ../SERVICES/Timer_Services.c ../SERVICES/Timer_Services.h \
- ../MCAL/Timer.h ../LIB/StdTypes.h ../LIB/Utils.h ../LIB/MemMap.h \
- ../LIB/StdTypes.h
+SERVICES/timer_services.d SERVICES/timer_services.o: \
+ ../SERVICES/timer_services.c ../SERVICES/timer_services.h \
+ ../MCAL/timer.h ../LIB/std_types.h ../LIB/utils.h ../LIB/memory_map.h \
+ ../LIB/std_types.h
 
-../SERVICES/Timer_Services.h:
+../SERVICES/timer_services.h:
 
-../MCAL/Timer.h:
+../MCAL/timer.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

@@ -1,15 +1,15 @@
-HAL/EXT_EEPROM.d HAL/EXT_EEPROM.o: ../HAL/EXT_EEPROM.c \
- ../HAL/EXT_EEPROM.h ../MCAL/i2c.h ../LIB/StdTypes.h ../LIB/Utils.h \
- ../LIB/MemMap.h ../LIB/StdTypes.h
+HAL/ext_eeprom.d HAL/ext_eeprom.o: ../HAL/ext_eeprom.c \
+ ../HAL/ext_eeprom.h ../MCAL/i2c.h ../LIB/std_types.h ../LIB/utils.h \
+ ../LIB/memory_map.h ../LIB/std_types.h
 
-../HAL/EXT_EEPROM.h:
+../HAL/ext_eeprom.h:
 
 ../MCAL/i2c.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:

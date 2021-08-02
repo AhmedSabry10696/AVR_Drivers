@@ -1,12 +1,12 @@
-MCAL/Uart.d MCAL/Uart.o: ../MCAL/Uart.c ../MCAL/Uart.h ../LIB/StdTypes.h \
- ../LIB/Utils.h ../LIB/MemMap.h ../LIB/StdTypes.h
+MCAL/uart.d MCAL/uart.o: ../MCAL/uart.c ../MCAL/uart.h ../LIB/std_types.h \
+ ../LIB/utils.h ../LIB/memory_map.h ../LIB/std_types.h
 
-../MCAL/Uart.h:
+../MCAL/uart.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
 
-../LIB/Utils.h:
+../LIB/utils.h:
 
-../LIB/MemMap.h:
+../LIB/memory_map.h:
 
-../LIB/StdTypes.h:
+../LIB/std_types.h:
