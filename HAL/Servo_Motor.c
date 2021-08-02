@@ -1,5 +1,5 @@
 /**
- * @file Servo_Motor.c
+ * @file servo_motor.c
  * @author Ahmed Sabry (ahmed.sabry10696@gmail.com)
  * @brief Servo motor driver implementation
  * @version 0.1
@@ -9,21 +9,21 @@
  * 
  */
 
-#include "Servo_Motor.h"
+#include "servo_motor.h"
 
-void Servo_Init(void)
+void SERVO_init(void)
 {
-    Timer1_Init(TIMER1_FASTPWM_ICR_TOP_MODE, TIMER1_SCALER_8);
-    Timer1_OCRB_Mode(OCRB_NON_INVERTING);
+    TIMER1_init(TIMER1_FASTPWM_ICR_TOP_MODE, TIMER1_SCALER_8);
+    TIMER1_OCRB_mode(OCRB_NON_INVERTING);
 
     /* set top to 20000us f=50HZ */
-    Timer1_ICR_Set(20000 - 1);
+    TIMER1_ICR_set(20000 - 1);
 
     /* angle 0 ton=1ms*/
-    Timer1_OCRB_Set(999);
+    TIMER1_OCRB_set(999);
 }
 
-void Servo_SetPosition(u8 angle)
+void SERVO_setPosition(u8 angle)
 {
     if (angle > 180)
     {
@@ -31,5 +31,5 @@ void Servo_SetPosition(u8 angle)
     }
 
     u16 temp = ((u32)angle * 1000) / 180 + 999;
-    Timer1_OCRB_Set(temp);
+    TIMER1_OCRB_set(temp);
 }
