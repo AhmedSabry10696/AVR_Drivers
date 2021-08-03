@@ -32,4 +32,23 @@ extern void EEPROM_write(const u16 address, const u8 data);
  */
 extern u8 EEPROM_read(const u16 address);
 
+/**
+ * @brief Enable eeprom ready interrupt
+ * 
+ */
+extern void EEPROM_intEnable(void);
+
+/**
+ * @brief disable eeprom ready interrupt
+ * 
+ */
+extern void EEPROM_intDisable(void);
+
+/**
+ * @brief Set callback function for eeprom ready interrupt
+ * 
+ * @param localFptr pointer to function to run when eeprom ready interrupt fired
+ */
+extern void EEPROM_intSetCallback(void (*localFptr)(void));
+
 #endif /* EEPROM_H_ */

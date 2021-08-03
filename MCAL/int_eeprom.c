@@ -11,6 +11,8 @@
 
 #include "int_eeprom.h"
 
+static void (*eeprom_rdy_fPtr)(void) = NULLPTR;
+
 void EEPROM_write(const u16 address, const u8 data)
 {
     /* Wait for completion of previous write */
@@ -20,11 +22,19 @@ void EEPROM_write(const u16 address, const u8 data)
     EEAR = address;
     EEDR = data;
 
+    /* disable global interrupt */
+    cli();
+
     /* Write logical one to EEMWE */
     SET_BIT(EECR, EEMWE);
 
-    /* Start EEPROM write by setting EEWE */
+    /* Start EEPROM write by setting EEWE--> must be done withing four clock cycles
+    *  after setting EEMWE so I use cli() and sei() 
+    */
     SET_BIT(EECR, EEWE);
+
+    /* enable global interrupt */
+    sei();
 }
 
 u8 EEPROM_read(const u16 address)
@@ -40,4 +50,27 @@ u8 EEPROM_read(const u16 address)
 
     /* Return data from data register */
     return EEDR;
+}
+
+void EEPROM_intEnable(void)
+{
+    SET_BIT(EECR, EERIE);
+}
+
+void EEPROM_intDisable(void)
+{
+    CLR_BIT(EECR, EERIE);
+}
+
+void EEPROM_intSetCallback(void (*localFptr)(void))
+{
+    eeprom_rdy_fPtr = localFptr;
+}
+
+ISR(EE_RDY_VECT)
+{
+    if (eeprom_rdy_fPtr != NULLPTR)
+    {
+        eeprom_rdy_fPtr();
+    }
 }
