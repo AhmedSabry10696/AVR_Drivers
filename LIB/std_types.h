@@ -12,47 +12,64 @@
 #ifndef STDTYPES_H_
 #define STDTYPES_H_
 
-/* Null Pointer */
+/****************************************************************/
+/************************ Null Pointer **************************/
+/****************************************************************/
 #define NULLPTR ((void *)0)
 
-/* unsigned data types */
+/****************************************************************/
+/********************* Unsigned Data Types **********************/
+/****************************************************************/
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned long u32;
 typedef unsigned long long u64;
 
-/* signed data types */
+/****************************************************************/
+/*********************** Signed Data Types **********************/
+/****************************************************************/
 typedef signed char s8;
 typedef signed short s16;
 typedef signed long s32;
 typedef signed long long s64;
 
-/* float data types */
+/****************************************************************/
+/************************ Float Data Types **********************/
+/****************************************************************/
 typedef float f32;
 typedef double f64;
 
-/* boolean data types */
+/****************************************************************/
+/********************** Boolean Data Types **********************/
+/****************************************************************/
 typedef enum
 {
 	FALSE = 0,
 	TRUE = 1
 } Bool_type;
 
-/* register data type */
+/****************************************************************/
+/********************* Register Data Types **********************/
+/****************************************************************/
 typedef union
 {
-	u8 Data;
+	u8 data;
 	struct
 	{
-		u8 BIT0 : 1;
-		u8 BIT1 : 1;
-		u8 BIT2 : 1;
-		u8 BIT3 : 1;
-		u8 BIT4 : 1;
-		u8 BIT5 : 1;
-		u8 BIT6 : 1;
-		u8 BIT7 : 1;
-	} BITS; /* share the same values that is in Data var */
+		u8 Bit0 : 1;
+		u8 Bit1 : 1;
+		u8 Bit2 : 1;
+		u8 Bit3 : 1;
+		u8 Bit4 : 1;
+		u8 Bit5 : 1;
+		u8 Bit6 : 1;
+		u8 Bit7 : 1;
+	} Bits; 
+	/* struct Bits share the same values that is in u8 data var */
 } Reg_8bit;
+
+/****************************************************************/
+/********************* End of Stdandard Types *******************/
+/****************************************************************/
 
 #endif /* STDTYPES_H_ */
