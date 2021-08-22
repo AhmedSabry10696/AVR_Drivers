@@ -14,8 +14,13 @@
 
 #include "adc.h"
 
+/* pressure sensor */
 #define MPX4110 CH_1
+
+/* potentiometer */
 #define POT     CH_2
+
+/* temperature sensor */
 #define LM35    CH_0
 
 /**
