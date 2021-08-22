@@ -16,13 +16,17 @@ void SERVO_init(void)
     TIMER1_init(TIMER1_FASTPWM_ICR_TOP_MODE, TIMER1_SCALER_8);
     TIMER1_OCRB_mode(OCRB_NON_INVERTING);
 
-    /* set top to 20000us f=50HZ */
+    /* set top to 20000us f = 50 HZ */
     TIMER1_ICR_set(20000 - 1);
 
-    /* angle 0 ton=1ms*/
+    /* angle 0 ton = 1000 us (1 ms) */
     TIMER1_OCRB_set(999);
 }
 
+/*********************************
+ * 000 angle -----> 1000 OCRB
+ * 180 angle -----> 2000 OCRB
+ ********************************/   
 void SERVO_setPosition(u8 angle)
 {
     if (angle > 180)

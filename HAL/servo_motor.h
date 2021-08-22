@@ -15,7 +15,7 @@
 #include "timer.h"
 
 /**
- * @brief Servo motor initialization f= 50HZ
+ * @brief Servo motor initialization f = 50HZ
  * 
  */
 extern void SERVO_init(void);
