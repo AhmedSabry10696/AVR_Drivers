@@ -70,19 +70,19 @@ extern u16 ADC_read(Adc_channel_type ch);
 extern void ADC_startConversion(Adc_channel_type ch);
 
 /**
- * @brief get value of ADC register
- * 
- * @return u16 ADC read after conversion completed 0:1023
- */
-extern u16 ADC_getReadNoBlock(void);
-
-/**
  * @brief Get adc read if completed
  * 
  * @param read_ptr pointer to store adc value 0:1023
  * @return u8 (1) if get adc value, (0) if adc not finished yet
  */
 extern u8 ADC_getReadPeriodic(u16 *read_ptr);
+
+/**
+ * @brief get value of ADC register
+ * 
+ * @return u16 ADC read after conversion completed 0:1023
+ */
+extern u16 ADC_getReadNoBlock(void);
 
 /**
  * @brief Enable ADC interrupt on conversion complete

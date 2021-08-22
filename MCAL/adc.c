@@ -82,11 +82,6 @@ void ADC_startConversion(Adc_channel_type ch)
     }
 }
 
-u16 ADC_getReadNoBlock(void)
-{
-    return ADC;
-}
-
 u8 ADC_getReadPeriodic(u16 *read_ptr)
 {
     /* if conversion completed */
@@ -97,6 +92,11 @@ u8 ADC_getReadPeriodic(u16 *read_ptr)
         return 1;
     }
     return 0;
+}
+
+u16 ADC_getReadNoBlock(void)
+{
+    return ADC;
 }
 
 void ADC_intEnable(void)
