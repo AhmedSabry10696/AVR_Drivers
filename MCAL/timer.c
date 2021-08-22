@@ -207,10 +207,10 @@ void TIMER1_OCRB_mode(Timer1_oc1b_type oc1b_mode)
 
 void TIMER1_inputCaptureEdge(Timer1_icuEdge_type edge)
 {
-    if (edge == RISING)
+    if (RISING == edge)
         SET_BIT(TCCR1B, ICES1);
 
-    else if (edge == FALLING)
+    else if (FALLING == edge)
         CLR_BIT(TCCR1B, ICES1);
 }
 
