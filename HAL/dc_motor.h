@@ -37,6 +37,7 @@ extern void DC_motor_ccw(void);
  * @brief Init Timer0 to generate pwm 
  */
 extern void DC_motorSpeedInit(void);
+
 /**
  * @brief Set DC motor speed 
  * 
