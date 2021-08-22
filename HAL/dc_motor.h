@@ -16,7 +16,7 @@
 #include "dio.h"
 #include "timer.h"
 
-/* motor connections */
+/* motor driver connections */
 #define IN1 PIND0
 #define IN2 PIND1
 #define EN  PINB3
