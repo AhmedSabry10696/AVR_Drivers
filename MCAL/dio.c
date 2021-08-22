@@ -147,7 +147,7 @@ DioVoltage_type DIO_readPin(DioPin_type pin)
 {
     u8 pin_num = pin % 8;
     DioPort_type port = pin / 8;
-    DioVoltage_type volt = LOW;
+    DioVoltage_type volt;
 
     switch (port)
     {
