@@ -15,15 +15,15 @@
 #include "dio.h"
 
 /**
- * @brief 	define BCD: LOW_PINS if segment used with decoder in low 4 pins in the port
- *        	define BCD: HIGH_PINS if segment used with decoder in high 4 pins in the port
-			define BCD: FULL_PORT if you are using 2 BCD segment 4 lower pins for digit1 and higher 4 pins for digit2
- *        	remove BCD: if segment used without decoder  
+ * @brief 	define BCD: LOW_PINS --> segment used with decoder in low 4 pins in the port
+ *        	define BCD: HIGH_PINS --> segment used with decoder in high 4 pins in the port
+			define BCD: FULL_PORT --> you are using 2 BCD segment 4 lower pins for digit1 and higher 4 pins for digit2
+ *        	remove BCD: if --> one segment used without decoder  
  */
-#define BCD FULL_PORT
+#define BCD 	FULL_PORT
 
 /* 7 segment port:  PA - PB - PC - PD */
-#define SEGMENT_PORT PC
+#define SEGMENT_PORT 	PC
 
 /**
  * @brief	define SEGMENT_TYPE: COM_CATHODE with common cathode 7 segment
