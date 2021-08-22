@@ -289,45 +289,45 @@ void LCD_writeBinary(u16 num)
 
 void LCD_writeHex(u16 num)
 {
-	u8 digit4 = ((num & 0xF000) >> 12);
-	u8 digit3 = ((num & 0x0F00) >> 8);
-	u8 digit2 = ((num & 0x00F0) >> 4);
-	u8 digit1 = (num & 0x000F);
+	u8 nibble4 = ((num & 0xF000) >> 12);
+	u8 nibble3 = ((num & 0x0F00) >> 8);
+	u8 nibble2 = ((num & 0x00F0) >> 4);
+	u8 nibble1 = (num & 0x000F);
 
-	if (digit4 > 9)
+	if (nibble4 > 9)
 	{
-		LCD_writeChar(digit4 + 'A' - 10);
+		LCD_writeChar(nibble4 - 10 + 'A');
 	}
 	else
 	{
-		LCD_writeChar(digit4 + '0');
+		LCD_writeChar(nibble4 + '0');
 	}
 
-	if (digit3 > 9)
+	if (nibble3 > 9)
 	{
-		LCD_writeChar(digit3 + 'A' - 10);
+		LCD_writeChar(nibble3 - 10 + 'A');
 	}
 	else
 	{
-		LCD_writeChar(digit3 + '0');
+		LCD_writeChar(nibble3 + '0');
 	}
 
-	if (digit2 > 9)
+	if (nibble2 > 9)
 	{
-		LCD_writeChar(digit2 + 'A' - 10);
+		LCD_writeChar(nibble2 - 10 + 'A');
 	}
 	else
 	{
-		LCD_writeChar(digit2 + '0');
+		LCD_writeChar(nibble2 + '0');
 	}
 
-	if (digit1 > 9)
+	if (nibble1 > 9)
 	{
-		LCD_writeChar(digit1 + 'A' - 10);
+		LCD_writeChar(nibble1 - 10 + 'A');
 	}
 	else
 	{
-		LCD_writeChar(digit1 + '0');
+		LCD_writeChar(nibble1 + '0');
 	}
 }
 
