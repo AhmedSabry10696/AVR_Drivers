@@ -14,8 +14,10 @@
 
 #include "dio.h"
 
-/* keypad connections */
+/* keypad connections */              
+/* columns defined as INPULLUP in dio_config.c file */
 #define FIRST_INPUT PINA0
+/* rows (output) */
 #define FIRST_OUTPUT PINA4
 
 /* number of rows and cols */

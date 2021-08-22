@@ -9,7 +9,7 @@
  * 
  */
 
-#include "Keypad.h"
+#include "keypad.h"
 
 /* patterns on keypad */
 static u8 keysArray[ROW][COL] = {{'7', '8', '9', 'A'},
@@ -20,7 +20,7 @@ static u8 keysArray[ROW][COL] = {{'7', '8', '9', 'A'},
 u8 KEYPAD_getKey(void)
 {
     u8 key = NO_KEY;
-    DIO_writePin(FIRST_OUTPUT, HIGH);
+    DIO_writePin(FIRST_OUTPUT + 0, HIGH);
     DIO_writePin(FIRST_OUTPUT + 1, HIGH);
     DIO_writePin(FIRST_OUTPUT + 2, HIGH);
     DIO_writePin(FIRST_OUTPUT + 3, HIGH);
