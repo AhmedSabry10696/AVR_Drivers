@@ -26,7 +26,8 @@
         "uart_stack.h": "c",
         "dio.h": "c",
         "std_types.h": "c",
-        "stepper_motor.h": "c"
+        "stepper_motor.h": "c",
+        "dc_motor.h": "c"
     },
     "AVR.source.compiler": "C:\\WinAVR-20100110\\bin\\avr-gcc.exe",
     "AVR.programmer.tool": "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\eXtreme Burner - AVR\\eXtreme Burner - AVR.lnk"
