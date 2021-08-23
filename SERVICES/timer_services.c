@@ -11,14 +11,6 @@
 
 #include "timer_services.h"
 
-/* for input capture unit and timer1 overflow */
-static volatile u32 t1, t2, t3;
-static volatile u8 flag = 0, c = 0;
-
-/* for Timer1_SetIntTime_s function and Timer_func */
-static u32 overflow_count = 0;
-static void (*timer_fPtr)(void);
-
 void PWM_init(void)
 {
     TIMER1_init(TIMER1_FASTPWM_ICR_TOP_MODE, TIMER1_SCALER_8);
@@ -81,6 +73,10 @@ void PWM_freq_KHZ(const u16 freq)
     }
 }
 
+/* for Timer1_SetIntTime_s function and Timer_func */
+static u32 overflow_count = 0;
+static void (*timer_fPtr)(void);
+
 static void TIMER_func(void)
 {
     static u32 c = 0;
@@ -134,6 +130,10 @@ void Timer1_setIntTime_s(const u16 time, void (*localFptr)(void))
     TIMER1_OCA_intEnable();
 }
 
+/* for input capture unit and timer1 overflow */
+static volatile u32 t1, t2, t3;
+static volatile u8 flag = 0, c = 0;
+
 static void TIMER_ovf_func(void)
 {
     c++;
@@ -161,6 +161,11 @@ static void TIMER_icu_func(void)
     }
 }
 
+/********************************************
+     _____      ______
+    |    |_____|     |
+        t3    t2    t1   
+*********************************************/ 
 void PWM_measure(u32 *freq_ptr, u8 *duty_ptr)
 {
     u32 Ton, Toff;
@@ -173,8 +178,8 @@ void PWM_measure(u32 *freq_ptr, u8 *duty_ptr)
     TIMER1_OVF_intEnable();
     flag = 0;
 
-    while (flag < 3)
-        ;
+    /* polling till icu capture t1,t2,t3 */
+    while (flag < 3);
 
     Ton = t2 - t1;
     Toff = t3 - t2;
@@ -207,6 +212,7 @@ u8 PWM_getRead(u32 *freq_ptr, u8 *duty_ptr)
 
         *duty_ptr = (Ton * 100) / (Ton + Toff);
         *freq_ptr = (u32)1000000 / (Toff + Ton);
+        
         flag = 0;
         return 1;
     }
