@@ -59,11 +59,11 @@ void UART_init(void)
     }
 
     /* stop bit setup */
-    if (uart.stop == ONE_STOP_BIT)
+    if (ONE_STOP_BIT == uart.stop)
     {
         CLR_BIT(UCSRC, USBS);
     }
-    else if (uart.stop == TWO_STOP_BIT)
+    else if (TWO_STOP_BIT == uart.stop)
     {
         SET_BIT(UCSRC, USBS);
     }
@@ -162,8 +162,7 @@ void UART_send(const u8 data)
 u8 UART_receive(void)
 {
     /* wait till flag being 1 */
-    while (0 == READ_BIT(UCSRA, RXC))
-        ;
+    while (0 == READ_BIT(UCSRA, RXC));
 
     /* retrieve data */
     return UDR;
@@ -187,6 +186,7 @@ void UART_sendNoBlock(const u8 data)
     /* write data in buffer */
     UDR = data;
 }
+
 u8 UART_receiveNoBlock(void)
 {
     /* retrieve data from buffer */
