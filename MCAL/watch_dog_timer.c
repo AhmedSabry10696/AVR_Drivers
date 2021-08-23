@@ -22,10 +22,11 @@ void WDT_set(const TimeOut_type time)
 
 void WDT_stop(void)
 {
-    WDTCR = (1 << WDTOE) | (1 << WDE);
-
     cli();
+
+    WDTCR = (1 << WDTOE) | (1 << WDE);
     /* with in only 4 cycles write 0 */
     WDTCR = 0;
+    
     sei();
 }
