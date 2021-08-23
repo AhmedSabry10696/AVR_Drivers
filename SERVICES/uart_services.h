@@ -43,7 +43,7 @@ extern void UART_sendLong(u32 num);
 extern u32 UART_receiveLong(void);
 
 /**
- * @brief Uart Send string Asyn.
+//  * @brief Uart Send string Asyn.
  * 
  * @param str string to send
  */

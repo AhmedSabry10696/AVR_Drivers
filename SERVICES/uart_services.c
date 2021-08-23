@@ -23,7 +23,7 @@ void UART_sendString(const u8 *str)
 	}
 
 	/* send # at the end of string */
-	/* Uart_Send('#'); */
+	Uart_Send('#');
 }
 
 void UART_receiveString(u8 *str)
@@ -34,7 +34,7 @@ void UART_receiveString(u8 *str)
 	str[i] = UART_receive();
 
 	/* receive till # */
-	for (; str[i] != '#';)
+	while (str[i] != '#')
 	{
 		i++;
 		str[i] = UART_receive();
@@ -81,6 +81,7 @@ u32 UART_receiveLong(void)
 
 static u8 *sendStr_ptr;
 static u8 send_flag = 1;
+
 static void UART_TXC_func(void)
 {
 	static u8 i = 1;
@@ -91,6 +92,7 @@ static void UART_TXC_func(void)
 	}
 	else
 	{
+		/* to have access to call UART_sendStringAsyn() again */
 		i = 1;
 		send_flag = 1;
 	}
@@ -110,6 +112,7 @@ void UART_sendStringAsyn(u8 *str)
 }
 
 static u8 *receiveStr_ptr;
+
 static void UART_RXC_func(void)
 {
 	static u8 i = 0;
