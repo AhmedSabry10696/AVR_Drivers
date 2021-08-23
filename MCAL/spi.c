@@ -103,7 +103,9 @@ u8 SPI_sendReceive(u8 data)
 {
     SPDR = data;
 
-    /* note that polling in SPI to send data is better than interrupt cause spi is fast (to send one byte faster than interrupt response) */
+    /* note that polling in SPI to send data is better than interrupt cause: */
+    /* spi is fast (to send one byte faster than interrupt response)   */
+    
     /* wait till transmission complete */
     while (0 == READ_BIT(SPSR, SPIF));
 

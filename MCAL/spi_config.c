@@ -11,28 +11,27 @@
 
 #include "spi.h"
 
-/**
+/******************************************************************************
  * @brief spi configuration struct 
-
- * @data_order LSB_FIRST/MSB_FIRST
-
- * @type SLAVE/MASTER
-
- * @clock_pol LEADING_EDGE_RISING/LEADING_EDGE_FALLING
-
- * @clock_phase SETUP_LEADING/SETUP_TRAILING
-
- * @clock_speed FCPU_DIV_2/FCPU_DIV_4/FCPU_DIV_8/FCPU_DIV_16/
-                FCPU_DIV_32/FCPU_DIV_64/FCPU_DIV_128
-*/
-
-/**
+ ****************************************************************************** 
+ * @data_order: LSB_FIRST   MSB_FIRST
+ ****************************************************************************** 
+ * @type:   SLAVE MASTER
+ ****************************************************************************** 
+ * @clock_pol:  LEADING_EDGE_RISING  LEADING_EDGE_FALLING
+ ****************************************************************************** 
+ * @clock_phase:    SETUP_LEADING  SETUP_TRAILING
+ ******************************************************************************
+ * @clock_speed:    FCPU_DIV_2   FCPU_DIV_4    FCPU_DIV_8    FCPU_DIV_16/
+                    FCPU_DIV_32  FCPU_DIV_64   FCPU_DIV_128
+*******************************************************************************/
+/*******************************************************************************
  * @note PINS CONFIG for SPI in DIO_Config.c
- * 
- * @master MISO {input by default}, MOSI/SCK/SS is user defined {DIO_Config.c}
- * 
- * @slave MOSI/SCK/SS {input by default}, MISO is user defined {DIO_Config.c}
- */
+ ******************************************************************************* 
+ * @master: MISO {input by default}, MOSI/SCK/SS is user defined {DIO_Config.c} 
+ *******************************************************************************
+ * @slave: MOSI/SCK/SS {input by default}, MISO is user defined {DIO_Config.c}
+ ******************************************************************************/
 
 const SpiConfig spi =
 {
