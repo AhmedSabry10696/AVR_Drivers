@@ -31,7 +31,7 @@ void EEPROM_init(void);
  * 
  * @param address address to write data in
  * @param data data to write at address in EEPROM
- * @return EEPROM_Error_type ERROR/SUCCESS
+ * @return ERROR  SUCCESS
  */
 EEPROM_Error_type EEPROM_writeByte(u16 address, u8 data);
 
@@ -40,7 +40,7 @@ EEPROM_Error_type EEPROM_writeByte(u16 address, u8 data);
  * 
  * @param address address to read from
  * @param data_ptr pointer to save byte
- * @return EEPROM_Error_type ERROR/SUCCESS
+ * @return ERROR    SUCCESS
  */
 EEPROM_Error_type EEPROM_readByte(u16 address, u8 *data_ptr);
 
