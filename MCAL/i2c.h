@@ -101,14 +101,14 @@ extern void TWI_init(u8 address);
 /**
  * @brief TWI send start condition
  * 
- * @return TWI_Error_type TWI_OK/TWI_SC_ERROR
+ * @return TWI_OK	TWI_SC_ERROR
  */
 extern TwiError_type TWI_start(void);
 
 /**
  * @brief TWI send repeated start condition 
  * 
- * @return TWI_Error_type TWI_OK/TWI_RSC_ERROR
+ * @return TWI_OK	TWI_RSC_ERROR
  */
 extern TwiError_type TWI_repStart(void);
 
@@ -116,7 +116,7 @@ extern TwiError_type TWI_repStart(void);
  * @brief TWI send slave address with write request
  * 
  * @param address slave addres {7 bit}
- * @return TWI_Error_type TWI_OK/TWI_MT_SLA_W_ERROR
+ * @return TWI_OK	TWI_MT_SLA_W_ERROR
  */
 extern TwiError_type TWI_write_SLA_write(u8 address);
 
@@ -124,7 +124,7 @@ extern TwiError_type TWI_write_SLA_write(u8 address);
  * @brief TWI send slave address with read request
  * 
  * @param address slave addres {7 bit}
- * @return TWI_Error_type TWI_OK/TWI_MR_SLA_R_ERROR
+ * @return TWI_OK	TWI_MR_SLA_R_ERROR
  */
 extern TwiError_type TWI_write_SLA_read(u8 address);
 
@@ -132,7 +132,7 @@ extern TwiError_type TWI_write_SLA_read(u8 address);
  * @brief TWI master send byte
  * 
  * @param data byte to send
- * @return TWI_Error_type TWI_OK/TWI_MT_Data_ERROR
+ * @return TWI_OK	TWI_MT_Data_ERROR
  */
 extern TwiError_type TWI_writeByte(u8 data);
 
@@ -140,7 +140,7 @@ extern TwiError_type TWI_writeByte(u8 data);
  * @brief TWI master read byte
  * 
  * @param data pointer to received data
- * @return TWI_Error_type TWI_OK/TWI_MR_Data_ERROR
+ * @return TWI_OK	TWI_MR_Data_ERROR
  */
 extern TwiError_type TWI_readByte(u8 *data_ptr);
 
